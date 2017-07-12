@@ -1,0 +1,26 @@
+<ion-view view-title='已结束'>
+    <ion-nav-buttons >
+        <button class="button button-clear ajk_back" native-ui-sref="tab.userCenter" native-options="{type: 'slide', direction:'right'}"></button>
+    </ion-nav-buttons>
+    <ion-content class="userCenter-back">
+      <div class="Noevaluate-list" ng-repeat="hotel in hotels track by $index">
+        <div class="Noevaluate-head">
+          <h1>{{hotel.hotelName}}</h1>
+        </div>
+          <div class="item-three">
+            <img ng-src={{hotel.picture}} />
+            <ul>
+              <li class="OrderNum">{{hotel.address}}</li>
+              <li class="housetype">房型：<span>标准商务房</span></li>
+              <li class="time">入住时间：<span>{{hotel.inTime|YYMMdd}}-{{hotel.leaveTime|YYMMdd}}</span></li>
+            </ul>
+          </div>
+      </div>
+            <ion-infinite-scroll
+                ng-if="moreDataCanBeLoaded"
+                on-infinite="loadMoreData()"
+                immediate-check = "false">
+            </ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>

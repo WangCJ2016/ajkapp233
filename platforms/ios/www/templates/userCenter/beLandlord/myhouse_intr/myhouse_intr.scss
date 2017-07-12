@@ -1,0 +1,46 @@
+.myhouse_intr_wrap{
+	background-color: $ajk_backColor;
+	height:100%;
+	.back{
+		display: inline-block;
+		width: px2rem(24);
+		height:px2rem(40);
+		position: absolute;
+		left: px2rem(30);
+		top:px2rem(30);
+		background: url(../imgs/wcj/select_bussiniss/left_arr.png) no-repeat;
+		background-size: 100% 100%;
+		z-index: 99
+	}
+	.slide{
+		height:px2rem(500);
+	}
+	.mess{
+		padding: 0 px2rem(30) px2rem(20) px2rem(30);
+		background-color:#fff;
+        border-bottom:1px solid $ajk_borderColor;
+        margin-bottom: px2rem(20);
+		h2{
+			@include font-dpr(15px);
+			line-height:px2rem(80);
+			border-bottom:1px solid $ajk_borderColor;
+			font-family: 'PingFang SC';
+			span{
+				@include font-dpr(13px);
+				color: #ababab;
+			}
+
+		}
+		>div{
+			padding: px2rem(10) 0;
+			h3{
+				@include font-dpr(13px);
+			}
+			p{
+              white-space: normal;
+              line-height:px2rem(36);
+              @include font-dpr(13px);
+			}
+		}
+	}
+}

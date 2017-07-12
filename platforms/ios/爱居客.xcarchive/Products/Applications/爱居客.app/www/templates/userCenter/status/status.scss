@@ -1,0 +1,111 @@
+.status-header{
+    height:px2rem(224);
+    width:100%;
+    background:$ajk_color;
+    @extend %flex;
+    @extend %flexMainJustify;
+    padding:0 px2rem(30) 0 px2rem(70);
+    .status-cont{
+        height:100%;
+        p{
+            @include font-dpr(18px);
+            line-height: px2rem(56);
+            color:#fff;
+            margin-top:px2rem(40);
+        }
+        span{
+           @include font-dpr(13px);
+           line-height: px2rem(56);
+           color:#fff;
+        }
+        i{
+            color:#fff;
+        }
+    }
+    .cancel{
+        height:px2rem(50);
+        width:px2rem(150);
+        border-radius: px2rem(25);
+        border:1px solid #fff;
+        text-align: center;
+        @include font-dpr(13px);
+        line-height: px2rem(50);
+        color:#fff;
+        margin-top:px2rem(30);
+    }
+    
+}
+.status-list{
+    width: 100%;
+    margin:px2rem(20) 0;
+    li{
+        width:100%;
+        height:px2rem(160);
+        background:#fff;
+        @extend %flex;
+        padding-left:px2rem(30);
+        border-bottom:1px solid $ajk_borderColor;
+        .pic{
+           width:px2rem(150);
+           height:px2rem(130);
+           margin:px2rem(15) px2rem(20) px2rem(15) 0;
+           img{
+             width:100%;
+             height:100%;
+           }
+        }
+        .desc{
+           width:px2rem(520);
+           height:100%;
+           p{
+             @extend %flex;
+             @extend %flexMainJustify;
+           }
+           .title{
+              @include font-dpr(15px);
+              line-height: px2rem(60);
+              color:#000;
+              font-weight: bold;
+           }
+           .type{
+              @include font-dpr(13px);
+              line-height: px2rem(59);
+              color:#aaa;
+           }
+        }
+    }
+}
+.order-information{
+    padding-bottom:px2rem(20);
+    width: 100%;
+    background:#fff;
+    h3{
+        width: px2rem(720);
+        height:px2rem(80);
+        @include font-dpr(15px);
+        line-height: px2rem(80);
+        margin-left:px2rem(30);
+        margin-bottom: px2rem(20);
+        color:#696868;
+        border-bottom:1px solid $ajk_borderColor;
+    }
+    p{
+       width: 100%;
+       @include font-dpr(13px);
+       margin-bottom:px2rem(22);
+       @extend %flex;
+       i{
+           display:block;
+           width:px2rem(150);
+           text-align: right;
+       }
+       span{
+           color:#000;
+       }
+    }
+}
+.order.status .hotel>div>ul{
+  -webkit-flex-grow:1;
+  flex-grow:1;
+  margin-right: px2rem(30);
+}

@@ -1,0 +1,35 @@
+<ion-view title="窗帘">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear ajk_back" ng-click="goback()"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="curtain_wrap">
+      <section class="curtain_btns">
+        <span>窗帘</span>
+        <div class="btns">
+          <span ng-click='curtain("OPEN");'>打开</span>
+          <span ng-click='curtain("STOP");'>停止</span>
+          <span ng-click='curtain("CLOSE");'>关闭</span>
+        </div>
+      </section>
+      <section class="slide">
+          <i class="curtainOn"></i>
+          <input type="range" name="volume" min="0" max="100"  my-value='{{brightness.value1}}' subfn ='changeSubmit(brightness.value1)'  mouse-up ng-model="brightness.value1">
+          <i class="curtainOff"></i>
+      </section>
+      <section class="curtain_btns">
+        <span>纱帘</span>
+        <div class="btns">
+          <span>打开</span>
+          <span>停止</span>
+          <span>关闭</span>
+        </div>
+      </section>
+      <section class="slide">
+          <i class="winCurtainOn"></i>
+<input type="range" name="volume" min="0" max="100"  my-value='{{brightness.value2}}' subfn ='changeSubmit(brightness.value2)'  mouse-up ng-model="brightness.value2">
+          <i class="winCurtainOff"></i>
+      </section>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,10 @@
+<ion-view title="情景模式">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear ajk_back" ng-click="goback()"></button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="model_wrap">
+      <p ng-click="modelCtrl(model,$index)" ng-class='{activat:$index==index}' ng-repeat="model in modelArray"><img ng-src="imgs/wcj/model/{{model}}.png" alt=""></p>
+    </div>
+  </ion-content>
+</ion-view>
