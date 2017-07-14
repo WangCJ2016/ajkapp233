@@ -3,10 +3,6 @@ angular.module('houseDetail-controller', [])
 	$ionicLoading.show({
 		template: '<ion-spinner icon="ios"></ion-spinner>'
 	});
-
-
-
-
 	$scope.switch = true;
     //返回
 	$scope.goHome = function() {
@@ -72,16 +68,12 @@ angular.module('houseDetail-controller', [])
 				resizeEnable: true,
 				dragEnable: false
 			});
-
 			function geocoder() {
 				var geocoder = new AMap.Geocoder({
-
 				});
           //地理编码,返回地理编码结果
-
 				geocoder.getLocation($scope.address, function(status, result) {
 					if (status === 'complete' && result.info === 'OK') {
-
 						geocoder_CallBack(result);
 					}
 				});
@@ -107,7 +99,6 @@ angular.module('houseDetail-controller', [])
 				}
 				map.setFitView();
 			}
-
         //酒店设施
 			var assorts = hotelDetail.assorts;
 			$scope.assorts = assorts.map(function(x) {
@@ -126,7 +117,6 @@ angular.module('houseDetail-controller', [])
 				});
 				sessionStorage.setItem('currentId',$stateParams.id);
 			};
-
         //微信风享
 			$scope.share = function() {
 				var hideSheet = $ionicActionSheet.show({

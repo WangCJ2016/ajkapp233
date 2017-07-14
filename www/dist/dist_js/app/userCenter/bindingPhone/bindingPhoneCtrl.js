@@ -3,7 +3,7 @@ angular.module('bindingPhone-controller', [])
     ApiService.getCustomerInfo({
       customerId: localStorage.getItem('customerId')
     }).success(function(res) {
-      console.log(res);
+
       if (res.success) {
         if (res.dataObject.telephone !== undefined) {
           $scope.bindWhether = true;
@@ -37,7 +37,7 @@ angular.module('bindingPhone-controller', [])
 
     $scope.bindingPhoneBtn = function() {
       ApiService.bindingPhone($scope.sendData).success(function(res) {
-        console.log(res);
+
         if (res.success) {
           $ionicLoading.show({
             template: "获取验证码成功",
@@ -76,7 +76,7 @@ angular.module('bindingPhone-controller', [])
         code: $scope.sendData.code
       };
       ApiService.telephoneBinding(sendData1).success(function(res) {
-        console.log(res);
+        
         if (res.success) {
           $ionicLoading.show({
             template: "手机绑定成功",

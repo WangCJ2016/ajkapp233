@@ -7,7 +7,7 @@ angular.module('myHouseDetail-controller', [])
 		ApiService.landlordHotelHouses({
 			hotelId: $stateParams.id
 		}).success(function(res) {
-			console.log(res);
+			
 			$ionicLoading.hide();
 			if (res.success) {
 				$scope.hotels = res.result;

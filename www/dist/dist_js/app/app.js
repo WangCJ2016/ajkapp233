@@ -19,9 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
           output:'JSON',
           key:'1cbf5e5ac9b4588d974214856a289ec6'
         }).success(function(res){
-          console.log(res);
           var lnglat = res.locations.split(',');
-          console.log(lnglat);
           sessionStorage.setItem('longitude',lnglat[0]);
           sessionStorage.setItem('latitude',lnglat[1]);
         })
@@ -87,7 +85,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 		});
 
 		function onComplete(data) {
-      console.log(data.position.getLng(),data.position.getLat());
 			sessionStorage.setItem("longitude", data.position.getLng());
 			sessionStorage.setItem("latitude", data.position.getLat());
 		}
@@ -517,7 +514,6 @@ controller:'futrueCtrl'
 	controller:'selectDateCtrl',
   resolve: {
 		roomPrice: ['ApiService', '$stateParams', '$ionicLoading', '$timeout', function(ApiService, $stateParams, $ionicLoading, $timeout) {
-      console.log($stateParams);
 			$ionicLoading.show({
 				template: '<ion-spinner icon="ios"></ion-spinner>'
 			});
@@ -587,7 +583,6 @@ controller:'futrueCtrl'
 			return ApiService.viewLandlordHotel({
 				hotelId: $stateParams.id
 			}).success(function(res) {
-        console.log(res);
 				if (res.success) {
 					$ionicLoading.hide();
 					return res.dataObject;

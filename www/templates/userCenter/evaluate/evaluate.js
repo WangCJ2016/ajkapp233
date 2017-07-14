@@ -1,6 +1,6 @@
 angular.module("evaluate_controller",[])
 .controller("evaluateCtrl",function($scope,$stateParams,$state,ApiService,DuplicateLogin,systemBusy,$ionicLoading,$timeout){
-	console.log($stateParams);
+
 	$scope.hotelName = $stateParams.data.hotelName;
 	$scope.picture = $stateParams.data.picture;
 	$scope.star=5;
@@ -18,7 +18,7 @@ angular.module("evaluate_controller",[])
 			star.push('star');
 		}
 		$scope.stars = star_full.concat(star);
-		console.log(num);
+
 		$scope.star = num;
 	};
 	$scope.submit = function(){
@@ -32,7 +32,7 @@ angular.module("evaluate_controller",[])
 			picture:''
 		};
 		ApiService.customerFeedBack(data).success(function(res){
-			console.log(res);
+			
 			if(res.success){
 
 				$ionicLoading.show({

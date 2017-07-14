@@ -158,8 +158,8 @@ angular.module('select_bussiniss-controller', [])
 
       //跳转nearby
 	$scope.goNearby = function(data){
-		$state.go('nearby');
-		sessionStorage.setItem('searchInfo',data);
+		$state.go('nearby',{city:data});
+    sessionStorage.setItem('searchType','1')
 	};
 
   //最上方搜索框
@@ -168,6 +168,7 @@ angular.module('select_bussiniss-controller', [])
   };
   $scope.submitSearch = function(){
     $state.go('nearby',{city:$scope.searchText.text})
+    sessionStorage.setItem('searchType','2')
   }
 
 }]);

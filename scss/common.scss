@@ -951,6 +951,9 @@ height: px2rem(110);
      @include font-dpr(14px);
      &:first-child{
        line-height: px2rem(76);
+        @extend %flex;
+        @extend %flexMainJustify;
+        @extend %flexCrossCenter;
      }
      &:last-child{
        line-height: px2rem(36);

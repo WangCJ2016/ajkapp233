@@ -12,7 +12,6 @@ angular.module('commentCtrl-controller', [])
 		ApiService.getHotelFeedback({
 			hotelId: $stateParams.id
 		}).success(function(res) {
-			console.log(res);
 			$scope.customers = res.result;
 		});
 	});

@@ -10562,6 +10562,19 @@ h2 {
     .item-four > ul .OrderNum {
       color: #4d4d4d; }
 
+.hotel > p {
+  background-color: #fff; }
+  .hotel > p span {
+    display: inline-block;
+    line-height: 1.06667rem;
+    text-indent: 0.4rem;
+    font-size: 13px;
+    font-weight: 600; }
+    [data-dpr="2"] .hotel > p span {
+      font-size: 26px; }
+    [data-dpr="3"] .hotel > p span {
+      font-size: 39px; }
+
 .home .scroll {
   height: auto !important; }
 
@@ -17428,149 +17441,5 @@ input[type="range"]::-webkit-slider-thumb {
       transform-origin: 0 0;
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5); }
-
-.item-three {
-  height: 2.66667rem;
-  padding: 0.13333rem 0.4rem;
-  background-color: #faf9f9; }
-  .item-three > img {
-    width: 3.2rem;
-    height: 2.4rem; }
-  .item-three > ul {
-    flex-grow: 1;
-    -webkit-flex-grow: 1;
-    width: 5.86667rem;
-    margin-left: 0.26667rem;
-    height: 100%; }
-    .item-three > ul > li {
-      height: 0.8rem;
-      line-height: 0.8rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      color: #ababab;
-      font-size: 14px; }
-      [data-dpr="2"] .item-three > ul > li {
-        font-size: 28px; }
-      [data-dpr="3"] .item-three > ul > li {
-        font-size: 42px; }
-      .item-three > ul > li:first-child {
-        line-height: 1.01333rem; }
-      .item-three > ul > li:last-child {
-        line-height: 0.48rem; }
-    .item-three > ul .money {
-      color: #ffb354; }
-    .item-three > ul .OrderNum {
-      color: #4d4d4d; }
-
-.iterm-three-avater > ul {
-  width: 5.33333rem; }
-.iterm-three-avater .avater {
-  display: inline-block;
-  width: 0.21333rem;
-  height: 0.37333rem;
-  background: url("../imgs/wcj/house_detail/right_arr.png") no-repeat;
-  background-size: 100% 100%; }
-
-.item-two {
-  height: 2.13333rem;
-  padding: 0.26667rem 0.4rem;
-  background-color: #faf9f9;
-  position: relative; }
-  .item-two::before {
-    content: "";
-    /* 注意这里为双引号 */
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    left: 0;
-    bottom: 0;
-    background-color: #d8d8d8;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    [data-dpr="2"] .item-two::before {
-      -webkit-transform: scale(1);
-      transform: scale(1); }
-    [data-dpr="3"] .item-two::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
-  .item-two > img {
-    width: 2rem;
-    height: 1.6rem; }
-  .item-two ul {
-    flex-grow: 1;
-    -webkit-flex-grow: 1;
-    width: 6.93333rem;
-    height: 100%;
-    margin-left: 0.26667rem;
-    margin-left: 0.26667rem; }
-    .item-two ul > li {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      color: #ababab;
-      font-size: 14px; }
-      [data-dpr="2"] .item-two ul > li {
-        font-size: 28px; }
-      [data-dpr="3"] .item-two ul > li {
-        font-size: 42px; }
-      .item-two ul > li:first-child {
-        line-height: 0.37333rem; }
-      .item-two ul > li:last-child {
-        line-height: 0.8rem; }
-  .item-two .money {
-    color: #ffb354; }
-  .item-two .OrderNum {
-    color: #4d4d4d; }
-  .item-two .houseName {
-    line-height: 0.53333rem !important; }
-
-.item-two-avater > ul {
-  width: 5.33333rem; }
-.item-two-avater .avater {
-  display: inline-block;
-  width: 0.21333rem;
-  height: 0.37333rem;
-  background: url("../imgs/wcj/house_detail/right_arr.png") no-repeat;
-  background-size: 100% 100%; }
-
-.item-four {
-  height: 3.46667rem;
-  padding: 0.26667rem 0.4rem;
-  background-color: #faf9f9; }
-  .item-four > img {
-    width: 3.46667rem;
-    height: 2.93333rem; }
-  .item-four > ul {
-    flex-grow: 1;
-    -webkit-flex-grow: 1;
-    width: 5.46667rem;
-    margin-left: 0.26667rem;
-    height: 100%; }
-    .item-four > ul > li {
-      height: 0.8rem;
-      line-height: 0.8rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      color: #ababab;
-      font-size: 14px; }
-      [data-dpr="2"] .item-four > ul > li {
-        font-size: 28px; }
-      [data-dpr="3"] .item-four > ul > li {
-        font-size: 42px; }
-      .item-four > ul > li:first-child {
-        line-height: 1.01333rem; }
-      .item-four > ul > li:last-child {
-        line-height: 0.48rem; }
-    .item-four > ul .money {
-      color: #ffb354; }
-    .item-four > ul .OrderNum {
-      color: #4d4d4d; }
 
 /*# sourceMappingURL=ionic.css.map */

@@ -53,18 +53,15 @@ angular.module('myaccount-controller', [])
   yueshouru();
   function yueshouru(){
     $scope.monthIncomes = 0;
-    console.log(monthIncome_month);
     var monthIncome = monthIncome_year+'-'+(monthIncome_month<10?'0'+(monthIncome_month):(monthIncome_month+1));
     ApiService.landlordMonthIncome({customerId:localStorage.getItem('customerId'),month:monthIncome})
     .success(function(res){
-      console.log(res);
       if(res.success){
         $scope.incomeOrders = res.dataObject;
         $scope.incomeOrders.forEach(function(order){
           $scope.monthIncomes = $scope.monthIncomes+parseFloat(order.totalFee,10)
         })
           $scope.monthIncomes = $scope.monthIncomes.toFixed(2);
-        console.log($scope.monthIncomes);
       }else{
         if (res.msg==='非法请求') {
             $ionicLoading.show({

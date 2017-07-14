@@ -15,9 +15,7 @@ angular.module('futrue-controller', [])
        var lng = sessionStorage.getItem('longitude');
        var lat = sessionStorage.getItem('latitude')
        var pont = [120.065375,30.292008];
-       console.log(pont);
        placeSearch.searchNearBy("爱居客", pont, 5000, function(status, result) {
-         console.log(result);
     if (status === 'complete' && result.info === 'OK') {
       console.log(result);
     }

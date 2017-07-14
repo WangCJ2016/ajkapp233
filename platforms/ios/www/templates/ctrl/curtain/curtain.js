@@ -26,7 +26,6 @@ angular.module('curtain-controller', [])
 					brightness:100
 				};
 				ApiService.smartHostControl(data).success(function(res){
-					console.log(res);
 				});
 			};
 			$scope.change = function(value,actionType){

@@ -1,6 +1,5 @@
 angular.module('hotelPicsCtrl-controller', [])
   .controller('hotelPicsCtrl', ['$scope', '$rootScope', '$ionicNativeTransitions', '$ionicHistory', '$ionicSlideBoxDelegate', 'hotelPics', '$stateParams', '$state', function($scope,$rootScope,$ionicNativeTransitions,$ionicHistory,$ionicSlideBoxDelegate, hotelPics, $stateParams,$state) {
-	console.log(hotelPics);
     //back
 	$scope.back = function(){
 		$ionicNativeTransitions.stateGo('houseDtail',{id:sessionStorage.getItem('currentId')},{},{
@@ -51,7 +50,6 @@ angular.module('hotelPicsCtrl-controller', [])
 			$scope.imgall.push($scope.imgsrcs[i][j]);
 		}
 	}
-	console.log($scope.imgall);
 	$scope.hotelPics = [{
 		imgsrcs: '全部',
 		all: $scope.imgall

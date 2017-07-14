@@ -22,7 +22,6 @@ $scope.goback = function(){
    function getways(){
      ApiService.ctrlHostDeviceByType(data)
       .success(function(res){
-        console.log(res);
      if(res.success){
        $scope.lights=[];
        for(var i=0;i<res.dataObject.length;i++){
@@ -37,7 +36,6 @@ $scope.goback = function(){
    getways();
        //灯控制
 		$scope.lightCtrl = function(light){
-			console.log(light);
 			var status = light.status=='ON'?"CLOSE":'OPEN';
 			light.status=light.status=='ON'?"OFF":'ON';
 			var data = {
@@ -49,7 +47,6 @@ $scope.goback = function(){
 				wayId:light.wayId,
 				brightness:90
 			};
-			console.log(data);
 			ApiService.smartHostControl(data).success(function(res){});
 		};
        //模式控制
@@ -76,7 +73,6 @@ $scope.goback = function(){
 				$scope.blue=false;
 				break;
 			}
-			console.log(ds,type,model);
 			var data = {
 				houseId:sessionStorage.getItem('houseId'),
 				deviceType:'SCENE',
@@ -84,7 +80,6 @@ $scope.goback = function(){
 				serverId:sessionStorage.getItem('serverId'),
 				sceneId:model[0].sceneId
 			};
-			console.log(data);
 			ApiService.smartHostControl(data).success(function(res){
 				$scope[ds] = !$scope[ds];
         $timeout(function(){

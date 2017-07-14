@@ -17,7 +17,6 @@ angular.module('myHouse-controller', [])
 					pageNo++;
 					$ionicLoading.hide();
 					$scope.hotels = res.result;
-					//console.log(obj);
 				}else{
 					if (res.msg==='非法请求') {
           $ionicLoading.show({
@@ -45,7 +44,6 @@ angular.module('myHouse-controller', [])
 	        pageNo: pageNo,
 	        pageSize: 7
 	      }).success(function(res) {
-		console.log(res);
 	        if (res.success) {
 						if (res.result.length > 0) {
 							for (var i = 0; i < res.result.length; i++) {
@@ -82,7 +80,6 @@ angular.module('myHouse-controller', [])
 
 
 			$scope.seeHouse = function(id) {
-				console.log(id);
 				$state.go('seeHouse', {
 					id: id
 				});

@@ -7,7 +7,7 @@ angular.module('Orderform-controller', [])
 		if (res.success) {
 			$scope.order = res.dataObject;
             //支付订单
-            console.log(res)
+            
 		$scope.pay = function() {
       var tradeNo = res.dataObject.orderCode
 			var alipayClass = navigator.alipay;

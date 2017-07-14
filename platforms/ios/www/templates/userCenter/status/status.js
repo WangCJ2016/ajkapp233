@@ -5,23 +5,6 @@ angular.module('status-controller', [])
     }).success(function(res) {
       if (res.success) {
         $scope.order = res.dataObject;
-        console.log(res);
-        // //取消订单
-        // $scope.orderCancel = function() {
-        // 	ApiService.cancleSubOrder({
-        // 		orderId: $scope.order
-        // 	}).success(function(res) {
-        // 		if (res.success) {
-        // 			$ionicLoading.show({
-        // 				template: '取消订单成功'
-        // 			});
-        // 			$timeout(function() {
-        // 				$ionicLoading.hide();
-        // 			}, 1000);
-        // 		}
-        // 	});
-        // };
-
         //取消子订单
         $scope.cancel = function(id) {
           $ionicPopup.confirm({
@@ -37,13 +20,11 @@ angular.module('status-controller', [])
               cssClass: 'ajk'
             })
             .then(function(res) {
-
               if (res) {
-
                 ApiService.cancleSubOrder({
                   subOrderCode: id
                 }).success(function(res) {
-                  console.log(res);
+
                   if (res.success) {
 
                     $ionicLoading.show({
@@ -108,10 +89,11 @@ angular.module('status-controller', [])
             var times = times.split('年');
             times[1] = times[1].split('月');
             times = times[0] + '-' + times[1][0] + '-' + times[1][1];
-            var cancelTime = times.split('-')
+            var cancelTime = times.split('-');
             var dataif = new Date(cancelTime[0], cancelTime[1] - 1, cancelTime[2], 14, 00, 00).getTime() - new Date().getTime() > 86400000 ? true : false;
             if(dataif&&house.status==0){
               house.orderCancel=true;
+              
             }
             if(dataif&&house.status==4){
               house.yiCancel=true;

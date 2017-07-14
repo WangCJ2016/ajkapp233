@@ -40,7 +40,6 @@ angular.module('home-controller', [])
 	ApiService.getHomePageBanner({
 		level: 1
 	}).success(function(res) {
-		console.log(res);
 		$scope.subADs = res.result;
 	});
     //酒店列表
@@ -48,9 +47,10 @@ angular.module('home-controller', [])
 	$scope.moreDataCanBeLoaded = true;
 	ApiService.getHomePageHotels({
 		pageNo: pageNo,
-		pageSize: 5
+		pageSize: 5,
+    address:encodeURI(sessionStorage.getItem("city"))
 	}).success(function(res) {
-console.log(res);
+
 		if (res.success) {
 			$ionicLoading.hide();
       $scope.hotels = res.result.map(function(hotel){

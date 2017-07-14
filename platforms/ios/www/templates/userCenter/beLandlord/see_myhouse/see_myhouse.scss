@@ -4,10 +4,31 @@
     overflow: hidden;
     position: relative;
     width: 100%;
+    line-height:px2rem(80);
+    padding:0 px2rem(30);
+    white-space: nowrap;
+    background-color:#fff;
+    @include font-dpr(14px);
   }
-  &_loc{
+  .trade_rule{
+    line-height: px2rem(80);
+    padding:0 px2rem(30);
+    background-color:#fff;
+    @include font-dpr(14px);
+    @extend %flex;
+    @extend %flexMainJustify;
+    @extend %flexCrossCenter;
+    >p{
+      margin-right:px2rem(20);
+      flex-grow:1;
+      -webkit-flex-grow:1;
+    }
+  }
+  i{
+    display: inline-block;
     width:px2rem(42);
     height:px2rem(42);
+    vertical-align: middle;
   }
   &_rightarr{
     margin-right:px2rem(-20)!important;

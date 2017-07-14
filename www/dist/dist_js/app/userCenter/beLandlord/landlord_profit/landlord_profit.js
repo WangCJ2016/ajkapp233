@@ -1,7 +1,6 @@
 angular.module('landlordProfit-controller', [])
   .controller('landlordProfitCtrl', ['$scope', '$ionicNativeTransitions', '$state', 'ApiService', '$ionicHistory', function($scope, $ionicNativeTransitions, $state, ApiService, $ionicHistory) {
 	$scope.goback = function() {
-		console.log($ionicHistory.viewHistory());
 		$ionicNativeTransitions.stateGo($ionicHistory.viewHistory().backView.stateId, {}, {}, {
 			"type": "slide",
 			"direction": "right" // in milliseconds (ms), default 400

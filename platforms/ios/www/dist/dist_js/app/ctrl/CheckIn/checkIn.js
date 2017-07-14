@@ -1,6 +1,5 @@
 angular.module('checkIn-controller', [])
   .controller('checkInCtrl', ['$scope', '$stateParams', 'ApiService', '$state', '$ionicViewSwitcher', function($scope, $stateParams, ApiService, $state, $ionicViewSwitcher) {
-console.log($stateParams.data);
     $scope.goack = function() {
       $rootScope.$ionicGoBack();
     };
@@ -12,11 +11,9 @@ console.log($stateParams.data);
 	};
 
 	var houseId = $stateParams.data.houseId;
-  console.log($stateParams.data);
 	ApiService.viewHouseHostInfo({
 		houseId: houseId
 	}).success(function(res) {
-    console.log(res);
 		if (res.success) {
 			sessionStorage.setItem('houseId', encode64(houseId+''));
 			sessionStorage.setItem('serverId', res.dataObject.serverId);

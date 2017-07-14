@@ -9789,7 +9789,7 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.payer, .ajklist_vertical .intr .comment_star, .home_wrap .mainBtns, .home_wrap .ajklist > div, .home_wrap .ajklist .item_ad, .home_wrap .ajklist .item_ad > div, .home_wrap .ajklist .item_ad .intr, .home_wrap .ajklist .item_ad .intr .comment_star, .home_wrap .ajklist .item_ad .intr .loc, .home_wrap .vertical, .houseDetail_wrap .houseDetail_header, .houseDetail_wrap .comment .comment_div, .houseDetail_wrap .comment .comment_div .comment_star, .houseDetail_wrap .comment .comment_atavter .atavter, .houseDetail_wrap .hotel_devices h2 > p, .houseDetail_wrap .hotel_devices > div > div:first-child, .houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device, .houseDetail_wrap .hotel_devices .hotel_device .img, .houseDetail_wrap .hotel_introduce h2, .houseDetail_wrap .hotel_introduce h2 > p:first-child, .houseDetail_wrap .hotel_rule .deposit, .houseDetail_wrap .normal .item, .houseDetail_wrap .normal .item .room_mess, .houseDetail_wrap .normal .item .room_mess div:first-child, .hotelDetail_wrap .devices > div, .hotelDetail_wrap .devices > div p, .hotelDetail_wrap .hotel_introduce .hotel_mess, .comment_wrap .comment_all, .comment_wrap .comment .about, .getCity_wrap .find_cityback .find_city, .selectBussiniss_search, .selectBussinss_wrap, .houseIntr_wrap .house_detail .room, .houseIntr_wrap .house_detail .state, .houseIntr_wrap .house_devices .devices, .houseIntr_wrap .house_devices .devices p, .houseIntr_wrap .house_devices .devices p i, .my_collect_wrap .hotel .list .item_ad, .my_collect_wrap .hotel .list .item_ad > div, .hotel_pics_wrap .pics, .hotel_pics_wrap .pics .picshow, .directive_date date-account, .directive_date date-account .date, .directive_date date-account .day, .directive_date datepick .months > div, .directive_date date-select .months > div, .beLandlord_wrap, .beLandlord_wrap .center_box figure, .joinUs_wrap .intr > div, .joinUs_wrap .upload_idcard, .joinUs_wrap .upload_idcard .id_Card, .joinUs_wrap .upload_idcard .id_Card > div, .joinUs_wrap .address .city_picker, .landlord_profit_wrap, .landlord_profit_wrap .contents .content, .waitCheck_wrap .wait_check, .myHouse_wrap_detail, .myHouse_wrap_detail > div, .myHouse_wrap_btn, .my_orderform_wrap .header .select_btn, .my_orderform_wrap .normal h2, .my_orderform_wrap .normal .houselist, .myhouse_wrap_wrap > div, .myhouse_changeprice_wrap .selectDate .time, .orderform_detail_wrap .header, .myaccount_wrap .dataSelect > div, .myaccount_wrap .btns, .login-txt p, .login-forgetpwd, .register-txt p, .agreement, .setting-list .item .center, .ChangePwd-txt p, .userCenter_header > div, .userCenter-list ul, .userCenter-setting-list .item .center, .Nopay-list .list ul .Time, .Pay-list .list ul .address, .Noevaluate-list .list, .Noevaluate-list .list ul, .lose-efficacy-list .list ul .address, .Order-form-head, .Order-form-list li .title, .Order-form-list li .list-cont, .Order-form-list li .list-cont .list-desc p, .cart-list li .title, .cart-list li .list-cont .item-content, .cart-list li .list-cont .list-desc, .cart-list li .list-cont .list-desc .price, .cart-footer .check-all, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .status-header, .status-list li, .status-list li .desc p, .order-information p, .Consume-list .list, .Consume-list .list ul, .Consume-list .list ul .housetype, .nearby-nav, .nearby-list .list, .nearby-list .list .desc, .vertical, .nearby-filtrate .filtrate .filtrate-list, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .price li, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro .station p, .nearby-filtrate .filtrate .filtrate-btn, .nearby-sort ul li, .invoice_btn, .invoice_cont p, .orderDetail_wrap .hotel_pics .content .topbar, .orderDetail_wrap .hotel_pics .content .rooms, .orderDetail_wrap .divier, .orderDetail_wrap .more, .ctrl_header .select_btn, .my_checkIn_wrap .checkIn-back, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add p, .my_checkIn_wrap .checkIn_cont ul, .light_wrap .model, .light_wrap .lights, .light_wrap .lights figure, .airCondition_wrap .display > div, .airCondition_wrap .display .speed > p:first-child, .airCondition_wrap .display .model, .airCondition_wrap .tem, .airCondition_wrap .roundCtrl > span, .futrue_wrap .tv .tv_item, .futrue_wrap .round span, .curtain_wrap .curtain_btns, .curtain_wrap .curtain_btns .btns, .curtain_wrap .slide, .model_wrap, .sweepTime_wrap .sweepTime_select > section > div, .sweepTime_wrap .sweepTime_select > section .time > p:last-child, .roomPower_wrap .roomCard .key, .qrCode_wrap .content .person, .colorPicker_wrap .rbgbtns, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .light, .spotLight_wrap .slide, .service_wrap > section, .item-three, .item-two, .item-four {
+.payer, .ajklist_vertical .intr .comment_star, .item-three, .item-two, .item-four, .home_wrap .mainBtns, .home_wrap .ajklist > div, .home_wrap .ajklist .item_ad, .home_wrap .ajklist .item_ad > div, .home_wrap .ajklist .item_ad .intr, .home_wrap .ajklist .item_ad .intr .comment_star, .home_wrap .ajklist .item_ad .intr .loc, .home_wrap .vertical, .houseDetail_wrap .houseDetail_header, .houseDetail_wrap .comment .comment_div, .houseDetail_wrap .comment .comment_div .comment_star, .houseDetail_wrap .comment .comment_atavter .atavter, .houseDetail_wrap .hotel_devices h2 > p, .houseDetail_wrap .hotel_devices > div > div:first-child, .houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device, .houseDetail_wrap .hotel_devices .hotel_device .img, .houseDetail_wrap .hotel_introduce h2, .houseDetail_wrap .hotel_introduce h2 > p:first-child, .houseDetail_wrap .hotel_rule .deposit, .houseDetail_wrap .normal .item, .houseDetail_wrap .normal .item .room_mess, .houseDetail_wrap .normal .item .room_mess div:first-child, .hotelDetail_wrap .devices > div, .hotelDetail_wrap .devices > div p, .hotelDetail_wrap .hotel_introduce .hotel_mess, .comment_wrap .comment_all, .comment_wrap .comment .about, .getCity_wrap .find_cityback .find_city, .selectBussiniss_search, .selectBussinss_wrap, .houseIntr_wrap .house_detail .room, .houseIntr_wrap .house_detail .state, .houseIntr_wrap .house_devices .devices, .houseIntr_wrap .house_devices .devices p, .houseIntr_wrap .house_devices .devices p i, .my_collect_wrap .hotel .list .item_ad, .my_collect_wrap .hotel .list .item_ad > div, .hotel_pics_wrap .pics, .hotel_pics_wrap .pics .picshow, .directive_date date-account, .directive_date date-account .date, .directive_date date-account .day, .directive_date datepick .months > div, .directive_date date-select .months > div, .beLandlord_wrap, .beLandlord_wrap .center_box figure, .joinUs_wrap .intr > div, .joinUs_wrap .upload_idcard, .joinUs_wrap .upload_idcard .id_Card, .joinUs_wrap .upload_idcard .id_Card > div, .joinUs_wrap .address .city_picker, .landlord_profit_wrap, .landlord_profit_wrap .contents .content, .waitCheck_wrap .wait_check, .myHouse_wrap_detail, .myHouse_wrap_detail > div, .myHouse_wrap_btn, .my_orderform_wrap .header .select_btn, .my_orderform_wrap .normal h2, .my_orderform_wrap .normal .houselist, .myhouse_wrap_wrap > div, .myhouse_changeprice_wrap .selectDate .time, .orderform_detail_wrap .header, .myaccount_wrap .dataSelect > div, .myaccount_wrap .btns, .login-txt p, .login-forgetpwd, .register-txt p, .agreement, .setting-list .item .center, .ChangePwd-txt p, .userCenter_header > div, .userCenter-list ul, .userCenter-setting-list .item .center, .Nopay-list .list ul .Time, .Pay-list .list ul .address, .Noevaluate-list .list, .Noevaluate-list .list ul, .lose-efficacy-list .list ul .address, .Order-form-head, .Order-form-list li .title, .Order-form-list li .list-cont, .Order-form-list li .list-cont .list-desc p, .cart-list li .title, .cart-list li .list-cont .item-content, .cart-list li .list-cont .list-desc, .cart-list li .list-cont .list-desc .price, .cart-footer .check-all, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .status-header, .status-list li, .status-list li .desc p, .order-information p, .Consume-list .list, .Consume-list .list ul, .Consume-list .list ul .housetype, .nearby-nav, .nearby-list .list, .nearby-list .list .desc, .vertical, .nearby-filtrate .filtrate .filtrate-list, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .price li, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro .station p, .nearby-filtrate .filtrate .filtrate-btn, .nearby-sort ul li, .invoice_btn, .invoice_cont p, .orderDetail_wrap .hotel_pics .content .topbar, .orderDetail_wrap .hotel_pics .content .rooms, .orderDetail_wrap .divier, .orderDetail_wrap .more, .ctrl_header .select_btn, .my_checkIn_wrap .checkIn-back, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add p, .my_checkIn_wrap .checkIn_cont ul, .light_wrap .model, .light_wrap .lights, .light_wrap .lights figure, .airCondition_wrap .display > div, .airCondition_wrap .display .speed > p:first-child, .airCondition_wrap .display .model, .airCondition_wrap .tem, .airCondition_wrap .roundCtrl > span, .futrue_wrap .tv .tv_item, .futrue_wrap .round span, .curtain_wrap .curtain_btns, .curtain_wrap .curtain_btns .btns, .curtain_wrap .slide, .model_wrap, .sweepTime_wrap .sweepTime_select > section > div, .sweepTime_wrap .sweepTime_select > section .time > p:last-child, .roomPower_wrap .roomCard .key, .qrCode_wrap .content .person, .colorPicker_wrap .rbgbtns, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .light, .spotLight_wrap .slide, .service_wrap > section {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex; }
@@ -9811,7 +9811,7 @@ a.button {
   -ms-flex-pack: justify;
   justify-content: space-around; }
 
-.payer, .ajklist_vertical .intr .comment_star, .home_wrap .ajklist > div, .home_wrap .ajklist .item_ad, .home_wrap .ajklist .item_ad .intr .comment_star, .home_wrap .ajklist .item_ad .intr .loc, .houseDetail_wrap .houseDetail_header, .houseDetail_wrap .comment .comment_div .comment_star, .houseDetail_wrap .hotel_devices h2 > p, .houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device .img, .houseDetail_wrap .hotel_introduce h2 > p:first-child, .houseDetail_wrap .normal .item, .hotelDetail_wrap .devices > div p, .hotelDetail_wrap .hotel_introduce .hotel_mess, .getCity_wrap .find_cityback .find_city, .selectBussiniss_search, .houseIntr_wrap .house_devices .devices p i, .my_collect_wrap .hotel .list .item_ad, .directive_date date-account .date, .directive_date date-account .day, .beLandlord_wrap, .beLandlord_wrap .center_box figure, .joinUs_wrap .intr > div, .joinUs_wrap .upload_idcard, .joinUs_wrap .upload_idcard .id_Card > div, .joinUs_wrap .address .city_picker, .waitCheck_wrap .wait_check, .myHouse_wrap_detail, .myHouse_wrap_btn, .my_orderform_wrap .normal h2, .myaccount_wrap .dataSelect > div, .register-txt p, .ChangePwd-txt p, .userCenter_header > div, .Noevaluate-list .list, .cart-list li .list-cont .item-content, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .Consume-list .list, .orderDetail_wrap .hotel_pics .content .topbar, .orderDetail_wrap .divier, .orderDetail_wrap .more, .my_checkIn_wrap .checkIn-back, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add p, .light_wrap .lights figure, .airCondition_wrap .display > div, .airCondition_wrap .display .model, .airCondition_wrap .roundCtrl > span, .futrue_wrap .tv .tv_item, .futrue_wrap .round span, .curtain_wrap .slide, .sweepTime_wrap .sweepTime_select > section .time > p:last-child, .roomPower_wrap .roomCard .key, .qrCode_wrap .content .person, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .light, .spotLight_wrap .slide, .service_wrap > section, .iterm-three-avater, .item-two-avater {
+.payer, .ajklist_vertical .intr .comment_star, .iterm-three-avater, .item-two-avater, .home_wrap .ajklist > div, .home_wrap .ajklist .item_ad, .home_wrap .ajklist .item_ad .intr .comment_star, .home_wrap .ajklist .item_ad .intr .loc, .houseDetail_wrap .houseDetail_header, .houseDetail_wrap .comment .comment_div .comment_star, .houseDetail_wrap .hotel_devices h2 > p, .houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device .img, .houseDetail_wrap .hotel_introduce h2 > p:first-child, .houseDetail_wrap .normal .item, .hotelDetail_wrap .devices > div p, .hotelDetail_wrap .hotel_introduce .hotel_mess, .getCity_wrap .find_cityback .find_city, .selectBussiniss_search, .houseIntr_wrap .house_devices .devices p i, .my_collect_wrap .hotel .list .item_ad, .directive_date date-account .date, .directive_date date-account .day, .beLandlord_wrap, .beLandlord_wrap .center_box figure, .joinUs_wrap .intr > div, .joinUs_wrap .upload_idcard, .joinUs_wrap .upload_idcard .id_Card > div, .joinUs_wrap .address .city_picker, .waitCheck_wrap .wait_check, .myHouse_wrap_detail, .myHouse_wrap_btn, .my_orderform_wrap .normal h2, .myaccount_wrap .dataSelect > div, .register-txt p, .ChangePwd-txt p, .userCenter_header > div, .Noevaluate-list .list, .cart-list li .list-cont .item-content, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .Consume-list .list, .orderDetail_wrap .hotel_pics .content .topbar, .orderDetail_wrap .divier, .orderDetail_wrap .more, .my_checkIn_wrap .checkIn-back, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add p, .light_wrap .lights figure, .airCondition_wrap .display > div, .airCondition_wrap .display .model, .airCondition_wrap .roundCtrl > span, .futrue_wrap .tv .tv_item, .futrue_wrap .round span, .curtain_wrap .slide, .sweepTime_wrap .sweepTime_select > section .time > p:last-child, .roomPower_wrap .roomCard .key, .qrCode_wrap .content .person, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .light, .spotLight_wrap .slide, .service_wrap > section {
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -10043,140 +10043,6 @@ h2 {
   [data-dpr="3"] .button {
     font-size: 45px; }
 
-/*修改list*/
-.list.item_normal {
-  margin-bottom: 0;
-  border: none; }
-  .list.item_normal .item-icon-left {
-    padding: 0; }
-  .list.item_normal .item {
-    height: 1.33333rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 0.4rem; }
-    .list.item_normal .item img {
-      width: 2rem;
-      height: 1.6rem; }
-    .list.item_normal .item h2 {
-      font-size: 15px; }
-      [data-dpr="2"] .list.item_normal .item h2 {
-        font-size: 30px; }
-      [data-dpr="3"] .list.item_normal .item h2 {
-        font-size: 45px; }
-    .list.item_normal .item i {
-      display: inline-block;
-      width: 0.56rem;
-      height: 0.56rem;
-      vertical-align: middle;
-      text-align: center;
-      margin: 0 0.26667rem 0 0.13333rem; }
-
-.list.item_avatar {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  border-width: 0; }
-  .list.item_avatar::before {
-    content: "";
-    /* 注意这里为双引号 */
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    left: 0;
-    bottom: 0;
-    background-color: #d8d8d8;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    [data-dpr="2"] .list.item_avatar::before {
-      -webkit-transform: scale(1);
-      transform: scale(1); }
-    [data-dpr="3"] .list.item_avatar::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
-  .list.item_avatar .item-icon-left {
-    padding: 0; }
-  .list.item_avatar > span {
-    color: #ffb354;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 0.4rem; }
-  .list.item_avatar .item {
-    border: none;
-    height: 1.33333rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
-    padding-top: 0.33333rem;
-    padding-bottom: 0.33333rem; }
-    .list.item_avatar .item img {
-      width: 2rem;
-      height: 1.6rem; }
-    .list.item_avatar .item > div {
-      margin-left: 0.26667rem;
-      height: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between; }
-      .list.item_avatar .item > div h2 {
-        font-size: 15px;
-        text-align: left;
-        font-family: 'PingFang SC'; }
-        [data-dpr="2"] .list.item_avatar .item > div h2 {
-          font-size: 30px; }
-        [data-dpr="3"] .list.item_avatar .item > div h2 {
-          font-size: 45px; }
-      .list.item_avatar .item > div p {
-        font-size: 12px;
-        line-height: 0.4rem;
-        color: #ababab; }
-        [data-dpr="2"] .list.item_avatar .item > div p {
-          font-size: 24px; }
-        [data-dpr="3"] .list.item_avatar .item > div p {
-          font-size: 36px; }
-    .list.item_avatar .item i {
-      display: inline-block;
-      width: 0.53333rem;
-      height: 0.61333rem;
-      vertical-align: middle;
-      margin: 0 0.26667rem 0 0.13333rem; }
-
-/*ionic-datepicker*/
-.popup-container.ionic_datepicker_popup .popup {
-  width: 70%; }
-  .popup-container.ionic_datepicker_popup .popup .popup-body .selected_date_full {
-    line-height: 0.8rem;
-    font-size: 14px; }
-    [data-dpr="2"] .popup-container.ionic_datepicker_popup .popup .popup-body .selected_date_full {
-      font-size: 28px; }
-    [data-dpr="3"] .popup-container.ionic_datepicker_popup .popup .popup-body .selected_date_full {
-      font-size: 42px; }
-  .popup-container.ionic_datepicker_popup .popup .popup-body .item-select select {
-    font-size: 11px; }
-    [data-dpr="2"] .popup-container.ionic_datepicker_popup .popup .popup-body .item-select select {
-      font-size: 22px; }
-    [data-dpr="3"] .popup-container.ionic_datepicker_popup .popup .popup-body .item-select select {
-      font-size: 33px; }
-  .popup-container.ionic_datepicker_popup .popup .popup-body .item-select option {
-    font-size: 7px; }
-    [data-dpr="2"] .popup-container.ionic_datepicker_popup .popup .popup-body .item-select option {
-      font-size: 14px; }
-    [data-dpr="3"] .popup-container.ionic_datepicker_popup .popup .popup-body .item-select option {
-      font-size: 21px; }
-  .popup-container.ionic_datepicker_popup .popup .popup-body .col {
-    height: 0.88rem;
-    line-height: 0.78667rem; }
-  .popup-container.ionic_datepicker_popup .popup .popup-body .calendar_grid {
-    height: auto; }
-
 /*scroll*/
 .slider-pager {
   bottom: 0.26667rem;
@@ -10311,69 +10177,6 @@ h2 {
 .platform-android .action-sheet-cancel {
   font-weight: 500;
   display: block; }
-
-.order {
-  margin-bottom: 0.26667rem;
-  position: relative; }
-  .order::before {
-    content: "";
-    /* 注意这里为双引号 */
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    left: 0;
-    bottom: 0;
-    background-color: #d8d8d8;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    [data-dpr="2"] .order::before {
-      -webkit-transform: scale(1);
-      transform: scale(1); }
-    [data-dpr="3"] .order::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
-  .order .hotel > div {
-    margin-bottom: 0.13333rem; }
-  .order .hotel > p {
-    height: 1.2rem;
-    line-height: 1.2rem;
-    background-color: #fff;
-    display: flex;
-    justify-content: space-between;
-    color: #000; }
-    .order .hotel > p > span {
-      color: #ababab;
-      font-size: 12px;
-      margin-right: 0.26667rem; }
-      [data-dpr="2"] .order .hotel > p > span {
-        font-size: 24px; }
-      [data-dpr="3"] .order .hotel > p > span {
-        font-size: 36px; }
-    .order .hotel > p > span:first-child {
-      display: inline-block;
-      width: 4.66667rem;
-      white-space: nowrap;
-      text-indent: 0.4rem;
-      font-size: 15px;
-      color: #000; }
-      [data-dpr="2"] .order .hotel > p > span:first-child {
-        font-size: 30px; }
-      [data-dpr="3"] .order .hotel > p > span:first-child {
-        font-size: 45px; }
-
-.platform-android .order ul li:first-child {
-  line-height: 0.26667rem; }
-
-.platform-android .order ul li:first-child {
-  line-height: 0.4rem !important; }
-
-.platform-android .order .money {
-  line-height: 0.8rem !important; }
 
 .title {
   transform: translate3d(0px, 0px, 0px) !important; }
@@ -10742,46 +10545,6 @@ h2 {
     width: 0.66667rem;
     height: 0.66667rem; }
 
-@font-face {
-  font-family: "Ionicons";
-  src: url("../fonts/iconfont.eot?t=1496219775528");
-  /* IE9*/
-  src: url("../fonts/iconfont.eot?t=1496219775528#iefix") format("embedded-opentype"), url("../fonts/iconfont.woff?t=1496219775528") format("woff"), url("../fonts/iconfont.ttf?t=1496219775528") format("truetype"), url("../fonts/iconfont.svg?t=1496219775528#iconfont") format("svg");
-  /* iOS 4.1- */ }
-
-.iconfont {
-  display: inline-block;
-  font-family: "Ionicons";
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  text-rendering: auto;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  font-size: 25px; }
-  [data-dpr="2"] .iconfont {
-    font-size: 50px; }
-  [data-dpr="3"] .iconfont {
-    font-size: 75px; }
-
-.icon-gouwuche:before {
-  content: "\e60d";
-  vertical-align: sub; }
-
-.icon-shouye:before {
-  content: "\e604";
-  vertical-align: sub; }
-
-.icon-faxian:before {
-  content: "\e63f";
-  vertical-align: sub; }
-
-.icon-yonghu:before {
-  content: "\e61d";
-  vertical-align: sub; }
-
 .ajklist_vertical {
   width: 48.67%;
   padding: 0.13333rem;
@@ -10876,6 +10639,165 @@ h2 {
         font-size: 18px; }
       [data-dpr="3"] .ajklist_vertical .intr .price span:last-child {
         font-size: 27px; }
+
+.item-three {
+  height: 2.66667rem;
+  padding: 0.13333rem 0.4rem;
+  background-color: #faf9f9; }
+  .item-three > img {
+    width: 3.2rem;
+    height: 2.4rem; }
+  .item-three > ul {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    width: 5.86667rem;
+    margin-left: 0.26667rem;
+    height: 100%; }
+    .item-three > ul > li {
+      height: 0.8rem;
+      line-height: 0.8rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #ababab;
+      font-size: 14px; }
+      [data-dpr="2"] .item-three > ul > li {
+        font-size: 28px; }
+      [data-dpr="3"] .item-three > ul > li {
+        font-size: 42px; }
+      .item-three > ul > li:first-child {
+        line-height: 1.01333rem; }
+      .item-three > ul > li:last-child {
+        line-height: 0.48rem; }
+    .item-three > ul .money {
+      color: #ffb354; }
+    .item-three > ul .OrderNum {
+      color: #4d4d4d; }
+
+.iterm-three-avater > ul {
+  width: 5.33333rem; }
+
+.iterm-three-avater .avater {
+  display: inline-block;
+  width: 0.21333rem;
+  height: 0.37333rem;
+  background: url("../imgs/wcj/house_detail/right_arr.png") no-repeat;
+  background-size: 100% 100%; }
+
+.item-two {
+  height: 2.13333rem;
+  padding: 0.26667rem 0.4rem;
+  background-color: #faf9f9;
+  position: relative; }
+  .item-two::before {
+    content: "";
+    /* 注意这里为双引号 */
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background-color: #d8d8d8;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+    [data-dpr="2"] .item-two::before {
+      -webkit-transform: scale(1);
+      transform: scale(1); }
+    [data-dpr="3"] .item-two::before {
+      -webkit-transform: scale(1.5);
+      transform: scale(1.5); }
+  .item-two > img {
+    width: 2rem;
+    height: 1.6rem; }
+  .item-two ul {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    width: 6.93333rem;
+    height: 100%;
+    margin-left: 0.26667rem;
+    margin-left: 0.26667rem; }
+    .item-two ul > li {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #ababab;
+      font-size: 14px; }
+      [data-dpr="2"] .item-two ul > li {
+        font-size: 28px; }
+      [data-dpr="3"] .item-two ul > li {
+        font-size: 42px; }
+      .item-two ul > li:first-child {
+        line-height: 0.37333rem; }
+      .item-two ul > li:last-child {
+        line-height: 0.8rem; }
+  .item-two .money {
+    color: #ffb354; }
+  .item-two .OrderNum {
+    color: #4d4d4d; }
+  .item-two .houseName {
+    line-height: 0.53333rem !important; }
+
+.item-two-avater > ul {
+  width: 5.33333rem; }
+
+.item-two-avater .avater {
+  display: inline-block;
+  width: 0.21333rem;
+  height: 0.37333rem;
+  background: url("../imgs/wcj/house_detail/right_arr.png") no-repeat;
+  background-size: 100% 100%; }
+
+.item-four {
+  height: 3.46667rem;
+  padding: 0.26667rem 0.4rem;
+  background-color: #faf9f9; }
+  .item-four > img {
+    width: 3.46667rem;
+    height: 2.93333rem; }
+  .item-four > ul {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    width: 5.46667rem;
+    margin-left: 0.26667rem;
+    height: 100%; }
+    .item-four > ul > li {
+      height: 0.8rem;
+      line-height: 0.8rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #ababab;
+      font-size: 14px; }
+      [data-dpr="2"] .item-four > ul > li {
+        font-size: 28px; }
+      [data-dpr="3"] .item-four > ul > li {
+        font-size: 42px; }
+      .item-four > ul > li:first-child {
+        line-height: 1.01333rem; }
+      .item-four > ul > li:last-child {
+        line-height: 0.48rem; }
+    .item-four > ul .money {
+      color: #ffb354; }
+    .item-four > ul .OrderNum {
+      color: #4d4d4d; }
+
+.hotel > p {
+  background-color: #fff; }
+  .hotel > p span {
+    display: inline-block;
+    line-height: 1.06667rem;
+    text-indent: 0.4rem;
+    font-size: 13px;
+    font-weight: 600; }
+    [data-dpr="2"] .hotel > p span {
+      font-size: 26px; }
+    [data-dpr="3"] .hotel > p span {
+      font-size: 39px; }
 
 .home .scroll {
   height: auto !important; }
@@ -17773,149 +17695,3 @@ input[type="range"]::-webkit-slider-thumb {
       transform-origin: 0 0;
       -webkit-transform: scaleY(0.5);
       transform: scaleY(0.5); }
-
-.item-three {
-  height: 2.66667rem;
-  padding: 0.13333rem 0.4rem;
-  background-color: #faf9f9; }
-  .item-three > img {
-    width: 3.2rem;
-    height: 2.4rem; }
-  .item-three > ul {
-    flex-grow: 1;
-    -webkit-flex-grow: 1;
-    width: 5.86667rem;
-    margin-left: 0.26667rem;
-    height: 100%; }
-    .item-three > ul > li {
-      height: 0.8rem;
-      line-height: 0.8rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      color: #ababab;
-      font-size: 14px; }
-      [data-dpr="2"] .item-three > ul > li {
-        font-size: 28px; }
-      [data-dpr="3"] .item-three > ul > li {
-        font-size: 42px; }
-      .item-three > ul > li:first-child {
-        line-height: 1.01333rem; }
-      .item-three > ul > li:last-child {
-        line-height: 0.48rem; }
-    .item-three > ul .money {
-      color: #ffb354; }
-    .item-three > ul .OrderNum {
-      color: #4d4d4d; }
-
-.iterm-three-avater > ul {
-  width: 5.33333rem; }
-
-.iterm-three-avater .avater {
-  display: inline-block;
-  width: 0.21333rem;
-  height: 0.37333rem;
-  background: url("../imgs/wcj/house_detail/right_arr.png") no-repeat;
-  background-size: 100% 100%; }
-
-.item-two {
-  height: 2.13333rem;
-  padding: 0.26667rem 0.4rem;
-  background-color: #faf9f9;
-  position: relative; }
-  .item-two::before {
-    content: "";
-    /* 注意这里为双引号 */
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    left: 0;
-    bottom: 0;
-    background-color: #d8d8d8;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
-    [data-dpr="2"] .item-two::before {
-      -webkit-transform: scale(1);
-      transform: scale(1); }
-    [data-dpr="3"] .item-two::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
-  .item-two > img {
-    width: 2rem;
-    height: 1.6rem; }
-  .item-two ul {
-    flex-grow: 1;
-    -webkit-flex-grow: 1;
-    width: 6.93333rem;
-    height: 100%;
-    margin-left: 0.26667rem;
-    margin-left: 0.26667rem; }
-    .item-two ul > li {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      color: #ababab;
-      font-size: 14px; }
-      [data-dpr="2"] .item-two ul > li {
-        font-size: 28px; }
-      [data-dpr="3"] .item-two ul > li {
-        font-size: 42px; }
-      .item-two ul > li:first-child {
-        line-height: 0.37333rem; }
-      .item-two ul > li:last-child {
-        line-height: 0.8rem; }
-  .item-two .money {
-    color: #ffb354; }
-  .item-two .OrderNum {
-    color: #4d4d4d; }
-  .item-two .houseName {
-    line-height: 0.53333rem !important; }
-
-.item-two-avater > ul {
-  width: 5.33333rem; }
-
-.item-two-avater .avater {
-  display: inline-block;
-  width: 0.21333rem;
-  height: 0.37333rem;
-  background: url("../imgs/wcj/house_detail/right_arr.png") no-repeat;
-  background-size: 100% 100%; }
-
-.item-four {
-  height: 3.46667rem;
-  padding: 0.26667rem 0.4rem;
-  background-color: #faf9f9; }
-  .item-four > img {
-    width: 3.46667rem;
-    height: 2.93333rem; }
-  .item-four > ul {
-    flex-grow: 1;
-    -webkit-flex-grow: 1;
-    width: 5.46667rem;
-    margin-left: 0.26667rem;
-    height: 100%; }
-    .item-four > ul > li {
-      height: 0.8rem;
-      line-height: 0.8rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      color: #ababab;
-      font-size: 14px; }
-      [data-dpr="2"] .item-four > ul > li {
-        font-size: 28px; }
-      [data-dpr="3"] .item-four > ul > li {
-        font-size: 42px; }
-      .item-four > ul > li:first-child {
-        line-height: 1.01333rem; }
-      .item-four > ul > li:last-child {
-        line-height: 0.48rem; }
-    .item-four > ul .money {
-      color: #ffb354; }
-    .item-four > ul .OrderNum {
-      color: #4d4d4d; }

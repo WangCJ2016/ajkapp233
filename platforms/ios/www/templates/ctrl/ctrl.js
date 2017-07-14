@@ -22,14 +22,12 @@ angular.module('ctrl-controller', [])
         pageNo: $scope.pageNo ,
         pageSize: 5,
       }).success(function(res) {
-        console.log(res);
         if (res.success) {
           $scope.pageNo++;
           $ionicLoading.hide();
           $scope.orders = res.result;
           //待入住=>已入住
           $scope.inHouse = function(house, hotelName, orderCode, code,hotelId) {
-            console.log(house, hotelName, orderCode);
             $scope.InhotelName = hotelName;
             $scope.InorderCode = orderCode;
             var data = {
@@ -72,7 +70,6 @@ angular.module('ctrl-controller', [])
           pageNo: $scope.pageNo,
           pageSize: 5
         }).success(function(res) {
-          console.log(res);
           if (res.success ) {
             for (var i = 0; i < res.result.length; i++) {
               $scope.orders.push(res.result[i]);
@@ -117,7 +114,6 @@ angular.module('ctrl-controller', [])
           pageNo: 1,
           pageSize: 5
         }).success(function(res) {
-          console.log(res);
           if (res.success) {
             $scope.beHouses = res.result;
           } else {
@@ -144,7 +140,6 @@ angular.module('ctrl-controller', [])
 
       //goCheckIn
       $scope.goCheckIn = function(houseId, subOrderCode, code,hotelName,houseName,hotelId) {
-        console.log(houseId,hotelId);
         sessionStorage.setItem('serviceHotelId',hotelId);
         sessionStorage.setItem('serviceHouseId',houseId);
         sessionStorage.setItem('hotelName', hotelName);

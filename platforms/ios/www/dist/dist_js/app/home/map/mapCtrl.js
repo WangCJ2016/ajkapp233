@@ -19,7 +19,6 @@ angular.module('map-controller', [])
         });
         geocoder.getAddress(lnglatXY, function(status, result) {
             if (status === 'complete' && result.info === 'OK') {
-                console.log(result.regeocode.formattedAddress);
                 $scope.startAddress = result.regeocode.formattedAddress
             }
         });

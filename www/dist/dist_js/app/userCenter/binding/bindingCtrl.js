@@ -2,7 +2,7 @@ angular.module('binding-controller', [])
   .controller('bindingCtrl', ['$scope', 'ApiService', 'DuplicateLogin', 'systemBusy', '$ionicPopup', '$ionicBackdrop', '$state', '$timeout', '$ionicLoading', '$ionicViewSwitcher', function($scope, ApiService,DuplicateLogin,systemBusy,$ionicPopup, $ionicBackdrop, $state, $timeout, $ionicLoading, $ionicViewSwitcher) {
   $scope.bindWhether = false;
   ApiService.getCustomerInfo({customerId:localStorage.getItem('customerId')}).success(function(res){
-    console.log(res);
+    
     if (res.success) {
       if (res.dataObject.cardNo!==undefined) {
         $scope.bindWhether = true;

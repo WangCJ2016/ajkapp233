@@ -14,7 +14,7 @@ angular.module('login-controller', [])
 		if (re.test($scope.sendData.account)) {
 			if (re1.test($scope.sendData.password)) {
 				ApiService.login($scope.sendData).success(function(res) {
-          console.log(res);
+
 					if (res.success) {
 						localStorage.setItem('imghead',res.dataObject.headPicture?res.dataObject.headPicture:'');
 						localStorage.setItem("customerId", res.dataObject.id);
@@ -30,7 +30,7 @@ angular.module('login-controller', [])
 							$ionicLoading.hide();
 							var backState = ['ChangePwd','RetrievePwd','register'];
 							var ifback = false;
-              console.log($ionicHistory.viewHistory());
+              
 							for (var i = 0; i < backState.length; i++) {
 								if($ionicHistory.viewHistory().backView.stateName===backState[i]){
 									ifback = true;

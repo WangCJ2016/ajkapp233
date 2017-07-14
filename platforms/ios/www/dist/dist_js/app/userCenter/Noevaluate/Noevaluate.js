@@ -10,13 +10,13 @@ angular.module('Noevaluate-controller', [])
 			 pageNo: $scope.pageNo,
 			 pageSize: 5
 		 }).success(function(res){
-			 console.log(res);
+
 			 if (res.success) {
 				 $scope.hotels = res.result;
   			 $scope.pageNo++;
   			 $scope.goevaluate = function(hotelId,houseId,hotelName,picture,subOrderCode){
   				 var data = {hotelId:hotelId,houseId:houseId,hotelName:hotelName,picture:picture,subOrderCode:subOrderCode};
-  				 console.log(data);
+  				 
   				 $state.go('evaluate',{data:data});
   			 };
 			 }else{

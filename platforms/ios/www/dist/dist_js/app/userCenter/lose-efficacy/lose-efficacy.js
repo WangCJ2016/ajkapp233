@@ -13,7 +13,7 @@ angular.module('loseEfficacy-controller', [])
 			pageNo: $scope.pageNo,
 			pageSize: 5
 		}).success(function(res) {
-      console.log(res);
+      
 			if (res.success) {
 				$ionicLoading.hide();
 				$scope.hotels = res.result;

@@ -5,14 +5,14 @@ angular.module('userCenter-controller', [])
 	$scope.tip = false;
 	if (localStorage.getItem('customerId')) {
 		$scope.useName = localStorage.getItem('userName')||'aijuke';
-		console.log(localStorage.getItem('loginCount'));
+
 		if(localStorage.getItem('loginCount')<=1){
 			$scope.tip = true;
       localStorage.setItem('loginCount',2)
 		}
 
 		if (localStorage.getItem('imghead')) {
-			console.log(localStorage.getItem('imghead'));
+			
 			$scope.imghead = localStorage.getItem('imghead')||'imgs/wcj/imghead.png';
 
 		}

@@ -14,7 +14,7 @@ angular.module('Nopay-controller', [])
 				pageNo: $scope.pageNo,
 				pageSize: 5
 			}).success(function(res) {
-				console.log(res);
+				
 				if (res.success) {
 					$ionicLoading.hide();
 					$scope.orders = res.result;

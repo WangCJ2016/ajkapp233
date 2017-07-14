@@ -13,7 +13,6 @@ angular.module('sweepTime-controller', [])
     $scope.handleStatus = false;
     $scope.completeStatus = false;
     ApiService.serviceHandleRecords(data).success(function(res) {
-      console.log(res);
       if (res.success) {
         switch (res.result[0].content) {
           case '等待':

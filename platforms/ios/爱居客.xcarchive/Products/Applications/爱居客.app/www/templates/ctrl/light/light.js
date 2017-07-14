@@ -1,5 +1,5 @@
 angular.module('light-controller', [])
-.controller('lightCtrl',function($scope,$rootScope,$stateParams,$rootScope,ApiService,$state){
+.controller('lightCtrl',function($scope,$rootScope,$stateParams,$rootScope,ApiService,$state,$timeout){
 $scope.goback = function(){
   $rootScope.$ionicGoBack();
 }
@@ -19,17 +19,22 @@ $scope.goback = function(){
 		ip:sessionStorage.getItem('ip')
 	};
    //获取主机路线
-	ApiService.ctrlHostDeviceByType(data)
-   .success(function(res){
-     console.log(res);
-	if(res.success){
-		$scope.lights=[];
-		for(var i=0;i<res.dataObject.length;i++){
-			$scope.lights = $scope.lights.concat(res.dataObject[i].ways);
-		}
-		$scope.lights = $scope.lights.filter(function(light,index){
-			return light.name.indexOf('灯')>-1;
-		});
+   function getways(){
+     ApiService.ctrlHostDeviceByType(data)
+      .success(function(res){
+        console.log(res);
+     if(res.success){
+       $scope.lights=[];
+       for(var i=0;i<res.dataObject.length;i++){
+         $scope.lights = $scope.lights.concat(res.dataObject[i].ways);
+       }
+       $scope.lights = $scope.lights.filter(function(light,index){
+         return light.name.indexOf('灯')>-1;
+       });
+     }
+   })
+   }
+   getways();
        //灯控制
 		$scope.lightCtrl = function(light){
 			console.log(light);
@@ -82,8 +87,11 @@ $scope.goback = function(){
 			console.log(data);
 			ApiService.smartHostControl(data).success(function(res){
 				$scope[ds] = !$scope[ds];
+        $timeout(function(){
+          alert('msg');
+          getways()
+        },10000)
 			});
 		};
-	}
-});
+
 });

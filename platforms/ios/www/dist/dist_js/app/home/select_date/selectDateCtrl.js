@@ -9,7 +9,6 @@ angular.module('selectDate.controllers', [])
 
 		}
 		$scope.defaultPrice = $stateParams.data.defaultPrice
-		console.log($stateParams);
 		$scope.back = function(){
 			$rootScope.$ionicGoBack();
 		};

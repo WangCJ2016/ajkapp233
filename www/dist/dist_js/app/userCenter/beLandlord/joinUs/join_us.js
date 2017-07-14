@@ -3,7 +3,6 @@ angular.module('joinUs-controller', [])
     ApiService.getCustomerInfo({
       customerId: localStorage.getItem('customerId')
     }).success(function(res) {
-      console.log(res, res.dataObject.landlord.status);
       if (res.success) {
         if (res.dataObject.type === 1) {
           $scope.bindWhether = true;
@@ -52,7 +51,6 @@ angular.module('joinUs-controller', [])
     //获取省份证
     $scope.getIdCard = function(type) {
       $scope.type = type;
-      console.log(type, $scope.type);
       var hideSheet = $ionicActionSheet.show({
         buttons: [{
           text: '拍照'
@@ -76,15 +74,15 @@ angular.module('joinUs-controller', [])
             $cordovaImagePicker.getPictures(options)
               .then(function(results) {
                 //for (var i = 0; i < results.length; i++) {
-                console.log('Image URI: ' + results[0], $scope.type);
+
                 if ($scope.type == 'font') {
                   $scope.fontImg = results[0];
                   $scope.imgs = results[0];
-                  console.log('fontImg:' + $scope.fontImg);
+
                 } else {
                   $scope.backImg = results[0];
                   $scope.imgs = results[0];
-                  console.log('backImg:' + $scope.backImg);
+
                 }
                 //  }
 
@@ -102,7 +100,7 @@ angular.module('joinUs-controller', [])
             $cordovaCamera.getPicture(options).then(function(imageURI) {
               if ($scope.type == 'font') {
                 $scope.fontImg = imageURI;
-                console.log($scope.fontImg);
+
                 $scope.imgs = imageURI;
               } else {
                 $scope.backImg = imageURI;
@@ -129,18 +127,18 @@ angular.module('joinUs-controller', [])
 
       var trustHosts = true;
       var options = {};
-      console.log($scope.imgs);
+
       var targetPath = $scope.imgs;
       $cordovaFileTransfer.upload(url, targetPath, options)
         .then(function(result) {
           // Success
-          console.log(result, result.response);
+
           var result = result.response.split(':');
           var img = result[3].slice(1) + ':' + result[4].slice(0, -2);
-          console.log(img, localStorage.getItem('customerId'));
+
 
           //$scope.$apply();
-          console.log($scope.type);
+
           if ($scope.type == 'font') {
             $scope.data.cardPictureFront = img;
           } else {
@@ -148,7 +146,7 @@ angular.module('joinUs-controller', [])
           }
         }, function(err) {
           // Error
-          console.log(result);
+
         }, function(progress) {
           // constant progress updates
 
@@ -164,7 +162,7 @@ angular.module('joinUs-controller', [])
     //ios获取地址
     $scope.$on('cityPickerChange', function() {
       //$scope.province = localStorage.getItem('cityPickerProvince')
-      console.log($scope.city_province, $scope.city_city, $scope.city_towns);
+
       $scope.data.address = $scope.city_province + '-' + $scope.city_city + '-' + $scope.city_towns;
     });
 
@@ -181,9 +179,6 @@ angular.module('joinUs-controller', [])
         }
       }
 
-
-
-      console.log($scope.data);
       var re1 = /^[\u4E00-\u9FA5]{2,4}$/; //姓名
       var re2 = /(^\d{15}$)|(^\d{17}([0-9]|X)$)/; //身份证
       if (re1.test($scope.data.name)) {
@@ -239,7 +234,7 @@ angular.module('joinUs-controller', [])
                 data1.name = encodeURI(data1.name);
                 data1.detailAddress = encodeURI(data1.detailAddress);
                 data1.address = encodeURI(data1.address);
-                console.log(data1);
+                
                 ApiService.customerBecomeLandlord(data1).success(function(res) {
                   if (res.success) {
                     $ionicLoading.show({

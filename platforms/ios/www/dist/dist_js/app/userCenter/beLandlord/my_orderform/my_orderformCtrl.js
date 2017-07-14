@@ -42,7 +42,6 @@ angular.module('myOrderForm-controller', [])
 			customerId: localStorage.getItem('customerId'),
 			type: 'end'
 		}).success(function(res) {
-			console.log(res);
 			if (res.success) {
 				$scope.endOrders = res.result;
 
