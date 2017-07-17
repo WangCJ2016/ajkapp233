@@ -44,7 +44,7 @@ angular.module('Consume-controller', [])
 					pageNo: $scope.pageNo,
 					pageSize: 7
 				}).success(function(res) {
-	        
+	        console.log(res);
 					if (res.success) {
 						if (res.result.length > 0) {
 							for (var i = 0; i < res.result.length; i++) {

@@ -71,7 +71,10 @@
                 @include font-dpr(12px);
                 color: #ababab;
                 @extend %flex;
-                line-height: px2rem(40)
+                line-height: px2rem(40);
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
             }
 
             .money{

@@ -1,6 +1,6 @@
 angular.module('Orderform-controller', [])
     .controller('OrderformCtrl', ['$scope', '$stateParams', 'ApiService', 'DuplicateLogin', 'systemBusy', '$ionicLoading', '$timeout', '$state', '$ionicPopup', function($scope, $stateParams, ApiService,DuplicateLogin,systemBusy,$ionicLoading, $timeout, $state,$ionicPopup) {
-      console.log($stateParams.id);
+    
 	ApiService.viewOrderDetail({
 		orderCode: $stateParams.id
 	}).success(function(res) {

@@ -28,10 +28,14 @@
       line-height:px2rem(43);
       padding:0 px2rem(10);
       border-radius: px2rem(25);
-      border:1px solid #aaa;
       text-align: center;
       @include font-dpr(13px);
       color:#aaa;
+      position: relative;
+      &:before{
+        @include borderMixin;
+        border-radius: px2rem(25);
+      }
   }
   .yicancel{
       border-color:$ajk_color;
@@ -50,7 +54,10 @@
         margin-left:px2rem(30);
         margin-bottom: px2rem(20);
         color:#696868;
-        border-bottom:1px solid $ajk_borderColor;
+        position: relative;
+        &::before{
+          @include borderMixinBottom1;
+        }
     }
     p{
        width: 100%;

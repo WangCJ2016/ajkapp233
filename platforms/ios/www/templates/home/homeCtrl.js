@@ -3,10 +3,11 @@ angular.module('home-controller', [])
     // $ionicSlideBoxDelegate.update();
     // $ionicSlideBoxDelegate.loop(true);
     //选择的城市
-    //$scope.city = localStorage.getItem('city')?localStorage.getItem('city'):'杭州'
+    $scope.city = localStorage.getItem('city')?localStorage.getItem('city'):'杭州';
 	$scope.$on('cityChanges', function() {
 		$scope.city = localStorage.getItem('city');
 	});
+  
 	$scope.$on('cityChange', function() {
 		var city = sessionStorage.getItem("city");
 		var CityReg = /市$/;
@@ -48,9 +49,8 @@ angular.module('home-controller', [])
 	ApiService.getHomePageHotels({
 		pageNo: pageNo,
 		pageSize: 5,
-    address:encodeURI(sessionStorage.getItem("city"))
+    address:encodeURI(sessionStorage.getItem("city")||'杭州市')
 	}).success(function(res) {
-
 		if (res.success) {
 			$ionicLoading.hide();
       $scope.hotels = res.result.map(function(hotel){

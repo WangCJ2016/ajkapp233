@@ -3,12 +3,12 @@ angular.module('status-controller', [])
     ApiService.viewOrderDetail({
       orderCode: $stateParams.id
     }).success(function(res) {
-      console.log(res);
+
       if (res.success) {
         $scope.order = res.dataObject;
         //取消子订单
         $scope.cancel = function(id) {
-          console.log(id);
+
           $ionicPopup.confirm({
               template: "确定要取消预订吗",
               buttons: [{
@@ -26,7 +26,7 @@ angular.module('status-controller', [])
                 ApiService.cancleSubOrder({
                   subOrderCode: id
                 }).success(function(res) {
-                  console.log(res);
+                  
                   if (res.success) {
 
                     $ionicLoading.show({
