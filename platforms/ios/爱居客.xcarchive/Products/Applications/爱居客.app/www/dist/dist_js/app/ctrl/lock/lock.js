@@ -16,7 +16,6 @@ angular.module('lock-controller', [])
 		pos.push($scope.poselevator);
 		pos.push($scope.posdoor);
 		pos.push($scope.posstream);
-    console.log(pos);
 		pos.forEach(function(pos,index){
 			if($scope.posEnd[0]>=pos[0]&&$scope.posEnd[0]<=pos[1]&&$scope.posEnd[1]>=pos[2]&&$scope.posEnd[1]<=pos[3]){
 				$scope.index = index;
@@ -48,7 +47,6 @@ angular.module('lock-controller', [])
 		deviceType: 'FINGERPRINT_LOCK'
 	};
 	ApiService.ctrlHostDeviceByType(data).success(function(res){
-    console.log(res);
 		var deviceId = res.dataObject[0].deviceId;
 		if(res.dataObject){
 			$scope.touchStart = function($event) {
@@ -65,7 +63,6 @@ angular.module('lock-controller', [])
 						$scope.index = index;
 					}
 				});
-        console.log(pos);
 				switch($scope.index){
 				case 0:
 					$scope.elevator = true;
@@ -93,7 +90,7 @@ angular.module('lock-controller', [])
 				};
 
 				ApiService.smartHostControl(data).success(function(res){
-          console.log(res);
+
 				});
 			};
 		}

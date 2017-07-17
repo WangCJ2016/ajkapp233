@@ -43,4 +43,71 @@
 			}
 		}
 	}
+	.basicItem{
+		line-height: px2rem(100);
+		background-color:#fff;
+		padding:0 px2rem(30);
+		@extend %flex;
+		@extend %flexMainJustify;
+		@extend %flexCrossCenter;
+		position: relative;
+		&::before{
+			@include borderMixinBottom;
+		}
+		i{
+			display:inline-block;
+			width: 0.21333rem;
+			height: 0.37333rem;
+		}
+	}
+}
+.myhouse_basicmess_wrap{
+	background-color: $ajk_backColor;
+	margin-top: px2rem(10);
+	margin-bottom: px2rem(20);
+	.wrap{
+		background-color:#fff;
+		padding: 0 px2rem(30);
+		border-bottom: 1px solid $ajk_borderColor;
+		p{
+			border-bottom: 1px solid $ajk_borderColor;
+			&:last-child{
+				border-bottom:none;
+			}
+			span{
+			  line-height:px2rem(100);
+			  @include font-dpr(15px);
+			  display: inline-block;
+			  &:first-child{
+			  	color: #ababab;
+			  	width: px2rem(300);
+			  }
+			}
+
+		}
+	}
+}
+.myhouse_wrap_wrap {
+    background-color: #fff;
+		margin-top: px2rem(10);
+		padding-bottom:px2rem(50);
+    >div {
+      @extend %flex;
+      @extend %flexWrap;
+        span {
+            display: inline-block;
+            width: px2rem(160);
+            height: px2rem(76);
+            border-radius: px2rem(10);
+            background-color: #fff;
+						border: 1px solid #ccc;
+            line-height: px2rem(76);
+            text-align: center;
+            color: $ajk_color;
+            @include font-dpr(15px);
+            margin-left: px2rem(20);
+            margin-top: px2rem(20);
+            overflow: hidden;
+        }
+    }
 }

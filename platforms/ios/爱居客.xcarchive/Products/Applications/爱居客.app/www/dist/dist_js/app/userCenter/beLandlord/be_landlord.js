@@ -3,7 +3,6 @@ angular.module('beLandlord-controller', [])
       $scope.select = false;
       ApiService.getCustomerInfo({customerId: localStorage.getItem('customerId')})
       .success(function(res){
-        console.log(res);
         if (res.dataObject.type===1) {
           $scope.select = true
         }

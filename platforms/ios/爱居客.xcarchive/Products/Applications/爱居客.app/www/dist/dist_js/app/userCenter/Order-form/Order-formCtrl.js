@@ -1,13 +1,13 @@
 angular.module('Orderform-controller', [])
     .controller('OrderformCtrl', ['$scope', '$stateParams', 'ApiService', 'DuplicateLogin', 'systemBusy', '$ionicLoading', '$timeout', '$state', '$ionicPopup', function($scope, $stateParams, ApiService,DuplicateLogin,systemBusy,$ionicLoading, $timeout, $state,$ionicPopup) {
-
+      console.log($stateParams.id);
 	ApiService.viewOrderDetail({
 		orderCode: $stateParams.id
 	}).success(function(res) {
 		if (res.success) {
 			$scope.order = res.dataObject;
             //支付订单
-            console.log(res)
+
 		$scope.pay = function() {
       var tradeNo = res.dataObject.orderCode
 			var alipayClass = navigator.alipay;
@@ -66,10 +66,10 @@ angular.module('Orderform-controller', [])
 			}],
 			cssClass: 'ajk'
 		})
-                .then(function(res) {
+    .then(function(res) {
 	if (res) {
 		ApiService.cancelOrder({
-			orderId: $stateParams.id
+			orderCode: $stateParams.id
 		}).success(function(res) {
       if(res.success){
         $ionicLoading.show({
@@ -77,7 +77,7 @@ angular.module('Orderform-controller', [])
   			});
   			$timeout(function() {
   				$ionicLoading.hide();
-  			}, 1000);
+  			}, 2000);
   			$state.go('Nopay');
       }else{
         if (res.msg==='非法请求') {

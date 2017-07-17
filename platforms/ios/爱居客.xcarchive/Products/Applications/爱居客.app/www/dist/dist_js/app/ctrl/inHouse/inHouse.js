@@ -4,7 +4,6 @@ angular.module('inHouse-controller', [])
     $scope.house = $stateParams.data.house;
     $scope.hotelName = $stateParams.data.hotelName;
     $scope.orderCode = $stateParams.data.orderCode;
-    console.log($stateParams.data);
     sessionStorage.setItem('hotelName', $scope.hotelName);
     sessionStorage.setItem('houseName', $scope.house.houseName);
     var time = $stateParams.data.house.inTime.split(' ')[0].split('-');
@@ -18,14 +17,12 @@ angular.module('inHouse-controller', [])
         operate: 'in'
       };
       ApiService.modifySubOrdersStatus(data).success(function(res) {
-        console.log(res);
         if (res.success) {
           var data = {
             houseId: $scope.house.houseId,
             subOrderId: $scope.orderCode,
             subOrderCode: $stateParams.data.subOrderCode
           };
-          console.log(data);
           sessionStorage.setItem('serviceHotelId',$stateParams.data.hotelId);
           sessionStorage.setItem('serviceHouseId',$scope.house.houseId);
           $state.go('checkIn', {

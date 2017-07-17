@@ -1,7 +1,6 @@
 angular.module('commentCtrl-controller', [])
 	.controller('commentCtrl', function($scope, $rootScope,$stateParams, ApiService, $state) {
 		//返回
-		console.log($stateParams.stars);
 		$scope.stars = $stateParams.stars;
 		$scope.star_full = [];
 		$scope.star_full.length = $scope.stars;
@@ -13,7 +12,6 @@ angular.module('commentCtrl-controller', [])
 		ApiService.getHotelFeedback({
 			hotelId: $stateParams.id
 		}).success(function(res) {
-			console.log(res);
 			$scope.customers = res.result;
 		});
 	});

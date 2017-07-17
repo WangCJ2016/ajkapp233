@@ -6,12 +6,10 @@ angular.module('houseDetail-controller', [])
 	$scope.switch = true;
     //返回
 	$scope.goHome = function() {
-    //console.log($ionicHistory.viewHistory().backView.stateName);
     var views = $ionicHistory.viewHistory().views;
 
     var backView = ''
     for (var i in views) {
-      console.log(views[i].stateName);
       if(views[i].stateName=='tab.home'||views[i].stateName=="myCollect"||views[i].stateName=='nearby'){
         backView = views[i].stateName;
       }
@@ -29,7 +27,6 @@ angular.module('houseDetail-controller', [])
 		hotelId: $stateParams.id,
 		customerId:localStorage.getItem('customerId')|| '-1'
 	}).success(function(res) {
-		console.log(res);
 		if (res.success) {
 			$ionicLoading.hide();
         //名字
@@ -81,7 +78,6 @@ angular.module('houseDetail-controller', [])
 			geocoder();
         //加入点标记
 			function addMarker(i, d) {
-        console.log(i,d);
 				var marker = new AMap.Marker({
 					map: map,
 					position: [d.location.getLng(), d.location.getLat()]
@@ -157,7 +153,6 @@ angular.module('houseDetail-controller', [])
 				if(res.success){
 					$scope.comment_if = res.result.length>0?true:false;
 					$scope.comment_first = res.result[0];
-          console.log(res.result[0]);
 				}
 			});
 			$scope.goHotelFeedback = function() {
@@ -171,7 +166,6 @@ angular.module('houseDetail-controller', [])
 			ApiService.getHotelHouses({
 				hotelId: $stateParams.id
 			}).success(function(res) {
-        console.log(res);
         $scope.roomnum = res.result.length
 				var rooms = res.result;
 				var roomType = [],
@@ -202,7 +196,6 @@ angular.module('houseDetail-controller', [])
 				}
 
 				$scope.roomType = roomTypes;
-        console.log($scope.roomType);
           //进入房间详情
 				$scope.goHouseIntr = function(id) {
 					$state.go('house_intr', {

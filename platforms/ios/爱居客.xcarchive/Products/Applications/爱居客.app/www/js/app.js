@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions','templates'])
   .constant('AJKUrl', 'http://www.live-ctrl.com/aijukex/')
   .constant('AJKIp','http://192.168.0.109:8100/#')
   .constant('DuplicateLogin','你的账号在另一台手机登录,请重新登录')
@@ -19,9 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
           output:'JSON',
           key:'1cbf5e5ac9b4588d974214856a289ec6'
         }).success(function(res){
-          console.log(res);
           var lnglat = res.locations.split(',');
-          console.log(lnglat);
           sessionStorage.setItem('longitude',lnglat[0]);
           sessionStorage.setItem('latitude',lnglat[1]);
         })
@@ -87,7 +85,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 		});
 
 		function onComplete(data) {
-      console.log(data.position.getLng(),data.position.getLat());
 			sessionStorage.setItem("longitude", data.position.getLng());
 			sessionStorage.setItem("latitude", data.position.getLat());
 		}
@@ -517,7 +514,6 @@ controller:'futrueCtrl'
 	controller:'selectDateCtrl',
   resolve: {
 		roomPrice: function(ApiService, $stateParams, $ionicLoading, $timeout) {
-      console.log($stateParams);
 			$ionicLoading.show({
 				template: '<ion-spinner icon="ios"></ion-spinner>'
 			});
@@ -557,6 +553,12 @@ controller:'futrueCtrl'
 	templateUrl: 'templates/userCenter/beLandlord/joinUs/join_us.html',
 	controller: 'joinUsCtrl'
 })
+.state('accountDetail', {
+url: '/accountDetail',
+params:{data:null},
+templateUrl: 'templates/userCenter/beLandlord/account_detail/account_detail.html',
+controller: 'accountDetailCtrl'
+})
       .state('landlordProfit', {
 	url: '/landlordProfit',
 	cache: false,
@@ -587,7 +589,6 @@ controller:'futrueCtrl'
 			return ApiService.viewLandlordHotel({
 				hotelId: $stateParams.id
 			}).success(function(res) {
-        console.log(res);
 				if (res.success) {
 					$ionicLoading.hide();
 					return res.dataObject;
@@ -647,21 +648,6 @@ controller:'futrueCtrl'
 	url: '/tradeRule',
 	templateUrl: 'templates/userCenter/beLandlord/trade_rule/trade_rule.html',
 	controller:'tradeRuleCtrl'
-
-})
-      .state('myhouseBasicmess', {
-	url: '/myhouseBasicmess',
-	templateUrl: 'templates/userCenter/beLandlord/myhouse_basicmess/myhouse_basicmess.html',
-	controller:'basicmessCtrl'
-
-})
-      .state('myhouseDevice', {
-	url: '/myhouseDevice',
-	params: {
-		mess: ''
-	},
-	templateUrl: 'templates/userCenter/beLandlord/myhouse_device/myhouse_device.html',
-	controller: 'myHouseDeviceCtrl'
 
 })
       .state('myhouseChangePrice', {
@@ -791,8 +777,16 @@ controller:'futrueCtrl'
 })
       .state('lose-efficacy', {
 	url: '/lose-efficacy',
+  cache:false,
 	templateUrl: 'templates/userCenter/lose-efficacy/lose-efficacy.html',
 	controller: 'loseEfficacyCtrl'
+})
+.state('endOrderDetail', {
+url: '/endOrderDetail',
+cache:false,
+params:{data:null},
+templateUrl: 'templates/userCenter/endOrderDetail/endOrderDetail.html',
+controller: 'endOrderDetailCtrl'
 })
       .state('Consume', {
 	url: '/Consume',

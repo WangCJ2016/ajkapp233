@@ -88,7 +88,7 @@
     <author email="you@example.com" href="http://example.com/">
     王超健
   </author>
-    <content original-src="index.html" src="http://192.168.0.109:8102" />
+    <content src="index.html" />
     <access origin="*" />
     <access launch-external="yes" origin="baidumap:*" />
     <access launch-external="yes" origin="bdapp:*" />

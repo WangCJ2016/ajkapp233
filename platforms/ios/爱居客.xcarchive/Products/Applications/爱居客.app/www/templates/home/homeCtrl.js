@@ -40,27 +40,25 @@ angular.module('home-controller', [])
 	ApiService.getHomePageBanner({
 		level: 1
 	}).success(function(res) {
-		console.log(res);
 		$scope.subADs = res.result;
 	});
     //酒店列表
 	var pageNo = 1;
-  console.log(sessionStorage.getItem("city"));
 	$scope.moreDataCanBeLoaded = true;
 	ApiService.getHomePageHotels({
 		pageNo: pageNo,
 		pageSize: 5,
     address:encodeURI(sessionStorage.getItem("city"))
 	}).success(function(res) {
-console.log(res);
+
 		if (res.success) {
 			$ionicLoading.hide();
       $scope.hotels = res.result.map(function(hotel){
         //评价星星
-      hotel.stars = [];
-      hotel.stars.length = parseInt(hotel.stars,10)||5;
+      hotel.full_stars = [];
+      hotel.full_stars.length = parseInt(hotel.stars,10)||5;
       hotel.star_blank = [];
-      hotel.star_blank.length = 5 - hotel.stars.length;
+      hotel.star_blank.length = 5 - hotel.full_stars.length;
       return hotel
       })
 			pageNo++;

@@ -23,14 +23,12 @@ angular.module('starter.directives', [])
 
         scope.changedate.forEach(function(month, i) {
           month.forEach(function(date) {
-            console.log(date.slice(-4) !== 'null');
             if (date.slice(-4) !== 'null') {
               var k = parseInt(date.slice(8, 10), 10) - 1;
               scope.dates[i].thismonth[k].datePrice = date.slice(11);
             }
           });
         });
-        console.log(scope.dates);
         scope.ngshowif = function(date, i, attr_month) {
 
           date.thismonth[i].selRow = true;
@@ -206,7 +204,6 @@ angular.module('starter.directives', [])
             thismonth[i].disabled = false;
             thismonth[i].defaultPrice = scope.defaultPrice;
           }
-          console.log(attr_month);
           if (attr_month === 0) {
             for (var i1 = 0; i1 < thismonth.length; i1++) {
               if (thismonth[i1].k < today) {
@@ -226,8 +223,6 @@ angular.module('starter.directives', [])
           };
           scope.dates.push(aMonth);
         }
-        console.log(scope.dates);
-
         function get_first_date(year, month) {
           return new Date(year, month, 1);
         }
@@ -258,7 +253,6 @@ angular.module('starter.directives', [])
           };
           ApiService.landlordDayIncome(data).success(function(res) {
             $rootScope.DayIncomes = res.dataObject;
-            console.log(res);
             $rootScope.$broadcast('DayIncomes');
           });
         };
@@ -365,7 +359,6 @@ angular.module('starter.directives', [])
           }
           });
         });
-        console.log(scope.changedate);
         scope.$on('datesChange', function() {});
         var changedates = [];
         var attr_months = [];
@@ -385,10 +378,8 @@ angular.module('starter.directives', [])
             var index1 = attr_months.indexOf(attr_month);
             attr_months.splice(index1, 1);
             var index2 = $index.indexOf(parseInt(index, 10));
-            console.log(index);
             $index.splice(index2, 1);
           }
-          console.log(changedates, attr_months, $index);
           $rootScope.changedates = changedates;
           localStorage.setItem('changedates', changedates);
           localStorage.setItem('attr_months', attr_months);
@@ -495,8 +486,6 @@ angular.module('starter.directives', [])
           };
           scope.dates.push(aMonth);
         }
-        console.log(scope.dates);
-
         function get_first_date(year, month) {
           return new Date(year, month, 1);
         }
@@ -721,7 +710,6 @@ angular.module('starter.directives', [])
         scope.modalShow = function() {
           scope.modal.show();
           var inner_height = document.getElementById('city_picker_inner').offsetHeight;
-          console.log(inner_height);
           scope.li_height = inner_height / 5;
         };
         scope.complete = function() {
@@ -808,11 +796,9 @@ angular.module('starter.directives', [])
               if (index >= (Math.floor(index) + 0.5)) {
                 $ionicScrollDelegate.$getByHandle('cityScroll').scrollTo(0, scope.li_height * (Math.floor(index) + 1), true);
                 scope.subTowns = scope.subCitys[Math.floor(index)].sub;
-                console.log(scope.subTowns);
               } else {
                 $ionicScrollDelegate.$getByHandle('cityScroll').scrollTo(0, scope.li_height * (Math.floor(index)), true);
                 scope.subTowns = scope.subCitys[Math.floor(index)].sub;
-                console.log(scope.subTowns);
               }
             }
 
@@ -834,8 +820,6 @@ angular.module('starter.directives', [])
             if (index == Math.ceil(index)) {
               scope.subCitys = scope.cityData[Math.floor(index)].sub;
               $ionicScrollDelegate.$getByHandle('cityScroll').scrollTop();
-              console.log(scope.cityData[Math.floor(index)]);
-              //localStorage.setItem('cityPickerProvince',scope.cityData[Math.floor(index)])
               $rootScope.city_province = scope.cityData[Math.floor(index)].name;
               scope.city_province = scope.cityData[Math.floor(index)].name;
               $rootScope.$broadcast('cityPickerChange');
@@ -844,11 +828,9 @@ angular.module('starter.directives', [])
               if (index >= (Math.floor(index) + 0.5)) {
                 $ionicScrollDelegate.$getByHandle('provinceScroll').scrollTo(0, scope.li_height * (Math.floor(index) + 1), true);
                 scope.subCitys = scope.cityData[Math.floor(index)].sub;
-                console.log(scope.subCitys);
               } else {
                 $ionicScrollDelegate.$getByHandle('provinceScroll').scrollTo(0, scope.li_height * (Math.floor(index)), true);
                 scope.subCitys = scope.cityData[Math.floor(index)].sub;
-                console.log(scope.subCitys);
               }
 
             }
@@ -884,7 +866,6 @@ angular.module('starter.directives', [])
         var posB = ele[0].offsetTop + ele[0].offsetHeight;
         var pos = [posL, posR, posT, posB];
         $rootScope.posdoor = pos;
-        console.log(pos);
         $rootScope.$broadcast('getPos');
       }
     };
@@ -973,7 +954,6 @@ angular.module('starter.directives', [])
     return function(scope, element, attr) {
       scope.$on('getPos', function() {});
       element.on('touchend', function(event) {
-        console.log($rootScope.poskey);
         element.css({
           'top': $rootScope.poskey[1] + 'px',
           'left': $rootScope.poskey[0] + 'px'
@@ -1027,7 +1007,6 @@ angular.module('starter.directives', [])
         var ds = /^[0-9a-zA-Z]*$/;
         ///[^\u4e00-\u9fa5]$/;
         ele.bind('keyup', function(e) {
-          console.log(e.target.value);
           e.target.value = e.target.value.replace(/[^\u4e00-\u9fa5]/g, '');
         });
 

@@ -1,6 +1,5 @@
 angular.module('myhouseChangePrice-controller', [])
   .controller('myhouseChangepriceCtrl', ['$scope', '$stateParams', '$state', '$rootScope', '$ionicLoading', 'DuplicateLogin', 'systemBusy', 'roomPrice', '$stateParams', 'ApiService', '$ionicPopup', '$timeout', '$rootScope', function($scope,$stateParams,$state,$rootScope,$ionicLoading,DuplicateLogin,systemBusy, roomPrice, $stateParams, ApiService, $ionicPopup, $timeout, $rootScope) {
-    console.log($stateParams);
     $scope.houseName = $stateParams.name
     $scope.defaultPrice = $stateParams.price;
   $scope.changedate = [];
@@ -41,7 +40,7 @@ angular.module('myhouseChangePrice-controller', [])
 	$scope.pricedata.price = res;
 
 	ApiService.landlordModifyHousePrice($scope.pricedata).success(function(res) {
-    console.log($scope.pricedata,res);
+
 		if (res.success) {
       localStorage.setItem('changedates','');
 			var attr_months = localStorage.getItem('attr_months').split(',');

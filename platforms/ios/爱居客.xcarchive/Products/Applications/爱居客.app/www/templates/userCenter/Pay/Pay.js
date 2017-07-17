@@ -14,7 +14,7 @@ angular.module('Pay-controller', [])
 			pageNo: $scope.pageNo,
 			pageSize:5
 		}).success(function(res) {
-      console.log(res);
+
 			if (res.success) {
 				$ionicLoading.hide();
 				$scope.orders = res.result;
@@ -46,7 +46,7 @@ angular.module('Pay-controller', [])
 				pageNo: $scope.pageNo,
 				pageSize:5
 			}).success(function(res) {
-        console.log(res);
+      
 				if (res.success) {
           if(res.result.length > 0){
             for (var i = 0; i < res.result.length; i++) {

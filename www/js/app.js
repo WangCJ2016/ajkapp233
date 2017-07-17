@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions','templates'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions'])
   .constant('AJKUrl', 'http://www.live-ctrl.com/aijukex/')
   .constant('AJKIp','http://192.168.0.109:8100/#')
   .constant('DuplicateLogin','你的账号在另一台手机登录,请重新登录')

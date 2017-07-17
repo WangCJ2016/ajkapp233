@@ -1,7 +1,6 @@
 angular.module('starter.filters', [])
 	.filter('MMdd', function() {
 		return function(time) {
-			console.log(time);
 			return time.split(' ')[0].slice(5);
 		};
 	})
@@ -13,7 +12,6 @@ angular.module('starter.filters', [])
 	})
 	.filter('MMyueddri', function() {
 		return function(time) {
-			console.log(time);
 			var data = time.split('-');
 			return data[1]+'月'+data[2].split(' ')[0]+'日';
 		};

@@ -1,6 +1,5 @@
 angular.module('orderDetail-controller', [])
 	.controller('orderDetailCtrl', ['$scope', '$state', '$stateParams', 'systemBusy', 'DuplicateLogin', '$timeout', 'ApiService', '$ionicLoading', function($scope, $state,$stateParams,systemBusy,DuplicateLogin,$timeout,ApiService, $ionicLoading) {
-		console.log($stateParams);
 		//是否是ios
 		if (ionic.Platform.isIOS()) {
 			$scope.platform = true;
@@ -38,7 +37,6 @@ angular.module('orderDetail-controller', [])
 				$scope.total += parseFloat($scope.hotels[i].carts[j].totalFeel)+parseFloat($scope.hotels[i].carts[j].depositFee,10);
 			}
 		}
-		console.log($scope.total);
 		$scope.total = $scope.total.toFixed(2)
 		//提交
 		$scope.submit = function() {
@@ -82,10 +80,8 @@ angular.module('orderDetail-controller', [])
 			data2.totalFees = totalFees.join(',');
 			data2.depositFees = depositFees.join(',');
 			ApiService.checkHouseWhetherReserve(data).success(function(res) {
-				console.log(data,res);
 				if (res.success == true) {
 					ApiService.submitOrder(data2).success(function(res) {
-						console.log(data2);
 						if(res.success){
 							//删除购物车内容
 							var carIds = '';

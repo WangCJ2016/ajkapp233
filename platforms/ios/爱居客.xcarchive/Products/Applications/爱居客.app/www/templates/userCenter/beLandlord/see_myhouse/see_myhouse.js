@@ -1,6 +1,5 @@
 angular.module('seeHouse-controller', [])
 	.controller('seeHouseCtrl', function($scope, ApiService, $state, $stateParams, hotel) {
-		console.log(hotel.data.dataObject);
 		$scope.hotel = hotel.data.dataObject;
 		$scope.pics = [];
 		hotel.data.dataObject.pictures.forEach(function(pic,index){
@@ -9,5 +8,4 @@ angular.module('seeHouse-controller', [])
 				$scope.pics.push(picArray[i]);
 			}
 		});
-		console.log($scope.pics);
 	});

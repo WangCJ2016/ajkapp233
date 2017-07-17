@@ -4,7 +4,6 @@ angular.module('hotelDetail-controllers', [])
 		$rootScope.$ionicGoBack();
 	};
 	$scope.switch = false;
-  console.log($stateParams);
   $scope.roomnum = $stateParams.hotelDetail.roomnum
 	$scope.profiles = $stateParams.hotelDetail.profiles;
 	$scope.num =  $stateParams.hotelDetail.num;

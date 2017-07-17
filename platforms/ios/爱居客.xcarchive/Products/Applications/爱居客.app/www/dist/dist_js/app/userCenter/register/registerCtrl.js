@@ -44,7 +44,7 @@ angular.module('register-controller', [])
 	};
 
 	$scope.registerBtn = function(){
-		console.log($scope.sendData);
+		
    		ApiService.register($scope.sendData).success(function(res){
 			if(res.success){
 				localStorage.setItem('customerId',res.dataObject.id);

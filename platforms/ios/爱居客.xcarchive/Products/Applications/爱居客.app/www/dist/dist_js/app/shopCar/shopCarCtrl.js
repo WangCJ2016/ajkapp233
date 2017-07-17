@@ -20,7 +20,6 @@ angular.module('shopCar-controller', [])
 		};
 
 		ApiService.shopCarList($scope.data).success(function(res) {
-      console.log(res);
       if (!res.success) {
         if (res.msg==='非法请求') {
           $ionicLoading.show({

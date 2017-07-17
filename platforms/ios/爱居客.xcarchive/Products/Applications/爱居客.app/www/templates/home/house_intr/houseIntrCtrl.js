@@ -69,7 +69,6 @@ angular.module('houseIntrCtrl-controller', [])
 				};
 
 				ApiService.addshopCar(data).success(function(res) {
-          console.log(res);
 					if (res.success === true) {
 						$state.go('tab.shopCar');
 						$ionicViewSwitcher.nextDirection("forward");

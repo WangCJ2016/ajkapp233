@@ -6,7 +6,6 @@ angular.module('collectCtrl-controller', [])
 	} else {
 
 		ApiService.getCustomerCollect({ customerId: localStorage.getItem('customerId') }).success(function(res) {
-			console.log(res);
       if (res.success) {
         $scope.collects = res.result;
       }else {

@@ -13,7 +13,6 @@ angular.module('maintain-controller', [])
 	$scope.handleStatus = false;
 	$scope.completeStatus = false;
 	ApiService.serviceHandleRecords(data).success(function(res){
-		console.log(res);
 		if (res.success) {
 			if (res.result.length==0) {
 				$scope.contenSwitch=true;
@@ -43,7 +42,6 @@ angular.module('maintain-controller', [])
 		$scope.index = id;
 		$scope.timeSwitch = false;
 		$scope.selectApplication = thing;
-		console.log($scope.selectApplication);
 	};
 	$scope.changeRepair=function(){
 		$scope.timeSwitch = true;
@@ -62,7 +60,7 @@ angular.module('maintain-controller', [])
 		}
 		ApiService.customerCallService(maintainData).success(function(res){
 			if (res.success) {
-				console.log(res);
+
 				$scope.contenSwitch=false;
 				$ionicLoading.show({
 					template:'提交成功'

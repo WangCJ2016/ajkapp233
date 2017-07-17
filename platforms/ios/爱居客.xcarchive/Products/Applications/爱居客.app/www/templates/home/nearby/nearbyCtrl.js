@@ -1,6 +1,5 @@
 angular.module('nearby-controller', [])
   .controller('nearbyCtrl' ,function($scope, $ionicHistory,$stateParams,ApiService, $ionicBackdrop, $ionicModal) {
-    console.log($stateParams.city);
     $scope.nowcity = sessionStorage.getItem('city');
     $scope.searchInfo = $stateParams.city;
     if ($scope.searchInfo) {
@@ -9,7 +8,6 @@ angular.module('nearby-controller', [])
     $scope.pageNo = 1;
 
     //初始刷新
-    console.log($scope.nowcity);
     $scope.typedata1 = $stateParams.city;
     if(sessionStorage.getItem('searchType')==='1'){
 
@@ -19,7 +17,6 @@ angular.module('nearby-controller', [])
         type:'mark',
         pageSize: 5
       }).success(function(res) {
-        console.log(res);
         $scope.type = 1
         if (res.success) {
           $scope.hotels = res.result;
@@ -27,14 +24,12 @@ angular.module('nearby-controller', [])
         }
       });
     }else if(sessionStorage.getItem('searchType')==='2'){
-      console.log(sessionStorage.getItem('city')+'-'+$scope.typedata1);
       ApiService.queryHotelsPage({
         address: encodeURI(sessionStorage.getItem('city')+'-'+$scope.typedata1, "UTF-8"),
         pageNo: $scope.pageNo,
         type:'keyWord',
         pageSize: 5
       }).success(function(res) {
-        console.log(res);
         $scope.type = 1
         if (res.success) {
           $scope.hotels = res.result;
@@ -153,7 +148,6 @@ angular.module('nearby-controller', [])
       ApiService.queryNearbySearch({type:$scope.type2,orderBy:$scope.orderBy,pageNo: 1,
       pageSize: 7}).success(function(res){
         $scope.type = 2;
-        console.log(res);
         if(res.success){
           $scope.hotels = res.result;
           $scope.pageNo++;
@@ -343,7 +337,6 @@ angular.module('nearby-controller', [])
           pageNo: 1,
           pageSize: 7
         }).success(function(res){
-          console.log(res);
           $scope.type = 4
           if(res.success){
             $scope.hotels = res.result;
@@ -356,14 +349,12 @@ angular.module('nearby-controller', [])
         //$scope.moreDataCanBeLoaded = true;
         $scope.flag = false;
         $scope.typedata3 = $scope.nowcity + '-' + $scope.searchData;
-        console.log($scope.searchData);
         ApiService.queryHotelsPage({
           address: encodeURI($scope.typedata3, "UTF-8"),
           pageNo: 1,
           pageSize: 7
         }).success(function(res) {
           $scope.type = 3
-          console.log($scope.type);
           if (res.success) {
             $scope.hotels = res.result;
             $scope.pageNo++;
@@ -384,7 +375,6 @@ angular.module('nearby-controller', [])
           pageNo:$scope.pageNo,
           pageSize:7
         }).success(function(res) {
-          console.log($scope.typedata1);
           if (res.success && res.result.length > 0) {
             for (var i = 0; i < res.result.length; i++) {
               $scope.hotels.push(res.result[i]);
@@ -399,7 +389,6 @@ angular.module('nearby-controller', [])
         case 2:
         ApiService.queryNearbySearch({type:$scope.type2,orderBy:$scope.orderBy,pageNo: $scope.pageNo,
         pageSize: 7}).success(function(res){
-          console.log($scope.pageNo);
           if (res.success && res.result.length > 0) {
             for (var i = 0; i < res.result.length; i++) {
               $scope.hotels.push(res.result[i]);
@@ -417,7 +406,6 @@ angular.module('nearby-controller', [])
           pageNo:$scope.pageNo,
           pageSize:7
         }).success(function(res) {
-          console.log($scope.typedata3);
           if (res.success && res.result.length > 0) {
             for (var i = 0; i < res.result.length; i++) {
               $scope.hotels.push(res.result[i]);
@@ -438,7 +426,6 @@ angular.module('nearby-controller', [])
           pageNo: $scope.pageNo,
           pageSize: 7
         }).success(function(res){
-          console.log(res);
           $scope.type = 4
           if(res.success&&res.result.length > 0){
             for (var i = 0; i < res.result.length; i++) {

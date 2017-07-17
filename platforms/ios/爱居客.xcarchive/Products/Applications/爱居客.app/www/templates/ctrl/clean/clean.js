@@ -24,7 +24,6 @@ angular.module('clean-controller', [])
 			subOrderCode: $stateParams.data.subOrderCode,
 			operate: 'leave'
 		}).success(function(res) {
-			console.log(res);
 			if (res.success) {
 				$ionicLoading.show({
 					template: '退房成功'
@@ -69,14 +68,13 @@ angular.module('clean-controller', [])
       }
       ApiService.customerCallService(sweepData).success(function(res){
         if (res.success) {
-          console.log(res);
           $state.go('sweepTime',{id:1});
         }
       })
 
 		} else if (type == '维修') {
 			$state.go('maintain',{id:2});
-    
+
 		}
 	};
 });
