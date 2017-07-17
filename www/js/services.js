@@ -482,6 +482,14 @@ angular.module('starter.services', [])
           params: data
         });
       },
+      queryCustomerOrders:function(data){
+        data.token = localStorage.getItem('token');
+        return $http({　
+          method: 'POST',
+          url: AJKUrl + "op/op_queryCustomerOrders",
+          params: data
+        });
+      },
       //智能控制
       //房间主机信息
       viewHouseHostInfo: function(data) {

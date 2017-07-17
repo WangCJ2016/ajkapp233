@@ -13,7 +13,7 @@
 			  <div class="normal" ng-repeat ='order in orders track by $index'>
                <div ng-repeat='hotel in order.hotelsx track by $index'>
     			<h2>{{hotel.hotelName}}</h2>
-    			<div class="normal_house"  ng-repeat='house in hotel.houses track by $index'>
+    			<div class="normal_house"  ng-repeat='house in hotel.houses track by $index' ng-click="goAccountDetail(house,hotel.hotelName)">
     				<div class="item-four">
     						<img ng-src="{{house.picture}}" alt="">
     						<ul>
@@ -33,7 +33,7 @@
 				 <div class="normal" ng-repeat ='order in endOrders track by $index'>
                <div ng-repeat='hotel in order.hotels track by $index'>
                 <h2>{{hotel.hotelName}}</h2>
-                <div class="normal_house" ui-sref='orderFormDetail' ng-repeat='house in hotel.houses track by $index'>
+                <div class="normal_house" ui-sref='orderFormDetail' ng-repeat='house in hotel.houses track by $index' ng-click="goAccountDetail(house,hotel.hotelName)">
                     <div class="item-four">
                             <img ng-src={{house.picture}} alt="">
                             <ul>

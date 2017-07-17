@@ -13,6 +13,7 @@ angular.module('myOrderForm-controller', [])
 			pageSize: 2
 		}).success(function(res) {
 			$ionicLoading.hide();
+			console.log(res);
 			if (res.success) {
 				$scope.orders = res.result;
 			}else {
@@ -36,6 +37,14 @@ angular.module('myOrderForm-controller', [])
 			}
 
 		});
+		$scope.goAccountDetail = function(house,hotelName){
+			console.log(house,hotelName);
+ 		 	var data = {
+				hotelName:hotelName,
+				house:house
+			}
+			$state.go("accountDetail",{data:data})
+		}
 			//一结束订单
 		ApiService.queryLandlordOrders({
 			hotelId:$stateParams.id,

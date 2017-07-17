@@ -1,5 +1,5 @@
 angular.module('checkIn-controller', [])
-  .controller('checkInCtrl', function($scope, $stateParams, ApiService, $state, $ionicViewSwitcher) {
+  .controller('checkInCtrl', function($scope,$rootScope,$stateParams, ApiService, $state, $ionicViewSwitcher) {
     $scope.goack = function() {
       $rootScope.$ionicGoBack();
     };

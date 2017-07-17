@@ -1006,9 +1006,9 @@ height: px2rem(110);
      text-overflow: ellipsis;
      white-space: nowrap;
      color: #ababab;
-     @include font-dpr(14px);
+     @include font-dpr(13px);
      &:first-child{
-       line-height: px2rem(28);
+       line-height: px2rem(30);
      }
      &:last-child{
        line-height: px2rem(60);
@@ -1088,7 +1088,7 @@ height: px2rem(110);
       line-height: px2rem(80);
       text-indent: px2rem(30);
       @include font-dpr(13px);
-      font-weight: 600;
+      font-weight: 500;
     }
   }
 }

@@ -8,15 +8,15 @@ angular.module('loseEfficacy-controller', [])
 		});
 		$scope.pageNo = 1;
 		$scope.moreDataCanBeLoaded = true;
-		ApiService.queryJudgeOrders({
+		ApiService.queryCustomerOrders({
 			customerId: localStorage.getItem('customerId'),
 			pageNo: $scope.pageNo,
-			pageSize: 5
+			pageSize: 5,
+      type:'end'
 		}).success(function(res) {
-      
 			if (res.success) {
 				$ionicLoading.hide();
-				$scope.hotels = res.result;
+				$scope.orders = res.result;
 				$scope.pageNo++;
 			}else{
         if (res.msg==='非法请求') {
@@ -39,16 +39,17 @@ angular.module('loseEfficacy-controller', [])
       }
 		});
 		$scope.loadMoreData = function() {
-			ApiService.queryJudgeOrders({
-				customerId: localStorage.getItem('customerId'),
-				pageNo: $scope.pageNo,
-				pageSize: 10
-			}).success(function(res) {
+      ApiService.queryCustomerOrders({
+  			customerId: localStorage.getItem('customerId'),
+  			pageNo: $scope.pageNo,
+  			pageSize: 5,
+        type:'end'
+  		}).success(function(res) {
 
 				if (res.success) {
           if (res.result.length > 0) {
             for (var i = 0; i < res.result.length; i++) {
-  						$scope.hotels.push(res.result[i]);
+  						$scope.orders.push(res.result[i]);
   						$scope.$broadcast("scroll.infiniteScrollComplete");
   					}
   					$scope.pageNo++;
@@ -79,5 +80,9 @@ angular.module('loseEfficacy-controller', [])
 
 			});
 		};
+    //订单详情
+    $scope.goOrderDetail = function(order){
+      $state.go('endOrderDetail',{data:order})
+    }
 	}
 }]);

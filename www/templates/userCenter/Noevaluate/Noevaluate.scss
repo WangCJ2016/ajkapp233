@@ -4,13 +4,18 @@
   .Noevaluate-head {
     height: px2rem(90);
     width: 100%;
-
+    @extend %flex;
+    @extend %flexMainJustify;
+    @extend %flexCrossCenter;
     h1 {
-      padding-top: px2rem(30);
       margin-left: px2rem(30);
       @include font-dpr(15px);
       font-family: "PingFang-SC-Medium";
       color: #000;
+      margin: 0 px2rem(30);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 

@@ -55,10 +55,10 @@ angular.module('home-controller', [])
 			$ionicLoading.hide();
       $scope.hotels = res.result.map(function(hotel){
         //评价星星
-      hotel.stars = [];
-      hotel.stars.length = parseInt(hotel.stars,10)||5;
+      hotel.full_stars = [];
+      hotel.full_stars.length = parseInt(hotel.stars,10)||5;
       hotel.star_blank = [];
-      hotel.star_blank.length = 5 - hotel.stars.length;
+      hotel.star_blank.length = 5 - hotel.full_stars.length;
       return hotel
       })
 			pageNo++;

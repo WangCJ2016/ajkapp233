@@ -9,33 +9,50 @@
             </ion-slide>
         </ion-slide-box>
         <div class="mess">
-        	<h2>爱居客酒店-{{house.name}}<span>标准间-8501</span></h2>
+        	<h2>爱居客酒店-{{house.name}}</h2>
         	<div>
         		<h3>房屋信息:</h3>
         		<p>
         			{{house.profiles}}
-
         		</p>
         	</div>
         </div>
-        <div class="list item_normal" ui-sref='myhouseBasicmess'>
-           <a class="item" href="">
+        <div class="basicItem" ui-sref='myhouseBasicmess'>
              <div>
               基本信息
              </div>
-
-             <i class="seeHouse_wrap_rightarr icon-right"></i>
-           </a>
         </div>
-         <div class="list item_normal" ng-click = 'myhouseDevice()'>
-           <a class="item" href="">
+				<div class="myhouse_basicmess_wrap">
+	    	  <div class="wrap">
+	    	  	<p>
+	    			<span>房屋面积</span>
+	    			<span>1000㎡</span>
+	    		</p>
+	    			<p>
+	    			<span>户型</span>
+	    			<span>2室2厅1卫</span>
+	    		</p>
+	    			<p>
+	    			<span>床数</span>
+	    			<span>2张</span>
+	    		</p>
+	    			<p>
+	    			<span>可住人数</span>
+	    			<span>4人</span>
+	    		</p>
+	    	  </div>
+	    	</div>
+         <div class="basicItem">
              <div>
               配套设施
              </div>
-
-             <i class="seeHouse_wrap_rightarr icon-right"></i>
-           </a>
         </div>
+				<div class="myhouse_wrap_wrap">
+	          <div>
+	          <span ng-repeat='assort in assorts track by $index'>{{assort}}</span>
+
+	              </div>
+	        </div>
 		</div>
 	</ion-content>
 

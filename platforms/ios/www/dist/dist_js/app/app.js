@@ -553,6 +553,12 @@ controller:'futrueCtrl'
 	templateUrl: 'templates/userCenter/beLandlord/joinUs/join_us.html',
 	controller: 'joinUsCtrl'
 })
+.state('accountDetail', {
+url: '/accountDetail',
+params:{data:null},
+templateUrl: 'templates/userCenter/beLandlord/account_detail/account_detail.html',
+controller: 'accountDetailCtrl'
+})
       .state('landlordProfit', {
 	url: '/landlordProfit',
 	cache: false,
@@ -642,21 +648,6 @@ controller:'futrueCtrl'
 	url: '/tradeRule',
 	templateUrl: 'templates/userCenter/beLandlord/trade_rule/trade_rule.html',
 	controller:'tradeRuleCtrl'
-
-})
-      .state('myhouseBasicmess', {
-	url: '/myhouseBasicmess',
-	templateUrl: 'templates/userCenter/beLandlord/myhouse_basicmess/myhouse_basicmess.html',
-	controller:'basicmessCtrl'
-
-})
-      .state('myhouseDevice', {
-	url: '/myhouseDevice',
-	params: {
-		mess: ''
-	},
-	templateUrl: 'templates/userCenter/beLandlord/myhouse_device/myhouse_device.html',
-	controller: 'myHouseDeviceCtrl'
 
 })
       .state('myhouseChangePrice', {
@@ -786,8 +777,16 @@ controller:'futrueCtrl'
 })
       .state('lose-efficacy', {
 	url: '/lose-efficacy',
+  cache:false,
 	templateUrl: 'templates/userCenter/lose-efficacy/lose-efficacy.html',
 	controller: 'loseEfficacyCtrl'
+})
+.state('endOrderDetail', {
+url: '/endOrderDetail',
+cache:false,
+params:{data:null},
+templateUrl: 'templates/userCenter/endOrderDetail/endOrderDetail.html',
+controller: 'endOrderDetailCtrl'
 })
       .state('Consume', {
 	url: '/Consume',

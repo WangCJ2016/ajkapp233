@@ -7,6 +7,7 @@ angular.module('myHouseIntr-controller', [])
 				mess: $scope.house.assort
 			});
 		};
+		$scope.assorts = $scope.house.assort.split(',');
 		$scope.goback = function() {
 			$state.go('myhouseDetail', {
 				id: sessionStorage.getItem('hotelId')
