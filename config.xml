@@ -5,7 +5,7 @@
     An Ionic Framework and Cordova project.
   </description>
     <author email="you@example.com" href="http://example.com/">
-    王超健
+    wcj
   </author>
     <content src="index.html" />
     <access origin="*" />
@@ -88,9 +88,9 @@
     <allow-navigation href="http://192.168.0.109:8112" />
     <allow-navigation href="http://192.168.0.109:8113" />
     <allow-navigation href="http://192.168.0.109:8114" />
-    <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-camera" spec="^2.4.1">
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
     </plugin>
+    <engine name="ios" spec="~4.4.0" />
 </widget>

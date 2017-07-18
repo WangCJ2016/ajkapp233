@@ -7,6 +7,12 @@
         "files": {}
     },
     "installed_plugins": {
+        "call-number": {
+            "PACKAGE_NAME": "com.ajk.test"
+        },
+        "com.telerik.plugins.nativepagetransitions": {
+            "PACKAGE_NAME": "com.ajk.test"
+        },
         "com.verso.cordova.clipboard": {
             "PACKAGE_NAME": "com.ajk.test"
         },
@@ -19,7 +25,15 @@
         "cordova-plugin-app-version": {
             "PACKAGE_NAME": "com.ajk.test"
         },
+        "cordova-plugin-appavailability": {
+            "PACKAGE_NAME": "com.ajk.test"
+        },
         "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.ajk.test"
+        },
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
             "PACKAGE_NAME": "com.ajk.test"
         },
         "cordova-plugin-console": {
@@ -48,25 +62,38 @@
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.ajk.test"
         },
-        "call-number": {
+        "cordova-plugin-nativeaudio": {
             "PACKAGE_NAME": "com.ajk.test"
         },
-        "com.telerik.plugins.nativepagetransitions": {
+        "cordova-plugin-pin-dialog": {
             "PACKAGE_NAME": "com.ajk.test"
         },
-        "cordova-plugin-appavailability": {
+        "cordova-plugin-spinner-dialog": {
             "PACKAGE_NAME": "com.ajk.test"
         },
-        "phonegap-plugin-mobile-accessibility": {
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ajk.test"
+        },
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ajk.test"
         },
         "cordova-plugin-wechat": {
             "WECHATAPPID": "wxd0cf1b4ce9cace87",
             "PACKAGE_NAME": "com.ajk.test"
         },
-        "cordova-plugin-camera": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ajk.test"
+        },
+        "cordova-plugin-x-toast": {
+            "PACKAGE_NAME": "com.ajk.test"
+        },
+        "cordova-sms-plugin": {
+            "PACKAGE_NAME": "com.ajk.test"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ajk.test"
+        },
+        "phonegap-plugin-mobile-accessibility": {
             "PACKAGE_NAME": "com.ajk.test"
         }
     },

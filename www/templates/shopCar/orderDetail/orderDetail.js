@@ -115,6 +115,14 @@ angular.module('orderDetail-controller', [])
 
 								});
 							}
+						}else{
+							$ionicLoading.show({
+		            template: res.msg
+		          });
+		          $timeout(function(){
+		            $ionicLoading.hide();
+		            $state.go('tab.home')
+		          },2000)
 						}
 					});
 				}else{
