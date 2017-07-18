@@ -109,8 +109,8 @@ $ajk_activated_color:#efefef;
     transform: scale(1);
   }
   [data-dpr="3"] & {
-    -webkit-transform: scale(1.5);
-    transform: scale(1.5);
+    -webkit-transform: scaleY(1.5);
+    transform: scaleY(1.5);
   }
 }
 @mixin borderMixinTop {
@@ -162,8 +162,8 @@ $ajk_activated_color:#efefef;
     -webkit-transform: scale(1)!important;
   }
   [data-dpr="3"] & {
-    transform: scaleY(3/2)!important;
-    -webkit-transform: scale(1.5)!important;
+    transform: scaleX(3/2)!important;
+    -webkit-transform: scaleX(1.5)!important;
   }
 }
 %flex{
@@ -603,7 +603,7 @@ h2 {
     position: relative;
     &::before{
       @include borderMixinBottom;
-      transform: scaleY(0.5) translateY(-0.5px);
+      //transform: scaleY(0.5) translateY(-0.5px);
     }
     > span {
       height: 100%;
@@ -618,7 +618,7 @@ h2 {
 
   .popup-buttons {
     padding: 0;
-
+    margin-top: 2px;
     .button {
       height: px2rem(110);
       @include font-dpr(15px);

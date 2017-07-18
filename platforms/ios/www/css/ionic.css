@@ -9670,8 +9670,8 @@ h2 {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .platform-ios .bar:before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
   .platform-ios .bar.bar-stable {
     border-color: #d8d8d8; }
 
@@ -9702,8 +9702,8 @@ h2 {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .platform-android .bar:before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
   .platform-android .bar.bar-stable {
     border-color: #d8d8d8; }
 
@@ -9951,8 +9951,8 @@ h2 {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .platform-android .action-sheet .button:first-child:before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
 
 .platform-android .action-sheet-cancel {
   font-weight: 500;
@@ -10025,14 +10025,13 @@ h2 {
       transform: scaleY(0.5);
       -webkit-box-sizing: border-box;
       -moz-box-sizing: border-box;
-      box-sizing: border-box;
-      transform: scaleY(0.5) translateY(-0.5px); }
+      box-sizing: border-box; }
       [data-dpr="2"] .ajk .popup .popup-body::before {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .ajk .popup .popup-body::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .ajk .popup .popup-body > span {
       height: 100%;
       line-height: 2.26667rem;
@@ -10045,7 +10044,8 @@ h2 {
       [data-dpr="3"] .ajk .popup .popup-body > span {
         font-size: 36px; }
   .ajk .popup .popup-buttons {
-    padding: 0; }
+    padding: 0;
+    margin-top: 2px; }
     .ajk .popup .popup-buttons .button {
       height: 1.46667rem;
       font-size: 15px;
@@ -10072,8 +10072,8 @@ h2 {
           transform: scaleY(1) !important;
           -webkit-transform: scale(1) !important; }
         [data-dpr="3"] .ajk .popup .popup-buttons button:first-child::before {
-          transform: scaleY(3/2) !important;
-          -webkit-transform: scale(1.5) !important; }
+          transform: scaleX(3/2) !important;
+          -webkit-transform: scaleX(1.5) !important; }
     .ajk .popup .popup-buttons button:last-child {
       border-bottom-right-radius: 0.26667rem;
       color: #ffb354 !important; }
@@ -10134,8 +10134,8 @@ h2 {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .ajkChange .popup .popup-body::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
   .ajkChange .popup .popup-buttons {
     padding: 0;
     height: 1.46667rem; }
@@ -10165,8 +10165,8 @@ h2 {
           transform: scaleY(1) !important;
           -webkit-transform: scale(1) !important; }
         [data-dpr="3"] .ajkChange .popup .popup-buttons button:first-child::before {
-          transform: scaleY(3/2) !important;
-          -webkit-transform: scale(1.5) !important; }
+          transform: scaleX(3/2) !important;
+          -webkit-transform: scaleX(1.5) !important; }
     .ajkChange .popup .popup-buttons button:last-child {
       border-bottom-right-radius: 0.26667rem;
       color: #ffb354 !important; }
@@ -10264,8 +10264,8 @@ h2 {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .platform-android .item::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
   .platform-android .item:last-child {
     margin-bottom: 0 !important; }
 
@@ -10486,8 +10486,8 @@ h2 {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .item-two::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
   .item-two > img {
     width: 2rem;
     height: 1.6rem; }
@@ -10864,8 +10864,8 @@ h2 {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .fixed_home::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
 
 .platform-android .fixed_home {
   height: 1.28rem; }
@@ -11519,8 +11519,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
           -webkit-transform: scale(1);
           transform: scale(1); }
         [data-dpr="3"] .houseDetail_wrap .hotel_rule .deposit::before {
-          -webkit-transform: scale(1.5);
-          transform: scale(1.5); }
+          -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5); }
         .houseDetail_wrap .hotel_rule .deposit::before [data-dpr="1"] {
           transform: scaleY(0.5) translateY(-1px);
           -webkit-transform: scaleY(0.5) translateY(-1px); }
@@ -11573,8 +11573,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .houseDetail_wrap .normal .item::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .houseDetail_wrap .normal .item img {
       display: block;
       width: 2rem;
@@ -11685,8 +11685,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .change_bars::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
   .change_bars .borderBottom {
     border-bottom: 3px solid #ffb354; }
   .change_bars .change_bar {
@@ -11760,8 +11760,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
           -webkit-transform: scale(1);
           transform: scale(1); }
         [data-dpr="3"] .hotelDetail_wrap .title h2::before {
-          -webkit-transform: scale(1.5);
-          transform: scale(1.5); }
+          -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5); }
   .hotelDetail_wrap .devices h2 {
     font-size: 15px;
     line-height: 1.04rem; }
@@ -11843,8 +11843,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
           -webkit-transform: scale(1);
           transform: scale(1); }
         [data-dpr="3"] .hotelDetail_wrap .hotel_introduce h2::before {
-          -webkit-transform: scale(1.5);
-          transform: scale(1.5); }
+          -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5); }
     .hotelDetail_wrap .hotel_introduce > p {
       margin-top: 0.4rem;
       line-height: 0.53333rem;
@@ -11915,8 +11915,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .comment_wrap .comment_all:before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .comment_wrap .comment_all h2 {
       font-size: 15px;
       line-height: 1.06667rem;
@@ -12104,8 +12104,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
           -webkit-transform: scale(1);
           transform: scale(1); }
         [data-dpr="3"] .getCity_wrap .cities .city:not(:last-child)::before {
-          -webkit-transform: scale(1.5);
-          transform: scale(1.5); }
+          -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5); }
     .getCity_wrap .cities .initial {
       text-indent: 0.4rem;
       padding: 0;
@@ -12461,8 +12461,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
           -webkit-transform: scale(1);
           transform: scale(1); }
         [data-dpr="3"] .houseIntr_wrap .house_detail .state::before {
-          -webkit-transform: scale(1.5);
-          transform: scale(1.5); }
+          -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5); }
         .houseIntr_wrap .house_detail .state::before [data-dpr="1"] {
           transform: scaleY(0.5) translateY(-1px);
           -webkit-transform: scaleY(0.5) translateY(-1px); }
@@ -12646,8 +12646,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .hotel_pics_wrap .pic_item p::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
   .hotel_pics_wrap .active {
     background-color: #ffb354; }
     .hotel_pics_wrap .active p {
@@ -12738,8 +12738,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .directive_date date-account .date::before, [data-dpr="3"] .directive_date date-account .day::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
   .directive_date date-account .date > div, .directive_date date-account .day > div {
     height: 50%;
     line-height: 0.66667rem; }
@@ -12793,8 +12793,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
           -webkit-transform: scale(1);
           transform: scale(1); }
         [data-dpr="3"] .directive_date datepick .months .date::before, [data-dpr="3"] .directive_date datepick .months .day::before, [data-dpr="3"] .directive_date date-select .months .date::before, [data-dpr="3"] .directive_date date-select .months .day::before {
-          -webkit-transform: scale(1.5);
-          transform: scale(1.5); }
+          -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5); }
       .directive_date datepick .months .date > div, .directive_date datepick .months .day > div, .directive_date date-select .months .date > div, .directive_date date-select .months .day > div {
         height: 0.93333rem;
         width: 0.93333rem;
@@ -12840,8 +12840,8 @@ ion-tabs.tabs-color-active-calm .tab-item {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .directive_date datepick .month::before, [data-dpr="3"] .directive_date date-select .month::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
 
 .modal-backdrop-bg {
   background-color: #333;
@@ -12992,8 +12992,8 @@ body::-webkit-scrollbar {
           -webkit-transform: scale(1);
           transform: scale(1); }
         [data-dpr="3"] .joinUs_wrap .intr > div::before {
-          -webkit-transform: scale(1.5);
-          transform: scale(1.5); }
+          -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5); }
       .joinUs_wrap .intr > div > span {
         font-size: 13px; }
         [data-dpr="2"] .joinUs_wrap .intr > div > span {
@@ -13053,8 +13053,8 @@ body::-webkit-scrollbar {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .joinUs_wrap .upload_idcard::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .joinUs_wrap .upload_idcard .id_Card {
       width: 9.2rem;
       height: 2.8rem;
@@ -13198,8 +13198,8 @@ body::-webkit-scrollbar {
           -webkit-transform: scale(1);
           transform: scale(1); }
         [data-dpr="3"] .landlord_profit_wrap .contents .content:not(:last-child)::before {
-          -webkit-transform: scale(1.5);
-          transform: scale(1.5); }
+          -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5); }
       .landlord_profit_wrap .contents .content span:first-child {
         line-height: 1.33333rem;
         color: #000;
@@ -13283,8 +13283,8 @@ body::-webkit-scrollbar {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .myHouse_wrap_detail::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
   .myHouse_wrap_detail img {
     width: 2rem;
     height: 1.6rem;
@@ -13336,8 +13336,8 @@ body::-webkit-scrollbar {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .myHouse_wrap_btn::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
   .myHouse_wrap_btn > div {
     height: 0.66667rem;
     width: 33.3%;
@@ -13371,8 +13371,8 @@ body::-webkit-scrollbar {
         transform: scaleY(1) !important;
         -webkit-transform: scale(1) !important; }
       [data-dpr="3"] .myHouse_wrap_btn > div:not(:last-child)::before {
-        transform: scaleY(3/2) !important;
-        -webkit-transform: scale(1.5) !important; }
+        transform: scaleX(3/2) !important;
+        -webkit-transform: scaleX(1.5) !important; }
 
 .seeHouse_wrap .address {
   text-overflow: ellipsis;
@@ -13449,8 +13449,8 @@ body::-webkit-scrollbar {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .seeHouse_wrap_intr h2::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     [data-dpr="2"] .seeHouse_wrap_intr h2 {
       font-size: 30px; }
     [data-dpr="3"] .seeHouse_wrap_intr h2 {
@@ -13524,8 +13524,8 @@ body::-webkit-scrollbar {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .myhouse_detail_wrap .normal_house::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
 
 .my_orderform_wrap {
   background-color: #f6f6f6;
@@ -13823,8 +13823,8 @@ body::-webkit-scrollbar {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .myhouse_intr_wrap .basicItem::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .myhouse_intr_wrap .basicItem i {
       display: inline-block;
       width: 0.21333rem;
@@ -14095,8 +14095,8 @@ body::-webkit-scrollbar {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .login-txt .tel::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
 
 .login-btn {
   height: 1.2rem;
@@ -14267,8 +14267,8 @@ body::-webkit-scrollbar {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .RetrievePwd-txt .tel::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .RetrievePwd-txt .tel .GetCode input {
       width: 2.08rem;
       height: 0.74667rem;
@@ -14443,8 +14443,8 @@ body::-webkit-scrollbar {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .ChangePwd-txt .newpwd::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
 
 .ChangePwd-btn {
   height: 1.2rem;
@@ -14557,8 +14557,8 @@ body::-webkit-scrollbar {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .userCenter-setting-list .item::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .userCenter-setting-list .item .center {
       height: 100%;
       margin-left: 0.4rem; }
@@ -14795,8 +14795,8 @@ iframe {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .Noevaluate-list .list::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .Noevaluate-list .list p {
       display: block;
       width: 2rem;
@@ -15219,8 +15219,8 @@ iframe {
             -webkit-transform: scale(1);
             transform: scale(1); }
           [data-dpr="3"] .cart-list li .list-cont .item-content::before {
-            -webkit-transform: scale(1.5);
-            transform: scale(1.5); }
+            -webkit-transform: scaleY(1.5);
+            transform: scaleY(1.5); }
         .cart-list li .list-cont .item-content > p {
           overflow: visible !important; }
       .cart-list li .list-cont .check {
@@ -15709,8 +15709,8 @@ iframe {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .Consume-list .list::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .Consume-list .list .data {
       width: 1.45333rem;
       height: 100%;
@@ -15883,8 +15883,8 @@ iframe {
       -webkit-transform: scale(1);
       transform: scale(1); }
     [data-dpr="3"] .nearby-nav::before {
-      -webkit-transform: scale(1.5);
-      transform: scale(1.5); }
+      -webkit-transform: scaleY(1.5);
+      transform: scaleY(1.5); }
   .nearby-nav .sort {
     padding: 0.26667rem 0 0.26667rem 0.26667rem;
     text-align: right; }
@@ -15960,8 +15960,8 @@ iframe {
         -webkit-transform: scale(1);
         transform: scale(1); }
       [data-dpr="3"] .nearby-list .list::before {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5); }
+        -webkit-transform: scaleY(1.5);
+        transform: scaleY(1.5); }
     .nearby-list .list img {
       width: 3.2rem;
       height: 2.4rem; }
@@ -17149,8 +17149,8 @@ input[type="range"]::-webkit-slider-thumb {
           -webkit-transform: scale(1);
           transform: scale(1); }
         [data-dpr="3"] .sweepTime_wrap .sweepTime_select > section > div::before {
-          -webkit-transform: scale(1.5);
-          transform: scale(1.5); }
+          -webkit-transform: scaleY(1.5);
+          transform: scaleY(1.5); }
       .sweepTime_wrap .sweepTime_select > section > div > p {
         font-size: 13px; }
         [data-dpr="2"] .sweepTime_wrap .sweepTime_select > section > div > p {
