@@ -14,8 +14,9 @@ angular.module('checkIn-controller', [])
 	ApiService.viewHouseHostInfo({
 		houseId: houseId
 	}).success(function(res) {
+		console.log(res)
 		if (res.success) {
-			sessionStorage.setItem('houseId', encode64(houseId+''));
+			sessionStorage.setItem('houseId', encode64(houseId + ''));
 			sessionStorage.setItem('serverId', res.dataObject.serverId);
 			sessionStorage.setItem('port', res.dataObject.port);
 			sessionStorage.setItem('ip', res.dataObject.ip);

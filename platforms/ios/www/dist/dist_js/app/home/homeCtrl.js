@@ -1,7 +1,7 @@
 angular.module('home-controller', [])
   .controller('homeCtrl', ['$scope', '$ionicPlatform', '$cordovaAppAvailability', '$ionicScrollDelegate', '$rootScope', 'ApiService', '$ionicSlideBoxDelegate', '$stateParams', '$state', '$ionicLoading', 'mainADs', '$location', '$ionicViewSwitcher', '$ionicPopup', function($scope,$ionicPlatform,$cordovaAppAvailability,$ionicScrollDelegate, $rootScope, ApiService,$ionicSlideBoxDelegate, $stateParams, $state, $ionicLoading, mainADs, $location, $ionicViewSwitcher, $ionicPopup) {
-    // $ionicSlideBoxDelegate.update();
-    // $ionicSlideBoxDelegate.loop(true);
+    $ionicSlideBoxDelegate.update();
+    $ionicSlideBoxDelegate.loop(true);
     //选择的城市
     $scope.city = localStorage.getItem('city')?localStorage.getItem('city'):'杭州';
 	$scope.$on('cityChanges', function() {
@@ -67,8 +67,10 @@ angular.module('home-controller', [])
 	$scope.loadMoreData = function() {
 		ApiService.getHomePageHotels({
 			pageNo: pageNo,
-			pageSize: 5
+			pageSize: 5,
+      address:encodeURI(sessionStorage.getItem("city")||'杭州')
 		}).success(function(res) {
+      console.log(res)
 			if (res.success && res.result.length > 0) {
 				for (var i = 0; i < res.result.length; i++) {
 					$scope.hotels.push(res.result[i]);
@@ -104,6 +106,6 @@ $scope.goNearBy = function(){
 		angular.element(document.querySelector('#fixedHeaderDefalut'))[0].style.opacity =1 - scrollTop*0.002*2;
 	};
 
-    //
+    
 
 }]);

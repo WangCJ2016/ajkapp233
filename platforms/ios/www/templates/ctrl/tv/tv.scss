@@ -1,7 +1,12 @@
+ .tvArrays{
+    height: 100%;
+    overflow: hidden;
+    transition: transform 1s;
+  }
 .futrue_wrap{
   padding-top: px2rem(20);
   height: 100%;
-  background-color: rgb(236,241,245);
+  float: left;
   .tv{
     height: px2rem(160);
     position: relative;

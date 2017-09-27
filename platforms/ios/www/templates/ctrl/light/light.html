@@ -35,7 +35,7 @@
        </figure>
      </section>
      <section class="lights" >
-       <figure class='colorLight' ng-click="goColorLight()">
+       <!-- <figure class='colorLight' ng-click="goColorLight()">
          <p></p>
          <figcaption>
            彩灯
@@ -46,7 +46,7 @@
          <figcaption>
            阅读灯
          </figcaption>
-       </figure>
+       </figure> -->
        <figure class='{{light.status}} {{light.name+light.status}}' ng-click='lightCtrl(light)' ng-repeat="light in lights track by $index">
          <p></p>
          <figcaption>

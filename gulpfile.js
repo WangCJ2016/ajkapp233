@@ -9,6 +9,10 @@ var sh = require('shelljs');
 var templateCache = require('gulp-angular-templatecache');
 var ngAnnotate = require('gulp-ng-annotate');
 var useref = require('gulp-useref');
+var postcss = require('gulp-postcss')
+var autoprefixer = require('autoprefixer');
+var cssnext = require('cssnext'); 
+var precss = require('precss');
 
 var paths = {
   sass: ['./scss/**/*.scss'],
@@ -17,7 +21,7 @@ var paths = {
   useref: ['./www/*.html']
 };
 
-gulp.task('default', ['sass','templatecache','ng_annotate','ng_annotate1','useref']);
+gulp.task('default', ['sass', 'css','templatecache','ng_annotate','ng_annotate1','useref']);
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -60,6 +64,13 @@ gulp.task('useref', ['ng_annotate','ng_annotate1'], function (done) {
     .pipe(gulp.dest('./www/dist'))
     .on('end', done);
 });
+
+gulp.task('css', function () { 
+  var processors = [autoprefixer({browsers: ['last 1 version']}), cssnext, precss]; 
+  return gulp.src('./www/css/ionic.css') 
+        .pipe(postcss(processors)) 
+        .pipe(gulp.dest('./www/dist/dist_css')); 
+})
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);

@@ -9571,12 +9571,12 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.payer, .ajklist_vertical .intr .comment_star, .item-three, .item-three > ul > li:first-child, .item-two, .item-four, .home_wrap .mainBtns, .home_wrap .ajklist > div, .home_wrap .ajklist .item_ad, .home_wrap .ajklist .item_ad > div, .home_wrap .ajklist .item_ad .intr, .home_wrap .ajklist .item_ad .intr .comment_star, .home_wrap .ajklist .item_ad .intr .loc, .home_wrap .vertical, .houseDetail_wrap .houseDetail_header, .houseDetail_wrap .comment .comment_div, .houseDetail_wrap .comment .comment_div .comment_star, .houseDetail_wrap .comment .comment_atavter .atavter, .houseDetail_wrap .hotel_devices h2 > p, .houseDetail_wrap .hotel_devices > div > div:first-child, .houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device, .houseDetail_wrap .hotel_devices .hotel_device .img, .houseDetail_wrap .hotel_introduce h2, .houseDetail_wrap .hotel_introduce h2 > p:first-child, .houseDetail_wrap .hotel_rule .deposit, .houseDetail_wrap .normal .item, .houseDetail_wrap .normal .item .room_mess, .houseDetail_wrap .normal .item .room_mess div:first-child, .hotelDetail_wrap .devices > div, .hotelDetail_wrap .devices > div p, .hotelDetail_wrap .hotel_introduce .hotel_mess, .comment_wrap .comment_all, .comment_wrap .comment .about, .getCity_wrap .find_cityback .find_city, .selectBussiniss_search, .selectBussinss_wrap, .houseIntr_wrap .house_detail .room, .houseIntr_wrap .house_detail .state, .houseIntr_wrap .house_devices .devices, .houseIntr_wrap .house_devices .devices p, .houseIntr_wrap .house_devices .devices p i, .my_collect_wrap .hotel .list .item_ad, .my_collect_wrap .hotel .list .item_ad > div, .hotel_pics_wrap .pics, .hotel_pics_wrap .pics .picshow, .directive_date date-account, .directive_date date-account .date, .directive_date date-account .day, .directive_date datepick .months > div, .directive_date date-select .months > div, .beLandlord_wrap, .beLandlord_wrap .center_box figure, .joinUs_wrap .intr > div, .joinUs_wrap .upload_idcard, .joinUs_wrap .upload_idcard .id_Card, .joinUs_wrap .upload_idcard .id_Card > div, .joinUs_wrap .address .city_picker, .landlord_profit_wrap, .landlord_profit_wrap .contents .content, .waitCheck_wrap .wait_check, .myHouse_wrap_detail, .myHouse_wrap_detail > div, .myHouse_wrap_btn, .seeHouse_wrap .trade_rule, .my_orderform_wrap .header .select_btn, .my_orderform_wrap .normal h2, .my_orderform_wrap .normal .houselist, .myhouse_changeprice_wrap .selectDate .time, .orderform_detail_wrap .header, .myhouse_intr_wrap .basicItem, .myhouse_wrap_wrap > div, .myaccount_wrap .dataSelect > div, .myaccount_wrap .btns, .account_detail_wrap .order_detal .avater_intr, .login-txt p, .login-forgetpwd, .register-txt p, .agreement, .setting-list .item .center, .ChangePwd-txt p, .userCenter_header > div, .userCenter-list ul, .userCenter-setting-list .item .center, .Nopay-list .list ul .Time, .Pay-list .list ul .address, .Noevaluate-list .Noevaluate-head, .Noevaluate-list .list, .Noevaluate-list .list ul, .lose-efficacy-list .list ul .address, .Order-form-head, .Order-form-list li .title, .Order-form-list li .list-cont, .Order-form-list li .list-cont .list-desc p, .cart-list li .title, .cart-list li .list-cont .item-content, .cart-list li .list-cont .list-desc, .cart-list li .list-cont .list-desc .price, .cart-footer .check-all, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .status-header, .order-information p, .Consume-list .list, .Consume-list .list ul, .Consume-list .list ul .housetype, .nearby-nav, .nearby-list .list, .nearby-list .list .desc, .vertical, .nearby-filtrate .filtrate .filtrate-list, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .price li, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro .station p, .nearby-filtrate .filtrate .filtrate-btn, .nearby-sort ul li, .invoice_btn, .invoice_cont p, .orderDetail_wrap .hotel_pics .content .topbar, .orderDetail_wrap .hotel_pics .content .rooms, .orderDetail_wrap .divier, .orderDetail_wrap .more, .ctrl_header .select_btn, .my_checkIn_wrap .checkIn-back, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add p, .my_checkIn_wrap .checkIn_cont ul, .light_wrap .model, .light_wrap .lights, .light_wrap .lights figure, .airCondition_wrap .display > div, .airCondition_wrap .display .speed > p:first-child, .airCondition_wrap .display .model, .airCondition_wrap .tem, .airCondition_wrap .roundCtrl > span, .futrue_wrap .tv .tv_item, .futrue_wrap .round span, .curtain_wrap .curtain_btns, .curtain_wrap .curtain_btns .btns, .curtain_wrap .slide, .model_wrap, .sweepTime_wrap .sweepTime_select > section > div, .sweepTime_wrap .sweepTime_select > section .time > p:last-child, .roomPower_wrap .roomCard .key, .qrCode_wrap .content .person, .colorPicker_wrap .rbgbtns, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .light, .spotLight_wrap .slide, .service_wrap > section {
+.payer, .ajklist_vertical .intr .comment_star, .item-three, .item-three > ul > li:first-child, .item-two, .item-four, .slide-pot, .home_wrap .mainBtns, .home_wrap .ajklist > div, .home_wrap .ajklist .item_ad, .home_wrap .ajklist .item_ad > div, .home_wrap .ajklist .item_ad .intr, .home_wrap .ajklist .item_ad .intr .comment_star, .home_wrap .ajklist .item_ad .intr .loc, .home_wrap .vertical, .houseDetail_wrap .houseDetail_header, .houseDetail_wrap .comment .comment_div, .houseDetail_wrap .comment .comment_div .comment_star, .houseDetail_wrap .comment .comment_atavter .atavter, .houseDetail_wrap .hotel_devices h2 > p, .houseDetail_wrap .hotel_devices > div > div:first-child, .houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device, .houseDetail_wrap .hotel_devices .hotel_device .img, .houseDetail_wrap .hotel_introduce h2, .houseDetail_wrap .hotel_introduce h2 > p:first-child, .houseDetail_wrap .hotel_rule .deposit, .houseDetail_wrap .normal .item, .houseDetail_wrap .normal .item .room_mess, .houseDetail_wrap .normal .item .room_mess div:first-child, .hotelDetail_wrap .devices > div, .hotelDetail_wrap .devices > div p, .hotelDetail_wrap .hotel_introduce .hotel_mess, .comment_wrap .comment_all, .comment_wrap .comment .about, .getCity_wrap .find_cityback .find_city, .selectBussiniss_search, .selectBussinss_wrap, .houseIntr_wrap .house_detail .room, .houseIntr_wrap .house_detail .state, .houseIntr_wrap .house_devices .devices, .houseIntr_wrap .house_devices .devices p, .houseIntr_wrap .house_devices .devices p i, .my_collect_wrap .hotel .list .item_ad, .my_collect_wrap .hotel .list .item_ad > div, .hotel_pics_wrap .pics, .hotel_pics_wrap .pics .picshow, .directive_date date-account, .directive_date date-account .date, .directive_date date-account .day, .directive_date datepick .months > div, .directive_date date-select .months > div, .beLandlord_wrap, .beLandlord_wrap .center_box figure, .joinUs_wrap .intr > div, .joinUs_wrap .upload_idcard, .joinUs_wrap .upload_idcard .id_Card, .joinUs_wrap .upload_idcard .id_Card > div, .joinUs_wrap .address .city_picker, .landlord_profit_wrap, .landlord_profit_wrap .contents .content, .waitCheck_wrap .wait_check, .myHouse_wrap_detail, .myHouse_wrap_detail > div, .myHouse_wrap_btn, .seeHouse_wrap .trade_rule, .my_orderform_wrap .header .select_btn, .my_orderform_wrap .normal h2, .my_orderform_wrap .normal .houselist, .myhouse_changeprice_wrap .selectDate .time, .orderform_detail_wrap .header, .myhouse_intr_wrap .basicItem, .myhouse_wrap_wrap > div, .myaccount_wrap .dataSelect > div, .myaccount_wrap .btns, .account_detail_wrap .order_detal .avater_intr, .login-txt p, .login-forgetpwd, .register-txt p, .agreement, .setting-list .item .center, .ChangePwd-txt p, .userCenter_header > div, .userCenter-list ul, .userCenter-setting-list .item .center, .Nopay-list .list ul .Time, .Pay-list .list ul .address, .Noevaluate-list .Noevaluate-head, .Noevaluate-list .list, .Noevaluate-list .list ul, .lose-efficacy-list .list ul .address, .Order-form-head, .Order-form-list li .title, .Order-form-list li .list-cont, .Order-form-list li .list-cont .list-desc p, .cart-list li .title, .cart-list li .list-cont .item-content, .cart-list li .list-cont .list-desc, .cart-list li .list-cont .list-desc .price, .cart-footer .check-all, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .status-header, .order-information p, .Consume-list .list, .Consume-list .list ul, .Consume-list .list ul .housetype, .nearby-nav, .nearby-list .list, .nearby-list .list .desc, .vertical, .nearby-filtrate .filtrate .filtrate-list, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .price li, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro .station p, .nearby-filtrate .filtrate .filtrate-btn, .nearby-sort ul li, .invoice_btn, .invoice_cont p, .orderDetail_wrap .hotel_pics .content .topbar, .orderDetail_wrap .hotel_pics .content .rooms, .orderDetail_wrap .divier, .orderDetail_wrap .more, .ctrl_header .select_btn, .my_checkIn_wrap .checkIn-back, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add p, .my_checkIn_wrap .checkIn_cont ul, .light_wrap .model, .light_wrap .lights, .light_wrap .lights figure, .airCondition_wrap .display > div, .airCondition_wrap .display .speed > p:first-child, .airCondition_wrap .display .model, .airCondition_wrap .tem, .airCondition_wrap .roundCtrl > span, .futrue_wrap .tv .tv_item, .futrue_wrap .round span, .curtain_wrap .curtain_btns, .curtain_wrap .curtain_btns .btns, .curtain_wrap .slide, .model_wrap, .sweepTime_wrap .sweepTime_select > section > div, .sweepTime_wrap .sweepTime_select > section .time > p:last-child, .roomPower_wrap .roomCard .key, .qrCode_wrap .content .person, .colorPicker_wrap .rbgbtns, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .light, .spotLight_wrap .slide, .service_wrap > section {
   display: -webkit-box;
   display: -webkit-flex;
   display: flex; }
 
-.houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device .img, .getCity_wrap .find_cityback .find_city, .houseIntr_wrap .house_devices .devices p i, .directive_date date-account .date, .directive_date date-account .day, .beLandlord_wrap, .joinUs_wrap .upload_idcard, .myHouse_wrap_detail > div, .myaccount_wrap .dataSelect > div, .myaccount_wrap .btns, .agreement, .userCenter_header > div, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add p, .light_wrap .lights figure, .airCondition_wrap .roundCtrl > span, .futrue_wrap .round span, .curtain_wrap .slide, .roomPower_wrap .roomCard .key, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .slide {
+.slide-pot, .houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device .img, .getCity_wrap .find_cityback .find_city, .houseIntr_wrap .house_devices .devices p i, .directive_date date-account .date, .directive_date date-account .day, .beLandlord_wrap, .joinUs_wrap .upload_idcard, .myHouse_wrap_detail > div, .myaccount_wrap .dataSelect > div, .myaccount_wrap .btns, .agreement, .userCenter_header > div, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .my_checkIn_wrap .checkIn_cont .checkIn_cont_add p, .light_wrap .lights figure, .airCondition_wrap .roundCtrl > span, .futrue_wrap .round span, .curtain_wrap .slide, .roomPower_wrap .roomCard .key, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .slide {
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   justify-content: center; }
@@ -10574,6 +10574,20 @@ h2 {
       font-size: 26px; }
     [data-dpr="3"] .hotel > p span {
       font-size: 39px; }
+
+.slide-pot {
+  padding-top: 0.13333rem; }
+  .slide-pot .pot {
+    width: 0.18667rem;
+    height: 0.18667rem;
+    border-radius: 50%;
+    background-color: #fff; }
+    .slide-pot .pot.active {
+      background-color: #ffb354 !important; }
+  .slide-pot .pot + .pot {
+    margin-left: 0.26667rem; }
+  .slide-pot .pot.pot_curtain {
+    background-color: #c1c7d1; }
 
 .home .scroll {
   height: auto !important; }
@@ -16777,7 +16791,8 @@ iframe {
 
 .airCondition_wrap {
   background-color: #f6f6f6;
-  height: 100%; }
+  height: 100%;
+  float: left; }
   .airCondition_wrap .display {
     padding: 0.8rem;
     background-color: #000; }
@@ -16912,10 +16927,15 @@ iframe {
       .airCondition_wrap .roundCtrl .ok img {
         width: 1rem; }
 
+.tvArrays {
+  height: 100%;
+  overflow: hidden;
+  transition: transform 1s; }
+
 .futrue_wrap {
   padding-top: 0.26667rem;
   height: 100%;
-  background-color: #ecf1f5; }
+  float: left; }
   .futrue_wrap .tv {
     height: 2.13333rem;
     position: relative; }
@@ -17003,54 +17023,56 @@ iframe {
       .futrue_wrap .round .ok img {
         width: 1.36rem; }
 
-.curtain_wrap .curtain_btns {
-  height: 0.90667rem;
-  margin: 0.66667rem 0 0.4rem 0.4rem; }
-  .curtain_wrap .curtain_btns > span {
-    display: inline-block;
-    font-size: 16px;
+.curtain_wrap {
+  float: left; }
+  .curtain_wrap .curtain_btns {
     height: 0.90667rem;
-    line-height: 0.90667rem; }
-    [data-dpr="2"] .curtain_wrap .curtain_btns > span {
-      font-size: 32px; }
-    [data-dpr="3"] .curtain_wrap .curtain_btns > span {
-      font-size: 48px; }
-  .curtain_wrap .curtain_btns .btns > span {
-    display: inline-block;
-    width: 1.84rem;
-    height: 0.90667rem;
-    line-height: 0.90667rem;
-    border: 1px solid #d8d8d8;
-    font-size: 16px;
-    margin-right: 0.4rem;
-    text-align: center; }
-    .curtain_wrap .curtain_btns .btns > span.activated {
-      background-color: #ffb354;
-      color: #fff; }
-    [data-dpr="2"] .curtain_wrap .curtain_btns .btns > span {
-      font-size: 32px; }
-    [data-dpr="3"] .curtain_wrap .curtain_btns .btns > span {
-      font-size: 48px; }
-.curtain_wrap .slide {
-  height: 1.41333rem;
-  border-bottom: 1px solid #e1e1e1; }
-  .curtain_wrap .slide i {
-    display: inline-block;
-    width: 0.66667rem;
-    height: 0.66667rem;
-    margin: 0 0.4rem; }
-  .curtain_wrap .slide .curtainOn {
-    background: url(../imgs/wcj/curtain/curtainOn.png) no-repeat;
-    background-size: 0.66667rem; }
-  .curtain_wrap .slide .curtainOff {
-    background: url(../imgs/wcj/curtain/curtainOff.png) no-repeat;
-    background-size: 0.66667rem; }
-  .curtain_wrap .slide .winCurtainOn {
-    background: url(../imgs/wcj/curtain/winScreenOn.png) no-repeat;
-    background-size: 0.66667rem; }
-  .curtain_wrap .slide .winCurtainOff {
-    background: url(../imgs/wcj/curtain/winScreenOff.png) no-repeat;
-    background-size: 0.66667rem; }
+    margin: 0.66667rem 0 0.4rem 0.4rem; }
+    .curtain_wrap .curtain_btns > span {
+      display: inline-block;
+      font-size: 16px;
+      height: 0.90667rem;
+      line-height: 0.90667rem; }
+      [data-dpr="2"] .curtain_wrap .curtain_btns > span {
+        font-size: 32px; }
+      [data-dpr="3"] .curtain_wrap .curtain_btns > span {
+        font-size: 48px; }
+    .curtain_wrap .curtain_btns .btns > span {
+      display: inline-block;
+      width: 1.84rem;
+      height: 0.90667rem;
+      line-height: 0.90667rem;
+      border: 1px solid #d8d8d8;
+      font-size: 16px;
+      margin-right: 0.4rem;
+      text-align: center; }
+      .curtain_wrap .curtain_btns .btns > span.activated {
+        background-color: #ffb354;
+        color: #fff; }
+      [data-dpr="2"] .curtain_wrap .curtain_btns .btns > span {
+        font-size: 32px; }
+      [data-dpr="3"] .curtain_wrap .curtain_btns .btns > span {
+        font-size: 48px; }
+  .curtain_wrap .slide {
+    height: 1.41333rem;
+    border-bottom: 1px solid #e1e1e1; }
+    .curtain_wrap .slide i {
+      display: inline-block;
+      width: 0.66667rem;
+      height: 0.66667rem;
+      margin: 0 0.4rem; }
+    .curtain_wrap .slide .curtainOn {
+      background: url(../imgs/wcj/curtain/curtainOn.png) no-repeat;
+      background-size: 0.66667rem; }
+    .curtain_wrap .slide .curtainOff {
+      background: url(../imgs/wcj/curtain/curtainOff.png) no-repeat;
+      background-size: 0.66667rem; }
+    .curtain_wrap .slide .winCurtainOn {
+      background: url(../imgs/wcj/curtain/winScreenOn.png) no-repeat;
+      background-size: 0.66667rem; }
+    .curtain_wrap .slide .winCurtainOff {
+      background: url(../imgs/wcj/curtain/winScreenOff.png) no-repeat;
+      background-size: 0.66667rem; }
 
 input[type="range"] {
   height: 0.06667rem;

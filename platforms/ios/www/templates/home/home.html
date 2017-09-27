@@ -32,16 +32,14 @@
   <!-- <div class="changeStatus" ng-class='{verticalStatus:rank}' ng-click="rank=!rank"></div> -->
   <ion-content on-scroll='swipe()' class='has-footer home' style='background-color:#f6f6f6;'>
     <div class="home_wrap">
-
-      <ion-slide-box id='slide' class='slide' does-continue="true" auto-play="true"  slide-interval="4000" >
-        <ion-slide  ng-repeat='mainAD in mainADs track by $index' native-ui-sref="houseDtail({id:mainAD.hotelId})">
+      <ion-slide-box id='slide' class='slide' does-continue="true" auto-play="true" slide-interval="4000">
+        <ion-slide ng-repeat='mainAD in mainADs track by $index' native-ui-sref="houseDtail({id:mainAD.hotelId})">
           <div class="box "><img ng-src={{mainAD.picture}}></div>
         </ion-slide>
       </ion-slide-box>
       <div class="mainBtns cl">
         <div class="mainBtn" ng-click="goNearBy()">
           <p><img src="imgs/wcj/home/near_house.png"></p>
-
           <p>附近房源</p>
         </div>
         <div class="mainBtn" native-ui-sref='landlordProfit'>
@@ -52,7 +50,7 @@
           <p><img src="imgs/wcj/home/collection.png"></p>
           <p>我的收藏</p>
         </div>
-        <div class="mainBtn" >
+        <div class="mainBtn">
           <p><img src="imgs/wcj/home/more.png"></p>
           <p>敬请期待</p>
         </div>
@@ -67,26 +65,25 @@
               </figcaption>
             </figure>
           </div>
-
           </ion-sroll>
       </div>
       <div class="content">
-      <div>
-        <div class="ajklist" ng-repeat="hotel in hotels track by $index" ng-click="goHotelDetail(hotel.id)">
-          <div>
-            <div class='item_ad'>
-              <img ng-src={{hotel.mainPicture}}>
-              <div class="intr">
-                <h2>{{hotel.name}}</h2>
-                <p class="loc"><span><i class="icon"></i>{{hotel.address}}</span></p>
-                <p class="comment_star">
+        <div>
+          <div class="ajklist" ng-repeat="hotel in hotels track by $index" ng-click="goHotelDetail(hotel.id)">
+            <div>
+              <div class='item_ad'>
+                <img ng-src={{hotel.mainPicture}}>
+                <div class="intr">
+                  <h2>{{hotel.name}}</h2>
+                  <p class="loc"><span><i class="icon"></i>{{hotel.address}}</span></p>
+                  <p class="comment_star">
                     <i class="start_full" ng-repeat="star in hotel.full_stars track by $index"></i>
                     <i class="start_blank" ng-repeat="star in hotel.star_blank track by $index"></i>
-                </p>
-                <p class="price"><span>¥</span>{{hotel.price}}<span>起</span></p>
+                  </p>
+                  <p class="price"><span>¥</span>{{hotel.price}}<span>起</span></p>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
         <!-- <div class='vertical' ng-if="rank">
@@ -111,7 +108,6 @@
     <ion-infinite-scroll ng-if="moreDataCanBeLoaded" on-infinite="loadMoreData()" distance="10%" immediate-check='false'>
     </ion-infinite-scroll>
     <div class="divier" style="height:50px">
-
     </div>
-    </ion-content>
+  </ion-content>
 </ion-view>

@@ -127,9 +127,11 @@
             <div class="blank">
 
             </div>
+            <ion-infinite-scroll ng-if="moreDataCanBeLoaded" on-infinite="loadMoreData()" distance="10%" immediate-check='false'>
+            </ion-infinite-scroll>
         </div>
 
         </div>
-
+    
     </ion-scroll>
 </ion-view>

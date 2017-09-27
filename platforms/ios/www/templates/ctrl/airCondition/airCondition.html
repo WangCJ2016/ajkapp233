@@ -2,13 +2,20 @@
   <ion-nav-buttons side="left">
      <button class="button button-clear ajk_back" ng-click="goback()"></button>
  </ion-nav-buttons>
- <ion-content>
-   <div class="airCondition_wrap">
+ <ion-content overflow-scroll="true" style="overflow: hidden;background-color: #000">
+  <div class="slide-pot">
+    <span class="pot" ng-repeat='pot in potArray' ng-class='{active: $index === airState}'></span>
+  </div>
+  <div class="tvArrays" 
+    on-swipe-right="onSwipeRight()" 
+    on-swipe-left="onSwipeLeft()"
+    style="transform: translateX(-{{perWidth * airState}}%);width: {{length}}00%">
+   <div class="airCondition_wrap" ng-repeat='airCondition in airConditionArrays' style="width: {{perWidth}}%">
      <section class="display">
        <div>
        <div class="speed">
          <p><span>风速</span><span class="divier"></span></p>
-         <p class="model"><span>模式</span><img src="imgs/wcj/airCondition/snow.png" alt=""><span ng-click='changeModel()'>{{model}}</span></p>
+         <p class="model"><span>模式</span><img src="imgs/wcj/airCondition/snow.png" alt=""><span ng-click='changeModel()'>{{airCondition.model}}</span></p>
        </div>
        <div class="tem">
          <p>设置温度：--</p>
@@ -17,13 +24,16 @@
        </div>
      </section>
      <section class="roundCtrl">
-       <span class="up" ng-click='tempAdd();'><img src="imgs/wcj/airCondition/temPlus.png" alt=""></span>
-       <span class="down" ng-click="tempReduce();"><img src="imgs/wcj/airCondition/temMunis.png" alt=""></span>
+       <span class="up"
+       ng-click='tempAdd();'>
+       <img src="imgs/wcj/airCondition/temPlus.png" alt=""></span>
+       <span class="down" ng-click="tempReduce();">
+        <img src="imgs/wcj/airCondition/temMunis.png" alt=""></span>
        <span class="left" ng-click="changeModel();"><img src="imgs/wcj/airCondition/speed.png" alt=""></span>
        <span class="right"><img src="imgs/wcj/airCondition/wind.png" alt=""></span>
-       <span class="ok" ng-click='off()'><img src="imgs/wcj/airCondition/ok.png" alt=""></span>
+       <span class="ok" ng-click='off(airCondition.deviceId)'><img src="imgs/wcj/airCondition/ok.png" alt=""></span>
      </section>
    </div>
-
+ </div>
  </ion-content>
  </ion-view>

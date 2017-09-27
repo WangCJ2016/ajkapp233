@@ -27,6 +27,7 @@ angular.module('houseDetail-controller', [])
 		hotelId: $stateParams.id,
 		customerId:localStorage.getItem('customerId')|| '-1'
 	}).success(function(res) {
+    //console.log(res)
 		if (res.success) {
 			$ionicLoading.hide();
         //名字
@@ -162,40 +163,39 @@ angular.module('houseDetail-controller', [])
 				});
 				$ionicViewSwitcher.nextDirection("forward");
 			};
+      var pageNo = 1;
         //酒店房间列表
+      $scope.moreDataCanBeLoaded = true;
 			ApiService.getHotelHouses({
+        pageNo: 1,
+        pageSize: 10,
 				hotelId: $stateParams.id
 			}).success(function(res) {
-        $scope.roomnum = res.result.length
-				var rooms = res.result;
-				var roomType = [],
-					roomTypes = [];
-				$scope.normalRoom = [];
-				$scope.dachuangfangRoom = [];
-				for (var i = 0; i < rooms.length; i++) {
-					if (roomType.indexOf(rooms[i].houseTypex) == -1) {
-						roomType.push(
-                rooms[i].houseTypex
-              );
-					}
-				}
+        //console.log(res)
 
-				for (var i = 0; i < roomType.length; i++) {
-					roomTypes[i] = {
-						'houseTypex': roomType[i],
-						rooms: []
-					};
-				}
+        //$scope.roomnum = res.result.length
+		    $scope.rooms = []
+        //console.log(roomTypes)
+        pageNo++
+        $scope.roomType = _hotelRoom(res.result)
 
-				for (var i = 0; i < roomTypes.length; i++) {
-					for (var j = 0; j < rooms.length; j++) {
-						if (rooms[j].houseTypex == roomTypes[i].houseTypex) {
-							roomTypes[i].rooms.push(rooms[j]);
-						}
-					}
-				}
+        $scope.loadMoreData = function() {
+          ApiService.getHotelHouses({
+            pageNo: pageNo,
+            pageSize: 10,
+            hotelId: $stateParams.id
+          }).success(function(res) {
+            //console.log(res)
+            if (res.success && res.result.length > 0) {
+            $scope.roomType = _hotelRoom(res.result)
+            $scope.$broadcast("scroll.infiniteScrollComplete");
+              pageNo++;
 
-				$scope.roomType = roomTypes;
+            } else {
+              $scope.moreDataCanBeLoaded = false;
+            }
+          });
+        };
           //进入房间详情
 				$scope.goHouseIntr = function(id) {
 					$state.go('house_intr', {
@@ -209,7 +209,7 @@ angular.module('houseDetail-controller', [])
 						services: hotelDetail.services,
 						profiles: hotelDetail.profiles,
 						num:hotelDetail.telephone,
-            roomnum:$scope.roomnum
+            roomnum: 10
 					};
 					$state.go('hotelDetail', {
 						hotelDetail: detail
@@ -322,4 +322,38 @@ angular.module('houseDetail-controller', [])
 		$scope.switch = false;
       //$scope.$apply()
 	};
+
+  // 处理酒店房间加载
+  function _hotelRoom(_room) {
+    _room.forEach(function(room) {
+      $scope.rooms.push(room)
+    })
+    var roomType = [],
+          roomTypes = [];
+        
+        for (var i = 0; i < $scope.rooms.length; i++) {
+          if (roomType.indexOf($scope.rooms[i].houseTypex) == -1) {
+            roomType.push(
+                $scope.rooms[i].houseTypex
+              );
+          }
+        }
+
+        for (var i = 0; i < roomType.length; i++) {
+          roomTypes[i] = {
+            'houseTypex': roomType[i],
+            rooms: []
+          };
+        }
+
+        for (var i = 0; i < roomTypes.length; i++) {
+          for (var j = 0; j < $scope.rooms.length; j++) {
+            if ($scope.rooms[j].houseTypex == roomTypes[i].houseTypex) {
+              roomTypes[i].rooms.push($scope.rooms[j]);
+            }
+          }
+        }
+        //console.log(roomTypes)
+        return roomTypes
+  }
 }]);

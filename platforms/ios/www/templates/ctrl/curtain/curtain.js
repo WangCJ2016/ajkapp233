@@ -3,19 +3,25 @@ angular.module('curtain-controller', [])
 	$scope.goback = function() {
 		$rootScope.$ionicGoBack();
 	};
-	$scope.brightness = {
-		value1 :50,
-		value2:50
-	};
+	
 	var data = {
 		ip: sessionStorage.getItem('ip'),
 		deviceType: 'CURTAIN'
 	};
-	ApiService.ctrlHostDeviceByType(data).success(function(res){
+	ApiService.queryCurtains(data).success(function(res){
 		if(res.success){
-			$scope.devices = res.dataObject;
-			$scope.curtain = function(actionType){
-				var wayId = $scope.devices[0].ways[0].wayId;
+			for(var curtains in res.dataObject) {
+				//console.log(curtains)
+				res.dataObject[curtains].forEach(function(curtain) {
+					curtain.brightness = 50
+				})
+			}
+			
+			$scope.curtainArrays = res.dataObject
+			//console.log(res.dataObject)
+			$scope.length = Object.keys(res.dataObject).length
+			more()
+			$scope.curtainCtrl = function(actionType, wayId){
 				var data = {
 					houseId:sessionStorage.getItem('houseId'),
 					deviceType:'CURTAIN',
@@ -26,13 +32,13 @@ angular.module('curtain-controller', [])
 					brightness:100
 				};
 				ApiService.smartHostControl(data).success(function(res){
+					console.log(res)
 				});
 			};
 			$scope.change = function(value,actionType){
 
 			};
-			$scope.changeSubmit = function(brightness){
-				var wayId = $scope.devices[0].ways[0].wayId;
+			$scope.changeSubmit = function(brightness, wayId){
 				var data = {
 					houseId:sessionStorage.getItem('houseId'),
 					deviceType:'CURTAIN',
@@ -43,9 +49,34 @@ angular.module('curtain-controller', [])
 					brightness:brightness
 				};
 				ApiService.smartHostControl(data).success(function(res){
-
+					console.log(res)
 				});
 			};
 		}
 	});
+	//多个窗帘
+	 
+	function more() {
+		$scope.potArray = []
+		for (var i = $scope.length - 1; i >= 0; i--) {
+			$scope.potArray.push(i)
+		}
+		$scope.perWidth = 100 / $scope.length
+	  $scope.tvState = 0
+	}
+	
+	//向右滑
+	$scope.onSwipeRight = function() {
+		if ($scope.tvState > 0) {
+			$scope.tvState--
+		}
+	}
+	//向左滑
+	$scope.onSwipeLeft = function() {
+		if ($scope.tvState < $scope.length - 1) {
+			$scope.tvState++
+		}
+	}
+
+ 
 });

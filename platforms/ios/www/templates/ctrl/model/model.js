@@ -3,15 +3,17 @@ angular.module('model-controller', [])
 	$scope.goback = function(){
 	  $rootScope.$ionicGoBack();
 	}
-  $scope.modelArray = ['morning','sleep','read','checkout','movie','meeting'];
+  $scope.modelArray = ['起床','睡眠','阅读','外出','影视','迎宾'];
 	ApiService.queryHostScenes({serverId:sessionStorage.getItem('serverId')}).success(function(res){
 		if(res.success){
-			var models = res.dataObject;
+			console.log(res)
+			var models = res.dataObject
 			$scope.modelCtrl = function(type,index){
 				$scope.index=index;
 				var model = models.filter(function(model,index){
-					return model.name == type;
+					return   model.name == '情景' + type;
 				});
+				console.log(model)
 				var data = {
 					houseId:sessionStorage.getItem('houseId'),
 					deviceType:'SCENE',
@@ -20,6 +22,7 @@ angular.module('model-controller', [])
 					sceneId:model[0].sceneId
 				};
 				ApiService.smartHostControl(data).success(function(res){
+					console.log(res)
 				});
 			};
 		}

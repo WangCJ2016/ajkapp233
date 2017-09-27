@@ -2,6 +2,7 @@ angular.module('light-controller', [])
 .controller('lightCtrl',function($scope,$rootScope,$stateParams,$rootScope,ApiService,$state,$timeout){
 $scope.goback = function(){
   $rootScope.$ionicGoBack();
+  //$state.go('checkIn');
 }
   //跳转彩灯
 	$scope.goColorLight = function(){
@@ -23,6 +24,7 @@ $scope.goback = function(){
      ApiService.ctrlHostDeviceByType(data)
       .success(function(res){
      if(res.success){
+      console.log(res)
        $scope.lights=[];
        for(var i=0;i<res.dataObject.length;i++){
          $scope.lights = $scope.lights.concat(res.dataObject[i].ways);
@@ -47,7 +49,9 @@ $scope.goback = function(){
 				wayId:light.wayId,
 				brightness:90
 			};
-			ApiService.smartHostControl(data).success(function(res){});
+			ApiService.smartHostControl(data).success(function(res){
+        console.log(res)
+      });
 		};
        //模式控制
 		$scope.modelCtrl = function(type){

@@ -47,6 +47,7 @@ angular.module('lock-controller', [])
 		deviceType: 'FINGERPRINT_LOCK'
 	};
 	ApiService.ctrlHostDeviceByType(data).success(function(res){
+		console.log(res)
 		var deviceId = res.dataObject[0].deviceId;
 		if(res.dataObject){
 			$scope.touchStart = function($event) {
@@ -90,7 +91,7 @@ angular.module('lock-controller', [])
 				};
 
 				ApiService.smartHostControl(data).success(function(res){
-
+					console.log(res)
 				});
 			};
 		}

@@ -1126,3 +1126,26 @@ height: px2rem(110);
     }
   }
 }
+// 控制界面滑动点
+.slide-pot {
+  @extend %flex;
+  @extend %flexMainCenter;
+  padding-top: px2rem(10);
+  .pot{
+    width: px2rem(14);
+    height: px2rem(14);
+    border-radius: 50%;
+    background-color: #fff;
+    &.active {
+      background-color: $ajk_color!important;
+    }
+ }
+  .pot + .pot {
+    margin-left: px2rem(20)
+  }
+  .pot.pot_curtain {
+    background-color: #c1c7d1
+  }
+
+}
+

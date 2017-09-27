@@ -5,107 +5,139 @@ angular.module('tv-controller', [])
 	}
 
 	var data = {
-		ip : sessionStorage.getItem('ip'),
-		deviceType : 'VIRTUAL_TV_DVD_REMOTE'
+		houseId: sessionStorage.getItem('houseId')
 	};
-	ApiService.ctrlHostDeviceByType(data).success(function(res){
-		$scope.tvBox = res.dataObject.filter(function(data){
-			return data.name.indexOf('机顶盒')>-1;
-		});
-		$scope.tv = res.dataObject.filter(function(data){
-			return data.name.indexOf('电视机')>-1;
-		});
-			$scope.tvswitch = false;
+	
+	ApiService.queryTvDevices(data).success(function(res){
+		console.log(res)
+		$scope.tvArrays = res.dataObject
+		$scope.length = Object.keys($scope.tvArrays).length
+		more()
+		console.log($scope.length)
+		$scope.tvswitch = false;
 		//电视机开
-		$scope.tvon = function(){
-			$scope.tvswitch = !$scope.tvswitch;
+		$scope.tvon = function(tv){
+		$scope.tvswitch = !$scope.tvswitch;
 			if ($scope.tvswitch) {
-				setOrder('ON',$scope.tv[0].deviceId);
+				setOrder('ON', tv);
 			}else{
-				setOrder('OFF',$scope.tv[0].deviceId);
+				setOrder('OFF', tv);
 			}
-
-			var data = {
-				ip : sessionStorage.getItem('ip'),
-				deviceType : 'SOCKET'
-			};
-			// ApiService.ctrlHostDeviceByType(data).success(function(res){
-			//   var socket = res.dataObject.filter(function(data){
-			//     return data.name.indexOf('电视插座')>-1
-			//   })
-			//
-			// })
 		};
 
 			//电视加
-		$scope.tvAdd = function(){
-			setOrder('VOL_PLUS', $scope.tv[0].deviceId);
+		$scope.tvAdd = function(tv){
+			setOrder('VOL_PLUS', tv);
 		};
 			 //电视减
-		$scope.tvMunis = function(){
-			setOrder('VOL_SUB', $scope.tv[0].deviceId);
+		$scope.tvMunis = function(tv){
+			setOrder('VOL_SUB', tv);
 		};
 			 //机顶盒开
 		$scope.tvboxswitch = false;
-		$scope.tvBoxOn = function(){
+		$scope.tvBoxOn = function(tv){
 			$scope.tvboxswitch = !$scope.tvboxswitch;
 			if($scope.tvboxswitch){
-			setOrder('ON',$scope.tvBox[0].deviceId)
+			setOrder_box('ON',tv)
 		}else{
-			setOrder('OFF',$scope.tvBox[0].deviceId);
+			setOrder_box('OFF',tv);
 		}
 		};
 
 			 //机顶盒静音
-		$scope.tvBoxMute = function(){
-			setOrder('MUTE',$scope.tvBox[0].deviceId);
+		$scope.tvBoxMute = function(tv){
+			setOrder_box('MUTE',tv);
 		};
 			 //机顶盒返回
-		$scope.tvBoxReturn = function(){
-			setOrder('RETURN',$scope.tvBox[0].deviceId);
+		$scope.tvBoxReturn = function(tv){
+			setOrder_box('RETURN',tv);
 		};
 			 //机顶盒up
-		$scope.tvBoxUp = function(){
-			setOrder('UP',$scope.tvBox[0].deviceId);
+		$scope.tvBoxUp = function(tv){
+			setOrder_box('UP',tv);
 		};
 			 //机顶盒down
-		$scope.tvBoxDown = function(){
-			setOrder('DOWN',$scope.tvBox[0].deviceId);
+		$scope.tvBoxDown = function(tv){
+			setOrder_box('DOWN',tv);
 		};
 			 //机顶盒left
-		$scope.tvBoxLeft = function(){
-			setOrder('LEFT',$scope.tvBox[0].deviceId);
+		$scope.tvBoxLeft = function(tv){
+			setOrder_box('LEFT',tv);
 		};
 			 //机顶盒right
-		$scope.tvBoxRight = function(){
-			setOrder('RIGHT',$scope.tvBox[0].deviceId);
+		$scope.tvBoxRight = function(tv){
+			setOrder_box('RIGHT',tv);
 		};
 			 //机顶盒ok
-		$scope.tvBoxOk = function(){
-			setOrder('OK',$scope.tvBox[0].deviceId);
+		$scope.tvBoxOk = function(tv){
+			setOrder_box('OK',tv);
 		};
 			 //机顶盒right
-		$scope.tvBoxRight = function(){
-			setOrder('RIGHT',$scope.tvBox[0].deviceId);
+		$scope.tvBoxRight = function(tv){
+			setOrder_box('RIGHT',tv);
 		};
 			 //机顶盒num
-		$scope.tvBoxNum = function(num){
-			setOrder(num,$scope.tvBox[0].deviceId);
+		$scope.tvBoxNum = function(num, tv){
+			setOrder_box(num,tv);
 		};
-		function setOrder(key, deviceId) {
-					var data = {
-						houseId : sessionStorage.getItem('houseId'),
-						deviceType : 'VIRTUAL_TV_DVD_REMOTE',
-						deviceId : deviceId,
-						key : key,
+		function setOrder(key, tv) {
+			var deviceId = ''
+			for(let i in tv){
+	      if (i.indexOf('电视机')>-1) {
+	        deviceId = tv[i]
+	      }
+   	  }
+				var data = {
+					houseId : sessionStorage.getItem('houseId'),
+					deviceType : 'VIRTUAL_TV_DVD_REMOTE',
+					deviceId : deviceId,
+					key : key,
 					port:sessionStorage.getItem('port'),
 					serverId:sessionStorage.getItem('serverId')
-					};
+				};
 			ApiService.smartHostControl(data).success(function(res){console.log(res);});
 				}
 	});
-
+	function setOrder_box(key, tv) {
+			var deviceId = ''
+			for(let i in tv){
+	      if (i.indexOf('机顶')>-1) {
+	        deviceId = tv[i]
+	      }
+   	  }
+				var data = {
+					houseId : sessionStorage.getItem('houseId'),
+					deviceType : 'VIRTUAL_TV_DVD_REMOTE',
+					deviceId : deviceId,
+					key : key,
+					port:sessionStorage.getItem('port'),
+					serverId:sessionStorage.getItem('serverId')
+				};
+			ApiService.smartHostControl(data).success(function(res){console.log(res);});
+	}
 	$scope.tvon = function(){
 		$scope.tvswitch = !$scope.tvswitch;
+	}
+ // 多台电视机
+	function more() {
+		$scope.potArray = []
+		for (var i = $scope.length - 1; i >= 0; i--) {
+			$scope.potArray.push(i)
+		}
+		$scope.perWidth = 100 / $scope.length
+	  $scope.tvState = 0
+	}
+	
+	//向右滑
+	$scope.onSwipeRight = function() {
+		if ($scope.tvState > 0) {
+			$scope.tvState--
+		}
+	}
+	//向左滑
+	$scope.onSwipeLeft = function() {
+		if ($scope.tvState < $scope.length - 1) {
+			$scope.tvState++
+		}
 	}
 });

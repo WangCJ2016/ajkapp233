@@ -164,8 +164,6 @@ angular.module('starter.services', [])
       },
       //验证码校验
       verify: function(data) {
-
-        data.token = localStorage.getItem('token');
         return $http({　
           method: 'POST',
           url: AJKUrl + 'op/op_retrievePassword',
@@ -509,6 +507,24 @@ angular.module('starter.services', [])
           params: data
         });
       },
+      // 获取窗帘
+      queryCurtains: function(data) {
+        data.token = localStorage.getItem('token');
+        return $http({　
+          method: 'POST',
+          url: AJKUrl + "op/op_queryCurtains",
+          params: data
+        });
+      },
+      // 获取设备类型
+      queryDeviceType: function(data) {
+        data.token = localStorage.getItem('token');
+        return $http({　
+          method: 'POST',
+          url: AJKUrl + "op/op_queryDeviceType",
+          params: data
+        });
+      },
       //主机情景
       queryHostScenes: function(data) {
         data.token = localStorage.getItem('token');
@@ -524,6 +540,24 @@ angular.module('starter.services', [])
         return $http({　
           method: 'POST',
           url: AJKUrl + "op/op_queryHostDeviceByType",
+          params: data
+        });
+      },
+      // 获取电视机信息
+      queryTvDevices: function(data) {
+        data.token = localStorage.getItem('token');
+        return $http({　
+          method: 'POST',
+          url: AJKUrl + "we/we_queryTvDevices",
+          params: data
+        });
+      },
+      // 空调类型
+      queryHostDeviceByType: function(data) {
+        data.token = localStorage.getItem('token');
+        return $http({　
+          method: 'POST',
+          url: AJKUrl + "we/we_queryDeviceType",
           params: data
         });
       },

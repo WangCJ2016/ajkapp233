@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions','templates'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions'])
   .constant('AJKUrl', 'http://www.live-ctrl.com/aijukex/')
   .constant('AJKIp','http://192.168.0.109:8100/#')
   .constant('DuplicateLogin','你的账号在另一台手机登录,请重新登录')
@@ -19,6 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
           output:'JSON',
           key:'1cbf5e5ac9b4588d974214856a289ec6'
         }).success(function(res){
+          conosle.log(res)
           var lnglat = res.locations.split(',');
           sessionStorage.setItem('longitude',lnglat[0]);
           sessionStorage.setItem('latitude',lnglat[1]);
@@ -30,7 +31,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
     if(!ionic.Platform.isIOS()){
       MobileAccessibility.setTextZoom(100);
     }
-		$rootScope.$broadcast('cityChanges', function() {
+		$rootScope.$broadcast('ionio', function() {
 		});
 		if (!localStorage.getItem("city")) {
 			localStorage.setItem("city", "杭州");
@@ -62,7 +63,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
         //自动获取用户IP，返回当前城市
 			citysearch.getLocalCity(function(status, result) {
 				if (status === 'complete' && result.info === 'OK') {
+          sessionStorage.setItem('_city', JSON.stringify(result))
 					var cityinfo = result.city;
+          alert(result)
+          console.log(result)
 					if (localStorage.getItem("city") !== cityinfo) {
 						var myPopup = $ionicPopup.show({
 							template: '是否切换城市到' + cityinfo,

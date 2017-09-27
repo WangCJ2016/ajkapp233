@@ -34,7 +34,7 @@ angular.module('RetrievePwd-controller', [])
 	};
 	$scope.RetrievePwdBtn = function() {
 		ApiService.verify($scope.sendData).success(function(res) {
-      
+            console.log(res)
 			if (res.success == true) {
 				$state.go('login');
 
