@@ -1,15 +1,15 @@
-<ion-view title="窗帘">
+<ion-view title={{title}}>
   <ion-nav-buttons side="left">
     <button class="button button-clear ajk_back" ng-click="goback()"></button>
   </ion-nav-buttons>
-  <ion-content overflow-scroll="true" style="overflow: hidden;">
+  <ion-content class='transform_scroll' style="overflow-x: hidden; overflow-y:visible; ">
     <div class="slide-pot">
-    <span class="pot" ng-repeat='pot in potArray' ng-class='{active: $index === tvState}'></span>
-  </div>
+      <span class="pot pot_curtain" ng-repeat='pot in potArray' ng-class='{active: $index === tvState}' ></span>
+    </div>
     <div class="tvArrays" 
     on-swipe-right="onSwipeRight()" 
     on-swipe-left="onSwipeLeft()"
-    style="transform: translateX(-{{perWidth * tvState}}%);width: {{length}}00%">
+    style="width: {{length}}00%;transform: translateX(-{{perWidth * tvState}}%);">
     <div class="curtain_wrap" 
     ng-repeat='curtains in curtainArrays'
     style="width: {{perWidth}}%">

@@ -1,6 +1,6 @@
 angular.module('userCenter-controller', [])
     .controller('userCenter', function($scope, $state, $ionicViewSwitcher) {
-    	console.log(sessionStorage.getItem('_city'))
+    	//console.log(sessionStorage.getItem('_city'))
 	$scope.useName = '注册/登录';
 	$scope.imghead = 'imgs/wcj/imghead.png';
 	$scope.tip = false;

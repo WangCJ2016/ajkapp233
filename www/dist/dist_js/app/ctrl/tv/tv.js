@@ -3,7 +3,7 @@ angular.module('tv-controller', [])
 	$scope.goback = function(){
 	  $rootScope.$ionicGoBack();
 	}
-
+ 
 	var data = {
 		houseId: sessionStorage.getItem('houseId')
 	};
@@ -12,6 +12,7 @@ angular.module('tv-controller', [])
 		console.log(res)
 		$scope.tvArrays = res.dataObject
 		$scope.length = Object.keys($scope.tvArrays).length
+		$scope.title = Object.keys(Object.values($scope.tvArrays)[0])[0].replace(/[0-9$]/g, '')
 		more()
 		console.log($scope.length)
 		$scope.tvswitch = false;
@@ -132,12 +133,15 @@ angular.module('tv-controller', [])
 	$scope.onSwipeRight = function() {
 		if ($scope.tvState > 0) {
 			$scope.tvState--
+			$scope.title = Object.keys(Object.values($scope.tvArrays)[$scope.tvState])[0].replace(/[0-9$]/g, '')
+
 		}
 	}
 	//向左滑
 	$scope.onSwipeLeft = function() {
 		if ($scope.tvState < $scope.length - 1) {
 			$scope.tvState++
+			$scope.title = Object.keys(Object.values($scope.tvArrays)[$scope.tvState])[0].replace(/[0-9$]/g, '')
 		}
 	}
 }]);

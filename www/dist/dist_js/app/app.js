@@ -19,6 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
           output:'JSON',
           key:'1cbf5e5ac9b4588d974214856a289ec6'
         }).success(function(res){
+          conosle.log(res)
           var lnglat = res.locations.split(',');
           sessionStorage.setItem('longitude',lnglat[0]);
           sessionStorage.setItem('latitude',lnglat[1]);
@@ -30,7 +31,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
     if(!ionic.Platform.isIOS()){
       MobileAccessibility.setTextZoom(100);
     }
-		$rootScope.$broadcast('cityChanges', function() {
+		$rootScope.$broadcast('ionio', function() {
 		});
 		if (!localStorage.getItem("city")) {
 			localStorage.setItem("city", "杭州");
@@ -58,33 +59,63 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
         //sessionStorage.setItem("city", result.city);
 
-			var citysearch = new AMap.CitySearch();
-        //自动获取用户IP，返回当前城市
-			citysearch.getLocalCity(function(status, result) {
-				if (status === 'complete' && result.info === 'OK') {
-					var cityinfo = result.city;
-					if (localStorage.getItem("city") !== cityinfo) {
-						var myPopup = $ionicPopup.show({
-							template: '是否切换城市到' + cityinfo,
-							cssClass: 'ajk',
-							buttons: [{
-								text: '取消'
-							}, {
-								text: '<b>确定</b>',
-								onTap: function(e) {
-									localStorage.setItem("city", cityinfo);
-									sessionStorage.setItem("city", cityinfo);
-									$rootScope.$broadcast('cityChange');
-								}}
-							]}
-              );}
-					sessionStorage.setItem("nowcity", cityinfo);
-				}
-			});
+			// var citysearch = new AMap.CitySearch();
+   //      //自动获取用户IP，返回当前城市
+			// citysearch.getLocalCity(function(status, result) {
+			// 	if (status === 'complete' && result.info === 'OK') {
+   //        //sessionStorage.setItem('_city', JSON.stringify(result))
+			// 		var cityinfo = result.city;
+          
+			// 		if (localStorage.getItem("city") !== cityinfo) {
+			// 			var myPopup = $ionicPopup.show({
+			// 				template: '是否切换城市到' + cityinfo,
+			// 				cssClass: 'ajk',
+			// 				buttons: [{
+			// 					text: '取消'
+			// 				}, {
+			// 					text: '<b>确定</b>',
+			// 					onTap: function(e) {
+			// 						localStorage.setItem("city", cityinfo);
+			// 						sessionStorage.setItem("city", cityinfo);
+			// 						$rootScope.$broadcast('cityChange');
+			// 					}}
+			// 				]}
+   //            );}
+			// 		sessionStorage.setItem("nowcity", cityinfo);
+			// 	}
+			// });
 
 		});
 
 		function onComplete(data) {
+      console.log(data)
+      if (data.info === "SUCCESS") {
+         // sessionStorage.setItem('_city', JSON.stringify(result))
+         var cityinfo 
+          if (data.addressComponent.district !== '') {
+            cityinfo = data.addressComponent.district
+          } else {
+            cityinfo = data.addressComponent.city
+          }
+          
+          
+          if (localStorage.getItem("city") !== cityinfo) {
+            var myPopup = $ionicPopup.show({
+              template: '是否切换城市到' + cityinfo,
+              cssClass: 'ajk',
+              buttons: [{
+                text: '取消'
+              }, {
+                text: '<b>确定</b>',
+                onTap: function(e) {
+                  localStorage.setItem("city", cityinfo);
+                  sessionStorage.setItem("city", cityinfo);
+                  $rootScope.$broadcast('cityChange');
+                }}
+              ]}
+              );}
+          sessionStorage.setItem("nowcity", cityinfo);
+        }
 			sessionStorage.setItem("longitude", data.position.getLng());
 			sessionStorage.setItem("latitude", data.position.getLat());
 		}

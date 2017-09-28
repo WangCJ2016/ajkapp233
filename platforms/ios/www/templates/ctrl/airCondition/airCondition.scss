@@ -1,3 +1,6 @@
+.transform_scroll .scroll{
+  transform: translate3d(0,0,0)!important
+}
 .airCondition_wrap{
   background-color: $ajk_backColor;
   height: 100%;
@@ -148,9 +151,8 @@
       margin-top: px2rem(-62);
       width: px2rem(125);
       height: px2rem(125);
-      img{
-        width: px2rem(75);
-      }
+      @include font-dpr(30px);
+      color: $ajk_color;
     }
   }
 }

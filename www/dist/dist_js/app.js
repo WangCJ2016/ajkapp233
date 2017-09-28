@@ -19,6 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
           output:'JSON',
           key:'1cbf5e5ac9b4588d974214856a289ec6'
         }).success(function(res){
+          conosle.log(res)
           var lnglat = res.locations.split(',');
           sessionStorage.setItem('longitude',lnglat[0]);
           sessionStorage.setItem('latitude',lnglat[1]);
@@ -30,7 +31,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
     if(!ionic.Platform.isIOS()){
       MobileAccessibility.setTextZoom(100);
     }
-		$rootScope.$broadcast('cityChanges', function() {
+		$rootScope.$broadcast('ionio', function() {
 		});
 		if (!localStorage.getItem("city")) {
 			localStorage.setItem("city", "杭州");
@@ -58,33 +59,63 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
         //sessionStorage.setItem("city", result.city);
 
-			var citysearch = new AMap.CitySearch();
-        //自动获取用户IP，返回当前城市
-			citysearch.getLocalCity(function(status, result) {
-				if (status === 'complete' && result.info === 'OK') {
-					var cityinfo = result.city;
-					if (localStorage.getItem("city") !== cityinfo) {
-						var myPopup = $ionicPopup.show({
-							template: '是否切换城市到' + cityinfo,
-							cssClass: 'ajk',
-							buttons: [{
-								text: '取消'
-							}, {
-								text: '<b>确定</b>',
-								onTap: function(e) {
-									localStorage.setItem("city", cityinfo);
-									sessionStorage.setItem("city", cityinfo);
-									$rootScope.$broadcast('cityChange');
-								}}
-							]}
-              );}
-					sessionStorage.setItem("nowcity", cityinfo);
-				}
-			});
+			// var citysearch = new AMap.CitySearch();
+   //      //自动获取用户IP，返回当前城市
+			// citysearch.getLocalCity(function(status, result) {
+			// 	if (status === 'complete' && result.info === 'OK') {
+   //        //sessionStorage.setItem('_city', JSON.stringify(result))
+			// 		var cityinfo = result.city;
+          
+			// 		if (localStorage.getItem("city") !== cityinfo) {
+			// 			var myPopup = $ionicPopup.show({
+			// 				template: '是否切换城市到' + cityinfo,
+			// 				cssClass: 'ajk',
+			// 				buttons: [{
+			// 					text: '取消'
+			// 				}, {
+			// 					text: '<b>确定</b>',
+			// 					onTap: function(e) {
+			// 						localStorage.setItem("city", cityinfo);
+			// 						sessionStorage.setItem("city", cityinfo);
+			// 						$rootScope.$broadcast('cityChange');
+			// 					}}
+			// 				]}
+   //            );}
+			// 		sessionStorage.setItem("nowcity", cityinfo);
+			// 	}
+			// });
 
 		});
 
 		function onComplete(data) {
+      console.log(data)
+      if (data.info === "SUCCESS") {
+         // sessionStorage.setItem('_city', JSON.stringify(result))
+         var cityinfo 
+          if (data.addressComponent.district !== '') {
+            cityinfo = data.addressComponent.district
+          } else {
+            cityinfo = data.addressComponent.city
+          }
+          
+          
+          if (localStorage.getItem("city") !== cityinfo) {
+            var myPopup = $ionicPopup.show({
+              template: '是否切换城市到' + cityinfo,
+              cssClass: 'ajk',
+              buttons: [{
+                text: '取消'
+              }, {
+                text: '<b>确定</b>',
+                onTap: function(e) {
+                  localStorage.setItem("city", cityinfo);
+                  sessionStorage.setItem("city", cityinfo);
+                  $rootScope.$broadcast('cityChange');
+                }}
+              ]}
+              );}
+          sessionStorage.setItem("nowcity", cityinfo);
+        }
 			sessionStorage.setItem("longitude", data.position.getLng());
 			sessionStorage.setItem("latitude", data.position.getLat());
 		}
@@ -13392,6 +13423,7 @@ angular.module('invoice-controller', [])
 
 angular.module('userCenter-controller', [])
     .controller('userCenter', function($scope, $state, $ionicViewSwitcher) {
+    	//console.log(sessionStorage.getItem('_city'))
 	$scope.useName = '注册/登录';
 	$scope.imghead = 'imgs/wcj/imghead.png';
 	$scope.tip = false;
@@ -14900,12 +14932,13 @@ angular.module('airCondition-controller', [])
     }
     ApiService.queryDeviceType(data1)
     .success(function(res) {
-    	console.log(res)
+    	//console.log(res)
       $scope.deviceType = res.dataObject
       ApiService.ctrlHostDeviceByType(data).success(function(res) {
         console.log(res)
         if (res.success) {
           $scope.length = res.dataObject.length
+          $scope.title = res.dataObject[0].name.replace(/[0-9$]/g, '')
           //more(res.dataObject)
           $scope.airConditionArrays = []
           res.dataObject.forEach(function(air) {
@@ -14931,6 +14964,7 @@ angular.module('airCondition-controller', [])
             if ($scope.airState > 0) {
               $scope.airState--
               changeTempArray('制冷')
+              $scope.title = res.dataObject[$scope.airState].name.replace(/[0-9$]/g, '')
             }
           }
           //向左滑
@@ -14938,6 +14972,7 @@ angular.module('airCondition-controller', [])
             if ($scope.airState < $scope.length - 1) {
               $scope.airState++
               changeTempArray('制冷')
+              $scope.title = res.dataObject[$scope.airState].name.replace(/[0-9$]/g, '')
             }
           }
           var index = 0;
@@ -14976,9 +15011,12 @@ angular.module('airCondition-controller', [])
               serverId: sessionStorage.getItem('serverId'),
               temp: 'OFF',
               mode: arr.model === '制冷' ? 'COOL' : 'WARM', 
-              wind: 1 
+              wind: 1 ,
+              onOff: 'OFF'
             };
-            ApiService.smartHostControl(data);
+            ApiService.smartHostControl(data).success(function(res) {
+              console.log(res)
+            });
           };
         } else {
           $timeout(function() {
@@ -15098,14 +15136,14 @@ angular.module('curtain-controller', [])
 .controller('curtainCtrl',function($scope,ApiService,$rootScope,$stateParams){
 	$scope.goback = function() {
 		$rootScope.$ionicGoBack();
-	};
-	
+	};	
 	var data = {
 		ip: sessionStorage.getItem('ip'),
 		deviceType: 'CURTAIN'
 	};
 	ApiService.queryCurtains(data).success(function(res){
 		if(res.success){
+			console.log(res)
 			for(var curtains in res.dataObject) {
 				//console.log(curtains)
 				res.dataObject[curtains].forEach(function(curtain) {
@@ -15114,6 +15152,7 @@ angular.module('curtain-controller', [])
 			}
 			
 			$scope.curtainArrays = res.dataObject
+			$scope.title = Object.keys(res.dataObject)[0]
 			//console.log(res.dataObject)
 			$scope.length = Object.keys(res.dataObject).length
 			more()
@@ -15165,12 +15204,14 @@ angular.module('curtain-controller', [])
 	$scope.onSwipeRight = function() {
 		if ($scope.tvState > 0) {
 			$scope.tvState--
+			$scope.title = Object.keys($scope.curtainArrays)[$scope.tvState]
 		}
 	}
 	//向左滑
 	$scope.onSwipeLeft = function() {
 		if ($scope.tvState < $scope.length - 1) {
 			$scope.tvState++
+			$scope.title = Object.keys($scope.curtainArrays)[$scope.tvState]
 		}
 	}
 
@@ -15182,7 +15223,7 @@ angular.module('tv-controller', [])
 	$scope.goback = function(){
 	  $rootScope.$ionicGoBack();
 	}
-
+ 
 	var data = {
 		houseId: sessionStorage.getItem('houseId')
 	};
@@ -15191,6 +15232,7 @@ angular.module('tv-controller', [])
 		console.log(res)
 		$scope.tvArrays = res.dataObject
 		$scope.length = Object.keys($scope.tvArrays).length
+		$scope.title = Object.keys(Object.values($scope.tvArrays)[0])[0].replace(/[0-9$]/g, '')
 		more()
 		console.log($scope.length)
 		$scope.tvswitch = false;
@@ -15311,12 +15353,15 @@ angular.module('tv-controller', [])
 	$scope.onSwipeRight = function() {
 		if ($scope.tvState > 0) {
 			$scope.tvState--
+			$scope.title = Object.keys(Object.values($scope.tvArrays)[$scope.tvState])[0].replace(/[0-9$]/g, '')
+
 		}
 	}
 	//向左滑
 	$scope.onSwipeLeft = function() {
 		if ($scope.tvState < $scope.length - 1) {
 			$scope.tvState++
+			$scope.title = Object.keys(Object.values($scope.tvArrays)[$scope.tvState])[0].replace(/[0-9$]/g, '')
 		}
 	}
 });
@@ -15602,18 +15647,19 @@ angular.module('model-controller', [])
 		if(res.success){
 			console.log(res)
 			var models = res.dataObject
-			$scope.modelCtrl = function(type,index){
-				$scope.index=index;
-				var model = models.filter(function(model,index){
-					return   model.name == '情景' + type;
+			$scope.modelArray = models.filter(function(model,index){
+					return   model.name.indexOf('情景') > -1;
 				});
-				console.log(model)
+			console.log($scope.modelArray)
+			$scope.modelCtrl = function(sceneId, index){
+				$scope.index=index;
+
 				var data = {
 					houseId:sessionStorage.getItem('houseId'),
 					deviceType:'SCENE',
 					port:sessionStorage.getItem('port'),
 					serverId:sessionStorage.getItem('serverId'),
-					sceneId:model[0].sceneId
+					sceneId: sceneId
 				};
 				ApiService.smartHostControl(data).success(function(res){
 					console.log(res)

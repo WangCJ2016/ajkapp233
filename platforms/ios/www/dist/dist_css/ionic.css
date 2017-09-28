@@ -13683,9 +13683,7 @@ iframe {
 .tvArrays {
   height: 100%;
   overflow: hidden;
-  transition: -webkit-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s; }
+  transition: transform 1s ease-in, -webkit-transform 1s ease-in; }
 .futrue_wrap {
   padding-top: 0.26667rem;
   height: 100%;

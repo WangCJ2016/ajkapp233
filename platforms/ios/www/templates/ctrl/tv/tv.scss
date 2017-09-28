@@ -1,7 +1,7 @@
  .tvArrays{
     height: 100%;
-    overflow: hidden;
-    transition: transform 1s;
+    overflow: auto;
+    transition: transform 1s ease-in, -webkit-transform 1s ease-in!important;
   }
 .futrue_wrap{
   padding-top: px2rem(20);
@@ -123,9 +123,8 @@
       top:43%;
       margin-left: px2rem(-50);
       margin-top: px2rem(-50);
-      img{
-        width: px2rem(102);
-      }
+      @include font-dpr(30px);
+      color: $ajk_color;
     }
   }
 }

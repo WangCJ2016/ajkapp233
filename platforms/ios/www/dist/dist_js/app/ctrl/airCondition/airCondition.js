@@ -13,12 +13,13 @@ angular.module('airCondition-controller', [])
     }
     ApiService.queryDeviceType(data1)
     .success(function(res) {
-    	console.log(res)
+    	//console.log(res)
       $scope.deviceType = res.dataObject
       ApiService.ctrlHostDeviceByType(data).success(function(res) {
         console.log(res)
         if (res.success) {
           $scope.length = res.dataObject.length
+          $scope.title = res.dataObject[0].name.replace(/[0-9$]/g, '')
           //more(res.dataObject)
           $scope.airConditionArrays = []
           res.dataObject.forEach(function(air) {
@@ -44,6 +45,7 @@ angular.module('airCondition-controller', [])
             if ($scope.airState > 0) {
               $scope.airState--
               changeTempArray('制冷')
+              $scope.title = res.dataObject[$scope.airState].name.replace(/[0-9$]/g, '')
             }
           }
           //向左滑
@@ -51,6 +53,7 @@ angular.module('airCondition-controller', [])
             if ($scope.airState < $scope.length - 1) {
               $scope.airState++
               changeTempArray('制冷')
+              $scope.title = res.dataObject[$scope.airState].name.replace(/[0-9$]/g, '')
             }
           }
           var index = 0;
@@ -89,9 +92,12 @@ angular.module('airCondition-controller', [])
               serverId: sessionStorage.getItem('serverId'),
               temp: 'OFF',
               mode: arr.model === '制冷' ? 'COOL' : 'WARM', 
-              wind: 1 
+              wind: 1 ,
+              onOff: 'OFF'
             };
-            ApiService.smartHostControl(data);
+            ApiService.smartHostControl(data).success(function(res) {
+              console.log(res)
+            });
           };
         } else {
           $timeout(function() {

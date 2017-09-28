@@ -1,24 +1,45 @@
 
 .light_wrap{
     background-color: $ajk_backColor;
-  .model{
-      border-bottom: 1px dash $ajk_borderColor;
-    height: px2rem(270);
-      padding: 0 px2rem(50);
-      @extend %flex;
-      @extend %flexMainJustify;
-      figure{
-        height: 100%;
-        width: px2rem(130);
-        img{
-          margin: px2rem(30) 0 px2rem(40) 0;
-          width: px2rem(130);
-          height: px2rem(130);
-        }
-        figcaption{
-          @include font-dpr(15px);
-        }
-      }
+  // .model{
+  //     border-bottom: 1px dash $ajk_borderColor;
+  //   height: px2rem(270);
+  //     padding: 0 px2rem(50);
+  //     @extend %flex;
+  //     @extend %flexMainJustify;
+  //     figure{
+  //       height: 100%;
+  //       width: px2rem(130);
+  //       img{
+  //         margin: px2rem(30) 0 px2rem(40) 0;
+  //         width: px2rem(130);
+  //         height: px2rem(130);
+  //       }
+  //       figcaption{
+  //         @include font-dpr(15px);
+  //       }
+  //     }
+  // }
+  .tab_wrap{
+    width: 100%;
+    height: px2rem(98);
+    background-color: #fff;
+    .tab_nav{
+      box-sizing: border-box; 
+      width: 25%;
+      line-height: px2rem(98);
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      display: inline-block;
+      @include font-dpr(18px);
+    }
+    .active {
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #ccc;
+      border-top: 4px solid $ajk_color;
+      border-bottom: none;
+      color: $ajk_color
+    }
   }
   .lights{
     background-color: #fff;
