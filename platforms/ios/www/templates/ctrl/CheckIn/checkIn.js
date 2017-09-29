@@ -36,7 +36,7 @@ angular.module('checkIn-controller', [])
 				$state.go('curtain');
 			};
 			$scope.goLock = function() {
-				$state.go('lock');
+				$state.go('lock', {name: res.dataObject.name});
 			};
 			$scope.goService = function() {
 				$state.go('service');

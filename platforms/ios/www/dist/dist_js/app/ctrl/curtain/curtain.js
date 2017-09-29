@@ -59,8 +59,10 @@ angular.module('curtain-controller', [])
 	 
 	function more() {
 		$scope.potArray = []
-		for (var i = $scope.length - 1; i >= 0; i--) {
-			$scope.potArray.push(i)
+		if ($scope.length > 1) {
+			for (var i = $scope.length - 1; i >= 0; i--) {
+				$scope.potArray.push(i)
+			}
 		}
 		$scope.perWidth = 100 / $scope.length
 	  $scope.tvState = 0

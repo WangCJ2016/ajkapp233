@@ -19,7 +19,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
           output:'JSON',
           key:'1cbf5e5ac9b4588d974214856a289ec6'
         }).success(function(res){
-          conosle.log(res)
           var lnglat = res.locations.split(',');
           sessionStorage.setItem('longitude',lnglat[0]);
           sessionStorage.setItem('latitude',lnglat[1]);
@@ -416,6 +415,7 @@ controller:'futrueCtrl'
 })
       .state('curtain', {
 	url: '/curtain',
+  cache:false,
 	templateUrl: 'templates/ctrl/curtain/curtain.html',
 	controller:'curtainCtrl'
 })
@@ -426,21 +426,24 @@ controller:'futrueCtrl'
 })
       .state('model', {
 	url: '/model',
+  cache:false,
 	templateUrl: 'templates/ctrl/model/model.html',
 	controller:'modelCtrl'
 })
       .state('tv', {
 	url: '/tv',
+  cache:false,
 	templateUrl: 'templates/ctrl/tv/tv.html',
 	controller:'tvCtrl'
 })
       .state('airCondition', {
 	url: '/airCondition',
+  cache:false,
 	templateUrl: 'templates/ctrl/airCondition/airCondition.html',
 	controller:"airCtrl"
 })
       .state('lock', {
-	url: '/lock',
+	url: '/lock/:name',
 	cache:false,
 	templateUrl: 'templates/ctrl/lock/lock.html',
 	controller:"lockCtrl"
@@ -462,6 +465,7 @@ controller:'futrueCtrl'
 })
       .state('service', {
 	url: '/service',
+  cache:false,
 	templateUrl: 'templates/ctrl/service/service.html',
 	controller:'serviceCtrl'
 })
@@ -14953,14 +14957,16 @@ angular.module('airCondition-controller', [])
 
             $scope.airConditionArrays.push(airData)
           })
-          console.log($scope.airConditionArrays)
+          //console.log($scope.airConditionArrays)
           more()
           $scope.airState = 0
           $scope.model = '制冷'
           changeTempArray('制冷')
            
           //向右滑
-          $scope.onSwipeRight = function() {
+          $scope.onSwipeRight = function(e) {
+            e.preventDefault()
+            e.stopPropagation()
             if ($scope.airState > 0) {
               $scope.airState--
               changeTempArray('制冷')
@@ -14968,12 +14974,19 @@ angular.module('airCondition-controller', [])
             }
           }
           //向左滑
-          $scope.onSwipeLeft = function() {
+          $scope.onSwipeLeft = function(e) {
+            e.preventDefault()
+            e.stopPropagation()
             if ($scope.airState < $scope.length - 1) {
               $scope.airState++
               changeTempArray('制冷')
               $scope.title = res.dataObject[$scope.airState].name.replace(/[0-9$]/g, '')
             }
+          }
+          $scope.onDrag = function(e) {
+            console.log(e)
+            e.preventDefault()
+            e.stopPropagation()
           }
           var index = 0;
 
@@ -15030,8 +15043,10 @@ angular.module('airCondition-controller', [])
     //多个空调
     function more() {
       $scope.potArray = []
-      for (var i = $scope.length - 1; i >= 0; i--) {
-        $scope.potArray.push(i)
+      if ($scope.length > 1) {
+        for (var i = $scope.length - 1; i >= 0; i--) {
+          $scope.potArray.push(i)
+       }
       }
       $scope.perWidth = 100 / $scope.length
     }
@@ -15193,8 +15208,10 @@ angular.module('curtain-controller', [])
 	 
 	function more() {
 		$scope.potArray = []
-		for (var i = $scope.length - 1; i >= 0; i--) {
-			$scope.potArray.push(i)
+		if ($scope.length > 1) {
+			for (var i = $scope.length - 1; i >= 0; i--) {
+				$scope.potArray.push(i)
+			}
 		}
 		$scope.perWidth = 100 / $scope.length
 	  $scope.tvState = 0
@@ -15231,18 +15248,30 @@ angular.module('tv-controller', [])
 	ApiService.queryTvDevices(data).success(function(res){
 		console.log(res)
 		$scope.tvArrays = res.dataObject
+		for(var i in $scope.tvArrays) {
+			$scope.tvArrays[i].tv_status = 'OFF'
+		}
 		$scope.length = Object.keys($scope.tvArrays).length
 		$scope.title = Object.keys(Object.values($scope.tvArrays)[0])[0].replace(/[0-9$]/g, '')
 		more()
 		console.log($scope.length)
 		$scope.tvswitch = false;
 		//电视机开
-		$scope.tvon = function(tv){
+		$scope.tvon = function(tv, status, index){
 		$scope.tvswitch = !$scope.tvswitch;
-			if ($scope.tvswitch) {
+		  var status ;
+			if (status === 'OFF') {
 				setOrder('ON', tv);
+				status = 'ON'
 			}else{
 				setOrder('OFF', tv);
+				status = 'OFF'
+			}
+			for(var i in $scope.tvArrays) {
+				//console.log(i, index)
+				if (i == index + 1) {
+					$scope.tvArrays[i].tv_status = status
+				}
 			}
 		};
 
@@ -15342,8 +15371,10 @@ angular.module('tv-controller', [])
  // 多台电视机
 	function more() {
 		$scope.potArray = []
-		for (var i = $scope.length - 1; i >= 0; i--) {
+		if ($scope.potArray > 1) {
+			for (var i = $scope.length - 1; i >= 0; i--) {
 			$scope.potArray.push(i)
+		}
 		}
 		$scope.perWidth = 100 / $scope.length
 	  $scope.tvState = 0
@@ -15527,7 +15558,7 @@ angular.module('checkIn-controller', [])
 				$state.go('curtain');
 			};
 			$scope.goLock = function() {
-				$state.go('lock');
+				$state.go('lock', {name: res.dataObject.name});
 			};
 			$scope.goService = function() {
 				$state.go('service');
@@ -15679,13 +15710,15 @@ $scope.goback = function(){
 	$scope.goColorLight = function(){
 		$state.go('colorPicker');
 	};
+  $scope.tab_navs = ['卧室', '卫生间', '走廊', '其他']
    //获取情景模式
-	ApiService.queryHostScenes({serverId:sessionStorage.getItem('serverId')}).success(function(res){
-		$scope.models = res.dataObject;
-		$scope.models.map(function(model){
-			model.bgSelect = false;
-		});
-	});
+	// ApiService.queryHostScenes({serverId:sessionStorage.getItem('serverId')})
+ //  .success(function(res){
+	// 	$scope.models = res.dataObject;
+	// 	$scope.models.map(function(model){
+	// 		model.bgSelect = false;
+	// 	});
+	// });
 	var data = {
 		deviceType:'SWITCH',
 		ip:sessionStorage.getItem('ip')
@@ -15700,13 +15733,25 @@ $scope.goback = function(){
        for(var i=0;i<res.dataObject.length;i++){
          $scope.lights = $scope.lights.concat(res.dataObject[i].ways);
        }
-       $scope.lights = $scope.lights.filter(function(light,index){
+       $scope.allLights = $scope.lights.filter(function(light,index){
          return light.name.indexOf('灯')>-1;
        });
+       $scope.tabClick('卧室', 0)
      }
    })
    }
    getways();
+   //切换tab
+   $scope.tabClick = function(type, index) {
+      $scope.lights = $scope.allLights.filter(function(light,index){
+         return light.name.indexOf(type)>-1;
+       });
+
+       $scope.lights.forEach(function(light) {
+         return light.name = light.name.replace(type, '')
+       })
+      $scope.tabIndex = index
+   }
        //灯控制
 		$scope.lightCtrl = function(light){
 			var status = light.status=='ON'?"CLOSE":'OPEN';
@@ -15831,7 +15876,9 @@ angular.module("colorPicker-controller", [])
 });
 
 angular.module('lock-controller', [])
-  .controller('lockCtrl', function($scope,ApiService,$rootScope) {
+  .controller('lockCtrl', function($scope,ApiService,$rootScope, $stateParams) {
+    console.log($stateParams)
+    $scope.name = $stateParams.name.replace(/[^0-9]/g, '')
     $scope.goback = function(){
       $rootScope.$ionicGoBack();
     }

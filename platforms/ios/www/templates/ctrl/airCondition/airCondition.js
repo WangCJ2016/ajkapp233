@@ -34,7 +34,7 @@ angular.module('airCondition-controller', [])
 
             $scope.airConditionArrays.push(airData)
           })
-          console.log($scope.airConditionArrays)
+          //console.log($scope.airConditionArrays)
           more()
           $scope.airState = 0
           $scope.model = '制冷'

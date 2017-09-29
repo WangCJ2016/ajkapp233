@@ -11,18 +11,30 @@ angular.module('tv-controller', [])
 	ApiService.queryTvDevices(data).success(function(res){
 		console.log(res)
 		$scope.tvArrays = res.dataObject
+		for(var i in $scope.tvArrays) {
+			$scope.tvArrays[i].tv_status = 'OFF'
+		}
 		$scope.length = Object.keys($scope.tvArrays).length
 		$scope.title = Object.keys(Object.values($scope.tvArrays)[0])[0].replace(/[0-9$]/g, '')
 		more()
 		console.log($scope.length)
 		$scope.tvswitch = false;
 		//电视机开
-		$scope.tvon = function(tv){
+		$scope.tvon = function(tv, status, index){
 		$scope.tvswitch = !$scope.tvswitch;
-			if ($scope.tvswitch) {
+		  var status ;
+			if (status === 'OFF') {
 				setOrder('ON', tv);
+				status = 'ON'
 			}else{
 				setOrder('OFF', tv);
+				status = 'OFF'
+			}
+			for(var i in $scope.tvArrays) {
+				//console.log(i, index)
+				if (i == index + 1) {
+					$scope.tvArrays[i].tv_status = status
+				}
 			}
 		};
 
@@ -122,8 +134,10 @@ angular.module('tv-controller', [])
  // 多台电视机
 	function more() {
 		$scope.potArray = []
-		for (var i = $scope.length - 1; i >= 0; i--) {
+		if ($scope.potArray > 1) {
+			for (var i = $scope.length - 1; i >= 0; i--) {
 			$scope.potArray.push(i)
+		}
 		}
 		$scope.perWidth = 100 / $scope.length
 	  $scope.tvState = 0

@@ -19,7 +19,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
           output:'JSON',
           key:'1cbf5e5ac9b4588d974214856a289ec6'
         }).success(function(res){
-          conosle.log(res)
           var lnglat = res.locations.split(',');
           sessionStorage.setItem('longitude',lnglat[0]);
           sessionStorage.setItem('latitude',lnglat[1]);
@@ -416,6 +415,7 @@ controller:'futrueCtrl'
 })
       .state('curtain', {
 	url: '/curtain',
+  cache:false,
 	templateUrl: 'templates/ctrl/curtain/curtain.html',
 	controller:'curtainCtrl'
 })
@@ -426,21 +426,24 @@ controller:'futrueCtrl'
 })
       .state('model', {
 	url: '/model',
+  cache:false,
 	templateUrl: 'templates/ctrl/model/model.html',
 	controller:'modelCtrl'
 })
       .state('tv', {
 	url: '/tv',
+  cache:false,
 	templateUrl: 'templates/ctrl/tv/tv.html',
 	controller:'tvCtrl'
 })
       .state('airCondition', {
 	url: '/airCondition',
+  cache:false,
 	templateUrl: 'templates/ctrl/airCondition/airCondition.html',
 	controller:"airCtrl"
 })
       .state('lock', {
-	url: '/lock',
+	url: '/lock/:name',
 	cache:false,
 	templateUrl: 'templates/ctrl/lock/lock.html',
 	controller:"lockCtrl"
@@ -462,6 +465,7 @@ controller:'futrueCtrl'
 })
       .state('service', {
 	url: '/service',
+  cache:false,
 	templateUrl: 'templates/ctrl/service/service.html',
 	controller:'serviceCtrl'
 })

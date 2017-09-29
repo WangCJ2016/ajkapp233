@@ -41,7 +41,9 @@ angular.module('airCondition-controller', [])
           changeTempArray('制冷')
            
           //向右滑
-          $scope.onSwipeRight = function() {
+          $scope.onSwipeRight = function(e) {
+            e.preventDefault()
+            e.stopPropagation()
             if ($scope.airState > 0) {
               $scope.airState--
               changeTempArray('制冷')
@@ -49,12 +51,19 @@ angular.module('airCondition-controller', [])
             }
           }
           //向左滑
-          $scope.onSwipeLeft = function() {
+          $scope.onSwipeLeft = function(e) {
+            e.preventDefault()
+            e.stopPropagation()
             if ($scope.airState < $scope.length - 1) {
               $scope.airState++
               changeTempArray('制冷')
               $scope.title = res.dataObject[$scope.airState].name.replace(/[0-9$]/g, '')
             }
+          }
+          $scope.onDrag = function(e) {
+            console.log(e)
+            e.preventDefault()
+            e.stopPropagation()
           }
           var index = 0;
 
@@ -111,8 +120,10 @@ angular.module('airCondition-controller', [])
     //多个空调
     function more() {
       $scope.potArray = []
-      for (var i = $scope.length - 1; i >= 0; i--) {
-        $scope.potArray.push(i)
+      if ($scope.length > 1) {
+        for (var i = $scope.length - 1; i >= 0; i--) {
+          $scope.potArray.push(i)
+       }
       }
       $scope.perWidth = 100 / $scope.length
     }

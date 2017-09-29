@@ -1,5 +1,7 @@
 angular.module('lock-controller', [])
-  .controller('lockCtrl', ['$scope', 'ApiService', '$rootScope', function($scope,ApiService,$rootScope) {
+  .controller('lockCtrl', ['$scope', 'ApiService', '$rootScope', '$stateParams', function($scope,ApiService,$rootScope, $stateParams) {
+    console.log($stateParams)
+    $scope.name = $stateParams.name.replace(/[^0-9]/g, '')
     $scope.goback = function(){
       $rootScope.$ionicGoBack();
     }

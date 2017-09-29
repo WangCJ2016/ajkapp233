@@ -19,7 +19,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
           output:'JSON',
           key:'1cbf5e5ac9b4588d974214856a289ec6'
         }).success(function(res){
-          conosle.log(res)
           var lnglat = res.locations.split(',');
           sessionStorage.setItem('longitude',lnglat[0]);
           sessionStorage.setItem('latitude',lnglat[1]);
@@ -257,7 +256,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
 })
   .config(function($ionicConfigProvider, $ionicNativeTransitionsProvider,$cordovaInAppBrowserProvider) {
-	var defaultOptions = {
+	$ionicConfigProvider.views.swipeBackEnabled(false);
+  $ionicConfigProvider.backButton.text('');        
+  $ionicConfigProvider.backButton.previousTitleText(false);
+  var defaultOptions = {
 		location: 'no',
 		clearcache: 'no',
 		toolbar: 'no'
@@ -444,7 +446,7 @@ controller:'futrueCtrl'
 	controller:"airCtrl"
 })
       .state('lock', {
-	url: '/lock',
+	url: '/lock/:name',
 	cache:false,
 	templateUrl: 'templates/ctrl/lock/lock.html',
 	controller:"lockCtrl"
