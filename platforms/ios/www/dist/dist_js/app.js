@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions', 'templates'])
   .constant('AJKUrl', 'http://www.live-ctrl.com/aijukex/')
   .constant('AJKIp','http://192.168.0.109:8100/#')
   .constant('DuplicateLogin','你的账号在另一台手机登录,请重新登录')
@@ -256,7 +256,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
 })
   .config(function($ionicConfigProvider, $ionicNativeTransitionsProvider,$cordovaInAppBrowserProvider) {
-	var defaultOptions = {
+	// 防止滑动白屏
+  $ionicConfigProvider.views.swipeBackEnabled(false);
+  $ionicConfigProvider.backButton.text('');        
+  $ionicConfigProvider.backButton.previousTitleText(false);
+  var defaultOptions = {
 		location: 'no',
 		clearcache: 'no',
 		toolbar: 'no'
@@ -303,7 +307,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
       .state('tab.home', {
 	url: '/home',
 	nativeTransitions: null,
-	cache:false,
+  cache: false,
 	views: {
 		'tab-home': {
 			templateUrl: 'templates/home/home.html',
@@ -10275,6 +10279,7 @@ angular.module('home-controller', [])
     $scope.city = localStorage.getItem('city')?localStorage.getItem('city'):'杭州';
 	$scope.$on('cityChanges', function() {
 		$scope.city = localStorage.getItem('city');
+    getHomePageHotels()
 	});
   
 	$scope.$on('cityChange', function() {
@@ -10296,9 +10301,7 @@ angular.module('home-controller', [])
     //定位
     //Ã–Ã·Â¹Ã£Â¸Ã¦
 	$scope.mainADs = mainADs.data.result;
-	$ionicLoading.show({
-		template: '<ion-spinner icon="ios"></ion-spinner>'
-	});
+	
     //
 	$scope.goSelectBussiniss = function($event) {
 		$event.preventDefault();
@@ -10315,24 +10318,27 @@ angular.module('home-controller', [])
     //酒店列表
 	var pageNo = 1;
 	$scope.moreDataCanBeLoaded = true;
-	ApiService.getHomePageHotels({
-		pageNo: pageNo,
-		pageSize: 5,
-    address:encodeURI(sessionStorage.getItem("city")||'杭州市')
-	}).success(function(res) {
-		if (res.success) {
-			$ionicLoading.hide();
-      $scope.hotels = res.result.map(function(hotel){
-        //评价星星
-      hotel.full_stars = [];
-      hotel.full_stars.length = parseInt(hotel.stars,10)||5;
-      hotel.star_blank = [];
-      hotel.star_blank.length = 5 - hotel.full_stars.length;
-      return hotel
-      })
-			pageNo++;
-		}
-	});
+  function getHomePageHotels() {
+    ApiService.getHomePageHotels({
+      pageNo: pageNo,
+      pageSize: 5,
+      address:encodeURI(sessionStorage.getItem("city")||'杭州市')
+    }).success(function(res) {
+      if (res.success) {
+        // $ionicLoading.hide();
+        $scope.hotels = res.result.map(function(hotel){
+          //评价星星
+        hotel.full_stars = [];
+        hotel.full_stars.length = parseInt(hotel.stars,10)||5;
+        hotel.star_blank = [];
+        hotel.star_blank.length = 5 - hotel.full_stars.length;
+        return hotel
+        })
+        pageNo++;
+      }
+    });
+  }
+	getHomePageHotels()
 	$scope.loadMoreData = function() {
 		ApiService.getHomePageHotels({
 			pageNo: pageNo,
@@ -11762,9 +11768,12 @@ angular.module('beLandlord-controller', [])
       $scope.select = false;
       ApiService.getCustomerInfo({customerId: localStorage.getItem('customerId')})
       .success(function(res){
-        if (res.dataObject.type===1) {
-          $scope.select = true
-        }
+         console.log(res)
+         if (res.success) {
+           if (res.dataObject.type===1) {
+             $scope.select = true
+           }
+         }
       })
 	$scope.figureDatas = [{ img: 'my_account', figcaption: '我的收入' }, { img: 'join_us', figcaption: '我的收入' }, { img: 'my_house', figcaption: '我的收入' }];
 	$scope.active = function() {
@@ -11803,7 +11812,7 @@ angular.module('Orderform-controller', [])
 				"timeout": "30m", //超时设置
 				"notifyUrl": "http://www.live-ctrl.com/aijukex/op/op_notifyOrder"
 			}, function(resultStatus) {
-
+        $state.go('tab.ctrl');
 			}, function(message) {
 
 			});
@@ -15371,7 +15380,7 @@ angular.module('tv-controller', [])
  // 多台电视机
 	function more() {
 		$scope.potArray = []
-		if ($scope.potArray > 1) {
+		if ($scope.length > 1) {
 			for (var i = $scope.length - 1; i >= 0; i--) {
 			$scope.potArray.push(i)
 		}

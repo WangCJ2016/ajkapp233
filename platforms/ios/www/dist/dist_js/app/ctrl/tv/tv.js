@@ -134,7 +134,7 @@ angular.module('tv-controller', [])
  // 多台电视机
 	function more() {
 		$scope.potArray = []
-		if ($scope.potArray > 1) {
+		if ($scope.length > 1) {
 			for (var i = $scope.length - 1; i >= 0; i--) {
 			$scope.potArray.push(i)
 		}

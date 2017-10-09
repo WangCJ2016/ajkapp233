@@ -8,13 +8,15 @@ $scope.goback = function(){
 	$scope.goColorLight = function(){
 		$state.go('colorPicker');
 	};
+  $scope.tab_navs = ['卧室', '卫生间', '走廊', '其他']
    //获取情景模式
-	ApiService.queryHostScenes({serverId:sessionStorage.getItem('serverId')}).success(function(res){
-		$scope.models = res.dataObject;
-		$scope.models.map(function(model){
-			model.bgSelect = false;
-		});
-	});
+	// ApiService.queryHostScenes({serverId:sessionStorage.getItem('serverId')})
+ //  .success(function(res){
+	// 	$scope.models = res.dataObject;
+	// 	$scope.models.map(function(model){
+	// 		model.bgSelect = false;
+	// 	});
+	// });
 	var data = {
 		deviceType:'SWITCH',
 		ip:sessionStorage.getItem('ip')
@@ -29,13 +31,25 @@ $scope.goback = function(){
        for(var i=0;i<res.dataObject.length;i++){
          $scope.lights = $scope.lights.concat(res.dataObject[i].ways);
        }
-       $scope.lights = $scope.lights.filter(function(light,index){
+       $scope.allLights = $scope.lights.filter(function(light,index){
          return light.name.indexOf('灯')>-1;
        });
+       $scope.tabClick('卧室', 0)
      }
    })
    }
    getways();
+   //切换tab
+   $scope.tabClick = function(type, index) {
+      $scope.lights = $scope.allLights.filter(function(light,index){
+         return light.name.indexOf(type)>-1;
+       });
+
+       $scope.lights.forEach(function(light) {
+         return light.name = light.name.replace(type, '')
+       })
+      $scope.tabIndex = index
+   }
        //灯控制
 		$scope.lightCtrl = function(light){
 			var status = light.status=='ON'?"CLOSE":'OPEN';

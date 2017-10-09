@@ -256,7 +256,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
 })
   .config(function($ionicConfigProvider, $ionicNativeTransitionsProvider,$cordovaInAppBrowserProvider) {
-	$ionicConfigProvider.views.swipeBackEnabled(false);
+	// 防止滑动白屏
+  $ionicConfigProvider.views.swipeBackEnabled(false);
   $ionicConfigProvider.backButton.text('');        
   $ionicConfigProvider.backButton.previousTitleText(false);
   var defaultOptions = {
@@ -306,7 +307,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
       .state('tab.home', {
 	url: '/home',
 	nativeTransitions: null,
-	cache:false,
+  cache: false,
 	views: {
 		'tab-home': {
 			templateUrl: 'templates/home/home.html',

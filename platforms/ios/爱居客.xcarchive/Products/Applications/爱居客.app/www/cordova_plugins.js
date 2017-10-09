@@ -432,11 +432,11 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-wechat.Wechat",
-        "file": "plugins/cordova-plugin-wechat/www/wechat.js",
-        "pluginId": "cordova-plugin-wechat",
+        "id": "cordova-plugin-themeablebrowser.themeablebrowser",
+        "file": "plugins/cordova-plugin-themeablebrowser/www/themeablebrowser.js",
+        "pluginId": "cordova-plugin-themeablebrowser",
         "clobbers": [
-            "Wechat"
+            "cordova.ThemeableBrowser"
         ]
     },
     {
@@ -514,7 +514,7 @@ module.exports.metadata =
     "cordova-plugin-spinner-dialog": "1.3.1",
     "cordova-plugin-splashscreen": "4.0.1",
     "cordova-plugin-statusbar": "2.2.1",
-    "cordova-plugin-wechat": "2.0.0",
+    "cordova-plugin-themeablebrowser": "0.2.17",
     "cordova-plugin-whitelist": "1.3.1",
     "cordova-plugin-x-toast": "2.5.2",
     "cordova-sms-plugin": "0.1.11",

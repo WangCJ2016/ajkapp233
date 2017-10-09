@@ -1,19 +1,19 @@
-<ion-view title='电视机'>
+<ion-view title={{title}}>
   <ion-nav-buttons side="left">
      <button class="button button-clear ajk_back" ng-click="goback()"></button>
  </ion-nav-buttons>
- <ion-content overflow-scroll="true" style="overflow: hidden;background-color: rgb(236,241,245);">
+ <ion-content class='transform_scroll' style="overflow-x: hidden; overflow-y:visible;background-color: rgb(236,241,245);">
   <div class="slide-pot">
     <span class="pot" ng-repeat='pot in potArray' ng-class='{active: $index === tvState}'></span>
   </div>
   <div class="tvArrays" 
     on-swipe-right="onSwipeRight()" 
     on-swipe-left="onSwipeLeft()"
-    style="transform: translateX(-{{perWidth * tvState}}%);width: {{length}}00%">
+    style="width: {{length}}00%; transform: translateX(-{{perWidth * tvState}}%);">
     <div class="futrue_wrap" ng-repeat='tv in tvArrays' style="width: {{perWidth}}%">
      <section class="tv">
        <div class="tv_item">
-         <p ng-click='tvon(tv)' class='on' ng-class="{active:tvswitch}"></p>
+         <p ng-click='tvon(tv, tv.tv_status, $index)' class='on' ng-class="{active:tv.tv_status === 'ON'}"></p>
          <p ng-click='tvAdd(tv)' class='plus'></p>
          <p ng-click='tvMunis(tv)' class='munis'></p>
        </div>
@@ -32,7 +32,7 @@
        <span ng-click="tvBoxDown(tv)" class="down" ><img ng-src="imgs/wcj/tv/down.png" alt=""></span>
        <span ng-click="tvBoxLeft(tv)" class="left" ><img ng-src="imgs/wcj/tv/left.png" alt=""></span>
        <span ng-click="tvBoxRight(tv)" class="right"><img ng-src="imgs/wcj/tv/right.png" alt=""></span>
-       <span ng-click="tvBoxOk(tv)" class="ok"><img ng-src="imgs/wcj/tv/ok.png" alt=""></span>
+       <span ng-click="tvBoxOk(tv)" class="ok">ok</span>
      </section>
    </div>
 

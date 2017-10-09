@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions', 'templates'])
   .constant('AJKUrl', 'http://www.live-ctrl.com/aijukex/')
   .constant('AJKIp','http://192.168.0.109:8100/#')
   .constant('DuplicateLogin','你的账号在另一台手机登录,请重新登录')
@@ -256,7 +256,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
 }])
   .config(['$ionicConfigProvider', '$ionicNativeTransitionsProvider', '$cordovaInAppBrowserProvider', function($ionicConfigProvider, $ionicNativeTransitionsProvider,$cordovaInAppBrowserProvider) {
-	var defaultOptions = {
+	// 防止滑动白屏
+  $ionicConfigProvider.views.swipeBackEnabled(false);
+  $ionicConfigProvider.backButton.text('');        
+  $ionicConfigProvider.backButton.previousTitleText(false);
+  var defaultOptions = {
 		location: 'no',
 		clearcache: 'no',
 		toolbar: 'no'
@@ -303,7 +307,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
       .state('tab.home', {
 	url: '/home',
 	nativeTransitions: null,
-	cache:false,
+  cache: false,
 	views: {
 		'tab-home': {
 			templateUrl: 'templates/home/home.html',

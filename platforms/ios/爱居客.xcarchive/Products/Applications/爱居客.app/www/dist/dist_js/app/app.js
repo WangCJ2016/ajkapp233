@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions', 'templates'])
   .constant('AJKUrl', 'http://www.live-ctrl.com/aijukex/')
   .constant('AJKIp','http://192.168.0.109:8100/#')
   .constant('DuplicateLogin','你的账号在另一台手机登录,请重新登录')
@@ -30,7 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
     if(!ionic.Platform.isIOS()){
       MobileAccessibility.setTextZoom(100);
     }
-		$rootScope.$broadcast('cityChanges', function() {
+		$rootScope.$broadcast('ionio', function() {
 		});
 		if (!localStorage.getItem("city")) {
 			localStorage.setItem("city", "杭州");
@@ -58,33 +58,63 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
         //sessionStorage.setItem("city", result.city);
 
-			var citysearch = new AMap.CitySearch();
-        //自动获取用户IP，返回当前城市
-			citysearch.getLocalCity(function(status, result) {
-				if (status === 'complete' && result.info === 'OK') {
-					var cityinfo = result.city;
-					if (localStorage.getItem("city") !== cityinfo) {
-						var myPopup = $ionicPopup.show({
-							template: '是否切换城市到' + cityinfo,
-							cssClass: 'ajk',
-							buttons: [{
-								text: '取消'
-							}, {
-								text: '<b>确定</b>',
-								onTap: function(e) {
-									localStorage.setItem("city", cityinfo);
-									sessionStorage.setItem("city", cityinfo);
-									$rootScope.$broadcast('cityChange');
-								}}
-							]}
-              );}
-					sessionStorage.setItem("nowcity", cityinfo);
-				}
-			});
+			// var citysearch = new AMap.CitySearch();
+   //      //自动获取用户IP，返回当前城市
+			// citysearch.getLocalCity(function(status, result) {
+			// 	if (status === 'complete' && result.info === 'OK') {
+   //        //sessionStorage.setItem('_city', JSON.stringify(result))
+			// 		var cityinfo = result.city;
+          
+			// 		if (localStorage.getItem("city") !== cityinfo) {
+			// 			var myPopup = $ionicPopup.show({
+			// 				template: '是否切换城市到' + cityinfo,
+			// 				cssClass: 'ajk',
+			// 				buttons: [{
+			// 					text: '取消'
+			// 				}, {
+			// 					text: '<b>确定</b>',
+			// 					onTap: function(e) {
+			// 						localStorage.setItem("city", cityinfo);
+			// 						sessionStorage.setItem("city", cityinfo);
+			// 						$rootScope.$broadcast('cityChange');
+			// 					}}
+			// 				]}
+   //            );}
+			// 		sessionStorage.setItem("nowcity", cityinfo);
+			// 	}
+			// });
 
 		});
 
 		function onComplete(data) {
+      console.log(data)
+      if (data.info === "SUCCESS") {
+         // sessionStorage.setItem('_city', JSON.stringify(result))
+         var cityinfo 
+          if (data.addressComponent.district !== '') {
+            cityinfo = data.addressComponent.district
+          } else {
+            cityinfo = data.addressComponent.city
+          }
+          
+          
+          if (localStorage.getItem("city") !== cityinfo) {
+            var myPopup = $ionicPopup.show({
+              template: '是否切换城市到' + cityinfo,
+              cssClass: 'ajk',
+              buttons: [{
+                text: '取消'
+              }, {
+                text: '<b>确定</b>',
+                onTap: function(e) {
+                  localStorage.setItem("city", cityinfo);
+                  sessionStorage.setItem("city", cityinfo);
+                  $rootScope.$broadcast('cityChange');
+                }}
+              ]}
+              );}
+          sessionStorage.setItem("nowcity", cityinfo);
+        }
 			sessionStorage.setItem("longitude", data.position.getLng());
 			sessionStorage.setItem("latitude", data.position.getLat());
 		}
@@ -226,7 +256,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
 }])
   .config(['$ionicConfigProvider', '$ionicNativeTransitionsProvider', '$cordovaInAppBrowserProvider', function($ionicConfigProvider, $ionicNativeTransitionsProvider,$cordovaInAppBrowserProvider) {
-	var defaultOptions = {
+	// 防止滑动白屏
+  $ionicConfigProvider.views.swipeBackEnabled(false);
+  $ionicConfigProvider.backButton.text('');        
+  $ionicConfigProvider.backButton.previousTitleText(false);
+  var defaultOptions = {
 		location: 'no',
 		clearcache: 'no',
 		toolbar: 'no'
@@ -273,7 +307,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
       .state('tab.home', {
 	url: '/home',
 	nativeTransitions: null,
-	cache:false,
+  cache: false,
 	views: {
 		'tab-home': {
 			templateUrl: 'templates/home/home.html',
@@ -385,6 +419,7 @@ controller:'futrueCtrl'
 })
       .state('curtain', {
 	url: '/curtain',
+  cache:false,
 	templateUrl: 'templates/ctrl/curtain/curtain.html',
 	controller:'curtainCtrl'
 })
@@ -395,21 +430,24 @@ controller:'futrueCtrl'
 })
       .state('model', {
 	url: '/model',
+  cache:false,
 	templateUrl: 'templates/ctrl/model/model.html',
 	controller:'modelCtrl'
 })
       .state('tv', {
 	url: '/tv',
+  cache:false,
 	templateUrl: 'templates/ctrl/tv/tv.html',
 	controller:'tvCtrl'
 })
       .state('airCondition', {
 	url: '/airCondition',
+  cache:false,
 	templateUrl: 'templates/ctrl/airCondition/airCondition.html',
 	controller:"airCtrl"
 })
       .state('lock', {
-	url: '/lock',
+	url: '/lock/:name',
 	cache:false,
 	templateUrl: 'templates/ctrl/lock/lock.html',
 	controller:"lockCtrl"
@@ -431,6 +469,7 @@ controller:'futrueCtrl'
 })
       .state('service', {
 	url: '/service',
+  cache:false,
 	templateUrl: 'templates/ctrl/service/service.html',
 	controller:'serviceCtrl'
 })

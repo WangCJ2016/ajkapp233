@@ -106,11 +106,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		A9xOii/4e6jskLz2EiH/trcdWgI=
+		ipvBg2Waea3KLW76pleO4mCK19U=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		PGLcgLhrF2YH7AmJg0tWpPHLRD8=
+		r0Y1dg3+u/p5o3H2Z9R2F7FE5dI=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		ZJoxWE3hR9hzjovH1AWgsqwHmVU=
+		QdWSLzPLIZl+VDtzkTRB/VJz2mo=
 		</data>
 		<key>CDVNotification.bundle/beep.wav</key>
 		<data>
@@ -126,23 +126,23 @@
 		</data>
 		<key>DatePicker.nib</key>
 		<data>
-		UsTsIWC1FohzzbyS0mqksJrmXgU=
+		+eKlN8PnxNUk7olGjCYsUpLdwtY=
 		</data>
 		<key>ELCAlbumPickerController.nib</key>
 		<data>
-		K75DiRhk7a/GrCtjH8IisLHGiW0=
+		sCugWOo7XfSAFS5JrQ4es546FQg=
 		</data>
 		<key>ELCAssetPicker.nib</key>
 		<data>
-		dAkFr+xyo9aVVXrBJwhABlx9ip4=
+		6d4CpMDc/sJ9WzuUCNIDjgLZYoQ=
 		</data>
 		<key>ELCAssetTablePicker.nib</key>
 		<data>
-		AA/OZZOnRmxuz8dsjUU+xXS19Dc=
+		ZDs/qkVBBH6CH7qNSPlvlYgxG4k=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bg1bP6rF9Vm2K1wPSh0abtT4x78=
+		IC2bHyjYt26x44+GIsG00KJ/95c=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -202,7 +202,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		8JpLWuTJaCQ4sROIsTbi95OYIa4=
+		3DcGNxVwO6i9nW2qaJw7wuBFuVM=
 		</data>
 		<key>Overlay.png</key>
 		<data>
@@ -222,11 +222,11 @@
 		</data>
 		<key>config.xml</key>
 		<data>
-		jd8ZNkgDFStB3grZdel78aBRThc=
+		QSbVD9oiB+BTBivm0xaVFdak00k=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		VFH5zDYxI909uT1Y7rAJNIq8KSc=
+		i45UyMeXCHsNW1LN7OFRRxeV6RM=
 		</data>
 		<key>www/README.md</key>
 		<data>
@@ -246,7 +246,7 @@
 		</data>
 		<key>www/cordova_plugins.js</key>
 		<data>
-		EEnObV0x6e6JkwVLZ9dPYfmNJWo=
+		9Os+deiDms3+sj9rtXy5ObmPOjo=
 		</data>
 		<key>www/css/animate.css</key>
 		<data>
@@ -254,19 +254,19 @@
 		</data>
 		<key>www/css/ionic.app.css</key>
 		<data>
-		YUOBt72jY6cazibKO/Vqm8/YBow=
+		AETpHcaWVZPt7VKbi1xJMi8guLk=
 		</data>
 		<key>www/css/ionic.app.min.css</key>
 		<data>
-		OUi5G1YzfPd8c+DhRaO8QMhwNCc=
+		o5byPkNijboHTjTl8PLjVPCk7w8=
 		</data>
 		<key>www/css/ionic.css</key>
 		<data>
-		X/sPezYLPwL9TQlXftnPc0ivdOY=
+		h6qiaUoVgNK92KZmkg/YhG5pyyU=
 		</data>
 		<key>www/css/ionic.css.map</key>
 		<data>
-		LWdKi3ew9/LLd6zYp4j1xyTokeI=
+		58owy6IVr+srVb0IYS3D50ELSac=
 		</data>
 		<key>www/css/ionic.css.map.mine</key>
 		<data>
@@ -286,19 +286,19 @@
 		</data>
 		<key>www/dist/dist_css/ionic.css</key>
 		<data>
-		UIKU2wDRbVrXmcKt1Mgqe4DQDeA=
+		WzPwVvJt9lN9UZ41x3/LGDjoUo4=
 		</data>
 		<key>www/dist/dist_css/styles.css</key>
 		<data>
-		X/sPezYLPwL9TQlXftnPc0ivdOY=
+		h6qiaUoVgNK92KZmkg/YhG5pyyU=
 		</data>
 		<key>www/dist/dist_js/app.js</key>
 		<data>
-		INKXRDf7lgKSkHMQB7qw+a55emo=
+		Ie3grQMUzpdm6KJSX2mN56x7S4Y=
 		</data>
 		<key>www/dist/dist_js/app/app.js</key>
 		<data>
-		lMOra2nai/gk292utIOnsG8Bc1s=
+		KPWmByY0KJyBAEDPxPQcARLFDx8=
 		</data>
 		<key>www/dist/dist_js/app/controllers.js</key>
 		<data>
@@ -306,11 +306,11 @@
 		</data>
 		<key>www/dist/dist_js/app/ctrl/CheckIn/checkIn.js</key>
 		<data>
-		MgljNBLEue4yAGXBnJheabog7PQ=
+		PmroYfJzAz0qP9q3naEan/V+twQ=
 		</data>
 		<key>www/dist/dist_js/app/ctrl/airCondition/airCondition.js</key>
 		<data>
-		j1oJTuzLSS7pAIjZsJ0Q2+92G8k=
+		CQbTz78fm6Np51ExM652+DC60Ro=
 		</data>
 		<key>www/dist/dist_js/app/ctrl/clean/clean.js</key>
 		<data>
@@ -326,7 +326,7 @@
 		</data>
 		<key>www/dist/dist_js/app/ctrl/curtain/curtain.js</key>
 		<data>
-		GWAn7QnfXIkyAp3fdpoS0aEul90=
+		gY03YwvtD3k+n5DXFn1azSu5LP4=
 		</data>
 		<key>www/dist/dist_js/app/ctrl/inHouse/inHouse.js</key>
 		<data>
@@ -334,15 +334,15 @@
 		</data>
 		<key>www/dist/dist_js/app/ctrl/light/light.js</key>
 		<data>
-		XhTldDjoxVJ6gTeB62n6D3irxTU=
+		Bvq04p+YeX9pIMA3/HmlNk2QfqY=
 		</data>
 		<key>www/dist/dist_js/app/ctrl/lock/lock.js</key>
 		<data>
-		TE9Q/Q/V7exhlJzX17V4I4sGADs=
+		/JotHp9VQTeGq5X7bcKYLeIDKxI=
 		</data>
 		<key>www/dist/dist_js/app/ctrl/model/model.js</key>
 		<data>
-		0ABFHTFiP2/mcd69152vz3n9l1s=
+		n6p73BihOBiHWrqxyw/E7AugCnQ=
 		</data>
 		<key>www/dist/dist_js/app/ctrl/readLight/readLight.js</key>
 		<data>
@@ -362,7 +362,7 @@
 		</data>
 		<key>www/dist/dist_js/app/ctrl/tv/tv.js</key>
 		<data>
-		K+kgtgbvYeb9FV6h9HhQJqTJ77o=
+		h83drRh4IRDjuqIPRfy8FFNKGEI=
 		</data>
 		<key>www/dist/dist_js/app/directive.js</key>
 		<data>
@@ -390,7 +390,7 @@
 		</data>
 		<key>www/dist/dist_js/app/home/homeCtrl.js</key>
 		<data>
-		LQHsphXMiWTbm3aOL+O0Eim55eU=
+		SxVCOPXs7Vw/8KuVn86eHD50eq4=
 		</data>
 		<key>www/dist/dist_js/app/home/hotelService/hotelService.js</key>
 		<data>
@@ -454,7 +454,7 @@
 		</data>
 		<key>www/dist/dist_js/app/templates.js</key>
 		<data>
-		coqmaP0mmBfazOSHVKZSYS/jJVE=
+		OBMAmVPvfeabh497WwW2fYzGTog=
 		</data>
 		<key>www/dist/dist_js/app/userCenter/ChangePwd/ChangePwd.js</key>
 		<data>
@@ -474,7 +474,7 @@
 		</data>
 		<key>www/dist/dist_js/app/userCenter/Order-form/Order-formCtrl.js</key>
 		<data>
-		9OOg2RLKwzTHjKdfqxL2CocPyPE=
+		T2qZLn7SohAOz9Lie2fEIc11fYQ=
 		</data>
 		<key>www/dist/dist_js/app/userCenter/Pay/Pay.js</key>
 		<data>
@@ -490,7 +490,7 @@
 		</data>
 		<key>www/dist/dist_js/app/userCenter/beLandlord/be_landlord.js</key>
 		<data>
-		2tw089Z3KAJnZpphUqfldIAxkz0=
+		093MpjHqI91w5nKLVZBUghS86cs=
 		</data>
 		<key>www/dist/dist_js/app/userCenter/beLandlord/joinUs/join_us.js</key>
 		<data>
@@ -586,7 +586,7 @@
 		</data>
 		<key>www/dist/dist_js/app/userCenter/userCenterCtrl.js</key>
 		<data>
-		ETzGXjT60CLLrNJ9e0zfixBVK0I=
+		GFppG2l+mbjUtCPbS65Z+TdXEnY=
 		</data>
 		<key>www/dist/index.html</key>
 		<data>
@@ -1694,11 +1694,11 @@
 		</data>
 		<key>www/index.html</key>
 		<data>
-		5ffr2JPqXjiizwpOFv9ZyX7vzrw=
+		fYEHlMnUMeH16vRc/AwM9x9TuBE=
 		</data>
 		<key>www/js/app.js</key>
 		<data>
-		0i3gKM/RTY7uq3c1VjHRNBHBHyU=
+		SSDP5IndubCLK6B44CA+9RNqeR4=
 		</data>
 		<key>www/js/controllers.js</key>
 		<data>
@@ -1718,7 +1718,7 @@
 		</data>
 		<key>www/js/templates.js</key>
 		<data>
-		SRQSj5yJatw9VPaZZJEkd91q+ns=
+		HGifQKpO4HlLtDJIqs6XVGVmokc=
 		</data>
 		<key>www/js/templates/city-picker.html</key>
 		<data>
@@ -2180,166 +2180,6 @@
 		<data>
 		B62aJoKjPAV6pQduhvBmGVveo24=
 		</data>
-		<key>www/lib/ionic/scss/_action-sheet.scss</key>
-		<data>
-		n2BZQAxjjw1x4dWrbuCX7ehE614=
-		</data>
-		<key>www/lib/ionic/scss/_animations.scss</key>
-		<data>
-		Ggzr4JN7HshYt/RZ8Jy9t1AW7Yc=
-		</data>
-		<key>www/lib/ionic/scss/_backdrop.scss</key>
-		<data>
-		x3q6sOF2wXjHdWyCHwuAcKGBOLQ=
-		</data>
-		<key>www/lib/ionic/scss/_badge.scss</key>
-		<data>
-		tk3cRbGA199kL3fU80ZIZSnrogc=
-		</data>
-		<key>www/lib/ionic/scss/_bar.scss</key>
-		<data>
-		2fnR+/QGr5pgb66ExK8xT4bRlNg=
-		</data>
-		<key>www/lib/ionic/scss/_button-bar.scss</key>
-		<data>
-		cly6u3MsmlGLwSziurhK93XqYts=
-		</data>
-		<key>www/lib/ionic/scss/_button.scss</key>
-		<data>
-		KHtI6KEfkhgagV7ks7sLm72nb00=
-		</data>
-		<key>www/lib/ionic/scss/_checkbox.scss</key>
-		<data>
-		WjiBWrMiKbGaNl/aL5cD3lc0eNM=
-		</data>
-		<key>www/lib/ionic/scss/_form.scss</key>
-		<data>
-		TCePkj/D7+td3hNWUbRtcb3K/68=
-		</data>
-		<key>www/lib/ionic/scss/_grid.scss</key>
-		<data>
-		YTZ5wvLEk3fy07u4pYrs0U0W/YI=
-		</data>
-		<key>www/lib/ionic/scss/_items.scss</key>
-		<data>
-		XBzabDBzKCqgBVaavPPR1jKBJsY=
-		</data>
-		<key>www/lib/ionic/scss/_list.scss</key>
-		<data>
-		LPIPO7bNt+cGw1YW7wVuXx2dtGk=
-		</data>
-		<key>www/lib/ionic/scss/_loading.scss</key>
-		<data>
-		v55Lk7GwBNFMo0hJpHE+7p/cJH0=
-		</data>
-		<key>www/lib/ionic/scss/_menu.scss</key>
-		<data>
-		6c6sWE/cG/WscDpgXPiDV3+XR78=
-		</data>
-		<key>www/lib/ionic/scss/_mixins.scss</key>
-		<data>
-		BXJAV4yDatkNYpFnbQ8lW8EeYNc=
-		</data>
-		<key>www/lib/ionic/scss/_modal.scss</key>
-		<data>
-		aMwvPNqUjx0BRO1tGxU922CvcGg=
-		</data>
-		<key>www/lib/ionic/scss/_platform.scss</key>
-		<data>
-		f5TF6kVSTK+9lBvZheOSJ9hDhLE=
-		</data>
-		<key>www/lib/ionic/scss/_popover.scss</key>
-		<data>
-		AzdiuOMDjF1CPZMkGNsyW4yGUIw=
-		</data>
-		<key>www/lib/ionic/scss/_popup.scss</key>
-		<data>
-		yPDQIaOijpQAXriAiuDmm325qcE=
-		</data>
-		<key>www/lib/ionic/scss/_progress.scss</key>
-		<data>
-		Ydk8wjpcyU4HH8urN0rYPeUHH4c=
-		</data>
-		<key>www/lib/ionic/scss/_radio.scss</key>
-		<data>
-		mIIUR61e8WC10P4BM+TeRhQroPo=
-		</data>
-		<key>www/lib/ionic/scss/_range.scss</key>
-		<data>
-		rNT3+lVWxEOJHTdtESQOGLFcNxs=
-		</data>
-		<key>www/lib/ionic/scss/_refresher.scss</key>
-		<data>
-		MC7bkdBB33y0uESXWAqGEbR74xQ=
-		</data>
-		<key>www/lib/ionic/scss/_reset.scss</key>
-		<data>
-		uOrJqoABp3ks6MQbRicZb7mRdBY=
-		</data>
-		<key>www/lib/ionic/scss/_scaffolding.scss</key>
-		<data>
-		RY+FZaGOak8MVitAoJ90p1+VVsM=
-		</data>
-		<key>www/lib/ionic/scss/_select.scss</key>
-		<data>
-		3KrZL9gx2dTPwvcptFSesbbnWkQ=
-		</data>
-		<key>www/lib/ionic/scss/_slide-box.scss</key>
-		<data>
-		LCRr+ybIhzhPDG9XlKPGgnp1xvg=
-		</data>
-		<key>www/lib/ionic/scss/_slides.scss</key>
-		<data>
-		wq+ICwHBk66S388tfsaDrMzKQM8=
-		</data>
-		<key>www/lib/ionic/scss/_spinner.scss</key>
-		<data>
-		KqoLzdlzi63btmKs5SLddS16J3M=
-		</data>
-		<key>www/lib/ionic/scss/_tabs.scss</key>
-		<data>
-		mxEElCPjhYTXS1pzpxhPGeHm7M8=
-		</data>
-		<key>www/lib/ionic/scss/_toggle.scss</key>
-		<data>
-		Zwu9wr9r2cskPR1czy2IVPx4iss=
-		</data>
-		<key>www/lib/ionic/scss/_transitions.scss</key>
-		<data>
-		vb9mxYNHRktYK4aELRCoFyFytzQ=
-		</data>
-		<key>www/lib/ionic/scss/_type.scss</key>
-		<data>
-		C2pXErIsRO6YXXP6Qy64hbrY3DU=
-		</data>
-		<key>www/lib/ionic/scss/_util.scss</key>
-		<data>
-		0u523j8YxEgn1rWnf7lzKIeKYxU=
-		</data>
-		<key>www/lib/ionic/scss/_variables.scss</key>
-		<data>
-		UdbVgMzdGkx2uMOratsaezl8da8=
-		</data>
-		<key>www/lib/ionic/scss/ionic.scss</key>
-		<data>
-		KqFYRdJB8wccSOiygO/RdWFitIo=
-		</data>
-		<key>www/lib/ionic/scss/ionicons/_ionicons-font.scss</key>
-		<data>
-		VNBN08Y1CY7LBOJKUsHubizHWLE=
-		</data>
-		<key>www/lib/ionic/scss/ionicons/_ionicons-icons.scss</key>
-		<data>
-		fLMX2pBa5OhF859WlwFO+fKflvI=
-		</data>
-		<key>www/lib/ionic/scss/ionicons/_ionicons-variables.scss</key>
-		<data>
-		cE+ofEgAclwwoEYIys4oUUYV7wY=
-		</data>
-		<key>www/lib/ionic/scss/ionicons/ionicons.scss</key>
-		<data>
-		hT6ZKr/uxqfpQVWdhRO4gsDD1lY=
-		</data>
 		<key>www/lib/ionic/version.json</key>
 		<data>
 		nwd9AvaVbzicWKaqGsSqkCiHonc=
@@ -2620,9 +2460,9 @@
 		<data>
 		hDT++3ZaOTp3t16AAFAibxtovj0=
 		</data>
-		<key>www/plugins/cordova-plugin-wechat/www/wechat.js</key>
+		<key>www/plugins/cordova-plugin-themeablebrowser/www/themeablebrowser.js</key>
 		<data>
-		rFOpCmCSeRVtiuyGWPC6wgH6HYY=
+		TvdsWbaWx459ckVtYew11Fv3LHk=
 		</data>
 		<key>www/plugins/cordova-plugin-x-toast/test/tests.js</key>
 		<data>
@@ -2658,7 +2498,7 @@
 		</data>
 		<key>www/templates/ctrl/CheckIn/checkIn.js</key>
 		<data>
-		1cCQ6UgCRTre0Giu+x8F0MZIwUY=
+		OSYIoDgtaygUVbxaNQ/0WO6XAGU=
 		</data>
 		<key>www/templates/ctrl/CheckIn/checkIn.scss</key>
 		<data>
@@ -2666,15 +2506,15 @@
 		</data>
 		<key>www/templates/ctrl/airCondition/airCondition.html</key>
 		<data>
-		sqa6dF5pMGmBFbgvb+J4pXgZ424=
+		0nU87Li943F9u0t0Qe7kxtI5uBs=
 		</data>
 		<key>www/templates/ctrl/airCondition/airCondition.js</key>
 		<data>
-		obeh9/Yhu+agemUoLvVPZ50WDb4=
+		ruYhPEoUttQ6ODCmWem4d96NCFc=
 		</data>
 		<key>www/templates/ctrl/airCondition/airCondition.scss</key>
 		<data>
-		Cq1odxtDOaPZBlkwbND/q8R3H/E=
+		9iw8ENOPUhmV3HdLfkdvLdGP8EU=
 		</data>
 		<key>www/templates/ctrl/clean/clean.html</key>
 		<data>
@@ -2718,11 +2558,11 @@
 		</data>
 		<key>www/templates/ctrl/curtain/curtain.html</key>
 		<data>
-		Rdcvn7Bq3t0rWZfygY0lZ1IXjZQ=
+		ss3RX59xMey/MmhG0r+qi3Az6tU=
 		</data>
 		<key>www/templates/ctrl/curtain/curtain.js</key>
 		<data>
-		hEO7lQLlSgSPZm/7pL/225rVpfQ=
+		3UqFWq7nO1C9MGx7FtFHRSqrQwk=
 		</data>
 		<key>www/templates/ctrl/curtain/curtain.scss</key>
 		<data>
@@ -2730,7 +2570,7 @@
 		</data>
 		<key>www/templates/ctrl/inHouse/inHouse.html</key>
 		<data>
-		5ycqiA7lCtA9Y+f076ll1ylNQpo=
+		H5qMV4ZYXLEKNRUJ/bYKvRSz3G0=
 		</data>
 		<key>www/templates/ctrl/inHouse/inHouse.js</key>
 		<data>
@@ -2742,23 +2582,23 @@
 		</data>
 		<key>www/templates/ctrl/light/light.html</key>
 		<data>
-		zDPg867XQIF9NL142oHi9d4psJE=
+		fNNUr3HGzcawyhdJM4lzNvl9K9o=
 		</data>
 		<key>www/templates/ctrl/light/light.js</key>
 		<data>
-		t0zU1UQ7dnUKl3n3rw5dHYp/MBA=
+		HEy6LUDag7HBRp35fUWyqfQ1KR8=
 		</data>
 		<key>www/templates/ctrl/light/light.scss</key>
 		<data>
-		6I8cpuF2Lt533awss83LqLsEiSM=
+		c+CfBdamQdAi5taNqUWs3DLzdEk=
 		</data>
 		<key>www/templates/ctrl/lock/lock.html</key>
 		<data>
-		I/cbg8TbO39bZPQ1gHqfnt27lzg=
+		Od/pOL7Ul4L9RFMApI3w3IV4gOo=
 		</data>
 		<key>www/templates/ctrl/lock/lock.js</key>
 		<data>
-		7f5AULOu0QScE/40VtOt/yyRkys=
+		CXsXbO5BDJ4ltRKndJv/U9ZyKMw=
 		</data>
 		<key>www/templates/ctrl/lock/lock.scss</key>
 		<data>
@@ -2766,11 +2606,11 @@
 		</data>
 		<key>www/templates/ctrl/model/model.html</key>
 		<data>
-		/k8O6H70U+6d37+pAETyDr4a9ec=
+		9w6NDHyAgv0Os2QC+wubdHRQQIs=
 		</data>
 		<key>www/templates/ctrl/model/model.js</key>
 		<data>
-		MRtduZ6lsU3Y3z0Ei+CoOtZMbmg=
+		entdKiaiu9faySTsTGuVuPN0Pwo=
 		</data>
 		<key>www/templates/ctrl/model/model.scss</key>
 		<data>
@@ -2826,15 +2666,15 @@
 		</data>
 		<key>www/templates/ctrl/tv/tv.html</key>
 		<data>
-		/1cma4OgVFNBknzE8JLll56Tjss=
+		qkWL/V4Kb8EPhvAZ1HvOE52FWMQ=
 		</data>
 		<key>www/templates/ctrl/tv/tv.js</key>
 		<data>
-		7hQqpNqmJyAeZShjhNT2fxun0tU=
+		D+v3TRmZiSH+aKPr9NGbrEK1g+g=
 		</data>
 		<key>www/templates/ctrl/tv/tv.scss</key>
 		<data>
-		Px3OyXUCc3IJmVvzYvaWD6xpYLc=
+		TRS73vEj7PARuky77Er3/3N6Z5M=
 		</data>
 		<key>www/templates/directive/cityPick/cityPicker.scss</key>
 		<data>
@@ -2902,7 +2742,7 @@
 		</data>
 		<key>www/templates/home/homeCtrl.js</key>
 		<data>
-		ru3u9DARfyyZkXPYuM+C3CDGo+M=
+		70Z5KaXlgLCKEk3/PL5DNPzMWNM=
 		</data>
 		<key>www/templates/home/hotelService/hotelService.html</key>
 		<data>
@@ -3130,7 +2970,7 @@
 		</data>
 		<key>www/templates/userCenter/Order-form/Order-formCtrl.js</key>
 		<data>
-		W0P/qgk/VddZfhVd9qEn4i9d+Vk=
+		wELA7RCI1cyHxVDiOy2jGMd6KOA=
 		</data>
 		<key>www/templates/userCenter/Pay/Pay.html</key>
 		<data>
@@ -3174,7 +3014,7 @@
 		</data>
 		<key>www/templates/userCenter/beLandlord/be_landlord.js</key>
 		<data>
-		Lj2bf08tUAaiJWuXzNcpAQQRC1I=
+		HVRLdzHVMbNueSCa4RNoTPb3w64=
 		</data>
 		<key>www/templates/userCenter/beLandlord/be_landlord.scss</key>
 		<data>
@@ -3458,7 +3298,7 @@
 		</data>
 		<key>www/templates/userCenter/userCenterCtrl.js</key>
 		<data>
-		HazNUzMTOjWPxLDeAJiOqNN+jiI=
+		T3x9E72IuPDmdnk6Ha2mOJ/miTQ=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -3742,22 +3582,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			A9xOii/4e6jskLz2EiH/trcdWgI=
+			ipvBg2Waea3KLW76pleO4mCK19U=
 			</data>
 			<key>hash2</key>
 			<data>
-			YNEpKilYKw46AWznuR2eNSIGXqSHcGbkTtjXV/E9A4w=
+			TO4/m5mkTG+mqVOyxbcxQuibt1ggKtY7/fk60vr4mwM=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PGLcgLhrF2YH7AmJg0tWpPHLRD8=
+			r0Y1dg3+u/p5o3H2Z9R2F7FE5dI=
 			</data>
 			<key>hash2</key>
 			<data>
-			MDurOhqSlX9nM24QL7FXScjLC0KJGttstijRhsuTNKw=
+			Cdvohj3gY+Jj15Gt3h64jmkEqdh5MhIhef8vXelVz8c=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -3775,11 +3615,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZJoxWE3hR9hzjovH1AWgsqwHmVU=
+			QdWSLzPLIZl+VDtzkTRB/VJz2mo=
 			</data>
 			<key>hash2</key>
 			<data>
-			9WMrdF4M+OzZieFiCl1HzA4GXKxEMM3nNcjCUGmA4oQ=
+			rjtY37togQHtNQolAR8kVXr24sNIsYUaBfajlsnR8eU=
 			</data>
 		</dict>
 		<key>CDVNotification.bundle/beep.wav</key>
@@ -3797,44 +3637,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UsTsIWC1FohzzbyS0mqksJrmXgU=
+			+eKlN8PnxNUk7olGjCYsUpLdwtY=
 			</data>
 			<key>hash2</key>
 			<data>
-			AJisTLMfoU7rOIoGMXHyzOen8YkAOjsQV5pguX4f2Lw=
+			a6cWGAkGR0gAxbf8ko4ayJP7KGrOJbcTwiPka5OmUtY=
 			</data>
 		</dict>
 		<key>ELCAlbumPickerController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			K75DiRhk7a/GrCtjH8IisLHGiW0=
+			sCugWOo7XfSAFS5JrQ4es546FQg=
 			</data>
 			<key>hash2</key>
 			<data>
-			E5xi4iiDT1biJQ9q7RqEPa7xrr5J5a9kduRLIBBvDJE=
+			haFOGjixhgDlUol5TQTZUv1qj7WOL9i5WWMwpWqE0Ho=
 			</data>
 		</dict>
 		<key>ELCAssetPicker.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			dAkFr+xyo9aVVXrBJwhABlx9ip4=
+			6d4CpMDc/sJ9WzuUCNIDjgLZYoQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			999xmvnaIS/uL9XVGgMVyTrctW1UDfiFVoL4sENrWD8=
+			NHkzZ/igC0ClizvAHGPAITfBmbflrRjp7ak82wX6EeA=
 			</data>
 		</dict>
 		<key>ELCAssetTablePicker.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AA/OZZOnRmxuz8dsjUU+xXS19Dc=
+			ZDs/qkVBBH6CH7qNSPlvlYgxG4k=
 			</data>
 			<key>hash2</key>
 			<data>
-			fUVMvYi4nDXens03aIy0NEGLyg2L85ipavCfTgwbWrk=
+			CihldYnpSM8ZbRf+RlRGHjl2GDDIszQlkcERRYJXXQw=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -3995,11 +3835,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8JpLWuTJaCQ4sROIsTbi95OYIa4=
+			3DcGNxVwO6i9nW2qaJw7wuBFuVM=
 			</data>
 			<key>hash2</key>
 			<data>
-			8eX0Oo6zta1VMKdJd5TY2vA3wLY+3lJ62TllOQ7ETQo=
+			V400ZbOFWJrv8IrwudWigqN+gsuyzcb13ymsNobHgPI=
 			</data>
 		</dict>
 		<key>Overlay.png</key>
@@ -4039,22 +3879,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jd8ZNkgDFStB3grZdel78aBRThc=
+			QSbVD9oiB+BTBivm0xaVFdak00k=
 			</data>
 			<key>hash2</key>
 			<data>
-			1Z4Ix1k/BN61M9HlP2/BAASihfNlLGxNLDe6U2Tb7DU=
+			n/hfVhroX9wjgHcVp6T9PhkGDqIiDUoJjQaAcchEcoo=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VFH5zDYxI909uT1Y7rAJNIq8KSc=
+			i45UyMeXCHsNW1LN7OFRRxeV6RM=
 			</data>
 			<key>hash2</key>
 			<data>
-			lMQyEtjuS+E+hrBaXZllsTBowP2Vwx7wnGrN12YmZi4=
+			9p2wBJDbESMmlnuse6eoB9t+kHuYS/NhYCrH0GPBCSs=
 			</data>
 		</dict>
 		<key>www/README.md</key>
@@ -4105,11 +3945,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			EEnObV0x6e6JkwVLZ9dPYfmNJWo=
+			9Os+deiDms3+sj9rtXy5ObmPOjo=
 			</data>
 			<key>hash2</key>
 			<data>
-			8LIbh/MR5cUmesmvKWGjN0w2FDnEMCiB1ZzLv7SI9X0=
+			f3FW3QTa5Lq5UA2uacd03IdvlqBAzduSqjXrBWeDdoQ=
 			</data>
 		</dict>
 		<key>www/css/animate.css</key>
@@ -4127,44 +3967,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YUOBt72jY6cazibKO/Vqm8/YBow=
+			AETpHcaWVZPt7VKbi1xJMi8guLk=
 			</data>
 			<key>hash2</key>
 			<data>
-			PXlCOLT9xWUBGgqA8gvDX+rfpRyEXYN5JrmKM+AumiE=
+			C7uJsf3aezz+y+UIl6X9ocRmTAwjNmrBWvoR3O4TrwI=
 			</data>
 		</dict>
 		<key>www/css/ionic.app.min.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OUi5G1YzfPd8c+DhRaO8QMhwNCc=
+			o5byPkNijboHTjTl8PLjVPCk7w8=
 			</data>
 			<key>hash2</key>
 			<data>
-			rFNf9L6EUm+hxQGRIIyNjVo8kC+xwF4Jc3KhV1rslCU=
+			BSFS4oCROz6El4Uyj8ln62y0IOUCc5sCfY13eOoP7K8=
 			</data>
 		</dict>
 		<key>www/css/ionic.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X/sPezYLPwL9TQlXftnPc0ivdOY=
+			h6qiaUoVgNK92KZmkg/YhG5pyyU=
 			</data>
 			<key>hash2</key>
 			<data>
-			RSD4YQPZGfp/rL3lo1snKMGOrwc27Euz+fDU2qhZjp0=
+			vEsOhhVr9Rljhc19EHaCA3jr0owwjLVSe5cdJNNxYeE=
 			</data>
 		</dict>
 		<key>www/css/ionic.css.map</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LWdKi3ew9/LLd6zYp4j1xyTokeI=
+			58owy6IVr+srVb0IYS3D50ELSac=
 			</data>
 			<key>hash2</key>
 			<data>
-			/8XeN1+f7fkhI1cM9vKCIZHYx/8MOad5+KzXS9o567o=
+			sgLDRhbB3il8l/O2qS5EeUlY/CfFFd6KhYcMHd3UucA=
 			</data>
 		</dict>
 		<key>www/css/ionic.css.map.mine</key>
@@ -4215,44 +4055,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UIKU2wDRbVrXmcKt1Mgqe4DQDeA=
+			WzPwVvJt9lN9UZ41x3/LGDjoUo4=
 			</data>
 			<key>hash2</key>
 			<data>
-			QJLFPPfsPCcpUnFRB6oY4IAOthelSNjUUv3z1A1umOA=
+			jmvUD41wVJVj24t1qfDoYVisbZ9gJxnB4wjVUGvC0wQ=
 			</data>
 		</dict>
 		<key>www/dist/dist_css/styles.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			X/sPezYLPwL9TQlXftnPc0ivdOY=
+			h6qiaUoVgNK92KZmkg/YhG5pyyU=
 			</data>
 			<key>hash2</key>
 			<data>
-			RSD4YQPZGfp/rL3lo1snKMGOrwc27Euz+fDU2qhZjp0=
+			vEsOhhVr9Rljhc19EHaCA3jr0owwjLVSe5cdJNNxYeE=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			INKXRDf7lgKSkHMQB7qw+a55emo=
+			Ie3grQMUzpdm6KJSX2mN56x7S4Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			mhnb3wHXWKSxR5Cw1u//WxJ9Iju9kbB38m/dOK140pQ=
+			1cIda1r8mpOEyFzgoIKowGxxsP1VwilUndBT6GDDSB4=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/app.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lMOra2nai/gk292utIOnsG8Bc1s=
+			KPWmByY0KJyBAEDPxPQcARLFDx8=
 			</data>
 			<key>hash2</key>
 			<data>
-			K7j2Se7j+zMKxPMdgW7goEj2tRnQGkGVSKDTxTHDEVA=
+			KL6agrSclU9y4Er4UCnvJ7nSiIlVV1TvkAaOUIFF3cY=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/controllers.js</key>
@@ -4270,22 +4110,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MgljNBLEue4yAGXBnJheabog7PQ=
+			PmroYfJzAz0qP9q3naEan/V+twQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			R82885RbCCbnl44Bp1yoFw2IeJFcaSW/wEG4jP67dB4=
+			F5jJ5g6Nnuet+fBsd7ARTTBOD3W+b2nl0Sj1G9HRu/c=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/ctrl/airCondition/airCondition.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			j1oJTuzLSS7pAIjZsJ0Q2+92G8k=
+			CQbTz78fm6Np51ExM652+DC60Ro=
 			</data>
 			<key>hash2</key>
 			<data>
-			fVbismdCoYY1buCgVUtRv/OLo8mhU44I3y7joTFvTdM=
+			OanvY010pQpKN9q/XzMyVlGItQE7f0+H7IZLSpfT1dg=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/ctrl/clean/clean.js</key>
@@ -4325,11 +4165,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GWAn7QnfXIkyAp3fdpoS0aEul90=
+			gY03YwvtD3k+n5DXFn1azSu5LP4=
 			</data>
 			<key>hash2</key>
 			<data>
-			MbY5dnkpeEaldwmApbc6g57UblwHlrlZHljDEGrD2dw=
+			rFGys9buMFXTsCx49iCrrVl9aUFPYe1lRx5mYZQA2x0=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/ctrl/inHouse/inHouse.js</key>
@@ -4347,33 +4187,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XhTldDjoxVJ6gTeB62n6D3irxTU=
+			Bvq04p+YeX9pIMA3/HmlNk2QfqY=
 			</data>
 			<key>hash2</key>
 			<data>
-			iu5B3HiUdsU+gaCUG8+ZQw7VovlwMR7Poj6JJdMbIC4=
+			VX/qh1+O+1/lNY8frVgcvODucFCCwVua8O+J+VWcg/Q=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/ctrl/lock/lock.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TE9Q/Q/V7exhlJzX17V4I4sGADs=
+			/JotHp9VQTeGq5X7bcKYLeIDKxI=
 			</data>
 			<key>hash2</key>
 			<data>
-			D9fQApOxmz+YOhbPztG9Jth+e5iTOxQfMWhR6dDVgLQ=
+			rS8jYUWwjKor+o+iAlSLDYP2D+A+S+ksG0On/wDZXzw=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/ctrl/model/model.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0ABFHTFiP2/mcd69152vz3n9l1s=
+			n6p73BihOBiHWrqxyw/E7AugCnQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			QC7RKdTxvkcQzIWDUdzMgZVHH4A8dWCBgVwx/Gzz8nU=
+			BOOQc0r6SUArlLTp+GpHZo3XlKcs/3X8GX+ba8++4VM=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/ctrl/readLight/readLight.js</key>
@@ -4424,11 +4264,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			K+kgtgbvYeb9FV6h9HhQJqTJ77o=
+			h83drRh4IRDjuqIPRfy8FFNKGEI=
 			</data>
 			<key>hash2</key>
 			<data>
-			KVyYg4mh8NrmX4G9NWZLuAdnpUnjcDop6JBF3pxMJY8=
+			2C29WHAIMeo6j0l01gqM07AIl78kubkjUwS2SJJUI7c=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/directive.js</key>
@@ -4501,11 +4341,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LQHsphXMiWTbm3aOL+O0Eim55eU=
+			SxVCOPXs7Vw/8KuVn86eHD50eq4=
 			</data>
 			<key>hash2</key>
 			<data>
-			1FUBAH+k2iYrJPMZY8d+m93nHF3syfzWixvdVi/7mgw=
+			kKqlgfQiajlTmiKcDgq0wpK2ETqZ/T+TN3CBuf4nCCk=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/home/hotelService/hotelService.js</key>
@@ -4677,11 +4517,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			coqmaP0mmBfazOSHVKZSYS/jJVE=
+			OBMAmVPvfeabh497WwW2fYzGTog=
 			</data>
 			<key>hash2</key>
 			<data>
-			zSLPw+P4OC7rcZ3psEvCFGjGxsA04ofmkqwjwZB1P88=
+			o5822SLUwh6aSmlCS/K4h5BseHV065tn2WSlfyuJAmA=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/userCenter/ChangePwd/ChangePwd.js</key>
@@ -4732,11 +4572,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9OOg2RLKwzTHjKdfqxL2CocPyPE=
+			T2qZLn7SohAOz9Lie2fEIc11fYQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			kTU4HoUZkX+N62WMCpBzfq4k8RNWTXGEGHvKCk/6Vgo=
+			D9kBmh2lml8rmjcLXlP+JJ4+ndIuqoqsor5HNP2lq+8=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/userCenter/Pay/Pay.js</key>
@@ -4776,11 +4616,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2tw089Z3KAJnZpphUqfldIAxkz0=
+			093MpjHqI91w5nKLVZBUghS86cs=
 			</data>
 			<key>hash2</key>
 			<data>
-			A6CTeY+mBG9z8uvcxg3HojdI8DmOdhtc5xmotNOa0wg=
+			SiHOV2o4nJ8XqoxLL45xHcHUAt5ydm1HSvid4r/6MpM=
 			</data>
 		</dict>
 		<key>www/dist/dist_js/app/userCenter/beLandlord/joinUs/join_us.js</key>
@@ -5040,11 +4880,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ETzGXjT60CLLrNJ9e0zfixBVK0I=
+			GFppG2l+mbjUtCPbS65Z+TdXEnY=
 			</data>
 			<key>hash2</key>
 			<data>
-			hkunJwL0UYKeIboOSXcLz2rYkPzp3G5CIlmw5u6m9zA=
+			KdiPBebPl3VAPwGxsyiIMkalWh/7C/UIuBGGgER8kpQ=
 			</data>
 		</dict>
 		<key>www/dist/index.html</key>
@@ -8087,22 +7927,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5ffr2JPqXjiizwpOFv9ZyX7vzrw=
+			fYEHlMnUMeH16vRc/AwM9x9TuBE=
 			</data>
 			<key>hash2</key>
 			<data>
-			zBIJpAgz8dU/9+RQP1WjhuaQ7hoiS5lx+zv5nhIL3R8=
+			EJQksCuT3W1WTs6W/5XDNo+mr26cRDAqM/ZUrd84Ioc=
 			</data>
 		</dict>
 		<key>www/js/app.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0i3gKM/RTY7uq3c1VjHRNBHBHyU=
+			SSDP5IndubCLK6B44CA+9RNqeR4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Yqth33z0B/2/rGnY0h1cXLpO4ayIUXePeXKG3Rcudeg=
+			iBoO4oKKm8PAI1QK6lCedCgpJN1HyrSRI1wLHWcF46Q=
 			</data>
 		</dict>
 		<key>www/js/controllers.js</key>
@@ -8153,11 +7993,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SRQSj5yJatw9VPaZZJEkd91q+ns=
+			HGifQKpO4HlLtDJIqs6XVGVmokc=
 			</data>
 			<key>hash2</key>
 			<data>
-			gcRgX+6HRo6p0fHULxm18Ir2jDZYoH/0aWcw1vAUkHo=
+			Q3Rnrj2qZ8hIRs5KTEPApDjeLWf8CCH6KQLqem7smB4=
 			</data>
 		</dict>
 		<key>www/js/templates/city-picker.html</key>
@@ -9425,446 +9265,6 @@
 			VqHzINjdZJyY6IlQGi24I8dWJYVKTwd5gTukdW5oUQM=
 			</data>
 		</dict>
-		<key>www/lib/ionic/scss/_action-sheet.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			n2BZQAxjjw1x4dWrbuCX7ehE614=
-			</data>
-			<key>hash2</key>
-			<data>
-			UBn6VDaqLs7j+QKFCGyzp1IhIYwF0pyi5qblXvYGLLk=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_animations.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Ggzr4JN7HshYt/RZ8Jy9t1AW7Yc=
-			</data>
-			<key>hash2</key>
-			<data>
-			LW8WhLFw2tP82MIULIRrM+NPIVFyUKU2ATM6+DMqv+A=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_backdrop.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			x3q6sOF2wXjHdWyCHwuAcKGBOLQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			WMbI3zyAi6rVXwHYyBCGYhldtiDaXLuT57Uarkg85Bk=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_badge.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			tk3cRbGA199kL3fU80ZIZSnrogc=
-			</data>
-			<key>hash2</key>
-			<data>
-			Ze2aofLadl28gBFCwFzMM0eIxcXUlMS0Lu8ewPEkYuU=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_bar.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2fnR+/QGr5pgb66ExK8xT4bRlNg=
-			</data>
-			<key>hash2</key>
-			<data>
-			2+Ht32mz4chTJ02PgQXlN4YeXzWsmGNg7VaOlJslXss=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_button-bar.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cly6u3MsmlGLwSziurhK93XqYts=
-			</data>
-			<key>hash2</key>
-			<data>
-			OKz/CSOan0gZrdxzuhepFedaP8/agBhm9osGERLW3U4=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_button.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			KHtI6KEfkhgagV7ks7sLm72nb00=
-			</data>
-			<key>hash2</key>
-			<data>
-			IaPy0O5g+j841R2CiN9x9PTMbQ0aYZ+WpDkt0Pt580o=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_checkbox.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			WjiBWrMiKbGaNl/aL5cD3lc0eNM=
-			</data>
-			<key>hash2</key>
-			<data>
-			NOwn8RdmKcp1/alYd7rd8AE1EdL64ZkIJ0PZ1eu6Ihg=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_form.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			TCePkj/D7+td3hNWUbRtcb3K/68=
-			</data>
-			<key>hash2</key>
-			<data>
-			dTfF/7J32KedXfUQpFqGPafDk+xp0KI9u/QLxcUFQ3o=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_grid.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YTZ5wvLEk3fy07u4pYrs0U0W/YI=
-			</data>
-			<key>hash2</key>
-			<data>
-			YM8Nl07ja5bh0rIkYQt7gmwu1Z4jdfkZIwB+6D8gpwA=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_items.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			XBzabDBzKCqgBVaavPPR1jKBJsY=
-			</data>
-			<key>hash2</key>
-			<data>
-			A9+KdPvxW40xqTiky9jiNQ5PrLRj0iUDEXYHvNone/Y=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_list.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LPIPO7bNt+cGw1YW7wVuXx2dtGk=
-			</data>
-			<key>hash2</key>
-			<data>
-			C6x+bmhEzCuAqc/EZnUj3qsCCdqMNe/blMjJZDglONE=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_loading.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			v55Lk7GwBNFMo0hJpHE+7p/cJH0=
-			</data>
-			<key>hash2</key>
-			<data>
-			lKY0XqJLPMU9g4v3/Ef6cQzOx6OyskHSIp/Uz1IzpA0=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_menu.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			6c6sWE/cG/WscDpgXPiDV3+XR78=
-			</data>
-			<key>hash2</key>
-			<data>
-			yky+yt6Ox3pqYJokPPgufzMb9hr2U744gzIf7tozMHk=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_mixins.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			BXJAV4yDatkNYpFnbQ8lW8EeYNc=
-			</data>
-			<key>hash2</key>
-			<data>
-			SrZ76l8swd9NvrJPmmwQXKJos4ileoYao33GaLPT/S8=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_modal.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			aMwvPNqUjx0BRO1tGxU922CvcGg=
-			</data>
-			<key>hash2</key>
-			<data>
-			Pu2ZMB8RgcSPjM1v1D7PjEaysQ0KrGqdTUoZk/OCE6I=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_platform.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			f5TF6kVSTK+9lBvZheOSJ9hDhLE=
-			</data>
-			<key>hash2</key>
-			<data>
-			K1bmSQ8aqnJYWUNAtT0ASMnagRI1fw1oN022RvsT2PQ=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_popover.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			AzdiuOMDjF1CPZMkGNsyW4yGUIw=
-			</data>
-			<key>hash2</key>
-			<data>
-			6AEwpVrsz1jSl6HkwYzBBZgSn3/OWLIekbo5UF8B/nA=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_popup.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			yPDQIaOijpQAXriAiuDmm325qcE=
-			</data>
-			<key>hash2</key>
-			<data>
-			rRLRtTykkDndrrMMIwhaIc/j41kllusQvJXOuuebcZk=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_progress.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Ydk8wjpcyU4HH8urN0rYPeUHH4c=
-			</data>
-			<key>hash2</key>
-			<data>
-			663rTwpsrE0ddtE3RAYJZ/TWSN8NBzfxbcn9jyi6438=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_radio.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			mIIUR61e8WC10P4BM+TeRhQroPo=
-			</data>
-			<key>hash2</key>
-			<data>
-			eFLj8ig6ZBTyO09xu3Q9PzR0VMfwKi0MyBFzksjGoxo=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_range.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			rNT3+lVWxEOJHTdtESQOGLFcNxs=
-			</data>
-			<key>hash2</key>
-			<data>
-			JuXgsMgkK834dFCoOmK+UgY9BlyV0DLLLihyJ8FVZPk=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_refresher.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MC7bkdBB33y0uESXWAqGEbR74xQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			FEbsUzzNgZPeeb9uJUJ/gmTdHuDR48S6QxqUSxwXZCY=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_reset.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			uOrJqoABp3ks6MQbRicZb7mRdBY=
-			</data>
-			<key>hash2</key>
-			<data>
-			XvHFc7/fl6JMaS9ydjIIccH3KYgv+BqqLphnAS/IcI8=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_scaffolding.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			RY+FZaGOak8MVitAoJ90p1+VVsM=
-			</data>
-			<key>hash2</key>
-			<data>
-			Rvc4zRiKbPAhSTqxEGTJrVYKrj6DoIx2w9crX6SFTvg=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_select.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3KrZL9gx2dTPwvcptFSesbbnWkQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			ENnKCBp4kUipKmwl9L9McPEFXi/+RJo269txuer0Y/o=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_slide-box.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LCRr+ybIhzhPDG9XlKPGgnp1xvg=
-			</data>
-			<key>hash2</key>
-			<data>
-			PG5g9S0CgWfmk7jVYPUgNG/lrjujZht5uCxMlJPNh3o=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_slides.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			wq+ICwHBk66S388tfsaDrMzKQM8=
-			</data>
-			<key>hash2</key>
-			<data>
-			dp8I93WVjGqS8lgLkAki++DrfpMKahfBGlIgrXBTOxQ=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_spinner.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			KqoLzdlzi63btmKs5SLddS16J3M=
-			</data>
-			<key>hash2</key>
-			<data>
-			HSRLz+o3St5Sj10uJpus33DizZDqiDLBcPdpu7WyHKo=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_tabs.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			mxEElCPjhYTXS1pzpxhPGeHm7M8=
-			</data>
-			<key>hash2</key>
-			<data>
-			BDaUGsg4tZqQIvUCLCgUjNgIrefO3pw3qsKks8rBWp4=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_toggle.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Zwu9wr9r2cskPR1czy2IVPx4iss=
-			</data>
-			<key>hash2</key>
-			<data>
-			wIAJJWyJ7/c5cCgAAn2vHbdEth/cvV0ColNUgJKkvq0=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_transitions.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			vb9mxYNHRktYK4aELRCoFyFytzQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			7AMzqTQFW6qqfqbvsLlhXsxQ33HQEuGFhG04MpkmsVU=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_type.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			C2pXErIsRO6YXXP6Qy64hbrY3DU=
-			</data>
-			<key>hash2</key>
-			<data>
-			0BJQU49vzv+75uMCCqsIl+UztIvMfAhHqmmAXQ2sNCE=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_util.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			0u523j8YxEgn1rWnf7lzKIeKYxU=
-			</data>
-			<key>hash2</key>
-			<data>
-			gDB7QPE+/wzl02wHFEvFBGccrbuiceKBKmAyRkaZvuY=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/_variables.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			UdbVgMzdGkx2uMOratsaezl8da8=
-			</data>
-			<key>hash2</key>
-			<data>
-			g8Ud+nIpXOeLjKqQ+RHhtR8kU6V5T7UeZNepWbXaQqA=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/ionic.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			KqFYRdJB8wccSOiygO/RdWFitIo=
-			</data>
-			<key>hash2</key>
-			<data>
-			TaklOp9Xi+pnRdrWAwP68khJyghFZUdZ7+PbBBLEBqI=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/ionicons/_ionicons-font.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			VNBN08Y1CY7LBOJKUsHubizHWLE=
-			</data>
-			<key>hash2</key>
-			<data>
-			x1gZIM8Ce/Ulvazx5XJJ9xYVmlqgPuCyU6p+ugcBOxk=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/ionicons/_ionicons-icons.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			fLMX2pBa5OhF859WlwFO+fKflvI=
-			</data>
-			<key>hash2</key>
-			<data>
-			VsbTKmT6Bmy2gLf+IkdrupCqI8gZ2due3HPHMXm7d6Q=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/ionicons/_ionicons-variables.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cE+ofEgAclwwoEYIys4oUUYV7wY=
-			</data>
-			<key>hash2</key>
-			<data>
-			4aOJrhqubWXRd7fRN3zlXD4GzzWPJvIdm5ccqIpgDo0=
-			</data>
-		</dict>
-		<key>www/lib/ionic/scss/ionicons/ionicons.scss</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			hT6ZKr/uxqfpQVWdhRO4gsDD1lY=
-			</data>
-			<key>hash2</key>
-			<data>
-			zXT3hlDYJTsQkatCeUwDyVD734h9s0HBfBfhWNCorKI=
-			</data>
-		</dict>
 		<key>www/lib/ionic/version.json</key>
 		<dict>
 			<key>hash</key>
@@ -10635,15 +10035,15 @@
 			JVFddhH/G0jM/7U0DOdpW1CvUNswIGcQB9WylyRtCBM=
 			</data>
 		</dict>
-		<key>www/plugins/cordova-plugin-wechat/www/wechat.js</key>
+		<key>www/plugins/cordova-plugin-themeablebrowser/www/themeablebrowser.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rFOpCmCSeRVtiuyGWPC6wgH6HYY=
+			TvdsWbaWx459ckVtYew11Fv3LHk=
 			</data>
 			<key>hash2</key>
 			<data>
-			NhEpybDFqo8upz6/Qu0s0G9Od8txJDuw1cH8s1cxO1Y=
+			Ob7JvO8hSkdMJm/kHyW+KN2PlASi/3uMvu1a6WqOCbA=
 			</data>
 		</dict>
 		<key>www/plugins/cordova-plugin-x-toast/test/tests.js</key>
@@ -10738,11 +10138,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1cCQ6UgCRTre0Giu+x8F0MZIwUY=
+			OSYIoDgtaygUVbxaNQ/0WO6XAGU=
 			</data>
 			<key>hash2</key>
 			<data>
-			8AK8/DPebcVEmZ307xYr0Mu2KoO89Kdd3slL74EDcGI=
+			2xhc86vDm6+rkdlggx6ac/qFgnkzSe+rHRbz9YUwN6E=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/CheckIn/checkIn.scss</key>
@@ -10760,33 +10160,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sqa6dF5pMGmBFbgvb+J4pXgZ424=
+			0nU87Li943F9u0t0Qe7kxtI5uBs=
 			</data>
 			<key>hash2</key>
 			<data>
-			5godI85AchNnSkhIEf2QBtBjxhzU/PyQ/QLcGl/cEpk=
+			bj8uTZbKmcxkCeg58z90ajx/2WyjGEAtMBinC1J7dcg=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/airCondition/airCondition.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			obeh9/Yhu+agemUoLvVPZ50WDb4=
+			ruYhPEoUttQ6ODCmWem4d96NCFc=
 			</data>
 			<key>hash2</key>
 			<data>
-			2MP0PbOA06QVkkRgYVEliOE2qZeXf3NM2r9SrYS6DE0=
+			rAP52upbT5+hUNNZeJJsCfj4WW3RATkZa5pUNd+0Els=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/airCondition/airCondition.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Cq1odxtDOaPZBlkwbND/q8R3H/E=
+			9iw8ENOPUhmV3HdLfkdvLdGP8EU=
 			</data>
 			<key>hash2</key>
 			<data>
-			MNrvuJQPIgU5osTRLtgOepEvSQCZHniOjOG68LScEgE=
+			Y+jNkTEQAxRvbsAzrNK3SLyS0d7uM0xJZVcIn7goyUs=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/clean/clean.html</key>
@@ -10903,22 +10303,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Rdcvn7Bq3t0rWZfygY0lZ1IXjZQ=
+			ss3RX59xMey/MmhG0r+qi3Az6tU=
 			</data>
 			<key>hash2</key>
 			<data>
-			T5ruqDd26vTsZhRcote1l1jfYHadxoDAzCQYebyUAhE=
+			22Q0aXtstJtxH04yaZ/FyjdM1jYrCJrNFbtUlDBCluY=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/curtain/curtain.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hEO7lQLlSgSPZm/7pL/225rVpfQ=
+			3UqFWq7nO1C9MGx7FtFHRSqrQwk=
 			</data>
 			<key>hash2</key>
 			<data>
-			TCQTZc2hc6ouMdBP8IoCqMw/fiZJoJ3CtlgQx+x37TI=
+			s01fHVXiZZ651YW2FxkPNUT6VJkcT3Kyp9V6fHPgDr0=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/curtain/curtain.scss</key>
@@ -10936,11 +10336,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5ycqiA7lCtA9Y+f076ll1ylNQpo=
+			H5qMV4ZYXLEKNRUJ/bYKvRSz3G0=
 			</data>
 			<key>hash2</key>
 			<data>
-			DOd1D7A+Z7Mb4nFoxRcA71yAQHy5yO6o35x+dJSyR24=
+			CWrD/1rAlKbTgvXfv9rzEYV3L2wIi1MGhCUQ5sQvzzc=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/inHouse/inHouse.js</key>
@@ -10969,55 +10369,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zDPg867XQIF9NL142oHi9d4psJE=
+			fNNUr3HGzcawyhdJM4lzNvl9K9o=
 			</data>
 			<key>hash2</key>
 			<data>
-			7DnD6nleWOHDVR9hJomBCdGbpM7uuUjeT2XPHZfa3w0=
+			Kk/IooGtoE2kmK5dFWWmbagw6qkhJ5Fwmale7YX65iA=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/light/light.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			t0zU1UQ7dnUKl3n3rw5dHYp/MBA=
+			HEy6LUDag7HBRp35fUWyqfQ1KR8=
 			</data>
 			<key>hash2</key>
 			<data>
-			kBthxaOz/Pr+Pot08kA/C2dXCeVv/A9K4mtc1aZby4g=
+			G3DILgOc6snJgIKf6r7YoaOjY/UcWbkh24mZPjKrdpU=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/light/light.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6I8cpuF2Lt533awss83LqLsEiSM=
+			c+CfBdamQdAi5taNqUWs3DLzdEk=
 			</data>
 			<key>hash2</key>
 			<data>
-			0AI+DIQ2mtXYv+S3DMam/lWLoddy98ForMsSkXSqxxk=
+			1ZHfDfpTPABjXJqFfqAgDfqreV2ILFHeNBAWbNitmTk=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/lock/lock.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			I/cbg8TbO39bZPQ1gHqfnt27lzg=
+			Od/pOL7Ul4L9RFMApI3w3IV4gOo=
 			</data>
 			<key>hash2</key>
 			<data>
-			zGXVKeH7A3uetmJDptV8LA8MPgMwF5EnJ8xdq/K9dBc=
+			fwUjf0s4zmPo7qNhuDOBbEA50LKQH2NrXLFYXR1rAxE=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/lock/lock.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7f5AULOu0QScE/40VtOt/yyRkys=
+			CXsXbO5BDJ4ltRKndJv/U9ZyKMw=
 			</data>
 			<key>hash2</key>
 			<data>
-			LcJuYfig5fRmv57Ig+woGX8oaL/gGV4P//wKGptMLFc=
+			NJyo6AxHD5MLUBuYVKgQU/u6bD7DIwdzvlPT4PVNW+o=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/lock/lock.scss</key>
@@ -11035,22 +10435,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/k8O6H70U+6d37+pAETyDr4a9ec=
+			9w6NDHyAgv0Os2QC+wubdHRQQIs=
 			</data>
 			<key>hash2</key>
 			<data>
-			qwHkZvDl0doCwwhMih7rf3KMjYYzKd0TMraL69XuwyQ=
+			PUEgSZ8c/ZH+xPONMLKrVu4NkrmJ6qcBKEq+amI0Gi4=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/model/model.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MRtduZ6lsU3Y3z0Ei+CoOtZMbmg=
+			entdKiaiu9faySTsTGuVuPN0Pwo=
 			</data>
 			<key>hash2</key>
 			<data>
-			YGMTaSrQ8rklN/kPqwNQapefzVCAN+WxGkPvORsicO0=
+			WkeYUu1LTF29ywgAqSz6b6a9RWfvz4tQnL4BPKJ6Ypk=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/model/model.scss</key>
@@ -11200,33 +10600,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/1cma4OgVFNBknzE8JLll56Tjss=
+			qkWL/V4Kb8EPhvAZ1HvOE52FWMQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			uW5eJtxa4GL87CoUJ7MCZ6qsdkJNnjmfPPmTU4CSJcI=
+			r5yT/fs5WMYp3vt1wBn+sk7E5lc4zTiDCrPj7w1lkEg=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/tv/tv.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7hQqpNqmJyAeZShjhNT2fxun0tU=
+			D+v3TRmZiSH+aKPr9NGbrEK1g+g=
 			</data>
 			<key>hash2</key>
 			<data>
-			h/NxmmEvpFvtIZLeqR+eYiT1aXxgV3riazcJd95T+6A=
+			BHq5UVPVFdhlgTWE/LJevygZklZyBdDCAjLTcKUwVdk=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/tv/tv.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Px3OyXUCc3IJmVvzYvaWD6xpYLc=
+			TRS73vEj7PARuky77Er3/3N6Z5M=
 			</data>
 			<key>hash2</key>
 			<data>
-			R1YRkuItwjdow2EZeJ8kSLkZHMWUhMavyoCnMOqok3Q=
+			EOorhJbKBZGPeETYeJ2mCxR/B17dWVM1LKvAlsi7n/o=
 			</data>
 		</dict>
 		<key>www/templates/directive/cityPick/cityPicker.scss</key>
@@ -11409,11 +10809,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ru3u9DARfyyZkXPYuM+C3CDGo+M=
+			70Z5KaXlgLCKEk3/PL5DNPzMWNM=
 			</data>
 			<key>hash2</key>
 			<data>
-			OUVy34m6b+u9xb3/u512CblIK+SXeFKp/BrWdd64QXc=
+			1DR1VoBM3JHT3vMKufAJQTs5svJK8vLR/zP/aXcQbQQ=
 			</data>
 		</dict>
 		<key>www/templates/home/hotelService/hotelService.html</key>
@@ -12036,11 +11436,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			W0P/qgk/VddZfhVd9qEn4i9d+Vk=
+			wELA7RCI1cyHxVDiOy2jGMd6KOA=
 			</data>
 			<key>hash2</key>
 			<data>
-			qT22w+7d9hVQqP9uE+8EeoUB4C0Y7Ysx5vSPj4fuReI=
+			8rjuGeZPZDM3XeifGoDEstmjAkzXwX3kRpXOTa4Cy4Y=
 			</data>
 		</dict>
 		<key>www/templates/userCenter/Pay/Pay.html</key>
@@ -12157,11 +11557,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Lj2bf08tUAaiJWuXzNcpAQQRC1I=
+			HVRLdzHVMbNueSCa4RNoTPb3w64=
 			</data>
 			<key>hash2</key>
 			<data>
-			hxM7wleap86dfTAeKrb0Uj/RO86Hbdu2S65VhefWO7g=
+			VruXi8VpDRDSvdMOWVvdzL50WxSGmPN7Uk0+3/0jVj0=
 			</data>
 		</dict>
 		<key>www/templates/userCenter/beLandlord/be_landlord.scss</key>
@@ -12938,11 +12338,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HazNUzMTOjWPxLDeAJiOqNN+jiI=
+			T3x9E72IuPDmdnk6Ha2mOJ/miTQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			VR88xsjMxDZE6Z9V5+Sw3B/nFO/PyKq1vquanIx/gxU=
+			inn96Uwfp1kS5zzdmPchCijoqeABmMUggDGcmHQ5vTw=
 			</data>
 		</dict>
 	</dict>

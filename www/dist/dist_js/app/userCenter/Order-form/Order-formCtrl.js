@@ -26,7 +26,7 @@ angular.module('Orderform-controller', [])
 				"timeout": "30m", //超时设置
 				"notifyUrl": "http://www.live-ctrl.com/aijukex/op/op_notifyOrder"
 			}, function(resultStatus) {
-
+        $state.go('tab.ctrl');
 			}, function(message) {
 
 			});

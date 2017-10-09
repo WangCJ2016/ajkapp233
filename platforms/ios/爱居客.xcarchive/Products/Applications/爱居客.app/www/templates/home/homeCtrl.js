@@ -6,6 +6,7 @@ angular.module('home-controller', [])
     $scope.city = localStorage.getItem('city')?localStorage.getItem('city'):'杭州';
 	$scope.$on('cityChanges', function() {
 		$scope.city = localStorage.getItem('city');
+    getHomePageHotels()
 	});
   
 	$scope.$on('cityChange', function() {
@@ -16,6 +17,7 @@ angular.module('home-controller', [])
 		} else {
 			$scope.city = city;
 		}
+    getHomePageHotels()
 	});
 	var city = sessionStorage.getItem("city");
 	var CityReg = /市$/;
@@ -27,9 +29,7 @@ angular.module('home-controller', [])
     //定位
     //Ã–Ã·Â¹Ã£Â¸Ã¦
 	$scope.mainADs = mainADs.data.result;
-	$ionicLoading.show({
-		template: '<ion-spinner icon="ios"></ion-spinner>'
-	});
+	
     //
 	$scope.goSelectBussiniss = function($event) {
 		$event.preventDefault();
@@ -46,24 +46,27 @@ angular.module('home-controller', [])
     //酒店列表
 	var pageNo = 1;
 	$scope.moreDataCanBeLoaded = true;
-	ApiService.getHomePageHotels({
-		pageNo: pageNo,
-		pageSize: 5,
-    address:encodeURI(sessionStorage.getItem("city")||'杭州市')
-	}).success(function(res) {
-		if (res.success) {
-			$ionicLoading.hide();
-      $scope.hotels = res.result.map(function(hotel){
+  function getHomePageHotels() {
+    ApiService.getHomePageHotels({
+      pageNo: pageNo,
+      pageSize: 5,
+      address:encodeURI($scope.city||'杭州市')
+    }).success(function(res) {
+      if (res.success) {
+        // $ionicLoading.hide();
+        $scope.hotels = res.result.map(function(hotel){
         //评价星星
-      hotel.full_stars = [];
-      hotel.full_stars.length = parseInt(hotel.stars,10)||5;
-      hotel.star_blank = [];
-      hotel.star_blank.length = 5 - hotel.full_stars.length;
-      return hotel
-      })
-			pageNo++;
-		}
-	});
+        hotel.full_stars = [];
+        hotel.full_stars.length = parseInt(hotel.stars,10)||5;
+        hotel.star_blank = [];
+        hotel.star_blank.length = 5 - hotel.full_stars.length;
+        return hotel
+        })
+        pageNo++;
+      }
+    });
+  }
+	getHomePageHotels()
 	$scope.loadMoreData = function() {
 		ApiService.getHomePageHotels({
 			pageNo: pageNo,

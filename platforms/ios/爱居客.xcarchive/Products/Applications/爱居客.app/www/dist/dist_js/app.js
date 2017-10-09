@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions', 'templates'])
   .constant('AJKUrl', 'http://www.live-ctrl.com/aijukex/')
   .constant('AJKIp','http://192.168.0.109:8100/#')
   .constant('DuplicateLogin','你的账号在另一台手机登录,请重新登录')
@@ -30,7 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
     if(!ionic.Platform.isIOS()){
       MobileAccessibility.setTextZoom(100);
     }
-		$rootScope.$broadcast('cityChanges', function() {
+		$rootScope.$broadcast('ionio', function() {
 		});
 		if (!localStorage.getItem("city")) {
 			localStorage.setItem("city", "杭州");
@@ -58,33 +58,63 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
         //sessionStorage.setItem("city", result.city);
 
-			var citysearch = new AMap.CitySearch();
-        //自动获取用户IP，返回当前城市
-			citysearch.getLocalCity(function(status, result) {
-				if (status === 'complete' && result.info === 'OK') {
-					var cityinfo = result.city;
-					if (localStorage.getItem("city") !== cityinfo) {
-						var myPopup = $ionicPopup.show({
-							template: '是否切换城市到' + cityinfo,
-							cssClass: 'ajk',
-							buttons: [{
-								text: '取消'
-							}, {
-								text: '<b>确定</b>',
-								onTap: function(e) {
-									localStorage.setItem("city", cityinfo);
-									sessionStorage.setItem("city", cityinfo);
-									$rootScope.$broadcast('cityChange');
-								}}
-							]}
-              );}
-					sessionStorage.setItem("nowcity", cityinfo);
-				}
-			});
+			// var citysearch = new AMap.CitySearch();
+   //      //自动获取用户IP，返回当前城市
+			// citysearch.getLocalCity(function(status, result) {
+			// 	if (status === 'complete' && result.info === 'OK') {
+   //        //sessionStorage.setItem('_city', JSON.stringify(result))
+			// 		var cityinfo = result.city;
+          
+			// 		if (localStorage.getItem("city") !== cityinfo) {
+			// 			var myPopup = $ionicPopup.show({
+			// 				template: '是否切换城市到' + cityinfo,
+			// 				cssClass: 'ajk',
+			// 				buttons: [{
+			// 					text: '取消'
+			// 				}, {
+			// 					text: '<b>确定</b>',
+			// 					onTap: function(e) {
+			// 						localStorage.setItem("city", cityinfo);
+			// 						sessionStorage.setItem("city", cityinfo);
+			// 						$rootScope.$broadcast('cityChange');
+			// 					}}
+			// 				]}
+   //            );}
+			// 		sessionStorage.setItem("nowcity", cityinfo);
+			// 	}
+			// });
 
 		});
 
 		function onComplete(data) {
+      console.log(data)
+      if (data.info === "SUCCESS") {
+         // sessionStorage.setItem('_city', JSON.stringify(result))
+         var cityinfo 
+          if (data.addressComponent.district !== '') {
+            cityinfo = data.addressComponent.district
+          } else {
+            cityinfo = data.addressComponent.city
+          }
+          
+          
+          if (localStorage.getItem("city") !== cityinfo) {
+            var myPopup = $ionicPopup.show({
+              template: '是否切换城市到' + cityinfo,
+              cssClass: 'ajk',
+              buttons: [{
+                text: '取消'
+              }, {
+                text: '<b>确定</b>',
+                onTap: function(e) {
+                  localStorage.setItem("city", cityinfo);
+                  sessionStorage.setItem("city", cityinfo);
+                  $rootScope.$broadcast('cityChange');
+                }}
+              ]}
+              );}
+          sessionStorage.setItem("nowcity", cityinfo);
+        }
 			sessionStorage.setItem("longitude", data.position.getLng());
 			sessionStorage.setItem("latitude", data.position.getLat());
 		}
@@ -226,7 +256,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
 
 })
   .config(function($ionicConfigProvider, $ionicNativeTransitionsProvider,$cordovaInAppBrowserProvider) {
-	var defaultOptions = {
+	// 防止滑动白屏
+  $ionicConfigProvider.views.swipeBackEnabled(false);
+  $ionicConfigProvider.backButton.text('');        
+  $ionicConfigProvider.backButton.previousTitleText(false);
+  var defaultOptions = {
 		location: 'no',
 		clearcache: 'no',
 		toolbar: 'no'
@@ -273,7 +307,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
       .state('tab.home', {
 	url: '/home',
 	nativeTransitions: null,
-	cache:false,
+  cache: false,
 	views: {
 		'tab-home': {
 			templateUrl: 'templates/home/home.html',
@@ -385,6 +419,7 @@ controller:'futrueCtrl'
 })
       .state('curtain', {
 	url: '/curtain',
+  cache:false,
 	templateUrl: 'templates/ctrl/curtain/curtain.html',
 	controller:'curtainCtrl'
 })
@@ -395,21 +430,24 @@ controller:'futrueCtrl'
 })
       .state('model', {
 	url: '/model',
+  cache:false,
 	templateUrl: 'templates/ctrl/model/model.html',
 	controller:'modelCtrl'
 })
       .state('tv', {
 	url: '/tv',
+  cache:false,
 	templateUrl: 'templates/ctrl/tv/tv.html',
 	controller:'tvCtrl'
 })
       .state('airCondition', {
 	url: '/airCondition',
+  cache:false,
 	templateUrl: 'templates/ctrl/airCondition/airCondition.html',
 	controller:"airCtrl"
 })
       .state('lock', {
-	url: '/lock',
+	url: '/lock/:name',
 	cache:false,
 	templateUrl: 'templates/ctrl/lock/lock.html',
 	controller:"lockCtrl"
@@ -431,6 +469,7 @@ controller:'futrueCtrl'
 })
       .state('service', {
 	url: '/service',
+  cache:false,
 	templateUrl: 'templates/ctrl/service/service.html',
 	controller:'serviceCtrl'
 })
@@ -10240,6 +10279,7 @@ angular.module('home-controller', [])
     $scope.city = localStorage.getItem('city')?localStorage.getItem('city'):'杭州';
 	$scope.$on('cityChanges', function() {
 		$scope.city = localStorage.getItem('city');
+    getHomePageHotels()
 	});
   
 	$scope.$on('cityChange', function() {
@@ -10261,9 +10301,7 @@ angular.module('home-controller', [])
     //定位
     //Ã–Ã·Â¹Ã£Â¸Ã¦
 	$scope.mainADs = mainADs.data.result;
-	$ionicLoading.show({
-		template: '<ion-spinner icon="ios"></ion-spinner>'
-	});
+	
     //
 	$scope.goSelectBussiniss = function($event) {
 		$event.preventDefault();
@@ -10280,24 +10318,27 @@ angular.module('home-controller', [])
     //酒店列表
 	var pageNo = 1;
 	$scope.moreDataCanBeLoaded = true;
-	ApiService.getHomePageHotels({
-		pageNo: pageNo,
-		pageSize: 5,
-    address:encodeURI(sessionStorage.getItem("city")||'杭州市')
-	}).success(function(res) {
-		if (res.success) {
-			$ionicLoading.hide();
-      $scope.hotels = res.result.map(function(hotel){
-        //评价星星
-      hotel.full_stars = [];
-      hotel.full_stars.length = parseInt(hotel.stars,10)||5;
-      hotel.star_blank = [];
-      hotel.star_blank.length = 5 - hotel.full_stars.length;
-      return hotel
-      })
-			pageNo++;
-		}
-	});
+  function getHomePageHotels() {
+    ApiService.getHomePageHotels({
+      pageNo: pageNo,
+      pageSize: 5,
+      address:encodeURI(sessionStorage.getItem("city")||'杭州市')
+    }).success(function(res) {
+      if (res.success) {
+        // $ionicLoading.hide();
+        $scope.hotels = res.result.map(function(hotel){
+          //评价星星
+        hotel.full_stars = [];
+        hotel.full_stars.length = parseInt(hotel.stars,10)||5;
+        hotel.star_blank = [];
+        hotel.star_blank.length = 5 - hotel.full_stars.length;
+        return hotel
+        })
+        pageNo++;
+      }
+    });
+  }
+	getHomePageHotels()
 	$scope.loadMoreData = function() {
 		ApiService.getHomePageHotels({
 			pageNo: pageNo,
@@ -11727,9 +11768,12 @@ angular.module('beLandlord-controller', [])
       $scope.select = false;
       ApiService.getCustomerInfo({customerId: localStorage.getItem('customerId')})
       .success(function(res){
-        if (res.dataObject.type===1) {
-          $scope.select = true
-        }
+         console.log(res)
+         if (res.success) {
+           if (res.dataObject.type===1) {
+             $scope.select = true
+           }
+         }
       })
 	$scope.figureDatas = [{ img: 'my_account', figcaption: '我的收入' }, { img: 'join_us', figcaption: '我的收入' }, { img: 'my_house', figcaption: '我的收入' }];
 	$scope.active = function() {
@@ -11768,7 +11812,7 @@ angular.module('Orderform-controller', [])
 				"timeout": "30m", //超时设置
 				"notifyUrl": "http://www.live-ctrl.com/aijukex/op/op_notifyOrder"
 			}, function(resultStatus) {
-
+        $state.go('tab.ctrl');
 			}, function(message) {
 
 			});
@@ -13392,6 +13436,7 @@ angular.module('invoice-controller', [])
 
 angular.module('userCenter-controller', [])
     .controller('userCenter', function($scope, $state, $ionicViewSwitcher) {
+    	//console.log(sessionStorage.getItem('_city'))
 	$scope.useName = '注册/登录';
 	$scope.imghead = 'imgs/wcj/imghead.png';
 	$scope.tip = false;
@@ -14900,12 +14945,13 @@ angular.module('airCondition-controller', [])
     }
     ApiService.queryDeviceType(data1)
     .success(function(res) {
-    	console.log(res)
+    	//console.log(res)
       $scope.deviceType = res.dataObject
       ApiService.ctrlHostDeviceByType(data).success(function(res) {
         console.log(res)
         if (res.success) {
           $scope.length = res.dataObject.length
+          $scope.title = res.dataObject[0].name.replace(/[0-9$]/g, '')
           //more(res.dataObject)
           $scope.airConditionArrays = []
           res.dataObject.forEach(function(air) {
@@ -14920,25 +14966,36 @@ angular.module('airCondition-controller', [])
 
             $scope.airConditionArrays.push(airData)
           })
-          console.log($scope.airConditionArrays)
+          //console.log($scope.airConditionArrays)
           more()
           $scope.airState = 0
           $scope.model = '制冷'
           changeTempArray('制冷')
            
           //向右滑
-          $scope.onSwipeRight = function() {
+          $scope.onSwipeRight = function(e) {
+            e.preventDefault()
+            e.stopPropagation()
             if ($scope.airState > 0) {
               $scope.airState--
               changeTempArray('制冷')
+              $scope.title = res.dataObject[$scope.airState].name.replace(/[0-9$]/g, '')
             }
           }
           //向左滑
-          $scope.onSwipeLeft = function() {
+          $scope.onSwipeLeft = function(e) {
+            e.preventDefault()
+            e.stopPropagation()
             if ($scope.airState < $scope.length - 1) {
               $scope.airState++
               changeTempArray('制冷')
+              $scope.title = res.dataObject[$scope.airState].name.replace(/[0-9$]/g, '')
             }
+          }
+          $scope.onDrag = function(e) {
+            console.log(e)
+            e.preventDefault()
+            e.stopPropagation()
           }
           var index = 0;
 
@@ -14976,9 +15033,12 @@ angular.module('airCondition-controller', [])
               serverId: sessionStorage.getItem('serverId'),
               temp: 'OFF',
               mode: arr.model === '制冷' ? 'COOL' : 'WARM', 
-              wind: 1 
+              wind: 1 ,
+              onOff: 'OFF'
             };
-            ApiService.smartHostControl(data);
+            ApiService.smartHostControl(data).success(function(res) {
+              console.log(res)
+            });
           };
         } else {
           $timeout(function() {
@@ -14992,8 +15052,10 @@ angular.module('airCondition-controller', [])
     //多个空调
     function more() {
       $scope.potArray = []
-      for (var i = $scope.length - 1; i >= 0; i--) {
-        $scope.potArray.push(i)
+      if ($scope.length > 1) {
+        for (var i = $scope.length - 1; i >= 0; i--) {
+          $scope.potArray.push(i)
+       }
       }
       $scope.perWidth = 100 / $scope.length
     }
@@ -15098,14 +15160,14 @@ angular.module('curtain-controller', [])
 .controller('curtainCtrl',function($scope,ApiService,$rootScope,$stateParams){
 	$scope.goback = function() {
 		$rootScope.$ionicGoBack();
-	};
-	
+	};	
 	var data = {
 		ip: sessionStorage.getItem('ip'),
 		deviceType: 'CURTAIN'
 	};
 	ApiService.queryCurtains(data).success(function(res){
 		if(res.success){
+			console.log(res)
 			for(var curtains in res.dataObject) {
 				//console.log(curtains)
 				res.dataObject[curtains].forEach(function(curtain) {
@@ -15114,6 +15176,7 @@ angular.module('curtain-controller', [])
 			}
 			
 			$scope.curtainArrays = res.dataObject
+			$scope.title = Object.keys(res.dataObject)[0]
 			//console.log(res.dataObject)
 			$scope.length = Object.keys(res.dataObject).length
 			more()
@@ -15154,8 +15217,10 @@ angular.module('curtain-controller', [])
 	 
 	function more() {
 		$scope.potArray = []
-		for (var i = $scope.length - 1; i >= 0; i--) {
-			$scope.potArray.push(i)
+		if ($scope.length > 1) {
+			for (var i = $scope.length - 1; i >= 0; i--) {
+				$scope.potArray.push(i)
+			}
 		}
 		$scope.perWidth = 100 / $scope.length
 	  $scope.tvState = 0
@@ -15165,12 +15230,14 @@ angular.module('curtain-controller', [])
 	$scope.onSwipeRight = function() {
 		if ($scope.tvState > 0) {
 			$scope.tvState--
+			$scope.title = Object.keys($scope.curtainArrays)[$scope.tvState]
 		}
 	}
 	//向左滑
 	$scope.onSwipeLeft = function() {
 		if ($scope.tvState < $scope.length - 1) {
 			$scope.tvState++
+			$scope.title = Object.keys($scope.curtainArrays)[$scope.tvState]
 		}
 	}
 
@@ -15182,7 +15249,7 @@ angular.module('tv-controller', [])
 	$scope.goback = function(){
 	  $rootScope.$ionicGoBack();
 	}
-
+ 
 	var data = {
 		houseId: sessionStorage.getItem('houseId')
 	};
@@ -15190,17 +15257,30 @@ angular.module('tv-controller', [])
 	ApiService.queryTvDevices(data).success(function(res){
 		console.log(res)
 		$scope.tvArrays = res.dataObject
+		for(var i in $scope.tvArrays) {
+			$scope.tvArrays[i].tv_status = 'OFF'
+		}
 		$scope.length = Object.keys($scope.tvArrays).length
+		$scope.title = Object.keys(Object.values($scope.tvArrays)[0])[0].replace(/[0-9$]/g, '')
 		more()
 		console.log($scope.length)
 		$scope.tvswitch = false;
 		//电视机开
-		$scope.tvon = function(tv){
+		$scope.tvon = function(tv, status, index){
 		$scope.tvswitch = !$scope.tvswitch;
-			if ($scope.tvswitch) {
+		  var status ;
+			if (status === 'OFF') {
 				setOrder('ON', tv);
+				status = 'ON'
 			}else{
 				setOrder('OFF', tv);
+				status = 'OFF'
+			}
+			for(var i in $scope.tvArrays) {
+				//console.log(i, index)
+				if (i == index + 1) {
+					$scope.tvArrays[i].tv_status = status
+				}
 			}
 		};
 
@@ -15300,8 +15380,10 @@ angular.module('tv-controller', [])
  // 多台电视机
 	function more() {
 		$scope.potArray = []
-		for (var i = $scope.length - 1; i >= 0; i--) {
+		if ($scope.length > 1) {
+			for (var i = $scope.length - 1; i >= 0; i--) {
 			$scope.potArray.push(i)
+		}
 		}
 		$scope.perWidth = 100 / $scope.length
 	  $scope.tvState = 0
@@ -15311,12 +15393,15 @@ angular.module('tv-controller', [])
 	$scope.onSwipeRight = function() {
 		if ($scope.tvState > 0) {
 			$scope.tvState--
+			$scope.title = Object.keys(Object.values($scope.tvArrays)[$scope.tvState])[0].replace(/[0-9$]/g, '')
+
 		}
 	}
 	//向左滑
 	$scope.onSwipeLeft = function() {
 		if ($scope.tvState < $scope.length - 1) {
 			$scope.tvState++
+			$scope.title = Object.keys(Object.values($scope.tvArrays)[$scope.tvState])[0].replace(/[0-9$]/g, '')
 		}
 	}
 });
@@ -15482,7 +15567,7 @@ angular.module('checkIn-controller', [])
 				$state.go('curtain');
 			};
 			$scope.goLock = function() {
-				$state.go('lock');
+				$state.go('lock', {name: res.dataObject.name});
 			};
 			$scope.goService = function() {
 				$state.go('service');
@@ -15602,18 +15687,19 @@ angular.module('model-controller', [])
 		if(res.success){
 			console.log(res)
 			var models = res.dataObject
-			$scope.modelCtrl = function(type,index){
-				$scope.index=index;
-				var model = models.filter(function(model,index){
-					return   model.name == '情景' + type;
+			$scope.modelArray = models.filter(function(model,index){
+					return   model.name.indexOf('情景') > -1;
 				});
-				console.log(model)
+			console.log($scope.modelArray)
+			$scope.modelCtrl = function(sceneId, index){
+				$scope.index=index;
+
 				var data = {
 					houseId:sessionStorage.getItem('houseId'),
 					deviceType:'SCENE',
 					port:sessionStorage.getItem('port'),
 					serverId:sessionStorage.getItem('serverId'),
-					sceneId:model[0].sceneId
+					sceneId: sceneId
 				};
 				ApiService.smartHostControl(data).success(function(res){
 					console.log(res)
@@ -15633,13 +15719,15 @@ $scope.goback = function(){
 	$scope.goColorLight = function(){
 		$state.go('colorPicker');
 	};
+  $scope.tab_navs = ['卧室', '卫生间', '走廊', '其他']
    //获取情景模式
-	ApiService.queryHostScenes({serverId:sessionStorage.getItem('serverId')}).success(function(res){
-		$scope.models = res.dataObject;
-		$scope.models.map(function(model){
-			model.bgSelect = false;
-		});
-	});
+	// ApiService.queryHostScenes({serverId:sessionStorage.getItem('serverId')})
+ //  .success(function(res){
+	// 	$scope.models = res.dataObject;
+	// 	$scope.models.map(function(model){
+	// 		model.bgSelect = false;
+	// 	});
+	// });
 	var data = {
 		deviceType:'SWITCH',
 		ip:sessionStorage.getItem('ip')
@@ -15654,13 +15742,25 @@ $scope.goback = function(){
        for(var i=0;i<res.dataObject.length;i++){
          $scope.lights = $scope.lights.concat(res.dataObject[i].ways);
        }
-       $scope.lights = $scope.lights.filter(function(light,index){
+       $scope.allLights = $scope.lights.filter(function(light,index){
          return light.name.indexOf('灯')>-1;
        });
+       $scope.tabClick('卧室', 0)
      }
    })
    }
    getways();
+   //切换tab
+   $scope.tabClick = function(type, index) {
+      $scope.lights = $scope.allLights.filter(function(light,index){
+         return light.name.indexOf(type)>-1;
+       });
+
+       $scope.lights.forEach(function(light) {
+         return light.name = light.name.replace(type, '')
+       })
+      $scope.tabIndex = index
+   }
        //灯控制
 		$scope.lightCtrl = function(light){
 			var status = light.status=='ON'?"CLOSE":'OPEN';
@@ -15785,7 +15885,9 @@ angular.module("colorPicker-controller", [])
 });
 
 angular.module('lock-controller', [])
-  .controller('lockCtrl', function($scope,ApiService,$rootScope) {
+  .controller('lockCtrl', function($scope,ApiService,$rootScope, $stateParams) {
+    console.log($stateParams)
+    $scope.name = $stateParams.name.replace(/[^0-9]/g, '')
     $scope.goback = function(){
       $rootScope.$ionicGoBack();
     }
