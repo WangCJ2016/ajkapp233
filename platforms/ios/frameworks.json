@@ -1,11 +1,6 @@
 {
-    "libsqlite3.0.tbd": 1,
     "libz.1.2.5.tbd": 1,
-    "CoreTelephony.framework": 2,
-    "SystemConfiguration.framework": 2,
-    "Security.framework": 1,
     "libstdc++.6.0.9.tbd": 1,
-    "libz.tbd": 1,
     "libc++.tbd": 1,
     "CoreMotion.framework": 1,
     "ImageIO.framework": 1,
@@ -15,5 +10,12 @@
     "Foundation.framework": 1,
     "QuartzCore.framework": 1,
     "MessageUI.framework": 1,
-    "MediaAccessibility.framework": 1
+    "MediaAccessibility.framework": 1,
+    "libz.tbd": 1,
+    "libsqlite3.0.tbd": 1,
+    "CoreTelephony.framework": 1,
+    "SystemConfiguration.framework": 1,
+    "Security.framework": 1,
+    "CFNetwork.framework": 1,
+    "libstdc++.6.tbd": 1
 }

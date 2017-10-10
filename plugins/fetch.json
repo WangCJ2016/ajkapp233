@@ -116,6 +116,16 @@
         "is_top_level": true,
         "variables": {}
     },
+    "cordova-plugin-wechat": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-wechat@2.0.0"
+        },
+        "is_top_level": true,
+        "variables": {
+            "WECHATAPPID": "wxd0cf1b4ce9cace87"
+        }
+    },
     "cordova-plugin-x-toast": {
         "source": {
             "type": "git",
@@ -191,14 +201,6 @@
             "id": "cordova-plugin-file"
         },
         "is_top_level": false,
-        "variables": {}
-    },
-    "cordova-plugin-wechat": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-wechat@2.0.0"
-        },
-        "is_top_level": true,
         "variables": {}
     },
     "com.yoopoon.cordova.plugin.alipay": {

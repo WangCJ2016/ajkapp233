@@ -2,19 +2,19 @@
   "_args": [
     [
       {
-        "raw": "cordova-plugin-wechat@2.0.0",
+        "raw": "cordova-plugin-wechat@^2.0.0",
         "scope": null,
         "escapedName": "cordova-plugin-wechat",
         "name": "cordova-plugin-wechat",
-        "rawSpec": "2.0.0",
-        "spec": "2.0.0",
-        "type": "version"
+        "rawSpec": "^2.0.0",
+        "spec": ">=2.0.0 <3.0.0",
+        "type": "range"
       },
-      "/Users/apple/Desktop/workspace/workspace/爱居客APP/ajkapp233/node_modules"
+      "/Users/apple/Desktop/workspace/workspace/爱居客APP/ajkapp233"
     ]
   ],
   "_cnpm_publish_time": 1498961850355,
-  "_from": "cordova-plugin-wechat@2.0.0",
+  "_from": "cordova-plugin-wechat@>=2.0.0 <3.0.0",
   "_id": "cordova-plugin-wechat@2.0.0",
   "_inCache": true,
   "_location": "/cordova-plugin-wechat",
@@ -30,13 +30,13 @@
   "_npmVersion": "5.0.3",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "cordova-plugin-wechat@2.0.0",
+    "raw": "cordova-plugin-wechat@^2.0.0",
     "scope": null,
     "escapedName": "cordova-plugin-wechat",
     "name": "cordova-plugin-wechat",
-    "rawSpec": "2.0.0",
-    "spec": "2.0.0",
-    "type": "version"
+    "rawSpec": "^2.0.0",
+    "spec": ">=2.0.0 <3.0.0",
+    "type": "range"
   },
   "_requiredBy": [
     "#USER",
@@ -45,8 +45,8 @@
   "_resolved": "https://registry.npm.taobao.org/cordova-plugin-wechat/download/cordova-plugin-wechat-2.0.0.tgz",
   "_shasum": "af24ac74abf3d32ca3729fe46c4b7f981816b2e5",
   "_shrinkwrap": null,
-  "_spec": "cordova-plugin-wechat@2.0.0",
-  "_where": "/Users/apple/Desktop/workspace/workspace/爱居客APP/ajkapp233/node_modules",
+  "_spec": "cordova-plugin-wechat@^2.0.0",
+  "_where": "/Users/apple/Desktop/workspace/workspace/爱居客APP/ajkapp233",
   "author": {
     "name": "xu.li",
     "email": "AthenaLightenedMyPath@gmail.com"

@@ -6,6 +6,7 @@ angular.module('home-controller', [])
     $scope.city = localStorage.getItem('city')?localStorage.getItem('city'):'杭州';
 	$scope.$on('cityChanges', function() {
 		$scope.city = localStorage.getItem('city');
+    pageNo = 1
     getHomePageHotels()
 	});
   
@@ -17,6 +18,7 @@ angular.module('home-controller', [])
 		} else {
 			$scope.city = city;
 		}
+    pageNo = 1
     getHomePageHotels()
 	});
 	var city = sessionStorage.getItem("city");

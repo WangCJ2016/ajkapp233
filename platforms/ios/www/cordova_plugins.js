@@ -484,6 +484,14 @@ module.exports = [
         "clobbers": [
             "MobileAccessibilityNotifications"
         ]
+    },
+    {
+        "id": "cordova-plugin-wechat.Wechat",
+        "file": "plugins/cordova-plugin-wechat/www/wechat.js",
+        "pluginId": "cordova-plugin-wechat",
+        "clobbers": [
+            "Wechat"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -519,7 +527,8 @@ module.exports.metadata =
     "cordova-plugin-x-toast": "2.5.2",
     "cordova-sms-plugin": "0.1.11",
     "ionic-plugin-keyboard": "2.2.1",
-    "phonegap-plugin-mobile-accessibility": "1.0.5-dev"
+    "phonegap-plugin-mobile-accessibility": "1.0.5-dev",
+    "cordova-plugin-wechat": "2.0.0"
 };
 // BOTTOM OF METADATA
 });

@@ -66,10 +66,6 @@
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.ajk.test"
         },
-        "cordova-plugin-wechat": {
-            "WECHATAPPID": "wxd0cf1b4ce9cace87",
-            "PACKAGE_NAME": "com.ajk.test"
-        },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ajk.test"
         },

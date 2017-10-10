@@ -106,6 +106,10 @@
     <feature name="MobileAccessibility">
         <param name="ios-package" onload="true" value="CDVMobileAccessibility" />
     </feature>
+    <feature name="Wechat">
+        <param name="ios-package" value="CDVWechat" />
+        <param name="onload" value="true" />
+    </feature>
     <name>爱居客</name>
     <description>
     An Ionic Framework and Cordova project.
@@ -199,6 +203,7 @@
     <preference name="CameraUsesGeolocation" value="false" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="WECHATAPPID" value="wxd0cf1b4ce9cace87" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="SplashScreenDelay" value="2000" />
