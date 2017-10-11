@@ -4,7 +4,7 @@
   </ion-nav-buttons>
   <ion-content>
     <div class="model_wrap">
-      <p ng-click="modelCtrl(model.sceneId,$index)" ng-class='{activat:$index==index}' ng-repeat="model in modelArray"><img ng-src="imgs/wcj/model/{{model.name.replace('情景', '')}}.png" alt=""></p>
+      <p ng-click="modelCtrl(model.sceneId,$index)" ng-class='{activat:$index==index}' ng-repeat="model in modelArray"><span class="model_img {{model.name}}"></span></p>
     </div>
   </ion-content>
 </ion-view>

@@ -17038,8 +17038,6 @@ iframe {
         font-size: 60px; }
       [data-dpr="3"] .futrue_wrap .round .ok {
         font-size: 90px; }
-      .futrue_wrap .round .ok img {
-        width: 1.36rem; }
 
 .curtain_wrap {
   float: left; }
@@ -17122,7 +17120,8 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 0.13333rem;
     position: relative;
     overflow: hidden; }
-    .model_wrap > p img {
+    .model_wrap > p span {
+      display: inline-block;
       width: 100%;
       height: 100%; }
   .model_wrap .activat::after {
@@ -17161,6 +17160,21 @@ input[type="range"]::-webkit-slider-thumb {
     left: -2.5rem;
     width: 15rem;
     height: 15rem; } }
+  .model_wrap .model_img {
+    background: url("../imgs/wcj/model/yingbin.png") no-repeat 100% 100%; }
+  .model_wrap .外出情景 {
+    background: url("../imgs/wcj/model/waichu.png") no-repeat 100% 100%; }
+  .model_wrap .迎宾情景 {
+    background: url("../imgs/wcj/model/yingbin.png") no-repeat 100% 100%; }
+  .model_wrap .起床情景 {
+    background: url("../imgs/wcj/model/qichuang.png") no-repeat 100% 100%; }
+  .model_wrap .影视情景 {
+    background: url("../imgs/wcj/model/yingshi.png") no-repeat 100% 100%; }
+  .model_wrap .阅读情景 {
+    background: url("../imgs/wcj/model/yuedu.png") no-repeat 100% 100%; }
+  .model_wrap .睡眠情景 {
+    background: url("../imgs/wcj/model/shuimian.png") no-repeat 100% 100%; }
+
 .sweepTime_wrap {
   height: 100%;
   background-color: #f6f6f6; }

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0207DA571B56EA530066E2B4 /* Images.xcassets */; };
 		05004F4972E24762A1A3DD1F /* SOSPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BEA2A236122443DB354BD98 /* SOSPicker.m */; };
@@ -754,7 +753,7 @@
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 7E6Y7DPDKT;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -920,10 +919,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = 7E6Y7DPDKT;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"爱居客/Plugins/com.yoopoon.cordova.plugin.alipay\"",
@@ -944,8 +943,8 @@
 					"\"$(SRCROOT)/爱居客/Plugins/cordova-plugin-wechat\"",
 				);
 				PRODUCT_NAME = "爱居客";
-				PROVISIONING_PROFILE = "3ad92203-6d7b-4472-9f25-ce511fae723a";
-				PROVISIONING_PROFILE_SPECIFIER = ajk_appstore1;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -959,10 +958,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = YES;
-				DEVELOPMENT_TEAM = 7E6Y7DPDKT;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"爱居客/Plugins/com.yoopoon.cordova.plugin.alipay\"",
@@ -981,8 +980,8 @@
 					"\"$(SRCROOT)/爱居客/Plugins/cordova-plugin-wechat\"",
 				);
 				PRODUCT_NAME = "爱居客";
-				PROVISIONING_PROFILE = "3ad92203-6d7b-4472-9f25-ce511fae723a";
-				PROVISIONING_PROFILE_SPECIFIER = ajk_appstore1;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
