@@ -1,8 +1,8 @@
 angular.module('light-controller', [])
 .controller('lightCtrl',function($scope,$rootScope,$stateParams,$rootScope,ApiService,$state,$timeout){
 $scope.goback = function(){
-  $rootScope.$ionicGoBack();
-  //$state.go('checkIn');
+  //$rootScope.$ionicGoBack();
+  $state.go('checkIn');
 }
   //跳转彩灯
 	$scope.goColorLight = function(){

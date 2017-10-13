@@ -1,18 +1,15 @@
 <ion-view title={{title}}>
   <ion-nav-buttons side="left">
-     <button class="button button-clear ajk_back" ng-click="goback()"></button>
- </ion-nav-buttons>
- <ion-content class='transform_scroll'  style="overflow: hidden;background-color: #000">
-  <div class="slide-pot">
-    <span class="pot" ng-repeat='pot in potArray' ng-class='{active: $index === airState}'></span>
-  </div>
-  <div style="width: 100%; height: 100%; overflow: hidden;">
-    <div class="tvArrays" 
-    on-swipe-right="onSwipeRight($event)" 
-    on-swipe-left="onSwipeLeft($event)"
-    style="width: {{length}}00%;transform: translateX(-{{perWidth * airState}}%);">
-   <div class="airCondition_wrap" ng-repeat='airCondition in airConditionArrays' style="width: {{perWidth}}%">
-     <section class="display">
+    <button class="button button-clear ajk_back" ng-click="goback()"></button>
+  </ion-nav-buttons>
+  <ion-content class='transform_scroll' style="overflow: hidden;background:url(imgs/wcj/airCondition/air_bg.png);background-size: 100% 100%;">
+    <div class="slide-pot">
+      <span class="pot" ng-repeat='pot in potArray' ng-class='{active: $index === airState}'></span>
+    </div>
+    <div style="width: 100%; height: 100%; overflow: hidden;">
+      <div class="tvArrays" on-swipe-right="onSwipeRight($event)" on-swipe-left="onSwipeLeft($event)" style="width: {{length}}00%;transform: translateX(-{{perWidth * airState}}%);">
+        <div class="airCondition_wrap" ng-repeat='airCondition in airConditionArrays' style="width: {{perWidth}}%">
+          <!--  <section class="display">
        <div>
        <div class="speed">
          <p><span>风速</span><span class="divier"></span></p>
@@ -33,9 +30,75 @@
        <span class="left" ng-click="changeModel();"><img src="imgs/wcj/airCondition/speed.png" alt=""></span>
        <span class="right"><img src="imgs/wcj/airCondition/wind.png" alt=""></span>
        <span class="ok" ng-click='off(airCondition.deviceId)'>OFF</span>
-     </section>
-   </div>
+     </section> -->
+            <div class="air_display">
+              <div class="air_box">
+                <div class="air_display_box">
+                  <span class='air_display_title'>风速</span>
+                  <div class="air_speed">
+                   <!--  {this.speedRender()} -->
+                  </div>
+                </div>
+                <div class="air_display_box air_box_down">
+                  <span class='air_display_title'>模式</span>
+                  <div class="air_model">
+                    <img ng-src='imgs/wcj/airCondition/cold.png' alt="" />
+                    <span>制热</span>
+                  </div>
+                </div>
+              </div>
+              <div class="air_divide">
+                <p></p>
+              </div>
+              <div class="air_box">
+                <div class="air_display_box">
+                  <span class='air_display_title'>当前</span>
+                  <div class="tem">20℃</div>
+                </div>
+                <div class="air_display_box air_box_down">
+                  <span class='air_display_title'>设置</span>
+                  <div class="tem">{{airCondition.temp?airCondition.temp+'℃':''}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="air_round">
+              <div class="middle_round" ng-click='off(airCondition.deviceId)'>
+                {{status === "ON" ? "OFF" : "ON"}}
+              </div>
+              <span class="small_round up"></span>
+              <span class="small_round down"></span>
+              <span class="small_round left"></span>
+              <span class="small_round right"></span>
+            </div>
+            <div class="air_btn">
+              <figure class='air_figure' ng-click='tempAdd();'>
+                <div class="air_figure_img">
+                  <img class='btn_tmp' ng-src='imgs/wcj/airCondition/plus.png' alt="" />
+                </div>
+                <figcaption>温度+</figcaption>
+              </figure>
+              <figure class='air_figure' ng-click="tempReduce();">
+                <div class="air_figure_img">
+                  <img class='btn_tmp' ng-src='imgs/wcj/airCondition/minus.png' alt="" />
+                </div>
+                <figcaption>温度-</figcaption>
+              </figure>
+              <figure class='air_figure' onClick={this.speedChange.bind(this,deviceId,deviceId)}>
+                <div class="air_figure_img">
+                  <img class='btn_speed' ng-src='imgs/wcj/airCondition/speed.png' alt="" />
+                </div>
+                <figcaption>风速</figcaption>
+              </figure>
+              <figure class='air_figure' ng-click="changeModel();">
+                <div class="air_figure_img">
+                  <img class='btn_speed' ng-src='imgs/wcj/airCondition/air_model.png' alt="" />
+                </div>
+                <figcaption>模式</figcaption>
+              </figure>
+            </div>
+          </div>
+        
+      </div>
     </div>
- </div>
- </ion-content>
- </ion-view>
+  </ion-content>
+</ion-view>

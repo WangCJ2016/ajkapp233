@@ -1,9 +1,15 @@
 {
-  "name": "demo",
+  "name": "ajkapp",
   "app_id": "",
-  "integrations": {
-    "cordova": {}
-  },
-  "type": "ionic1",
-  "watchPatterns": []
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "scss/*",
+    "www/**/*",
+    "www/**/**/*",
+    "www/**/**/**/*",
+    "!www/lib/**/*"
+  ]
 }

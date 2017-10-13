@@ -3,7 +3,7 @@ angular.module('model-controller', [])
 	$scope.goback = function(){
 	  $rootScope.$ionicGoBack();
 	}
-  $scope.modelArray = ['起床','睡眠','阅读','外出','影视','迎宾'];
+  // $scope.modelArray = ['起床','睡眠','阅读','外出','影视','迎宾'];
 	ApiService.queryHostScenes({serverId:sessionStorage.getItem('serverId')}).success(function(res){
 		if(res.success){
 			console.log(res)

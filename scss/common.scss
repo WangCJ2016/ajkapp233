@@ -21,6 +21,7 @@ $ajk_activated_color:#efefef;
     font-size: $font-size * 3;
   }
 }
+
 @mixin borderMixinBottom1 {
     content: "";/* 注意这里为双引号 */
     position: absolute;

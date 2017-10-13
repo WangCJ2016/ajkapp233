@@ -9,7 +9,8 @@
     border-radius: px2rem(10);
     position: relative;
     overflow: hidden;
-    img {
+    span {
+      display: inline-block;
       width: 100%;
       height: 100%;
     }
@@ -59,5 +60,26 @@ to {
     width: 15rem;
     height: 15rem;
   }
+}
+.model_img{
+  background: url('../imgs/wcj/model/yingbin.png') no-repeat 100% 100%;
+}
+.外出情景{
+  background: url('../imgs/wcj/model/waichu.png') no-repeat 100% 100%;
+}
+.迎宾情景{
+  background: url('../imgs/wcj/model/yingbin.png') no-repeat 100% 100%;
+}
+.起床情景{
+  background: url('../imgs/wcj/model/qichuang.png') no-repeat 100% 100%;
+}
+.影视情景{
+  background: url('../imgs/wcj/model/yingshi.png') no-repeat 100% 100%;
+}
+.阅读情景{
+  background: url('../imgs/wcj/model/yuedu.png') no-repeat 100% 100%;
+}
+.睡眠情景{
+  background: url('../imgs/wcj/model/shuimian.png') no-repeat 100% 100%;
 }
 }

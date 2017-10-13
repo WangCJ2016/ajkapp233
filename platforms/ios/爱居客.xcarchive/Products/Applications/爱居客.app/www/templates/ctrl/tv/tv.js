@@ -114,7 +114,7 @@ angular.module('tv-controller', [])
 	function setOrder_box(key, tv) {
 			var deviceId = ''
 			for(var i in tv){
-	      if (i.indexOf('机顶')>-1) {
+	      if (i.indexOf('机顶盒')>-1) {
 	        deviceId = tv[i]
 	      }
    	  }
