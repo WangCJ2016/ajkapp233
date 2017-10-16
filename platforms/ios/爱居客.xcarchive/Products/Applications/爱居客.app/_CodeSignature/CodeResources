@@ -106,11 +106,11 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		j1tRegvL1iByPvyoyo9Wu9RZueg=
+		miw505yN3/5Ms26ie/LUuKVBhO8=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		txAIA0Lv0rT8WO0/8my0iCQNlAw=
+		zSYRMin54iGIGz3OiYXImlu3eHM=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -118,7 +118,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		Oxp4htOavisY59lRWnaJN8ebJ88=
+		x5JIXHR53AlX+MRT05xI7awOdfM=
 		</data>
 		<key>CDVNotification.bundle/beep.wav</key>
 		<data>
@@ -126,19 +126,19 @@
 		</data>
 		<key>DatePicker.nib</key>
 		<data>
-		5xAFR6bnGvZhRx2m1Ga8PM4zOd8=
+		QUACBlYb++4ONsoVxVP/4S3P1Ag=
 		</data>
 		<key>ELCAlbumPickerController.nib</key>
 		<data>
-		JMIYc9vzTOjiJp1csMW+imMWNGQ=
+		/fJiUf+YMaYW3zRntjnYzBCKoDU=
 		</data>
 		<key>ELCAssetPicker.nib</key>
 		<data>
-		cih76fTodOhs8kw4lYAUXm5TuaM=
+		f+35YVFEHv9SLGafar9821SeXps=
 		</data>
 		<key>ELCAssetTablePicker.nib</key>
 		<data>
-		eTfq7RZKEaaKr/6O4iSzYGU1ing=
+		lFatdxmeGrVM5kvVuUS8jUBzGAI=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -202,7 +202,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		I2Rr5Fu5Dwb0x9qdq+t/T0O33S4=
+		Qfxs3hVswX0aKCWblcDPPHr82Ik=
 		</data>
 		<key>Overlay.png</key>
 		<data>
@@ -250,11 +250,11 @@
 		</data>
 		<key>www/css/ionic.app.css</key>
 		<data>
-		nwUtiHnU9kb3751cd9RAb0mATUM=
+		WGp6Elg2F7gKGlgySWoSaDZ+qR4=
 		</data>
 		<key>www/css/ionic.app.min.css</key>
 		<data>
-		S2GtR2X0wqVaNoop6Oy8OTWtHNA=
+		2a1+ClCBdtd4BbiTnNbziKZUjAs=
 		</data>
 		<key>www/fonts/iconfont.eot</key>
 		<data>
@@ -296,41 +296,29 @@
 		<data>
 		mdGlcNJ1xoGDNj24oyzfwFQYrRk=
 		</data>
-		<key>www/imgs/kwn/checkIn/TV.png</key>
+		<key>www/imgs/kwn/checkIn/air.png</key>
 		<data>
-		WlGwaGFeIfeEKfrFGh/frbSdW+I=
-		</data>
-		<key>www/imgs/kwn/checkIn/airconditioning.png</key>
-		<data>
-		t4mbJqqlZpGZJ/rKl2x28xl2ng8=
-		</data>
-		<key>www/imgs/kwn/checkIn/bg.png</key>
-		<data>
-		RZJ4rWleGzDs7/DZDCwzf7hQuxM=
-		</data>
-		<key>www/imgs/kwn/checkIn/corner.png</key>
-		<data>
-		YoE4hkPTn2hey8MV/ngvzHLrRic=
+		wOMX+8qlk1a/xcAb8GpKD5z3Enc=
 		</data>
 		<key>www/imgs/kwn/checkIn/curtain.png</key>
 		<data>
-		yoXGwhE3mZP1HdTRExjiLeNrcj0=
+		x0bct9cPtzJOMLadmWZ0cbC7b7E=
 		</data>
-		<key>www/imgs/kwn/checkIn/key.png</key>
+		<key>www/imgs/kwn/checkIn/home_bg.png</key>
 		<data>
-		yX+UZklhdPaV6WpBLz5Zod339OE=
+		GUUCL2iW7QbkgFdGEw2DMUz6aiQ=
 		</data>
 		<key>www/imgs/kwn/checkIn/light.png</key>
 		<data>
-		hyQOcdlvH3RcTjdwEaBcUq+j6nI=
+		cq8JgRPpul9da1hWEO6TuKPCARY=
 		</data>
-		<key>www/imgs/kwn/checkIn/many.png</key>
+		<key>www/imgs/kwn/checkIn/lock.png</key>
 		<data>
-		yGs8wCic21EHR+nDEHqpaFAYTRs=
+		BfneNGgN2tjGZxhUmHe2OuJtfSA=
 		</data>
 		<key>www/imgs/kwn/checkIn/model.png</key>
 		<data>
-		TDEmkJZCNw9orgWz//Tgc2RbJLM=
+		oHczPeBX31nIt6x3fXEYhAp/LSI=
 		</data>
 		<key>www/imgs/kwn/checkIn/more.png</key>
 		<data>
@@ -342,11 +330,19 @@
 		</data>
 		<key>www/imgs/kwn/checkIn/service.png</key>
 		<data>
-		pao0/3rmOa7nvkB+CNlbIDy+XxI=
+		pHHGQ+k5QAog5T1k5g1hXxzdLas=
+		</data>
+		<key>www/imgs/kwn/checkIn/slogan.png</key>
+		<data>
+		yEcbkg7G4WzKXeFIOE0HpZ/Na7Y=
 		</data>
 		<key>www/imgs/kwn/checkIn/tanghuang.png</key>
 		<data>
 		Td36dd881fzHkq5a1EevAxUfMtI=
+		</data>
+		<key>www/imgs/kwn/checkIn/tv.png</key>
+		<data>
+		Xa2ekr4saa6nwpNKwjP2qF6CW1I=
 		</data>
 		<key>www/imgs/kwn/code.png</key>
 		<data>
@@ -528,37 +524,45 @@
 		<data>
 		a8zfdSKaip+LxweAZJsdec+6/8g=
 		</data>
-		<key>www/imgs/wcj/airCondition/off.png</key>
+		<key>www/imgs/wcj/airCondition/air_bg.png</key>
 		<data>
-		HANyc6lpVmBjv9gvyFkFnshXpy8=
+		lIONDo/ZUwK/Vf7m1l14V53LDR4=
 		</data>
-		<key>www/imgs/wcj/airCondition/ok.png</key>
+		<key>www/imgs/wcj/airCondition/air_model.png</key>
 		<data>
-		x9H7sNWlZQE3Jl5ZjrDHHVPNitY=
+		/cZnyhy9IJq2j7/HekmKgVHiX50=
 		</data>
-		<key>www/imgs/wcj/airCondition/round.png</key>
+		<key>www/imgs/wcj/airCondition/cold.png</key>
 		<data>
-		zQh+8cZkYRzJgM3KbW12ec9pClI=
+		cEanSwO6PAZkwE217SqdAphP9xw=
 		</data>
-		<key>www/imgs/wcj/airCondition/snow.png</key>
+		<key>www/imgs/wcj/airCondition/hot.png</key>
 		<data>
-		6IVbPe6ZEwXHNVe/gK6x6TpspAE=
+		VjAS9FIeV5u0S8fmYZfQBLiGHgk=
+		</data>
+		<key>www/imgs/wcj/airCondition/minus.png</key>
+		<data>
+		oW/vwdVNyORQ2d+423wrP2X4cwM=
+		</data>
+		<key>www/imgs/wcj/airCondition/plus.png</key>
+		<data>
+		bzCG9YSVWGb3JokpEHE64zn0T48=
 		</data>
 		<key>www/imgs/wcj/airCondition/speed.png</key>
 		<data>
-		0t3it3kFJohUJDLnXr4glpRLKS0=
+		/pOv20riD5FmxU2BFb1/Vbherm0=
 		</data>
-		<key>www/imgs/wcj/airCondition/temMunis.png</key>
+		<key>www/imgs/wcj/airCondition/speed_1.png</key>
 		<data>
-		oRGte0tdXRdKe21qXNofCZRbsrA=
+		FQUy5q7B6EiohNFxtjidaoGfxTk=
 		</data>
-		<key>www/imgs/wcj/airCondition/temPlus.png</key>
+		<key>www/imgs/wcj/airCondition/speed_2.png</key>
 		<data>
-		Xv1YNE5bIdFYpqBU8ZppRjL03Hs=
+		RMIM+VTPBZrDqrx3tEfgBrC1zUo=
 		</data>
-		<key>www/imgs/wcj/airCondition/wind.png</key>
+		<key>www/imgs/wcj/airCondition/speed_3.png</key>
 		<data>
-		UTJ2WCwhlCg+0J8ENrqIqWXgQiM=
+		HzEUsxp1Ed4kyYmt2DQ8xPjXk1g=
 		</data>
 		<key>www/imgs/wcj/be_landlord/back_img.png</key>
 		<data>
@@ -644,29 +648,21 @@
 		<data>
 		bFA56IUPZrP84O3YLYO4V8gjekI=
 		</data>
-		<key>www/imgs/wcj/curtain/curtainOff.png</key>
+		<key>www/imgs/wcj/curtain/btn_active.png</key>
 		<data>
-		Ssg+Tqq4eeVIewaNDaVuwHE9xU4=
+		hoip7OdcNRi1ZufFqQjb93x5SVw=
 		</data>
-		<key>www/imgs/wcj/curtain/curtainOn.png</key>
+		<key>www/imgs/wcj/curtain/curtain_bg.png</key>
 		<data>
-		QjmN3XecASjYUmRxwzFcVIpbSRw=
+		2fSmMl8JUuk4ms8+fmGip3AW7rw=
 		</data>
-		<key>www/imgs/wcj/curtain/range.png</key>
+		<key>www/imgs/wcj/curtain/curtain_bg1.png</key>
 		<data>
-		J6m3q9MFstedaBSdl5cAEVtqZQ4=
+		A8HgO1KebPWex6YKBnHVT2geDlk=
 		</data>
-		<key>www/imgs/wcj/curtain/rect.png</key>
+		<key>www/imgs/wcj/curtain/curtain_bg2.png</key>
 		<data>
-		rOxpk+z/WKUCQZ7H8j0OBT38oNs=
-		</data>
-		<key>www/imgs/wcj/curtain/winScreenOff.png</key>
-		<data>
-		LDI/uRZd67+H7QA3IDKEA8I+3hk=
-		</data>
-		<key>www/imgs/wcj/curtain/winScreenOn.png</key>
-		<data>
-		l5AIlT7+lj4hQWMvMaQxxv5jVco=
+		0qoCNk5OU5qZYOyHMhPp4i8OBR0=
 		</data>
 		<key>www/imgs/wcj/date/calendar.png</key>
 		<data>
@@ -864,197 +860,157 @@
 		<data>
 		bKYYNgKyXzCORQJ6OWW4MwRcGlA=
 		</data>
-		<key>www/imgs/wcj/light/bgLight.png</key>
+		<key>www/imgs/wcj/light/beijingdeng_OFF.png</key>
 		<data>
-		b+94g7Msn5gpAhcqqxOC6+orjn8=
+		5tir7HQ+oxVFGlMCwGvfwi/skLI=
 		</data>
-		<key>www/imgs/wcj/light/bgLightOff.png</key>
+		<key>www/imgs/wcj/light/beijingdeng_ON.png</key>
 		<data>
-		43k8KH3aYnofxYUeIlHyuuOgxA4=
+		Iz6Pyl+NBzvw8REA25MVs2cm+9g=
 		</data>
-		<key>www/imgs/wcj/light/blue.png</key>
+		<key>www/imgs/wcj/light/dingdeng_OFF.png</key>
 		<data>
-		fFYyMIN7KdKKLgnN+hVaz+kC4rQ=
+		DTh9XcgwN8yUZ4rqjhhF+BQB6pE=
 		</data>
-		<key>www/imgs/wcj/light/colorLight.png</key>
+		<key>www/imgs/wcj/light/dingdeng_ON.png</key>
 		<data>
-		Ru434ITeqzZytF9tNShZkSHcEeQ=
+		hiRZtBOmlL4JXWwi2I6io2LDOpE=
 		</data>
-		<key>www/imgs/wcj/light/disModel.png</key>
+		<key>www/imgs/wcj/light/light_bg.png</key>
 		<data>
-		n+vU8wN850zIWRB86elBycEPsXw=
+		R5GMOcTas7er2nbc1hA7gAShxig=
 		</data>
-		<key>www/imgs/wcj/light/fan.png</key>
+		<key>www/imgs/wcj/light/light_bg_off.png</key>
 		<data>
-		OjRUh8yi7tecZ+xMPGxSqOiPZw4=
+		/A8VEnM1XPjHw8Pg6J0qFZko+bo=
 		</data>
-		<key>www/imgs/wcj/light/fanOff.png</key>
+		<key>www/imgs/wcj/light/light_bg_on.png</key>
 		<data>
-		7tV81z9j/jvLpt4FnHRCyfXSMQY=
+		ZDO7fHbnCoRxK12kpnoX7riKFDo=
 		</data>
-		<key>www/imgs/wcj/light/green.png</key>
+		<key>www/imgs/wcj/light/light_off.png</key>
 		<data>
-		FEKDkCXCvyzvXZxuLk4Ow6CodpQ=
+		IridqrhJF3/GQxs0kXnmqmhcXvQ=
 		</data>
-		<key>www/imgs/wcj/light/hallwayLight.png</key>
+		<key>www/imgs/wcj/light/light_on.png</key>
 		<data>
-		UiMBfXBLvJlvWiPydEAqPhA5TYo=
+		cqhGGTVT10MbKhdvtuDCbo/Ycbg=
 		</data>
-		<key>www/imgs/wcj/light/hallwayLightOff.png</key>
+		<key>www/imgs/wcj/light/middle_round.png</key>
 		<data>
-		WFc3HQcnvCpYkigrnmW7WVwrt6A=
+		XyTEMTXjeKs5sl83g9mETloXfRg=
 		</data>
-		<key>www/imgs/wcj/light/kitchenLight.png</key>
+		<key>www/imgs/wcj/light/paifengshandeng_OFF.png</key>
 		<data>
-		PTA+b2kzWBNGrMkBiZkEK5bEASc=
+		GzirI6JeF8v9XpMqc0Eo3DnUv8U=
 		</data>
-		<key>www/imgs/wcj/light/kitchenLightOff.png</key>
+		<key>www/imgs/wcj/light/paifengshandeng_ON.png</key>
 		<data>
-		k35KvGA7W3/2N9sikyr+AQXL5Q4=
+		0Dtjm9y3cTIvTB8To7dwsxYwHAc=
 		</data>
-		<key>www/imgs/wcj/light/mainLight.png</key>
+		<key>www/imgs/wcj/light/small_round.png</key>
 		<data>
-		272N2YvphqhIMtDaTFJjMQUFf+s=
+		5bbexGW0/JK4EkzgMjdexbrFSgE=
 		</data>
-		<key>www/imgs/wcj/light/mainLightOff.png</key>
+		<key>www/imgs/wcj/light/weiyudeng_OFF.png</key>
 		<data>
-		TZrKAI/evboeG8el/Pq5E4vQ8ag=
+		G/ii9HT2/CodWLhgxZPBnY5HS8U=
 		</data>
-		<key>www/imgs/wcj/light/readLight.png</key>
+		<key>www/imgs/wcj/light/weiyudeng_ON.png</key>
 		<data>
-		jgT33h6iHsJ2zZUDbphOVB1wdi8=
+		ipZoCGuaoO8c1/QEviKAOkluPlY=
 		</data>
-		<key>www/imgs/wcj/light/red.png</key>
+		<key>www/imgs/wcj/light/youyanjideng_OFF.png</key>
 		<data>
-		1doIoES0gJ1NvNZxht5CpGywEEs=
+		ry5xGkei+K73gft1g+wdxE6RPoE=
 		</data>
-		<key>www/imgs/wcj/light/shedengOff.png</key>
+		<key>www/imgs/wcj/light/youyanjideng_ON.png</key>
 		<data>
-		ASlBwBL3Wj30PQDYCQyR3Un9FaA=
+		tqTUfjEC+kKE3w8nrt4yb7ZEBeg=
 		</data>
-		<key>www/imgs/wcj/light/shedengOn.png</key>
+		<key>www/imgs/wcj/light/zhudeng_OFF.png</key>
 		<data>
-		3G1lqxDGdwt36SUuPUizltZzwJw=
+		ww9ONlgP8BbteQz0XLkBXvVtmfk=
 		</data>
-		<key>www/imgs/wcj/light/showerLight.png</key>
+		<key>www/imgs/wcj/light/zhudeng_ON.png</key>
 		<data>
-		a2GefrVUxJeZLc4vkcLzOJQzgg8=
-		</data>
-		<key>www/imgs/wcj/light/showerLightOff.png</key>
-		<data>
-		cXnQtF+cXLd5D2bKlf3+VT1JASA=
-		</data>
-		<key>www/imgs/wcj/light/toiletLight.png</key>
-		<data>
-		J0RUWYLzBln7w5RrBWAaCI22aPA=
-		</data>
-		<key>www/imgs/wcj/light/toiletLightOff.png</key>
-		<data>
-		TdE6EdWOtAu1gnMkQftMyPD57tg=
-		</data>
-		<key>www/imgs/wcj/light/topLight.png</key>
-		<data>
-		Rw9Ei8FI3BZXBbc0AZHJNOMku6M=
-		</data>
-		<key>www/imgs/wcj/light/topLightOff.png</key>
-		<data>
-		YaK/PZD9lZtu9pWsmrmzbQvhZ9s=
-		</data>
-		<key>www/imgs/wcj/light/yellow.png</key>
-		<data>
-		QrYwtF51uZDfCvmtDRM3dWbit/U=
-		</data>
-		<key>www/imgs/wcj/light/yubafuOff.png</key>
-		<data>
-		Bo5EehNA4PKILBCuFGZWbet01DY=
-		</data>
-		<key>www/imgs/wcj/light/yubafuOn.png</key>
-		<data>
-		pvZ2QERvIyg76QJrdVgV6hmKs9k=
-		</data>
-		<key>www/imgs/wcj/light/yubazhuOff.png</key>
-		<data>
-		2yZq1UAX5z4M/NqceRGREQ76lfQ=
-		</data>
-		<key>www/imgs/wcj/light/yubazhuOn.png</key>
-		<data>
-		QEHCh88+7y7MqSJCw7pDZ0efnqc=
-		</data>
-		<key>www/imgs/wcj/lock/bg.png</key>
-		<data>
-		kv/WLpIs4pDD7MUUKdf65A7nUIY=
+		hZAZWvYksQQlegDXuEFXTvjcjKg=
 		</data>
 		<key>www/imgs/wcj/lock/door.png</key>
 		<data>
-		n80PAXUeEkYSJBX+ERsBdvlaDAw=
+		DPB6aGB3mmMZzFei5pCHzPVGnEE=
 		</data>
 		<key>www/imgs/wcj/lock/door_active.png</key>
 		<data>
-		4vfD1Pb9dQ5sgtLZ3vV7Kf5fWlQ=
+		mV7I3C1XMTg8tKhY/7OopUr+yCA=
 		</data>
 		<key>www/imgs/wcj/lock/elevator.png</key>
 		<data>
-		OSgi6txDVDZsTaGUO7Gk9PdJH3E=
+		78Z6vX6vRuTl9lydC/2p+CtVIbc=
 		</data>
 		<key>www/imgs/wcj/lock/elevator_active.png</key>
 		<data>
-		cVkBGbyxdNlMQkgqScY+CeWWPIM=
-		</data>
-		<key>www/imgs/wcj/lock/key.png</key>
-		<data>
-		MIC/tjQ5F9/7haj1m/At1b8WfHU=
+		XPn22lhWy5CXfq+Gv5rK+1aCQg8=
 		</data>
 		<key>www/imgs/wcj/lock/left_arr.png</key>
 		<data>
 		lFzksamfhBrJqCH9f7vxLjDZBnQ=
 		</data>
-		<key>www/imgs/wcj/lock/rect.png</key>
+		<key>www/imgs/wcj/lock/location.png</key>
 		<data>
-		HUlFv9NbHCF5ttk5iVrpvJj7/fY=
+		QlsprJXrwzJNYW+mXZMOgst3iEg=
+		</data>
+		<key>www/imgs/wcj/lock/pots.png</key>
+		<data>
+		nF6jPm1cFhO1ngZyGuh/UThZvDw=
+		</data>
+		<key>www/imgs/wcj/lock/roomCard_bg.png</key>
+		<data>
+		T5ivm70bh5RoWVDY+N570jzJEzE=
 		</data>
 		<key>www/imgs/wcj/lock/round.png</key>
 		<data>
-		eWkus/gh3Bj6hSi5Y8mLYOaxWIA=
+		v4A7pMo5pxeZciqz//eN00wGxCA=
 		</data>
-		<key>www/imgs/wcj/lock/stream.png</key>
+		<key>www/imgs/wcj/lock/source.png</key>
 		<data>
-		CBVfGEm/r0xazMEnQlI1Gg9v3Y8=
+		F8VlgBdabNDkARYBIwY2WA6BEQQ=
 		</data>
-		<key>www/imgs/wcj/lock/stream_active.png</key>
+		<key>www/imgs/wcj/lock/source_active.png</key>
 		<data>
-		KHfCVvNCr3enBpKcf5aB8qPPkXE=
+		xrdSv9tlAOl2oCd4Gu2qv8EGDI4=
 		</data>
-		<key>www/imgs/wcj/lock/switch.png</key>
+		<key>www/imgs/wcj/model/checkout.png</key>
 		<data>
-		CBVfGEm/r0xazMEnQlI1Gg9v3Y8=
+		fdW+BJWwOe6olyNB/rV811Qzagc=
 		</data>
-		<key>www/imgs/wcj/lock/three.png</key>
+		<key>www/imgs/wcj/model/common.png</key>
 		<data>
-		yUXJmPdRNCUpCJOEn5j6NK02b8s=
+		yw1/4d7dACjxcEP1x0MIfcnOvgQ=
 		</data>
-		<key>www/imgs/wcj/model/qichuang.png</key>
+		<key>www/imgs/wcj/model/getup.png</key>
 		<data>
-		v2ZWy67IjWnUXkAv5izVUJEvIMg=
+		hOLjcbNdRph9BtfYzHn1UMkNAAY=
 		</data>
-		<key>www/imgs/wcj/model/shuimian.png</key>
+		<key>www/imgs/wcj/model/meeting.png</key>
 		<data>
-		z+3ag9P6nhkSTHQ0cpvW6AYynoA=
+		pzi7N8zONxJqLPI80UyxnRzYQk8=
 		</data>
-		<key>www/imgs/wcj/model/waichu.png</key>
+		<key>www/imgs/wcj/model/models_bg.png</key>
 		<data>
-		Yi8Ay4xC2fdHin6y0dsTWCQaApY=
+		DQBych+81ZZf7/PQw7mKU2Av5Pw=
 		</data>
-		<key>www/imgs/wcj/model/yingbin.png</key>
+		<key>www/imgs/wcj/model/movie.png</key>
 		<data>
-		pKjcG/l4pyV/JOuJRbsswQSBS4U=
+		MxaSGhaLiY4jzgFdFrbIBNEzgKE=
 		</data>
-		<key>www/imgs/wcj/model/yingshi.png</key>
+		<key>www/imgs/wcj/model/reading.png</key>
 		<data>
-		QdWvCuccef0k0+ZLEy3BXqdLhaE=
+		eJB7FKrv0qi6hw2pI47mYj4jyqA=
 		</data>
-		<key>www/imgs/wcj/model/yuedu.png</key>
+		<key>www/imgs/wcj/model/sleep.png</key>
 		<data>
-		FHZh+SFzN1lbMf9QcyZKTWd8wz0=
+		KFmZPZBAJyyMlU9g2vVyym4S+74=
 		</data>
 		<key>www/imgs/wcj/my_orderform/close.png</key>
 		<data>
@@ -1064,89 +1020,69 @@
 		<data>
 		o2LPXcn677dZVNipG0qo4Ry6Hi8=
 		</data>
-		<key>www/imgs/wcj/newTv/back.png</key>
+		<key>www/imgs/wcj/newTv/arr_down.png</key>
 		<data>
-		436ChY623UcLDe1/KI7AS59BbD0=
+		wDJYVYs5jG1tQVJw5DBg6JOhSrM=
 		</data>
-		<key>www/imgs/wcj/newTv/down.png</key>
+		<key>www/imgs/wcj/newTv/arr_left.png</key>
 		<data>
-		o6LpaPflQ0wkJCdGU1t8QQCQxbo=
+		HD4F88/YurUkWz/TjHD+ctlx0W4=
 		</data>
-		<key>www/imgs/wcj/newTv/left.png</key>
+		<key>www/imgs/wcj/newTv/arr_right.png</key>
 		<data>
-		OHeGFcI3fdwrHWtEyhKWaZK6WUw=
+		rKikgShBYJfXA6wMHFVQ6RXrHWA=
 		</data>
-		<key>www/imgs/wcj/newTv/munis.png</key>
+		<key>www/imgs/wcj/newTv/arr_top.png</key>
 		<data>
-		DoLNROvsXXi2wgFMCKWXvAHC7FE=
+		x8pdkVeud6YLZpo1Hr90S+m4DGc=
 		</data>
-		<key>www/imgs/wcj/newTv/mute.png</key>
+		<key>www/imgs/wcj/newTv/btn_bg.png</key>
 		<data>
-		0Gku79uVWXvDT0rAFRS1IqMwPSQ=
+		CqvBU4kgkojNvQmPKdOpeVXXMbo=
 		</data>
-		<key>www/imgs/wcj/newTv/off.png</key>
+		<key>www/imgs/wcj/newTv/minus_off.png</key>
 		<data>
-		rWO7ElluleIn7QFx1lxxpra0gXU=
+		zWTWwMDNZtPbvrrQIQF+amGFPhA=
 		</data>
-		<key>www/imgs/wcj/newTv/ok.png</key>
+		<key>www/imgs/wcj/newTv/minus_on.png</key>
 		<data>
-		x9H7sNWlZQE3Jl5ZjrDHHVPNitY=
+		w1ov1EHmGmjsLLyN36s2VhHBwM4=
 		</data>
-		<key>www/imgs/wcj/newTv/on.png</key>
+		<key>www/imgs/wcj/newTv/mute_off.png</key>
 		<data>
-		5DdxYi+fO4zul1FVwL+woAo95Q4=
+		sUru+H1xJco1TSrDZyEt0rnvKN0=
 		</data>
-		<key>www/imgs/wcj/newTv/plus.png</key>
+		<key>www/imgs/wcj/newTv/mute_on.png</key>
 		<data>
-		qCOYSMdaWjgh0ct1RN3gaEIoJaY=
+		XOKOqlZJ9NG+Zj1FDXl0cKzclT8=
 		</data>
-		<key>www/imgs/wcj/newTv/right.png</key>
+		<key>www/imgs/wcj/newTv/plus_off.png</key>
 		<data>
-		9Z/kVDjMa+QUc9NKvesLVbGsWHc=
+		6Q0gh2EZs9HcgDLBfPv5GC6Sfds=
 		</data>
-		<key>www/imgs/wcj/newTv/round.png</key>
+		<key>www/imgs/wcj/newTv/plus_on.png</key>
 		<data>
-		Y4Zx5PR3OH96tHIL4V4wSBXFLB4=
+		sVtnRKvvuE3rY2KT0H5YNNrZ3Uk=
 		</data>
-		<key>www/imgs/wcj/newTv/roundFull.png</key>
+		<key>www/imgs/wcj/newTv/return_off.png</key>
 		<data>
-		na28QTulQeNCO5vr4A8/mnEMAgE=
+		gb0dRc3z62Fbszt+Zs9UxfFfeZI=
 		</data>
-		<key>www/imgs/wcj/newTv/topBox.png</key>
+		<key>www/imgs/wcj/newTv/return_on.png</key>
 		<data>
-		9T9wlRpLo8BNloB3Z0qjAiYiz58=
+		zTOqJpYVGfoYLlNj+BFVcrlBoMM=
 		</data>
-		<key>www/imgs/wcj/newTv/tv.png</key>
+		<key>www/imgs/wcj/newTv/tv_bg.png</key>
 		<data>
-		YsU6IBA5J2Am/UnxuNS1Oox7KTs=
+		i0q5tfzLAHvqseP980qQfms9y9s=
 		</data>
-		<key>www/imgs/wcj/newTv/tvback.png</key>
+		<key>www/imgs/wcj/newTv/tv_off.png</key>
 		<data>
-		Dz1fes0b7PRLk9ML7ZtIXmjRFDI=
+		f1tZJkftxRtCxo45jYYcIvwfG0g=
 		</data>
-		<key>www/imgs/wcj/newTv/tvmunis.png</key>
+		<key>www/imgs/wcj/newTv/tv_on.png</key>
 		<data>
-		AgcgwlXlazsiylBrKi+lkD/BTvs=
-		</data>
-		<key>www/imgs/wcj/newTv/tvmute.png</key>
-		<data>
-		zzLXv+zWPdPqoUMQ9Qxe0aa69ek=
-		</data>
-		<key>www/imgs/wcj/newTv/tvoff.png</key>
-		<data>
-		xWuV2UzyT3trxTQk4uxLz9Y/BWo=
-		</data>
-		<key>www/imgs/wcj/newTv/tvon.png</key>
-		<data>
-		KoIikqTKFStz59vqE61FRcIvNo4=
-		</data>
-		<key>www/imgs/wcj/newTv/tvplus.png</key>
-		<data>
-		qIFjIJ8aZoKQuLSlpDnQRhSSRwA=
-		</data>
-		<key>www/imgs/wcj/newTv/up.png</key>
-		<data>
-		OftvEDQ91U4PAIsi9wwbxlpgzxk=
+		IV7OgBP0+SPOi967Rjo+tLroelM=
 		</data>
 		<key>www/imgs/wcj/orderDetail/close.png</key>
 		<data>
@@ -1228,13 +1164,29 @@
 		<data>
 		Kt2dAaJAOumtfkeQXtRCLVuA/5Q=
 		</data>
-		<key>www/imgs/wcj/service/clean.png</key>
+		<key>www/imgs/wcj/service/click_CLOSE.png</key>
 		<data>
-		hD12tRGIwj7XjYywGssGUgbFDuo=
+		GShzSch9kKzp4aUVQS8mKVNQNBw=
 		</data>
-		<key>www/imgs/wcj/service/dnd.png</key>
+		<key>www/imgs/wcj/service/click_OPEN.png</key>
 		<data>
-		IBgD6s6teHhnNHtQdCOLIdrwAMM=
+		CXzrpzF3ygHQz85FwHU6YNmiR2A=
+		</data>
+		<key>www/imgs/wcj/service/rect.png</key>
+		<data>
+		QIjb3Bs2Kj8Z69Q+TlyPQjMGRbM=
+		</data>
+		<key>www/imgs/wcj/service/ring.png</key>
+		<data>
+		drGeLqCAR0Di6y83SVCFLP23s68=
+		</data>
+		<key>www/imgs/wcj/service/service_bg.png</key>
+		<data>
+		m6L8W7VJy+FBSnaEwF6ZUdtODz0=
+		</data>
+		<key>www/imgs/wcj/service/swape.png</key>
+		<data>
+		dlSNUDbq44hgevh0oIrGzoSHidA=
 		</data>
 		<key>www/imgs/wcj/services/round.png</key>
 		<data>
@@ -1378,7 +1330,7 @@
 		</data>
 		<key>www/js/services.js</key>
 		<data>
-		sE4w68LSxvcIYFt0n4ZQVasz7PE=
+		aaT22/7UpYCDzzX2tOS29pVssuo=
 		</data>
 		<key>www/js/templates.js</key>
 		<data>
@@ -2162,27 +2114,27 @@
 		</data>
 		<key>www/templates/ctrl/CheckIn/checkIn.html</key>
 		<data>
-		KgBQjEWrVcetPDftXrD2yBlvQ3I=
+		Xbvgqc/M/Ql2t+78UKM44U6F0ec=
 		</data>
 		<key>www/templates/ctrl/CheckIn/checkIn.js</key>
 		<data>
-		OSYIoDgtaygUVbxaNQ/0WO6XAGU=
+		EMzT++BEBBo+VlffigLAIexKBjc=
 		</data>
 		<key>www/templates/ctrl/CheckIn/checkIn.scss</key>
 		<data>
-		ocTpBvCK07+DSQlQvbrcy3NRMe0=
+		Ig574zczAv+eUk3Hq8rxNSBytus=
 		</data>
 		<key>www/templates/ctrl/airCondition/airCondition.html</key>
 		<data>
-		0nU87Li943F9u0t0Qe7kxtI5uBs=
+		6fJd/ScHYW+P7aARYDJOVulpE1U=
 		</data>
 		<key>www/templates/ctrl/airCondition/airCondition.js</key>
 		<data>
-		ruYhPEoUttQ6ODCmWem4d96NCFc=
+		wpZCIg8hjHpHAqoaO5DNHq+5IQ0=
 		</data>
 		<key>www/templates/ctrl/airCondition/airCondition.scss</key>
 		<data>
-		9iw8ENOPUhmV3HdLfkdvLdGP8EU=
+		ZrF34cmZ2L6Kwcq4WC0AATJ3KnQ=
 		</data>
 		<key>www/templates/ctrl/clean/clean.html</key>
 		<data>
@@ -2226,15 +2178,15 @@
 		</data>
 		<key>www/templates/ctrl/curtain/curtain.html</key>
 		<data>
-		ss3RX59xMey/MmhG0r+qi3Az6tU=
+		KrnTM4uIl7ddDfRP7SdI+WXVTug=
 		</data>
 		<key>www/templates/ctrl/curtain/curtain.js</key>
 		<data>
-		3UqFWq7nO1C9MGx7FtFHRSqrQwk=
+		naANSgwhdLvRSIWMm2q8FynQzpw=
 		</data>
 		<key>www/templates/ctrl/curtain/curtain.scss</key>
 		<data>
-		9LSCKeluNoqUlF9zpovEfzSu4Mg=
+		63XwBng6LcqP0MPVyWPCrBmOoro=
 		</data>
 		<key>www/templates/ctrl/inHouse/inHouse.html</key>
 		<data>
@@ -2250,39 +2202,39 @@
 		</data>
 		<key>www/templates/ctrl/light/light.html</key>
 		<data>
-		fNNUr3HGzcawyhdJM4lzNvl9K9o=
+		vnNLGlnzlrJ33vA/GA+fwXK4DRM=
 		</data>
 		<key>www/templates/ctrl/light/light.js</key>
 		<data>
-		HEy6LUDag7HBRp35fUWyqfQ1KR8=
+		wmM4B2JSfqh3xBt6/oelmnMQ2t4=
 		</data>
 		<key>www/templates/ctrl/light/light.scss</key>
 		<data>
-		c+CfBdamQdAi5taNqUWs3DLzdEk=
+		1l7XOv8iKle/tEeuwh2jDE8Ff+M=
 		</data>
 		<key>www/templates/ctrl/lock/lock.html</key>
 		<data>
-		Od/pOL7Ul4L9RFMApI3w3IV4gOo=
+		lO85jbax/V87e8xkrvJShP2zaUg=
 		</data>
 		<key>www/templates/ctrl/lock/lock.js</key>
 		<data>
-		CXsXbO5BDJ4ltRKndJv/U9ZyKMw=
+		3AjPPFdLosozl1fMBH6WkprCUfw=
 		</data>
 		<key>www/templates/ctrl/lock/lock.scss</key>
 		<data>
-		JX8aGmaKA0f5M7iO6rtae0vrOFM=
+		wOtNp0lT9JdR0CjsAO4YUvmGlKs=
 		</data>
 		<key>www/templates/ctrl/model/model.html</key>
 		<data>
-		n7p1+O3fEshROtubGbXPBOAC/Lk=
+		q0ytYnIFApnOCQZEPx4983CVFFI=
 		</data>
 		<key>www/templates/ctrl/model/model.js</key>
 		<data>
-		zY77IpleCaKbNR3sn6n18W0kbuY=
+		9pTKnu0kcCL4oDPYdIwinaMSeXE=
 		</data>
 		<key>www/templates/ctrl/model/model.scss</key>
 		<data>
-		EqzH7VKdR2u3lYxwLZVOshZzQyA=
+		MVbOcbTUP85nXLX6qiO9FE3/R+Y=
 		</data>
 		<key>www/templates/ctrl/readLight/readLight.html</key>
 		<data>
@@ -2310,15 +2262,15 @@
 		</data>
 		<key>www/templates/ctrl/service/service.html</key>
 		<data>
-		esKIpwsZyL5wEigK1+u3Ev5OZPc=
+		m7XjLQNgsZYTpjnpaWdkcIOjET8=
 		</data>
 		<key>www/templates/ctrl/service/service.js</key>
 		<data>
-		zm2r9OMcRYefFuKHPcGgpfRHEvA=
+		on+T4+wVx45nKnO60NWhtSf7XJE=
 		</data>
 		<key>www/templates/ctrl/service/service.scss</key>
 		<data>
-		ucdDWRMPsR61ipYS4RfnRGEx8QM=
+		YwvbWCxFWEb9Zrl7J2UpItVDDzY=
 		</data>
 		<key>www/templates/ctrl/sweepTime/sweepTime.html</key>
 		<data>
@@ -2334,15 +2286,15 @@
 		</data>
 		<key>www/templates/ctrl/tv/tv.html</key>
 		<data>
-		qkWL/V4Kb8EPhvAZ1HvOE52FWMQ=
+		HZydO1nM/AwTMnXqqcELw0abh3A=
 		</data>
 		<key>www/templates/ctrl/tv/tv.js</key>
 		<data>
-		ml+dQ2qHxEGPtKOeo9PI/sDdqw4=
+		pkI03EtkxZfc0pMgNqELPDQaAPI=
 		</data>
 		<key>www/templates/ctrl/tv/tv.scss</key>
 		<data>
-		TRS73vEj7PARuky77Er3/3N6Z5M=
+		YhCNqJGEyiHzMBdsa98jIATrsog=
 		</data>
 		<key>www/templates/directive/cityPick/cityPicker.scss</key>
 		<data>
@@ -2390,7 +2342,7 @@
 		</data>
 		<key>www/templates/home/get_city/getCityCtrl.js</key>
 		<data>
-		wxCFGKwOdHssQrjWlOzvb0SgE/8=
+		9HwjqS/xVAqexii9hDFcm4O+1O8=
 		</data>
 		<key>www/templates/home/get_city/get_city.html</key>
 		<data>
@@ -3250,22 +3202,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			j1tRegvL1iByPvyoyo9Wu9RZueg=
+			miw505yN3/5Ms26ie/LUuKVBhO8=
 			</data>
 			<key>hash2</key>
 			<data>
-			B6kDZJ0Lh4kVKgKrujKqp4IIGYrmLPKLGQIpSu2QCLY=
+			rRcQd+bJ4BkplQ35b31Bpb4hEbOwR3gAXdAfzwgJrtM=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			txAIA0Lv0rT8WO0/8my0iCQNlAw=
+			zSYRMin54iGIGz3OiYXImlu3eHM=
 			</data>
 			<key>hash2</key>
 			<data>
-			UyAqUTjiQCnDM0XODGYYvUS3p5GkRYfRM1JvnBveH3o=
+			XVXQlWFmURQpu5q4THraULe79YKzIW2WDmPYhsiluHc=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -3283,11 +3235,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Oxp4htOavisY59lRWnaJN8ebJ88=
+			x5JIXHR53AlX+MRT05xI7awOdfM=
 			</data>
 			<key>hash2</key>
 			<data>
-			oYrHlgTGVeBS+ZM4sC0HYNt2rMNltx8izTMG5dV58Z0=
+			51sF0YlVyLHpDFkdB9g+qi4vXTXRAHNrI/9IKdzVGY0=
 			</data>
 		</dict>
 		<key>CDVNotification.bundle/beep.wav</key>
@@ -3305,44 +3257,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5xAFR6bnGvZhRx2m1Ga8PM4zOd8=
+			QUACBlYb++4ONsoVxVP/4S3P1Ag=
 			</data>
 			<key>hash2</key>
 			<data>
-			3YGE1Rjm7VI9Y9zxittvuCBsHsLt+kYvXIwFsA4lJno=
+			Nz4eV6OdqJy53dE4y3a34ZuU9M49NV2/kGu+xU42GtU=
 			</data>
 		</dict>
 		<key>ELCAlbumPickerController.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JMIYc9vzTOjiJp1csMW+imMWNGQ=
+			/fJiUf+YMaYW3zRntjnYzBCKoDU=
 			</data>
 			<key>hash2</key>
 			<data>
-			j1AaLUMyRuQjG4ChZE5XwXykBoHkDHjzKXCYE3m4S7Y=
+			46x9v7Ry3l6HPY3r3YgiU0kpEvrOcGC0Ks16RQVxYsE=
 			</data>
 		</dict>
 		<key>ELCAssetPicker.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cih76fTodOhs8kw4lYAUXm5TuaM=
+			f+35YVFEHv9SLGafar9821SeXps=
 			</data>
 			<key>hash2</key>
 			<data>
-			CKIj0lUgrUoP3JJ/gX8zBLqi1VxJr7hWIg13J2YOPLw=
+			QlQ8X475h1XY4FQrMx1CGedVn9/rR3xK8DJ3w8V4doo=
 			</data>
 		</dict>
 		<key>ELCAssetTablePicker.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eTfq7RZKEaaKr/6O4iSzYGU1ing=
+			lFatdxmeGrVM5kvVuUS8jUBzGAI=
 			</data>
 			<key>hash2</key>
 			<data>
-			4OX8oj7JPe3ngmUeCMGHSSqsNCLWJo7/B0NucHRg9Jc=
+			fQp4oqLgjllkqvQ/tn4S9mK5UsjiWbBi7mQhMAFczWE=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -3503,11 +3455,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			I2Rr5Fu5Dwb0x9qdq+t/T0O33S4=
+			Qfxs3hVswX0aKCWblcDPPHr82Ik=
 			</data>
 			<key>hash2</key>
 			<data>
-			rR2fC7qeV8wsnRaJ056NFK71fBp3Jw/ytNTSHiO/7+4=
+			/cJ9UATRpWieJNNM33VDJ7ct7NWt6U7kFEgwsWo9zic=
 			</data>
 		</dict>
 		<key>Overlay.png</key>
@@ -3624,22 +3576,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nwUtiHnU9kb3751cd9RAb0mATUM=
+			WGp6Elg2F7gKGlgySWoSaDZ+qR4=
 			</data>
 			<key>hash2</key>
 			<data>
-			HMP71RMy5rHHw1On2WW5pjgNK6FcETAPfo1KX8g2qbM=
+			mo5JxCwAfaXgLDLJh8ejn7WBVpmgOIKTU0zk+CMq4l4=
 			</data>
 		</dict>
 		<key>www/css/ionic.app.min.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			S2GtR2X0wqVaNoop6Oy8OTWtHNA=
+			2a1+ClCBdtd4BbiTnNbziKZUjAs=
 			</data>
 			<key>hash2</key>
 			<data>
-			dNzJTUKcyGEmwA6jhDAWf7cR7OFmXlaUlmeRFLWS7cQ=
+			W+WpDT1abfphH1n5U6k2h5cmxzJCLHC//Z0DTtDw30o=
 			</data>
 		</dict>
 		<key>www/fonts/iconfont.eot</key>
@@ -3752,103 +3704,70 @@
 			9GvC99PlhrzDQPyOFZ6weYAQ8lbPH2n543bTWNGWiCc=
 			</data>
 		</dict>
-		<key>www/imgs/kwn/checkIn/TV.png</key>
+		<key>www/imgs/kwn/checkIn/air.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WlGwaGFeIfeEKfrFGh/frbSdW+I=
+			wOMX+8qlk1a/xcAb8GpKD5z3Enc=
 			</data>
 			<key>hash2</key>
 			<data>
-			Qw3h6GzEjWk5su0gvbfnHu1BhtT0OvHnZrxeXN4hGt0=
-			</data>
-		</dict>
-		<key>www/imgs/kwn/checkIn/airconditioning.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			t4mbJqqlZpGZJ/rKl2x28xl2ng8=
-			</data>
-			<key>hash2</key>
-			<data>
-			hgSXwyhXn4/2OODbX4jMy4CEnC19SugxNIDjzCSAXN8=
-			</data>
-		</dict>
-		<key>www/imgs/kwn/checkIn/bg.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			RZJ4rWleGzDs7/DZDCwzf7hQuxM=
-			</data>
-			<key>hash2</key>
-			<data>
-			6KECIa00mfzzlJnCx12HWg0i2W+XcR9ElPilYZlXy38=
-			</data>
-		</dict>
-		<key>www/imgs/kwn/checkIn/corner.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YoE4hkPTn2hey8MV/ngvzHLrRic=
-			</data>
-			<key>hash2</key>
-			<data>
-			6PsagJkaiNaMVsUcDelIgrTNKrr6okCv9u4jnRfSVKA=
+			0juYJRdASb51JMdx/52NsVDQpS1HiMhU7cCmqkMnUrg=
 			</data>
 		</dict>
 		<key>www/imgs/kwn/checkIn/curtain.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yoXGwhE3mZP1HdTRExjiLeNrcj0=
+			x0bct9cPtzJOMLadmWZ0cbC7b7E=
 			</data>
 			<key>hash2</key>
 			<data>
-			/ANHw+MmSNQPFoaAQdH99npqYECHF5HsTgaz2rVY5dw=
+			v3ltZXdwseYokl9Fn1UC7i6whn6OGyIhPhBwm1gtGkM=
 			</data>
 		</dict>
-		<key>www/imgs/kwn/checkIn/key.png</key>
+		<key>www/imgs/kwn/checkIn/home_bg.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yX+UZklhdPaV6WpBLz5Zod339OE=
+			GUUCL2iW7QbkgFdGEw2DMUz6aiQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			U2WobNzGN7tALuavchVCwLTPCymr/S3miUXAWp94vIc=
+			vRjBSuMR9r0sn4hjDGQoCgCX4G52hO6IO8SyLrh1IDk=
 			</data>
 		</dict>
 		<key>www/imgs/kwn/checkIn/light.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hyQOcdlvH3RcTjdwEaBcUq+j6nI=
+			cq8JgRPpul9da1hWEO6TuKPCARY=
 			</data>
 			<key>hash2</key>
 			<data>
-			KljXKCyHEmeEFc0/u6s5q5sIUxIWl8R0R3wbqGZvt6I=
+			zMOvtqcL9I/set6r10+a4hdmIip2HDR/vQ11LNZPWe8=
 			</data>
 		</dict>
-		<key>www/imgs/kwn/checkIn/many.png</key>
+		<key>www/imgs/kwn/checkIn/lock.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yGs8wCic21EHR+nDEHqpaFAYTRs=
+			BfneNGgN2tjGZxhUmHe2OuJtfSA=
 			</data>
 			<key>hash2</key>
 			<data>
-			940MDpgm+lNEUPA5h25Kc3YtgfVk+UWinjQ4DP1+S/U=
+			fAEV5v/+6dHvOM2dxmgoiOvZF8ZGHXCgZ0vJ6Ejikhc=
 			</data>
 		</dict>
 		<key>www/imgs/kwn/checkIn/model.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TDEmkJZCNw9orgWz//Tgc2RbJLM=
+			oHczPeBX31nIt6x3fXEYhAp/LSI=
 			</data>
 			<key>hash2</key>
 			<data>
-			wMM7xKG7C1Xjc1X4khBvbt1XrxuyYttnJQiKMxduFMg=
+			qiWOIhpcjiJEkw5syRq9Oe4MKJEoPRsDYrCbJ9MLUS8=
 			</data>
 		</dict>
 		<key>www/imgs/kwn/checkIn/more.png</key>
@@ -3877,11 +3796,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pao0/3rmOa7nvkB+CNlbIDy+XxI=
+			pHHGQ+k5QAog5T1k5g1hXxzdLas=
 			</data>
 			<key>hash2</key>
 			<data>
-			Mlp5ABNTNRqbIALFubCwcnm9c+/HkC1zTok9wrdHSoc=
+			jlC1nR10Tk/IrNXFKA758HW20WWrdaPY1ykJZQaRgYM=
+			</data>
+		</dict>
+		<key>www/imgs/kwn/checkIn/slogan.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			yEcbkg7G4WzKXeFIOE0HpZ/Na7Y=
+			</data>
+			<key>hash2</key>
+			<data>
+			cldqKKIqMddaeMiqH1GGHl2LDc9vnTT59tkejjLqCkY=
 			</data>
 		</dict>
 		<key>www/imgs/kwn/checkIn/tanghuang.png</key>
@@ -3893,6 +3823,17 @@
 			<key>hash2</key>
 			<data>
 			j9sA8So5B7p1Aa6CHFB7Vp3GAJVw2gm1O6P6Up89wH4=
+			</data>
+		</dict>
+		<key>www/imgs/kwn/checkIn/tv.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Xa2ekr4saa6nwpNKwjP2qF6CW1I=
+			</data>
+			<key>hash2</key>
+			<data>
+			m4dAPtfwBfAFlu3umDNRW+dzuhHwgSX7G27QhU33PyA=
 			</data>
 		</dict>
 		<key>www/imgs/kwn/code.png</key>
@@ -4390,92 +4331,114 @@
 			8H7l7+qG/Jcn3av5qkTnUFqVBsNr4xHOe/zH9h11lKA=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/airCondition/off.png</key>
+		<key>www/imgs/wcj/airCondition/air_bg.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HANyc6lpVmBjv9gvyFkFnshXpy8=
+			lIONDo/ZUwK/Vf7m1l14V53LDR4=
 			</data>
 			<key>hash2</key>
 			<data>
-			na+IRi4CXsiuZu4FBCjlC7n0M9omuR+1uCAqVCYVfvs=
+			obumRHtTIFxBcTNNnSyk7bIgJGyfsYjGW4V3a6bBuDg=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/airCondition/ok.png</key>
+		<key>www/imgs/wcj/airCondition/air_model.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			x9H7sNWlZQE3Jl5ZjrDHHVPNitY=
+			/cZnyhy9IJq2j7/HekmKgVHiX50=
 			</data>
 			<key>hash2</key>
 			<data>
-			OMsST8QfEg2uM389wJMGwcsTu2IdFz3NgZWxB0q7fzM=
+			1wmxUpcZTvk/FPFIce3mVDYCbP1l6HiuIMCVFYibn28=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/airCondition/round.png</key>
+		<key>www/imgs/wcj/airCondition/cold.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zQh+8cZkYRzJgM3KbW12ec9pClI=
+			cEanSwO6PAZkwE217SqdAphP9xw=
 			</data>
 			<key>hash2</key>
 			<data>
-			4x2JIsTEuCxOm3hrtPBKZ8PImQlxEztry20wOSUtAPo=
+			frRzRBUKlCqAEn6mz95qROgQOJDz/8pzo3NmlfoxtVU=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/airCondition/snow.png</key>
+		<key>www/imgs/wcj/airCondition/hot.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6IVbPe6ZEwXHNVe/gK6x6TpspAE=
+			VjAS9FIeV5u0S8fmYZfQBLiGHgk=
 			</data>
 			<key>hash2</key>
 			<data>
-			sdU3KXrBTK+gy18hbxw4Ul4cvOhdxrq+LdCJJyvh7mA=
+			lRRQqrXbYWcwLMSpMIQSQmHBC3jLzQKaPbPRCwq3zOI=
+			</data>
+		</dict>
+		<key>www/imgs/wcj/airCondition/minus.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			oW/vwdVNyORQ2d+423wrP2X4cwM=
+			</data>
+			<key>hash2</key>
+			<data>
+			5dN9oGSL46QoN2QZ7j3DodtRWoBad55vi1CKsHt1Rng=
+			</data>
+		</dict>
+		<key>www/imgs/wcj/airCondition/plus.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			bzCG9YSVWGb3JokpEHE64zn0T48=
+			</data>
+			<key>hash2</key>
+			<data>
+			p3O/TpEeMFzqx39W6hN1HiNAvBnxmPAv+ZZm5lyOVlo=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/airCondition/speed.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0t3it3kFJohUJDLnXr4glpRLKS0=
+			/pOv20riD5FmxU2BFb1/Vbherm0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q4iIv0nWg0d97xKe2ErlW3bU9sQsJwKrzoN1fW60VAs=
+			sP2dwG8iCdJeCHHbYt9wyMvyrS3+TyQYkuMD0Ms633o=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/airCondition/temMunis.png</key>
+		<key>www/imgs/wcj/airCondition/speed_1.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oRGte0tdXRdKe21qXNofCZRbsrA=
+			FQUy5q7B6EiohNFxtjidaoGfxTk=
 			</data>
 			<key>hash2</key>
 			<data>
-			HTq8hAmslS9ouSGLr8UPz75w+eWyGr2Zl6AsDUyP0MI=
+			SpZmMPply65muhQ3H15pE9wWANPp2OaygjN/Gi8mALU=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/airCondition/temPlus.png</key>
+		<key>www/imgs/wcj/airCondition/speed_2.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Xv1YNE5bIdFYpqBU8ZppRjL03Hs=
+			RMIM+VTPBZrDqrx3tEfgBrC1zUo=
 			</data>
 			<key>hash2</key>
 			<data>
-			9BbMwnYleHvi02DwMBVwhJlod9OiOiIFupy/hXNhSYg=
+			IeXDiUokYFHx3T8LPzb/RMi50SLUsQ+Pn8uCoBd9ktw=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/airCondition/wind.png</key>
+		<key>www/imgs/wcj/airCondition/speed_3.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UTJ2WCwhlCg+0J8ENrqIqWXgQiM=
+			HzEUsxp1Ed4kyYmt2DQ8xPjXk1g=
 			</data>
 			<key>hash2</key>
 			<data>
-			TQbFSQJC5u20mw1jYwhEiBtHEEo4w+g55Y9Su+xNK+E=
+			bVGLL7KO+s40g2Ya1fpPj9Wp6YhDYyD+evf+eVRJoJE=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/be_landlord/back_img.png</key>
@@ -4709,70 +4672,48 @@
 			UYkQfd3vFaB1gwD7zJUo2jaYlnCMYGyCMQfqw49S9Z0=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/curtain/curtainOff.png</key>
+		<key>www/imgs/wcj/curtain/btn_active.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ssg+Tqq4eeVIewaNDaVuwHE9xU4=
+			hoip7OdcNRi1ZufFqQjb93x5SVw=
 			</data>
 			<key>hash2</key>
 			<data>
-			HSpBhVgAEla04mF8TFJDTk6hMbugqptktfZ/OvSJGB4=
+			+MKeRAT7FALMCnwFQmoDDTGhXWW6UdHfcAQvfk+1w2M=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/curtain/curtainOn.png</key>
+		<key>www/imgs/wcj/curtain/curtain_bg.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QjmN3XecASjYUmRxwzFcVIpbSRw=
+			2fSmMl8JUuk4ms8+fmGip3AW7rw=
 			</data>
 			<key>hash2</key>
 			<data>
-			bi6TEbk8/KtaqrOjZGrhPKzT/2azXcHgSCgB9rX0Pp8=
+			3A6m7FkirBUIwLZDr8UMoIPGlV3MjG3EGuaTlbF2dUo=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/curtain/range.png</key>
+		<key>www/imgs/wcj/curtain/curtain_bg1.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			J6m3q9MFstedaBSdl5cAEVtqZQ4=
+			A8HgO1KebPWex6YKBnHVT2geDlk=
 			</data>
 			<key>hash2</key>
 			<data>
-			VI17obpWrHU1wGxUtL5ZbnXSG0FSDoORoUHEc6L2QyA=
+			fU6KSChHTCwlxm66finFr3oNn8TNXhygYRJ0MpNJmcw=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/curtain/rect.png</key>
+		<key>www/imgs/wcj/curtain/curtain_bg2.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rOxpk+z/WKUCQZ7H8j0OBT38oNs=
+			0qoCNk5OU5qZYOyHMhPp4i8OBR0=
 			</data>
 			<key>hash2</key>
 			<data>
-			jtQvqViQ8KbGLaM4mDBrCG3pgnM/mKxbDoinu4j+flM=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/curtain/winScreenOff.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			LDI/uRZd67+H7QA3IDKEA8I+3hk=
-			</data>
-			<key>hash2</key>
-			<data>
-			nNE1skEv/3uGZnlO3yFzvnjW/CxzNkqHe8cxVW8lLGI=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/curtain/winScreenOn.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			l5AIlT7+lj4hQWMvMaQxxv5jVco=
-			</data>
-			<key>hash2</key>
-			<data>
-			DWQAehp7o1Qt48XpmSoQ+w/ZFazLVnaTB43swgPAFLY=
+			6n2zfHYea/rlnVensqLds4V+mwnXTsFCxXWRT6p8cOk=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/date/calendar.png</key>
@@ -5314,389 +5255,257 @@
 			LSOOynhItFap64Ni6W+B1aqg23SRJ5cwtoTp3Yrr2jY=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/bgLight.png</key>
+		<key>www/imgs/wcj/light/beijingdeng_OFF.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			b+94g7Msn5gpAhcqqxOC6+orjn8=
+			5tir7HQ+oxVFGlMCwGvfwi/skLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			U+4kZDoLiojdSnjYJy6th+s3mM541w6ZZ3+EGXEVDvU=
+			dQ+BBdKEcTYzfutNY2yaD27hXfvB+2hi1JqJdUtC9tY=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/bgLightOff.png</key>
+		<key>www/imgs/wcj/light/beijingdeng_ON.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			43k8KH3aYnofxYUeIlHyuuOgxA4=
+			Iz6Pyl+NBzvw8REA25MVs2cm+9g=
 			</data>
 			<key>hash2</key>
 			<data>
-			JIdoZLzVJ4VI8eKmO3dEzyJzPJ869uY4VfmhNIWYmK0=
+			r2yWjrwTQy6uSzn1Zx8Aels3SdkwF5kM8AyzUc5FeZY=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/blue.png</key>
+		<key>www/imgs/wcj/light/dingdeng_OFF.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fFYyMIN7KdKKLgnN+hVaz+kC4rQ=
+			DTh9XcgwN8yUZ4rqjhhF+BQB6pE=
 			</data>
 			<key>hash2</key>
 			<data>
-			DrMffGwOSRNUJ9ifKTa+XPWhUnN1dP8NNwtoBW50mm4=
+			v7jBMw22cG6+GJDXnXw21JppImx0eRCPQ1l5n8B8ijU=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/colorLight.png</key>
+		<key>www/imgs/wcj/light/dingdeng_ON.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Ru434ITeqzZytF9tNShZkSHcEeQ=
+			hiRZtBOmlL4JXWwi2I6io2LDOpE=
 			</data>
 			<key>hash2</key>
 			<data>
-			+APwzuQTJmLYLXkO9NDApFxxIOtbkWqoRs6ofxGJrcQ=
+			8Xxemgg0PcyJxv0CbXqNXI6s183XHf/ErYq6Ei+pcgQ=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/disModel.png</key>
+		<key>www/imgs/wcj/light/light_bg.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			n+vU8wN850zIWRB86elBycEPsXw=
+			R5GMOcTas7er2nbc1hA7gAShxig=
 			</data>
 			<key>hash2</key>
 			<data>
-			5r1WzVVY5xPsCYJS8uP7N2rdIbmrHmm0s1fjgB8jd+0=
+			JGWl3O3p//tO18bZD+9H05srgxGj2/Ylq5KfANjnm1o=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/fan.png</key>
+		<key>www/imgs/wcj/light/light_bg_off.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OjRUh8yi7tecZ+xMPGxSqOiPZw4=
+			/A8VEnM1XPjHw8Pg6J0qFZko+bo=
 			</data>
 			<key>hash2</key>
 			<data>
-			2U0SYy9w+N96AT6kUu+WvbXVDXyBIH/R306xBbMD3Hg=
+			Bl+vkOS3ilaNWKizFTTNEu9X8vhNJpn49QLwPTowv/Y=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/fanOff.png</key>
+		<key>www/imgs/wcj/light/light_bg_on.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7tV81z9j/jvLpt4FnHRCyfXSMQY=
+			ZDO7fHbnCoRxK12kpnoX7riKFDo=
 			</data>
 			<key>hash2</key>
 			<data>
-			Al7sEzZJdzEWU23TejAna6dZiw6nZeI/jaqRhbLdV+4=
+			6V/SKQ2UXvYASJs923c9Bx9Uh+5rYhVL1T3VZ/zFzGU=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/green.png</key>
+		<key>www/imgs/wcj/light/light_off.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FEKDkCXCvyzvXZxuLk4Ow6CodpQ=
+			IridqrhJF3/GQxs0kXnmqmhcXvQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Q+MdfCXnf9KVh7cFi8In9Rx3B9reSD1EGv+UajuMeGM=
+			4cyqk5GlmQWA192o/Mfel8PMhIF0lXk2HoSP7pnDrxw=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/hallwayLight.png</key>
+		<key>www/imgs/wcj/light/light_on.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UiMBfXBLvJlvWiPydEAqPhA5TYo=
+			cqhGGTVT10MbKhdvtuDCbo/Ycbg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ko4KjmqJJOpfNGMBngpZiFDMlp9lL4naQTjJr3P1QPo=
+			4pMcYKHn2c9ZjszaGhWoj5b/oz7DvJ1b1wtbbCc6lgo=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/hallwayLightOff.png</key>
+		<key>www/imgs/wcj/light/middle_round.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WFc3HQcnvCpYkigrnmW7WVwrt6A=
+			XyTEMTXjeKs5sl83g9mETloXfRg=
 			</data>
 			<key>hash2</key>
 			<data>
-			QB4MtUxR8/HJw8j1e/MevQWn6R/bWx9hYTCiM1MV0qI=
+			vDfmF+YlgFL2h5YZ8bIQUzlFg6gmL/IRDcI4SZ48ToU=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/kitchenLight.png</key>
+		<key>www/imgs/wcj/light/paifengshandeng_OFF.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PTA+b2kzWBNGrMkBiZkEK5bEASc=
+			GzirI6JeF8v9XpMqc0Eo3DnUv8U=
 			</data>
 			<key>hash2</key>
 			<data>
-			irMD3iKIV0+5hqTAdBZHBKF+kJ5wDr1A7lsziWnUbXc=
+			JngmrEbzll6iiGRFEQ4KYulX56f7CpLGFtzS8i6C/aE=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/kitchenLightOff.png</key>
+		<key>www/imgs/wcj/light/paifengshandeng_ON.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			k35KvGA7W3/2N9sikyr+AQXL5Q4=
+			0Dtjm9y3cTIvTB8To7dwsxYwHAc=
 			</data>
 			<key>hash2</key>
 			<data>
-			qIf0trFYZsI9wF9q4jKH3TfmEg4BfcwtgmjqefrLXLU=
+			EVJOPTN78S74Fe2cgyptku9kuiu1V1VHOj9dse8KEIY=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/mainLight.png</key>
+		<key>www/imgs/wcj/light/small_round.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			272N2YvphqhIMtDaTFJjMQUFf+s=
+			5bbexGW0/JK4EkzgMjdexbrFSgE=
 			</data>
 			<key>hash2</key>
 			<data>
-			t/QpTrtV+vN0AULdk91DnJIleuwxhmW9yqixsxVyjCw=
+			8o204hLnsFDuRbB9iEY9kzaD/Mw8e6R8OgtkHmtyl+4=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/mainLightOff.png</key>
+		<key>www/imgs/wcj/light/weiyudeng_OFF.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TZrKAI/evboeG8el/Pq5E4vQ8ag=
+			G/ii9HT2/CodWLhgxZPBnY5HS8U=
 			</data>
 			<key>hash2</key>
 			<data>
-			teXnknMnE1Nvtlkchb2QCe9ontUWyJ/ZyhJ+X+59an0=
+			5inraYBv5FJWIMBx9DoIrrdp2qmEU0RKMm9z9PrIRUg=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/readLight.png</key>
+		<key>www/imgs/wcj/light/weiyudeng_ON.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jgT33h6iHsJ2zZUDbphOVB1wdi8=
+			ipZoCGuaoO8c1/QEviKAOkluPlY=
 			</data>
 			<key>hash2</key>
 			<data>
-			5dKkLNel9stinJSHfxG2dTt0qDMJXHgvLEZgtrdz4VA=
+			yBZ3uGzPsWA4aiPPqMWysllP5cZDLer/Osg20CTXBHA=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/red.png</key>
+		<key>www/imgs/wcj/light/youyanjideng_OFF.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1doIoES0gJ1NvNZxht5CpGywEEs=
+			ry5xGkei+K73gft1g+wdxE6RPoE=
 			</data>
 			<key>hash2</key>
 			<data>
-			aMOv8+LsOWr0L3DsVbn1r2T4BkJjXwk+BhiqVvZoZDE=
+			fpeb6kYfLzFa9CB4HEE46UyJ8/rhYMi3KietnKKf9nA=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/shedengOff.png</key>
+		<key>www/imgs/wcj/light/youyanjideng_ON.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ASlBwBL3Wj30PQDYCQyR3Un9FaA=
+			tqTUfjEC+kKE3w8nrt4yb7ZEBeg=
 			</data>
 			<key>hash2</key>
 			<data>
-			daOqRKGSWuq8FwcZ3gzJARf8Avslkc2ol5DRPIWpsoI=
+			V7g1VokdSC4FPum2Jg7Edl8x6o/uqf576mY1mh1W/PY=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/shedengOn.png</key>
+		<key>www/imgs/wcj/light/zhudeng_OFF.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3G1lqxDGdwt36SUuPUizltZzwJw=
+			ww9ONlgP8BbteQz0XLkBXvVtmfk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Sat8SJ71jRrvqiKovKrFENYKposr1esmfjC7bfajrFc=
+			tfadg9fh22iGNH1ihEXc4wS5OAG5nJOEB5WIk5VJ3H8=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/light/showerLight.png</key>
+		<key>www/imgs/wcj/light/zhudeng_ON.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			a2GefrVUxJeZLc4vkcLzOJQzgg8=
+			hZAZWvYksQQlegDXuEFXTvjcjKg=
 			</data>
 			<key>hash2</key>
 			<data>
-			ddzNToj3MqLt26VtaL78TyigMCWxP83DqRYhRMTCS6Y=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/showerLightOff.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cXnQtF+cXLd5D2bKlf3+VT1JASA=
-			</data>
-			<key>hash2</key>
-			<data>
-			IfoDMp48ZPCXkeEMwzesaS13pZrY3OYjwPJOSMz64Qc=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/toiletLight.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			J0RUWYLzBln7w5RrBWAaCI22aPA=
-			</data>
-			<key>hash2</key>
-			<data>
-			Ju0MwUKxSKvNJZO9wIwMaOqESwT9Pd8nyXHPCezKgeA=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/toiletLightOff.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			TdE6EdWOtAu1gnMkQftMyPD57tg=
-			</data>
-			<key>hash2</key>
-			<data>
-			P0YN1zU8phvkG7pa6lrZWBy+OKK8a+mA9NlXT9hRM3I=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/topLight.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Rw9Ei8FI3BZXBbc0AZHJNOMku6M=
-			</data>
-			<key>hash2</key>
-			<data>
-			uFqhG9zaH4Sp2imMBB67qwAzPoRAzqBwQmn8Wz6AD3o=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/topLightOff.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			YaK/PZD9lZtu9pWsmrmzbQvhZ9s=
-			</data>
-			<key>hash2</key>
-			<data>
-			cgT/p8JsVan1seHHMTCsGNch0KmHLC1sfJBsLVw5A5E=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/yellow.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QrYwtF51uZDfCvmtDRM3dWbit/U=
-			</data>
-			<key>hash2</key>
-			<data>
-			aKj35PpczvrRMPHmpYO4KWdUUgLmNrhzlfhrWsMHVfE=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/yubafuOff.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			Bo5EehNA4PKILBCuFGZWbet01DY=
-			</data>
-			<key>hash2</key>
-			<data>
-			DaC/jg97MAun8P4K+MG1t4/cVNYqPXyuwwlRnfXXJS4=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/yubafuOn.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			pvZ2QERvIyg76QJrdVgV6hmKs9k=
-			</data>
-			<key>hash2</key>
-			<data>
-			9tVAz1yXSy+nKa5kpaJsrnSBCwp61rYozehl4mdT02E=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/yubazhuOff.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2yZq1UAX5z4M/NqceRGREQ76lfQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			ohHRL5snVM6o2HBx61tCm5ao2m4AMC+r8Of1z9L78HI=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/light/yubazhuOn.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QEHCh88+7y7MqSJCw7pDZ0efnqc=
-			</data>
-			<key>hash2</key>
-			<data>
-			yG+GB2Bmwktdej4f70QPhjsGmWa1BsPx9rqXHV9erO4=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/lock/bg.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			kv/WLpIs4pDD7MUUKdf65A7nUIY=
-			</data>
-			<key>hash2</key>
-			<data>
-			f5KVwSN1iqQk2tI44YEKnQ2Ar/me80YrRGOcvZUsjTM=
+			6q0H4p+t7zyqU3w6afCKRppAMN5PSAej3I7KO+1g9io=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/lock/door.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			n80PAXUeEkYSJBX+ERsBdvlaDAw=
+			DPB6aGB3mmMZzFei5pCHzPVGnEE=
 			</data>
 			<key>hash2</key>
 			<data>
-			Kp8qxsFpGfha3O/+Zjz7Bq6qV7igPMQuHhp+yIxwBJs=
+			YguS2agk/9GLOv2BFh1gd+WK47j3zqlO17kfzUEZvYY=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/lock/door_active.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4vfD1Pb9dQ5sgtLZ3vV7Kf5fWlQ=
+			mV7I3C1XMTg8tKhY/7OopUr+yCA=
 			</data>
 			<key>hash2</key>
 			<data>
-			PwD/kb00FUP3Y1i/LQPh6R2QkR6dSejhIQWVwPFu17I=
+			lrsmWlyE5zJQ02Hh6OlIakrdChr+jDRClMSF1bbalRw=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/lock/elevator.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OSgi6txDVDZsTaGUO7Gk9PdJH3E=
+			78Z6vX6vRuTl9lydC/2p+CtVIbc=
 			</data>
 			<key>hash2</key>
 			<data>
-			wu83QoqpPxdAMnx2CJ1PPuCulb1NIsI/Rbf1d530xL4=
+			8KXTCNTzWqa0XVveGKQh+utobxJrXm9hLStCfUAR638=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/lock/elevator_active.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cVkBGbyxdNlMQkgqScY+CeWWPIM=
+			XPn22lhWy5CXfq+Gv5rK+1aCQg8=
 			</data>
 			<key>hash2</key>
 			<data>
-			BvDqREtmWQEgYqftdlQQ3mo/RKhMVqLpXS7zb9Gipjw=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/lock/key.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MIC/tjQ5F9/7haj1m/At1b8WfHU=
-			</data>
-			<key>hash2</key>
-			<data>
-			O0q6mhDBykKeyhC/vd6xFHRRo85jllXeIx2o7Sbj2ys=
+			Jqb4c17CA3FkAIZ71a7FoHlik1vXQzTrGjIt741Ji3A=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/lock/left_arr.png</key>
@@ -5710,136 +5519,158 @@
 			ZuA1PIgwIImMWS4erEluRuJzMdlT8+AkUrYCwqj57vU=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/lock/rect.png</key>
+		<key>www/imgs/wcj/lock/location.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HUlFv9NbHCF5ttk5iVrpvJj7/fY=
+			QlsprJXrwzJNYW+mXZMOgst3iEg=
 			</data>
 			<key>hash2</key>
 			<data>
-			gs0UbGuDYcx1nCZ0BSSa9dKJLvdnCixCrpgaBe5d3Zg=
+			6TpZblxWfLygapZZlWvK9mMKJIq2XZJFwQoaRyw49r8=
+			</data>
+		</dict>
+		<key>www/imgs/wcj/lock/pots.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			nF6jPm1cFhO1ngZyGuh/UThZvDw=
+			</data>
+			<key>hash2</key>
+			<data>
+			GmXWdTVn5g2nNzF7X/2zSxtXqBhW7DvoziOO4Kf6AoQ=
+			</data>
+		</dict>
+		<key>www/imgs/wcj/lock/roomCard_bg.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			T5ivm70bh5RoWVDY+N570jzJEzE=
+			</data>
+			<key>hash2</key>
+			<data>
+			nZCC98/A0XKm/MRzPH8/sZn5X/8/ofE6Nax6s1UzhHU=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/lock/round.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eWkus/gh3Bj6hSi5Y8mLYOaxWIA=
+			v4A7pMo5pxeZciqz//eN00wGxCA=
 			</data>
 			<key>hash2</key>
 			<data>
-			ut/hjQAqS5WXPnu2CAoAW0GPOQgoQIiKFr+WxboG+5Q=
+			EVx6uUwFKr2GUEvgv9+D1idbFmjTvlmQci8W1uAnf1M=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/lock/stream.png</key>
+		<key>www/imgs/wcj/lock/source.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CBVfGEm/r0xazMEnQlI1Gg9v3Y8=
+			F8VlgBdabNDkARYBIwY2WA6BEQQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			CNC1/8HOiPgZl6TM4FBMq3SLHQ3M3n/xokaqo+Q0AkY=
+			btB70Rqbpd8/0gwtD2IhzkzlFatbzmxm0cKtJTE3hcg=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/lock/stream_active.png</key>
+		<key>www/imgs/wcj/lock/source_active.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KHfCVvNCr3enBpKcf5aB8qPPkXE=
+			xrdSv9tlAOl2oCd4Gu2qv8EGDI4=
 			</data>
 			<key>hash2</key>
 			<data>
-			uVpjF1gw/YFy+j5lH/qvpQwJWC80TovrXuRc/fcJG6A=
+			1LV+dZdPEQgDFYl+77FchQrHY4ljM3nNGyS9d7UfeMQ=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/lock/switch.png</key>
+		<key>www/imgs/wcj/model/checkout.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CBVfGEm/r0xazMEnQlI1Gg9v3Y8=
+			fdW+BJWwOe6olyNB/rV811Qzagc=
 			</data>
 			<key>hash2</key>
 			<data>
-			CNC1/8HOiPgZl6TM4FBMq3SLHQ3M3n/xokaqo+Q0AkY=
+			X56efZKyaHnCfbkizkBZ1S/GHBjtCj9SpH3lfGuxq1w=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/lock/three.png</key>
+		<key>www/imgs/wcj/model/common.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yUXJmPdRNCUpCJOEn5j6NK02b8s=
+			yw1/4d7dACjxcEP1x0MIfcnOvgQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			4XwLZSjR5Hp8op/O/lJfKvJIZLqvvMjOqMz/010ml4E=
+			wbGmxq3bYOcTprVJCGicehI0P2TEMZuoWUQZC/BuRYw=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/model/qichuang.png</key>
+		<key>www/imgs/wcj/model/getup.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			v2ZWy67IjWnUXkAv5izVUJEvIMg=
+			hOLjcbNdRph9BtfYzHn1UMkNAAY=
 			</data>
 			<key>hash2</key>
 			<data>
-			+hrDIXMNWPkCvoXjo6aH/tVN/+0QZ8idURqRIhKDRjo=
+			/r8XpZy4JkBuFJo40WTJUfQciU8ms8hjcMM2e1w7YoQ=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/model/shuimian.png</key>
+		<key>www/imgs/wcj/model/meeting.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			z+3ag9P6nhkSTHQ0cpvW6AYynoA=
+			pzi7N8zONxJqLPI80UyxnRzYQk8=
 			</data>
 			<key>hash2</key>
 			<data>
-			7aTaoeZgNGi/a+i0SsbS3OVEg6TBoz8+BS0Ovp5ruAg=
+			R9GaFHPE6vo1wUnWl9/Ng+TJ/LXEZRA7A2xY8BHbckM=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/model/waichu.png</key>
+		<key>www/imgs/wcj/model/models_bg.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Yi8Ay4xC2fdHin6y0dsTWCQaApY=
+			DQBych+81ZZf7/PQw7mKU2Av5Pw=
 			</data>
 			<key>hash2</key>
 			<data>
-			SPJ8QqigvdvDR52nic6XAGO7NjpCMJXDqahc242hiaY=
+			kIKhAHd/4j0PeP75UtoK/Fxn9Lk1IWjdk7UHVfOq+y0=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/model/yingbin.png</key>
+		<key>www/imgs/wcj/model/movie.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pKjcG/l4pyV/JOuJRbsswQSBS4U=
+			MxaSGhaLiY4jzgFdFrbIBNEzgKE=
 			</data>
 			<key>hash2</key>
 			<data>
-			10/qGy8ArNxYBGQZzCF44xBTIouH62LLViZtNc0Dn+c=
+			KXdchj7X65yFuCTjF3qjrV+pnWjGJ1FuGA9OqFUKfGU=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/model/yingshi.png</key>
+		<key>www/imgs/wcj/model/reading.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QdWvCuccef0k0+ZLEy3BXqdLhaE=
+			eJB7FKrv0qi6hw2pI47mYj4jyqA=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZDemUKKRFPpQ9lqddtQccSIBvZa5/sCOtUWKSvLjm20=
+			CsYFu8xB+yiA18742f9WA8xzH6RanzJEpCiu+9HVu8M=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/model/yuedu.png</key>
+		<key>www/imgs/wcj/model/sleep.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FHZh+SFzN1lbMf9QcyZKTWd8wz0=
+			KFmZPZBAJyyMlU9g2vVyym4S+74=
 			</data>
 			<key>hash2</key>
 			<data>
-			t+a2yJkme0j/luG9v2kJR8tSaW08NIMvVyfCe/JV8lg=
+			XDdeJVi1Jhc6amFavGcYBD/ykdVk813/TAAGRm1uXBY=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/my_orderform/close.png</key>
@@ -5864,235 +5695,180 @@
 			QQtY6hB8dUjHR/ImMGpz2hK0MtDM1JskNDQw6ISEAQY=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/back.png</key>
+		<key>www/imgs/wcj/newTv/arr_down.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			436ChY623UcLDe1/KI7AS59BbD0=
+			wDJYVYs5jG1tQVJw5DBg6JOhSrM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Nprw6f/q495QwQO8SEfH/JoU6Xnbw8sKE1iXULLuqEQ=
+			MAIKQ+T9xLXwstsIYt3CqSjOj7RhEkkkPirMRHdyJXY=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/down.png</key>
+		<key>www/imgs/wcj/newTv/arr_left.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			o6LpaPflQ0wkJCdGU1t8QQCQxbo=
+			HD4F88/YurUkWz/TjHD+ctlx0W4=
 			</data>
 			<key>hash2</key>
 			<data>
-			3Vd688lurANmxN6607fP/ubbXYuQ3l8oyd9gSCDa0d4=
+			C3GdCBQHCKjEwA4kIY7fREl6RbQW6rNg2RdZNgoxemE=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/left.png</key>
+		<key>www/imgs/wcj/newTv/arr_right.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OHeGFcI3fdwrHWtEyhKWaZK6WUw=
+			rKikgShBYJfXA6wMHFVQ6RXrHWA=
 			</data>
 			<key>hash2</key>
 			<data>
-			G+wd7gXc/xYMw2TQgdUrfj5FIfLGf3s4RpjuMcYML+k=
+			cx2PEhXc7p5EjT1zod1PiB4Q1vmXLiWrmFZT4en3TjY=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/munis.png</key>
+		<key>www/imgs/wcj/newTv/arr_top.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			DoLNROvsXXi2wgFMCKWXvAHC7FE=
+			x8pdkVeud6YLZpo1Hr90S+m4DGc=
 			</data>
 			<key>hash2</key>
 			<data>
-			NzEIE5QhI90wSU8x0uKsucrM15ErnUxwOATvkOKY5So=
+			5jXhrt7xtFGJxFCFEEyLIT+HtqvY6BKE5DH3g2l/4cs=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/mute.png</key>
+		<key>www/imgs/wcj/newTv/btn_bg.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0Gku79uVWXvDT0rAFRS1IqMwPSQ=
+			CqvBU4kgkojNvQmPKdOpeVXXMbo=
 			</data>
 			<key>hash2</key>
 			<data>
-			iG9ED4oFpwGdc89Imv7W2ALBDdSQ3ApCmy3N1QP571s=
+			X68TLtqDdQRN6fhyFEgMHeqLIMcE1DCPdM0E3/TJrr4=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/off.png</key>
+		<key>www/imgs/wcj/newTv/minus_off.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			rWO7ElluleIn7QFx1lxxpra0gXU=
+			zWTWwMDNZtPbvrrQIQF+amGFPhA=
 			</data>
 			<key>hash2</key>
 			<data>
-			XjNNSxIIVfBP0akBBFF0eHCrBeIXNcYqcPK4gauy2o4=
+			xRWnf29+s3wbQtP+EdP4dFSJxO+C9BEJ+lmE1m9ti9A=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/ok.png</key>
+		<key>www/imgs/wcj/newTv/minus_on.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			x9H7sNWlZQE3Jl5ZjrDHHVPNitY=
+			w1ov1EHmGmjsLLyN36s2VhHBwM4=
 			</data>
 			<key>hash2</key>
 			<data>
-			OMsST8QfEg2uM389wJMGwcsTu2IdFz3NgZWxB0q7fzM=
+			sEE2Ba86HQ6Mxpcl/WUau/F6qsVIstsdMjTgzfdUOTw=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/on.png</key>
+		<key>www/imgs/wcj/newTv/mute_off.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5DdxYi+fO4zul1FVwL+woAo95Q4=
+			sUru+H1xJco1TSrDZyEt0rnvKN0=
 			</data>
 			<key>hash2</key>
 			<data>
-			Bqbxc9JwIt6MWfCBm61ZSpw2PY0YsXzyW3S80wCfRmM=
+			tjGb3uTmQyycdoNhveR3hnZd/ENHl3T8AMUg7lCAHVo=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/plus.png</key>
+		<key>www/imgs/wcj/newTv/mute_on.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qCOYSMdaWjgh0ct1RN3gaEIoJaY=
+			XOKOqlZJ9NG+Zj1FDXl0cKzclT8=
 			</data>
 			<key>hash2</key>
 			<data>
-			DRqC0EoNmvXmstUwSbgmcCgmCBwV49xa1pguE+PcWPQ=
+			kpKFjmutz+b+khSxKw68AXbxWxsnzdd+xrf6bj2tD0o=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/right.png</key>
+		<key>www/imgs/wcj/newTv/plus_off.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9Z/kVDjMa+QUc9NKvesLVbGsWHc=
+			6Q0gh2EZs9HcgDLBfPv5GC6Sfds=
 			</data>
 			<key>hash2</key>
 			<data>
-			VqXR8S//5dkzaXi2CVAaF3SCJYbocX0zaH9oo2O6E9Q=
+			DTSUhng6zLCubMA1p6utN9m+OyvEbrRWMMqs0VtvT5s=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/round.png</key>
+		<key>www/imgs/wcj/newTv/plus_on.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Y4Zx5PR3OH96tHIL4V4wSBXFLB4=
+			sVtnRKvvuE3rY2KT0H5YNNrZ3Uk=
 			</data>
 			<key>hash2</key>
 			<data>
-			bR32VrXV6pf5fUkz/DHVZmNIv1lIvkaRfRrGU3nC0vE=
+			lelQeySxGjF7vTN3deeaSQZwX1piOwAmWa63Zl6zLOI=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/roundFull.png</key>
+		<key>www/imgs/wcj/newTv/return_off.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			na28QTulQeNCO5vr4A8/mnEMAgE=
+			gb0dRc3z62Fbszt+Zs9UxfFfeZI=
 			</data>
 			<key>hash2</key>
 			<data>
-			/xFbFmXdsax+ptSpc0I8T9oVtAnHRxZHibgp8VJMZOc=
+			zb+9/Jekz1VWB85Vmz+m863Pxc8pTRoWCCIh1RUpEX0=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/topBox.png</key>
+		<key>www/imgs/wcj/newTv/return_on.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9T9wlRpLo8BNloB3Z0qjAiYiz58=
+			zTOqJpYVGfoYLlNj+BFVcrlBoMM=
 			</data>
 			<key>hash2</key>
 			<data>
-			q6XjB4e9cZ4auPSxNLXuNugz+hVZ3J3kDrKBlwxH3ms=
+			RSsnkcuBfMALvkcnelsdElVO7c2Y71fK/RiMHuWzblk=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/tv.png</key>
+		<key>www/imgs/wcj/newTv/tv_bg.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YsU6IBA5J2Am/UnxuNS1Oox7KTs=
+			i0q5tfzLAHvqseP980qQfms9y9s=
 			</data>
 			<key>hash2</key>
 			<data>
-			bsRIRQeKFChxOA99jU2bmbwnEByOzQKMsmfKo2JJa8w=
+			r8ojqGhXzqzXNDOhK6j9CNYHHau/r2rFT/dP63Ivrwk=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/tvback.png</key>
+		<key>www/imgs/wcj/newTv/tv_off.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Dz1fes0b7PRLk9ML7ZtIXmjRFDI=
+			f1tZJkftxRtCxo45jYYcIvwfG0g=
 			</data>
 			<key>hash2</key>
 			<data>
-			O9M1Ti8q/h37s5WTP3mPAjXfdHam0G74swF67x797Y4=
+			sXuekeEMwIHKyu2B0dFiGRavxacyvJa+v+wUt1aZ61o=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/newTv/tvmunis.png</key>
+		<key>www/imgs/wcj/newTv/tv_on.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			AgcgwlXlazsiylBrKi+lkD/BTvs=
+			IV7OgBP0+SPOi967Rjo+tLroelM=
 			</data>
 			<key>hash2</key>
 			<data>
-			M+hZxkwSoSRqCi1UGHcR6O8P1P7owealD89ftNSGEdA=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/newTv/tvmute.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zzLXv+zWPdPqoUMQ9Qxe0aa69ek=
-			</data>
-			<key>hash2</key>
-			<data>
-			eryNWIAi4G61M/Ip5b2DC+VhpAYVtnZnM0EVjPn+Xj8=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/newTv/tvoff.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			xWuV2UzyT3trxTQk4uxLz9Y/BWo=
-			</data>
-			<key>hash2</key>
-			<data>
-			W00t/3GbXdPhSlkJW0WlsfZW6RXutTW9wM2sGVI8/ns=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/newTv/tvon.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			KoIikqTKFStz59vqE61FRcIvNo4=
-			</data>
-			<key>hash2</key>
-			<data>
-			e48U5Aij0X0BkEScInSgx9j6qYYWGAnaZAYsm89DYS8=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/newTv/tvplus.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			qIFjIJ8aZoKQuLSlpDnQRhSSRwA=
-			</data>
-			<key>hash2</key>
-			<data>
-			06I9rMu78XDe6/L7cxJNBtu/R2onIwlYav3Zcji/8yc=
-			</data>
-		</dict>
-		<key>www/imgs/wcj/newTv/up.png</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			OftvEDQ91U4PAIsi9wwbxlpgzxk=
-			</data>
-			<key>hash2</key>
-			<data>
-			KQH8ZVN/hT+xHOc8dDZn9BF4kvmtDZP7twNEgzfrmrQ=
+			2ozbVVJ5AyimBZHLCjUAG3I/9gXOUqwK9QOJEPOrXqI=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/orderDetail/close.png</key>
@@ -6315,26 +6091,70 @@
 			7gGYNzpMXCyVXw+dL2trEC4s7ZaSUQkeZr0/bdDUcYc=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/service/clean.png</key>
+		<key>www/imgs/wcj/service/click_CLOSE.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hD12tRGIwj7XjYywGssGUgbFDuo=
+			GShzSch9kKzp4aUVQS8mKVNQNBw=
 			</data>
 			<key>hash2</key>
 			<data>
-			Rymgw9YGMygvfshB5oU6/3/GU5kw1VYF1LTOcD0aR18=
+			iBLBBl/HqnT/SnQot/LRi7pDSqJIVBTzE3Scr8E6s5Y=
 			</data>
 		</dict>
-		<key>www/imgs/wcj/service/dnd.png</key>
+		<key>www/imgs/wcj/service/click_OPEN.png</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IBgD6s6teHhnNHtQdCOLIdrwAMM=
+			CXzrpzF3ygHQz85FwHU6YNmiR2A=
 			</data>
 			<key>hash2</key>
 			<data>
-			9cD5SP/KWwci0p9wRZJ5oWQRo9A9SI+LngUT4bJeU4Q=
+			1+Vq0tjgDf0N6CYhLJyzio0KFxb7kciQfDN6tD3tOa0=
+			</data>
+		</dict>
+		<key>www/imgs/wcj/service/rect.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			QIjb3Bs2Kj8Z69Q+TlyPQjMGRbM=
+			</data>
+			<key>hash2</key>
+			<data>
+			pd5mFnBbucj3TqNZZcXZQB80BimONn7hlogeOVg62Os=
+			</data>
+		</dict>
+		<key>www/imgs/wcj/service/ring.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			drGeLqCAR0Di6y83SVCFLP23s68=
+			</data>
+			<key>hash2</key>
+			<data>
+			cOA5d4cR+beHJWHRfmBz4A/nbG46Vf96dqTETcXFdPE=
+			</data>
+		</dict>
+		<key>www/imgs/wcj/service/service_bg.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			m6L8W7VJy+FBSnaEwF6ZUdtODz0=
+			</data>
+			<key>hash2</key>
+			<data>
+			kbuvECH8+gAsPtk7UWme64+fbs30w7OA0Z2OiJCCioI=
+			</data>
+		</dict>
+		<key>www/imgs/wcj/service/swape.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			dlSNUDbq44hgevh0oIrGzoSHidA=
+			</data>
+			<key>hash2</key>
+			<data>
+			79adnzdAbLVaUw0IPmO86XKVZUGk2z+bSlz1zKGP7c8=
 			</data>
 		</dict>
 		<key>www/imgs/wcj/services/round.png</key>
@@ -6726,11 +6546,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			sE4w68LSxvcIYFt0n4ZQVasz7PE=
+			aaT22/7UpYCDzzX2tOS29pVssuo=
 			</data>
 			<key>hash2</key>
 			<data>
-			gVXb2b5oD8sOFC1PLhUPvcxSyKU9rZUUeXwSgDUS8/I=
+			vUPq5Nr8KQtljqGRtaqxjHknKMgZxfEjVI3gXzELqwI=
 			</data>
 		</dict>
 		<key>www/js/templates.js</key>
@@ -8882,66 +8702,66 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KgBQjEWrVcetPDftXrD2yBlvQ3I=
+			Xbvgqc/M/Ql2t+78UKM44U6F0ec=
 			</data>
 			<key>hash2</key>
 			<data>
-			qzqSKtQP9wbAriRfxmE8BGdUBjLvfYxy5jvPzb4yM9o=
+			OQ2IuzcUe946g+1dLFhgPBlTGYZv+rmU9Lsry/VeBvI=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/CheckIn/checkIn.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OSYIoDgtaygUVbxaNQ/0WO6XAGU=
+			EMzT++BEBBo+VlffigLAIexKBjc=
 			</data>
 			<key>hash2</key>
 			<data>
-			2xhc86vDm6+rkdlggx6ac/qFgnkzSe+rHRbz9YUwN6E=
+			jwbtonXmiSajZkhA69LfeDFc4tD+sn3HMPeAFRL6Has=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/CheckIn/checkIn.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ocTpBvCK07+DSQlQvbrcy3NRMe0=
+			Ig574zczAv+eUk3Hq8rxNSBytus=
 			</data>
 			<key>hash2</key>
 			<data>
-			WNkG93+X/gmszlycNnYynlQVrO1JhZ9R1nKTYM0FrGQ=
+			6IN/YmLNxIhyvaKQfZJ3o4sI7Lr5DorrSSwXBQa9i1U=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/airCondition/airCondition.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0nU87Li943F9u0t0Qe7kxtI5uBs=
+			6fJd/ScHYW+P7aARYDJOVulpE1U=
 			</data>
 			<key>hash2</key>
 			<data>
-			bj8uTZbKmcxkCeg58z90ajx/2WyjGEAtMBinC1J7dcg=
+			tfS0LJ5kh4AH5IOJJG67cp1xHbJ8htf2JLLdS2Gq+CA=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/airCondition/airCondition.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ruYhPEoUttQ6ODCmWem4d96NCFc=
+			wpZCIg8hjHpHAqoaO5DNHq+5IQ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			rAP52upbT5+hUNNZeJJsCfj4WW3RATkZa5pUNd+0Els=
+			CM3gLppJ1l52OH7gfXA4fqaZ2EJMhYaWhjAMvA7Z39A=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/airCondition/airCondition.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9iw8ENOPUhmV3HdLfkdvLdGP8EU=
+			ZrF34cmZ2L6Kwcq4WC0AATJ3KnQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y+jNkTEQAxRvbsAzrNK3SLyS0d7uM0xJZVcIn7goyUs=
+			ZEEzBwXtx/VbkpJ0IraXv9JKWYMx0ohe4mDYaZNB5wo=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/clean/clean.html</key>
@@ -9058,33 +8878,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ss3RX59xMey/MmhG0r+qi3Az6tU=
+			KrnTM4uIl7ddDfRP7SdI+WXVTug=
 			</data>
 			<key>hash2</key>
 			<data>
-			22Q0aXtstJtxH04yaZ/FyjdM1jYrCJrNFbtUlDBCluY=
+			mvmoVVQXq+P7cF3uN3oqAh2rjhWK1mcE22qrY0KLwWw=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/curtain/curtain.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3UqFWq7nO1C9MGx7FtFHRSqrQwk=
+			naANSgwhdLvRSIWMm2q8FynQzpw=
 			</data>
 			<key>hash2</key>
 			<data>
-			s01fHVXiZZ651YW2FxkPNUT6VJkcT3Kyp9V6fHPgDr0=
+			Gkq/F9AM/cFFTR15Ps97+ZM1DALO/oMwaoNxHNu6fL8=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/curtain/curtain.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9LSCKeluNoqUlF9zpovEfzSu4Mg=
+			63XwBng6LcqP0MPVyWPCrBmOoro=
 			</data>
 			<key>hash2</key>
 			<data>
-			RbOArY+K8tI8zFXu17B2zaziEc6iQFaTHrkCaCfP6Ec=
+			x5eWFJ4en7Uo2Ent0oSjK5dX0v/bwmB+BfNxIbIPAbE=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/inHouse/inHouse.html</key>
@@ -9124,99 +8944,99 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fNNUr3HGzcawyhdJM4lzNvl9K9o=
+			vnNLGlnzlrJ33vA/GA+fwXK4DRM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Kk/IooGtoE2kmK5dFWWmbagw6qkhJ5Fwmale7YX65iA=
+			8L9un2UQWM6I88jleXoIzQCT/mjhcbk3R/Mb6m++I24=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/light/light.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HEy6LUDag7HBRp35fUWyqfQ1KR8=
+			wmM4B2JSfqh3xBt6/oelmnMQ2t4=
 			</data>
 			<key>hash2</key>
 			<data>
-			G3DILgOc6snJgIKf6r7YoaOjY/UcWbkh24mZPjKrdpU=
+			kPp2+S4icNxBDV7Fx22QzfeNkBcZ+fLyxF0KeWiAcyo=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/light/light.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			c+CfBdamQdAi5taNqUWs3DLzdEk=
+			1l7XOv8iKle/tEeuwh2jDE8Ff+M=
 			</data>
 			<key>hash2</key>
 			<data>
-			1ZHfDfpTPABjXJqFfqAgDfqreV2ILFHeNBAWbNitmTk=
+			mQxmqrNX88eHOoFDB3TAl3YPQKAFKxZM8eMtzqqrrsc=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/lock/lock.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Od/pOL7Ul4L9RFMApI3w3IV4gOo=
+			lO85jbax/V87e8xkrvJShP2zaUg=
 			</data>
 			<key>hash2</key>
 			<data>
-			fwUjf0s4zmPo7qNhuDOBbEA50LKQH2NrXLFYXR1rAxE=
+			cNhExMLaYN8IiUj8V2J3Bt6ae2xCDuUuCpc7mn7kqKg=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/lock/lock.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CXsXbO5BDJ4ltRKndJv/U9ZyKMw=
+			3AjPPFdLosozl1fMBH6WkprCUfw=
 			</data>
 			<key>hash2</key>
 			<data>
-			NJyo6AxHD5MLUBuYVKgQU/u6bD7DIwdzvlPT4PVNW+o=
+			lLrgOrVCgTt1Tfj5SNLMU3xdfmj4CymQr62DXUoULOw=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/lock/lock.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JX8aGmaKA0f5M7iO6rtae0vrOFM=
+			wOtNp0lT9JdR0CjsAO4YUvmGlKs=
 			</data>
 			<key>hash2</key>
 			<data>
-			HWNPnU7HBSgK+mUJ7EqLveHLLZwoIg0mof+7jCmvjVg=
+			Tnwn32NrfLf89btDS3TXQ50bprvKCeCEtOjJ6ofaArI=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/model/model.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			n7p1+O3fEshROtubGbXPBOAC/Lk=
+			q0ytYnIFApnOCQZEPx4983CVFFI=
 			</data>
 			<key>hash2</key>
 			<data>
-			CWdNlJEhpMmzCP28zu+EiXjudJYRxl1M0EaQCvQ+eWE=
+			6zY9SngtarIA08XOnPGLJMHkw8byEC0dX+B1+c/HJ9o=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/model/model.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zY77IpleCaKbNR3sn6n18W0kbuY=
+			9pTKnu0kcCL4oDPYdIwinaMSeXE=
 			</data>
 			<key>hash2</key>
 			<data>
-			AvkH/YAu8rL1tgOhzFDNjR534n7JvE17wTXvXHmLEaY=
+			PKV48cc6TWdVXbESxclim8S8V2H+Zl0CZoFjaIez71Y=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/model/model.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EqzH7VKdR2u3lYxwLZVOshZzQyA=
+			MVbOcbTUP85nXLX6qiO9FE3/R+Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			4cOyYFW3ciFMRFV3Qb7euhYA6oMy+Ry9zk1rNl/8a9Q=
+			8a5pv5z2Y6vF1kE2vvS+Vz4wFhx3neZpZ+Oxf8GPr9I=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/readLight/readLight.html</key>
@@ -9289,33 +9109,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			esKIpwsZyL5wEigK1+u3Ev5OZPc=
+			m7XjLQNgsZYTpjnpaWdkcIOjET8=
 			</data>
 			<key>hash2</key>
 			<data>
-			hlJdWgDdLg21z20oiOUMAPMrt0oTUNTuxSynZ8XLvRg=
+			ssseBCNMIOmSl5UnacRw3yJsh/o0lB44dO+DSht4DD4=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/service/service.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zm2r9OMcRYefFuKHPcGgpfRHEvA=
+			on+T4+wVx45nKnO60NWhtSf7XJE=
 			</data>
 			<key>hash2</key>
 			<data>
-			R3nEUS0+PDz+tTkE0GGO2ctIS+hHcFoM8KFLD2WaAUA=
+			dFP3PkWDfIZfzMlArqB545gmiqiCrpIw9MS4enIiZcE=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/service/service.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ucdDWRMPsR61ipYS4RfnRGEx8QM=
+			YwvbWCxFWEb9Zrl7J2UpItVDDzY=
 			</data>
 			<key>hash2</key>
 			<data>
-			KILepAqx6PGX66ltglxUx3XjL+TB0ty1UTS+mohF+tw=
+			ZFUYeMYFsG9K7t/b9Q+bTijT9tKEUsNyLtLOOPx8clE=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/sweepTime/sweepTime.html</key>
@@ -9355,33 +9175,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qkWL/V4Kb8EPhvAZ1HvOE52FWMQ=
+			HZydO1nM/AwTMnXqqcELw0abh3A=
 			</data>
 			<key>hash2</key>
 			<data>
-			r5yT/fs5WMYp3vt1wBn+sk7E5lc4zTiDCrPj7w1lkEg=
+			CTL4bqfOquGO3zu7dVt9f89Kj3xePAEpXaYWjSg1i4I=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/tv/tv.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ml+dQ2qHxEGPtKOeo9PI/sDdqw4=
+			pkI03EtkxZfc0pMgNqELPDQaAPI=
 			</data>
 			<key>hash2</key>
 			<data>
-			KPtqYzNsK7Ds3Iopl6wRYKPmOU93U09sGy5rnT6UzhA=
+			MgZ+4D8l8bOSGv57HIJY6SAr4O7etlIl2MBmij3iNyw=
 			</data>
 		</dict>
 		<key>www/templates/ctrl/tv/tv.scss</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TRS73vEj7PARuky77Er3/3N6Z5M=
+			YhCNqJGEyiHzMBdsa98jIATrsog=
 			</data>
 			<key>hash2</key>
 			<data>
-			EOorhJbKBZGPeETYeJ2mCxR/B17dWVM1LKvAlsi7n/o=
+			EDOI0l3V5K1FVQH4QoOEFv6h9NLAu+wZoPAE7XUk0/U=
 			</data>
 		</dict>
 		<key>www/templates/directive/cityPick/cityPicker.scss</key>
@@ -9509,11 +9329,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wxCFGKwOdHssQrjWlOzvb0SgE/8=
+			9HwjqS/xVAqexii9hDFcm4O+1O8=
 			</data>
 			<key>hash2</key>
 			<data>
-			1rS4HLpqfi/TYkiFvBketmn5ffIXBtGPg0a1C2UluMg=
+			xpYtBOLufYciiK8MzE8J43QI0lV4+UZZaGhqPhbs010=
 			</data>
 		</dict>
 		<key>www/templates/home/get_city/get_city.html</key>

@@ -543,12 +543,30 @@ angular.module('starter.services', [])
           params: data
         });
       },
+      //获取路数信息
+      querySmartDeviceWays: function(data) {
+        data.token = localStorage.getItem('token');
+        return $http({　
+          method: 'POST',
+          url: AJKUrl + "we/we_querySmartDeviceWays",
+          params: data
+        });
+      },
       // 获取电视机信息
       queryTvDevices: function(data) {
         data.token = localStorage.getItem('token');
         return $http({　
           method: 'POST',
           url: AJKUrl + "we/we_queryTvDevices",
+          params: data
+        });
+      },
+       // 退出上传灯的状态
+      modifyWaysStatus: function(data) {
+        data.token = localStorage.getItem('token');
+        return $http({　
+          method: 'POST',
+          url: AJKUrl + "we/we_modifyWaysStatus",
           params: data
         });
       },
@@ -611,6 +629,23 @@ angular.module('starter.services', [])
   })
   .factory('hotelPics', function() {
     return { a: 1, b: 2 };
+  })
+  .factory('quadrant', function() {
+    var quadrant =  function quadrant(x, x0, y, y0) {
+      if (x <= x0 && y <= y0) {
+        return 3
+      }
+      if (x < x0 && y > y0) {
+        return 4
+      }
+      if (x > x0 && y < y0) {
+        return 2
+      }
+      if (x >= x0 && y >= y0) {
+        return 1
+      }
+    }
+    return quadrant
   })
   .factory('encode64', function() {
     var encode64 = function encode64(input) {
