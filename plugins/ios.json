@@ -13,9 +13,6 @@
     "com.telerik.plugins.nativepagetransitions": {
       "PACKAGE_NAME": "com.ajk.test"
     },
-    "com.verso.cordova.clipboard": {
-      "PACKAGE_NAME": "com.ajk.test"
-    },
     "com.yoopoon.cordova.plugin.alipay": {
       "PACKAGE_NAME": "com.ajk.test"
     },
@@ -28,9 +25,6 @@
     "cordova-plugin-appavailability": {
       "PACKAGE_NAME": "com.ajk.test"
     },
-    "cordova-plugin-battery-status": {
-      "PACKAGE_NAME": "com.ajk.test"
-    },
     "cordova-plugin-camera": {
       "CAMERA_USAGE_DESCRIPTION": " ",
       "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
@@ -39,13 +33,7 @@
     "cordova-plugin-console": {
       "PACKAGE_NAME": "com.ajk.test"
     },
-    "cordova-plugin-datepicker": {
-      "PACKAGE_NAME": "com.ajk.test"
-    },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.ajk.test"
-    },
-    "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.ajk.test"
     },
     "cordova-plugin-file-transfer": {
@@ -62,12 +50,6 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.ajk.test"
     },
-    "cordova-plugin-nativeaudio": {
-      "PACKAGE_NAME": "com.ajk.test"
-    },
-    "cordova-plugin-pin-dialog": {
-      "PACKAGE_NAME": "com.ajk.test"
-    },
     "cordova-plugin-spinner-dialog": {
       "PACKAGE_NAME": "com.ajk.test"
     },
@@ -77,20 +59,14 @@
     "cordova-plugin-statusbar": {
       "PACKAGE_NAME": "com.ajk.test"
     },
-    "cordova-plugin-themeablebrowser": {
-      "PACKAGE_NAME": "com.ajk.test"
-    },
     "cordova-plugin-wechat": {
       "WECHATAPPID": "wxd0cf1b4ce9cace87",
       "PACKAGE_NAME": "com.ajk.test"
     },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.ajk.test"
+    },
     "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.ajk.test"
-    },
-    "cordova-plugin-x-toast": {
-      "PACKAGE_NAME": "com.ajk.test"
-    },
-    "cordova-sms-plugin": {
       "PACKAGE_NAME": "com.ajk.test"
     },
     "ionic-plugin-keyboard": {

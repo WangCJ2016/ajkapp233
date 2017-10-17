@@ -143,6 +143,10 @@
             {
               "xml": "<preference name=\"WECHATAPPID\" value=\"wxd0cf1b4ce9cace87\" />",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Vibration\"><param name=\"ios-package\" value=\"CDVVibration\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -307,6 +311,9 @@
     },
     "cordova-plugin-wechat": {
       "WECHATAPPID": "wxd0cf1b4ce9cace87",
+      "PACKAGE_NAME": "com.ajk.test"
+    },
+    "cordova-plugin-vibration": {
       "PACKAGE_NAME": "com.ajk.test"
     }
   },
@@ -804,6 +811,15 @@
       "clobbers": [
         "Wechat"
       ]
+    },
+    {
+      "id": "cordova-plugin-vibration.notification",
+      "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+      "pluginId": "cordova-plugin-vibration",
+      "merges": [
+        "navigator.notification",
+        "navigator"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -838,6 +854,7 @@
     "cordova-sms-plugin": "0.1.11",
     "ionic-plugin-keyboard": "2.2.1",
     "phonegap-plugin-mobile-accessibility": "1.0.5-dev",
-    "cordova-plugin-wechat": "2.0.0"
+    "cordova-plugin-wechat": "2.0.0",
+    "cordova-plugin-vibration": "2.1.5"
   }
 }

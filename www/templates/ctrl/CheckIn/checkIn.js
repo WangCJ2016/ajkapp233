@@ -24,8 +24,7 @@ angular.module('checkIn-controller', [])
       $scope.activeIndex = ($scope.activeIndex + 1)%7
     },3900)
 
-	//var houseId = $stateParams.data.houseId;
-  var houseId = '923532358858056192'
+	var houseId = $stateParams.data.houseId;
 	ApiService.viewHouseHostInfo({
 		houseId: houseId
 	}).success(function(res) {

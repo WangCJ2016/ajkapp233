@@ -16,7 +16,7 @@ angular.module('light-controller', [])
       ApiService.querySmartDeviceWays(data)
         .success(function(res) {
           if (res.success) {
-            console.log(res)
+            //console.log(res)
             $scope.lights = res.dataObject.ways
             $scope.allLights = $scope.lights.filter(function(light, index) {
               return light.name.indexOf('灯') > -1;
@@ -31,12 +31,20 @@ angular.module('light-controller', [])
       $scope.lights = $scope.allLights.filter(function(light, index) {
         return light.name.indexOf(type) > -1;
       });
-      console.log(type, index, $scope.allLights)
       $scope.lights.forEach(function(light, index) {
         var rotate = -90 + (30 * Math.round(index / 2)) * Math.pow(-1, index + 1)
         light.rotate = rotate
       })
-      $scope.tabIndex = index
+    }
+    // typeClick
+    $scope.middle_round_rotate = 0 + 'deg'
+    $scope.modleIndex = 1
+    $scope.type_light = '卧室'
+    $scope.typeClick = function(index, type) {
+      $scope.middle_round_rotate = index * 25 - 25 + 'deg'
+      $scope.modleIndex = index;
+      $scope.type_light = type
+      $scope.tabClick(type, index)
     }
     //灯控制
     $scope.lightCtrl = function(light) {
@@ -107,30 +115,25 @@ angular.module('light-controller', [])
       $scope.large_round_rotate = $scope.large_round_rotate + moveAngle - $scope.currentAngle
       $scope.currentAngle = moveAngle
     }
-    // typeClick
-    $scope.middle_round_rotate = 0 + 'deg'
-    $scope.modleIndex = 1
-    $scope.type_light = '卧室'
-    $scope.typeClick = function(index, type) {
-      $scope.middle_round_rotate = index * 25 - 25 + 'deg'
-      $scope.modleIndex = index;
-      $scope.type_light = type
-      $scope.tabClick(type, index)
-    }
+
 
     // websocket 
     $scope.websocket = new WebSocket("ws://www.live-ctrl.com/aijukex/stServlet.st?serverId=" + sessionStorage.getItem('serverId'))
     $scope.websocket.onmessage = function(event) {
-      console.log(event.data, $scope.lights)
-      var lightNow = event.data.split('.WAY.')
-      $scope.lights = $scope.lights.map(function(light) {
-        if (light.wayId === lightNow[0]) {
-          light.status = lightNow[1]
-        } else {
-          light
-        }
-        return light
-        console.log($scope.lights)
+      $scope.$apply(function() {
+        var lightNow = event.data.split('.WAY.')
+        $scope.allLights = $scope.allLights.map(function(light) {
+          if (light.wayId === lightNow[0]) {
+            light.status = lightNow[1]
+          } else {
+            light
+          }
+          return light
+        })
+        $scope.lights = $scope.allLights.filter(function(light, index) {
+          return light.name.indexOf($scope.tab_navs[$scope.modleIndex]) > -1;
+        });
+       // console.log($scope.allLights, $scope.lights)
       })
     }
     $scope.$on("$destroy", function() {
@@ -151,7 +154,7 @@ angular.module('light-controller', [])
         .forEach(light => {
           offWayIds = offWayIds + ',' + light.wayId
         })
-      console.log(onWayIds)
+      //console.log(onWayIds)
       ApiService.modifyWaysStatus({
         onWayIds: onWayIds.slice(1),
         offWayIds: offWayIds.slice(1)

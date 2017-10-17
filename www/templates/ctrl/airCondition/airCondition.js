@@ -13,7 +13,6 @@ angular.module('airCondition-controller', [])
     }
     ApiService.queryDeviceType(data1)
       .success(function(res) {
-        console.log(res)
         $scope.deviceType = res.dataObject
         var data = {
           ip: sessionStorage.getItem('ip'),
@@ -21,7 +20,6 @@ angular.module('airCondition-controller', [])
           houseId: sessionStorage.getItem('houseId')
         };
         ApiService.ctrlHostDeviceByType(data).success(function(res) {
-          console.log(res)
           if (res.success) {
             $scope.length = res.dataObject.devices.length
             $scope.title = res.dataObject.devices[0].name.replace(/[0-9$]/g, '')
@@ -43,7 +41,6 @@ angular.module('airCondition-controller', [])
 
               $scope.airConditionArrays.push(airData)
             })
-            console.log($scope.airConditionArrays)
             more()
             $scope.airState = 0
             $scope.model = '制冷'
@@ -69,7 +66,6 @@ angular.module('airCondition-controller', [])
               }
             }
             $scope.onDrag = function(e) {
-              console.log(e)
               e.preventDefault()
               e.stopPropagation()
             }
@@ -87,7 +83,7 @@ angular.module('airCondition-controller', [])
                 $scope.airConditionArrays[$scope.airState].model = '制冷';
                 changeTempArray('制冷')
               }
-              changeTem()
+              changeTem('ON')
             };
             //$scope.temp = arr[0];
             //温度加
@@ -105,7 +101,6 @@ angular.module('airCondition-controller', [])
               for(var i = 1 ; i<= air.speed%4 ; i++) {
                 air.speedArray.push('speed_' + i)
               }
-              console.log(air)
               changeTem()
             }
             //关闭空调
@@ -113,7 +108,7 @@ angular.module('airCondition-controller', [])
               var air = $scope.airConditionArrays[$scope.airState]
               if (air.status === 'OFF') {
                 air.status = 'ON'
-                changeTem('mius')
+                changeTem('ON')
               } else {
                 air.status = 'OFF'
                 var arr = $scope.airConditionArrays[$scope.airState]
@@ -155,6 +150,7 @@ angular.module('airCondition-controller', [])
     }
     // 空调数据排列
     function airWays(ways, airData) {
+     // console.log(ways)
       if ($scope.deviceType === 'VIRTUAL_AIR_REMOTE') {
         var allKey = [],
           coolKey = [],
@@ -213,7 +209,9 @@ angular.module('airCondition-controller', [])
     }
     //改变温度
     function changeTem(type) {
+      navigator.vibrate(100);
       var arr = $scope.airConditionArrays[$scope.airState]
+      //console.log(arr)
       var temArr = []
       var index = arr.index
       arr.status = 'ON'
@@ -229,6 +227,11 @@ angular.module('airCondition-controller', [])
       if (type === 'mius' && index - 1 >= 0) {
         index = index - 1
         arr.index = index
+      }
+      if (type === 'ON') {
+        index = Math.floor(temArr.length/2)
+        arr.index = index
+       // console.log(index)
       }
       var data = {
         deviceId: arr.deviceId,
@@ -246,7 +249,6 @@ angular.module('airCondition-controller', [])
         arr.temp = temArr[index]
       }
     
-     // console.log($scope.airConditionArrays)
       ApiService.smartHostControl(data).success(function(res) {
         console.log(res)
       });

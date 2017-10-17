@@ -44,8 +44,8 @@
     .mainBtns {
         background-color: $ajk_backColor;
         padding: px2rem(20);
-        @extend %flex;
-        @extend %flexMainJustify;
+        display: flex;
+        justify-content: space-between;
         .mainBtn {
             text-align: center;
             width: 25%;
@@ -109,9 +109,9 @@
           }
           background-color: #fff;
             margin-bottom: 0;
-            @extend %flex;
+            display: flex;
+            align-items: center;
             height: px2rem(260);
-            @extend %flexCrossCenter;
             padding: 0 px2rem(30);
             >p{
               min-width: px2rem(100);
@@ -124,10 +124,9 @@
         }
         .item_ad {
             height: px2rem(220);
-            @extend %flex;
-            @extend %flexMainJustify;
-            @extend %flexCrossCenter;
-            -webkit-flex-grow:1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-grow:1;
             border: none!important;
             overflow: hidden;
@@ -150,13 +149,12 @@
                 height: px2rem(220)!important;
             }
             >div {
-              @extend %flex;
+              display: flex;
             }
             .intr {
-                @extend %flex;
-                @extend %flexMainJustify;
-                @extend %flexDirTop;
-                -webkit-flex-grow:1;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: column;
                 flex-grow:1;
                 height: px2rem(220);
                 width: px2rem(400);
@@ -181,8 +179,8 @@
                 }
                 .comment_star{
                   height: px2rem(60);
-                  @extend %flex;
-                  @extend %flexCrossCenter;
+                  display: flex;
+                  align-items: center;
                   i{
                     display: inline-block;
                     width: px2rem(30);
@@ -212,8 +210,8 @@
                 .loc {
                     @include font-dpr(13px);
                     height: px2rem(50);
-                    @extend %flex;
-                    @extend %flexCrossCenter;
+                    display: flex;
+                    align-items: center;
                     span{
                       display: inline-block;
                       height: px2rem(50);
@@ -241,8 +239,8 @@
         }
     }
     .vertical{
-      @extend %flex;
-      @extend %flexWrap;
+      display: flex;
+      flex-wrap:wrap;
     }
 
 }

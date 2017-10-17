@@ -9,7 +9,7 @@ angular.module('tv-controller', [])
     };
     $scope.tv_switch_active = false;
     ApiService.queryTvDevices(data).success(function(res) {
-      console.log(res)
+      
       if (res && res.success) {
         $scope.tvArrays = res.dataObject
         for (var i in $scope.tvArrays) {
@@ -22,7 +22,7 @@ angular.module('tv-controller', [])
         //电视机开
         $scope.tvon = function(tv, status, index) {
           $scope.tv_switch_active = !$scope.tv_switch_active;
-          console.log($scope.tv_switch_active)
+          
           var status;
           if (status === 'OFF') {
             setOrder('ON', tv);
@@ -114,6 +114,8 @@ angular.module('tv-controller', [])
       }
     });
     function setOrder(key, tv) {
+          console.log(navigator.vibrate);
+          navigator.vibrate(1000);
           var deviceId = ''
           for (var i in tv) {
             if (i.indexOf('电视机') > -1) {
@@ -131,6 +133,7 @@ angular.module('tv-controller', [])
           ApiService.smartHostControl(data).success(function(res) { console.log(res); });
         }
     function setOrder_box(key, tv) {
+      navigator.vibrate(3000);
       var deviceId = ''
       for (var i in tv) {
         if (i.indexOf('机顶盒') > -1) {

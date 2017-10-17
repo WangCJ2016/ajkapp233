@@ -97,6 +97,7 @@
 		E3B452A97F6F4714A95DD077 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44FA17CF222044E29E05764D /* Foundation.framework */; };
 		F5708529650A4D81968752BD /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5347A203387241B7B2BD8D9B /* libsqlite3.0.tbd */; };
 		FC7C74B2879943FABE8EBC7E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E77F48F5D97847FEBB0B2652 /* QuartzCore.framework */; };
+		84ABA78F7C6B4297BB2FF1C9 /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CF45528C0254563854B4746 /* CDVVibration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,6 +363,8 @@
 		F661ACDB5FC447B285B76769 /* ELCAssetTablePicker.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = ELCAssetTablePicker.h; path = "cordova-plugin-image-picker/ELCAssetTablePicker.h"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "爱居客/config.xml"; sourceTree = "<group>"; };
 		FF5D4F0881A24077B2444F43 /* lhash.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = lhash.h; path = com.yoopoon.cordova.plugin.alipay/openssl/lhash.h; sourceTree = "<group>"; };
+		8CF45528C0254563854B4746 /* CDVVibration.m */ = {isa = PBXFileReference; name = "CDVVibration.m"; path = "cordova-plugin-vibration/CDVVibration.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		F95F97C22EBE42859FEC124B /* CDVVibration.h */ = {isa = PBXFileReference; name = "CDVVibration.h"; path = "cordova-plugin-vibration/CDVVibration.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -707,6 +710,8 @@
 				A44549BE7B7C4932BC8828D5 /* CDVWechat.h */,
 				919E0ADBE0244DF985864C52 /* WXApi.h */,
 				A8866914AF004F3791606064 /* WXApiObject.h */,
+				8CF45528C0254563854B4746 /* CDVVibration.m */,
+				F95F97C22EBE42859FEC124B /* CDVVibration.h */,
 			);
 			name = Plugins;
 			path = "爱居客/Plugins";
@@ -896,6 +901,7 @@
 				CF395F4D08F24B11A48F64B0 /* IonicKeyboard.m in Sources */,
 				67B491F0071846B9AAAE01D1 /* CDVMobileAccessibility.m in Sources */,
 				3E206B22B415429F94DB3CEE /* CDVWechat.m in Sources */,
+				84ABA78F7C6B4297BB2FF1C9 /* CDVVibration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

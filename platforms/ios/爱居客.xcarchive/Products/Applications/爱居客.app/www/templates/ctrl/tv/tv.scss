@@ -156,7 +156,7 @@
      display: inline-block;
      vertical-align: middle;
      color: #fefeff;
-     @include font-dpr(17px);
+     @include font-dpr(25px);
    }
    .review_tv {
      margin: px2rem(38) px2rem(190);
@@ -191,7 +191,7 @@
      line-height: px2rem(70);
      text-align: center;
      color: #fff;
-     @include font-dpr(17px);
+     @include font-dpr(25px);
      font-weight: 200
    }
    .num_item_last {

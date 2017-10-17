@@ -492,6 +492,15 @@ module.exports = [
         "clobbers": [
             "Wechat"
         ]
+    },
+    {
+        "id": "cordova-plugin-vibration.notification",
+        "file": "plugins/cordova-plugin-vibration/www/vibration.js",
+        "pluginId": "cordova-plugin-vibration",
+        "merges": [
+            "navigator.notification",
+            "navigator"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -528,7 +537,8 @@ module.exports.metadata =
     "cordova-sms-plugin": "0.1.11",
     "ionic-plugin-keyboard": "2.2.1",
     "phonegap-plugin-mobile-accessibility": "1.0.5-dev",
-    "cordova-plugin-wechat": "2.0.0"
+    "cordova-plugin-wechat": "2.0.0",
+    "cordova-plugin-vibration": "2.1.5"
 };
 // BOTTOM OF METADATA
 });

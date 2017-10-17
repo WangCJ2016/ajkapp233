@@ -6919,7 +6919,7 @@ a.button .icon:before, a.button.icon:before, a.button.icon-left:before, a.button
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
-.payer, .ajklist_vertical .intr .comment_star, .item-three, .item-three > ul > li:first-child, .item-two, .item-four, .slide-pot, .home_wrap .mainBtns, .home_wrap .ajklist > div, .home_wrap .ajklist .item_ad, .home_wrap .ajklist .item_ad > div, .home_wrap .ajklist .item_ad .intr, .home_wrap .ajklist .item_ad .intr .comment_star, .home_wrap .ajklist .item_ad .intr .loc, .home_wrap .vertical, .houseDetail_wrap .houseDetail_header, .houseDetail_wrap .comment .comment_div, .houseDetail_wrap .comment .comment_div .comment_star, .houseDetail_wrap .comment .comment_atavter .atavter, .houseDetail_wrap .hotel_devices h2 > p, .houseDetail_wrap .hotel_devices > div > div:first-child, .houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device, .houseDetail_wrap .hotel_devices .hotel_device .img, .houseDetail_wrap .hotel_introduce h2, .houseDetail_wrap .hotel_introduce h2 > p:first-child, .houseDetail_wrap .hotel_rule .deposit, .houseDetail_wrap .normal .item, .houseDetail_wrap .normal .item .room_mess, .houseDetail_wrap .normal .item .room_mess div:first-child, .hotelDetail_wrap .devices > div, .hotelDetail_wrap .devices > div p, .hotelDetail_wrap .hotel_introduce .hotel_mess, .comment_wrap .comment_all, .comment_wrap .comment .about, .getCity_wrap .find_cityback .find_city, .selectBussiniss_search, .selectBussinss_wrap, .houseIntr_wrap .house_detail .room, .houseIntr_wrap .house_detail .state, .houseIntr_wrap .house_devices .devices, .houseIntr_wrap .house_devices .devices p, .houseIntr_wrap .house_devices .devices p i, .my_collect_wrap .hotel .list .item_ad, .my_collect_wrap .hotel .list .item_ad > div, .hotel_pics_wrap .pics, .hotel_pics_wrap .pics .picshow, .directive_date date-account, .directive_date date-account .date, .directive_date date-account .day, .directive_date datepick .months > div, .directive_date date-select .months > div, .beLandlord_wrap, .beLandlord_wrap .center_box figure, .joinUs_wrap .intr > div, .joinUs_wrap .upload_idcard, .joinUs_wrap .upload_idcard .id_Card, .joinUs_wrap .upload_idcard .id_Card > div, .joinUs_wrap .address .city_picker, .landlord_profit_wrap, .landlord_profit_wrap .contents .content, .waitCheck_wrap .wait_check, .myHouse_wrap_detail, .myHouse_wrap_detail > div, .myHouse_wrap_btn, .seeHouse_wrap .trade_rule, .my_orderform_wrap .header .select_btn, .my_orderform_wrap .normal h2, .my_orderform_wrap .normal .houselist, .myhouse_changeprice_wrap .selectDate .time, .orderform_detail_wrap .header, .myhouse_intr_wrap .basicItem, .myhouse_wrap_wrap > div, .myaccount_wrap .dataSelect > div, .myaccount_wrap .btns, .account_detail_wrap .order_detal .avater_intr, .login-txt p, .login-forgetpwd, .register-txt p, .agreement, .setting-list .item .center, .ChangePwd-txt p, .userCenter_header > div, .userCenter-list ul, .userCenter-setting-list .item .center, .Nopay-list .list ul .Time, .Pay-list .list ul .address, .Noevaluate-list .Noevaluate-head, .Noevaluate-list .list, .Noevaluate-list .list ul, .lose-efficacy-list .list ul .address, .Order-form-head, .Order-form-list li .title, .Order-form-list li .list-cont, .Order-form-list li .list-cont .list-desc p, .cart-list li .title, .cart-list li .list-cont .item-content, .cart-list li .list-cont .list-desc, .cart-list li .list-cont .list-desc .price, .cart-footer .check-all, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .status-header, .order-information p, .Consume-list .list, .Consume-list .list ul, .Consume-list .list ul .housetype, .nearby-nav, .nearby-list .list, .nearby-list .list .desc, .vertical, .nearby-filtrate .filtrate .filtrate-list, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .price li, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro .station p, .nearby-filtrate .filtrate .filtrate-btn, .nearby-sort ul li, .invoice_btn, .invoice_cont p, .orderDetail_wrap .hotel_pics .content .topbar, .orderDetail_wrap .hotel_pics .content .rooms, .orderDetail_wrap .divier, .orderDetail_wrap .more, .ctrl_header .select_btn, .sweepTime_wrap .sweepTime_select > section > div, .sweepTime_wrap .sweepTime_select > section .time > p:last-child, .qrCode_wrap .content .person, .colorPicker_wrap .rbgbtns, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .light, .spotLight_wrap .slide {
+.payer, .ajklist_vertical .intr .comment_star, .item-three, .item-three > ul > li:first-child, .item-two, .item-four, .slide-pot, .home_wrap .mainBtns, .home_wrap .ajklist > div, .home_wrap .ajklist .item_ad, .home_wrap .ajklist .item_ad > div, .home_wrap .ajklist .item_ad .intr, .home_wrap .ajklist .item_ad .intr .comment_star, .home_wrap .ajklist .item_ad .intr .loc, .home_wrap .vertical, .houseDetail_wrap .houseDetail_header, .houseDetail_wrap .comment .comment_div, .houseDetail_wrap .comment .comment_div .comment_star, .houseDetail_wrap .comment .comment_atavter .atavter, .houseDetail_wrap .hotel_devices h2 > p, .houseDetail_wrap .hotel_devices > div > div:first-child, .houseDetail_wrap .hotel_devices .more .img, .houseDetail_wrap .hotel_devices .hotel_device, .houseDetail_wrap .hotel_devices .hotel_device .img, .houseDetail_wrap .hotel_introduce h2, .houseDetail_wrap .hotel_introduce h2 > p:first-child, .houseDetail_wrap .hotel_rule .deposit, .houseDetail_wrap .normal .item, .houseDetail_wrap .normal .item .room_mess, .houseDetail_wrap .normal .item .room_mess div:first-child, .hotelDetail_wrap .devices > div, .hotelDetail_wrap .devices > div p, .hotelDetail_wrap .hotel_introduce .hotel_mess, .comment_wrap .comment_all, .comment_wrap .comment .about, .getCity_wrap .find_cityback .find_city, .selectBussiniss_search, .selectBussinss_wrap, .houseIntr_wrap .house_detail .room, .houseIntr_wrap .house_detail .state, .houseIntr_wrap .house_devices .devices, .houseIntr_wrap .house_devices .devices p, .houseIntr_wrap .house_devices .devices p i, .my_collect_wrap .hotel .list .item_ad, .my_collect_wrap .hotel .list .item_ad > div, .hotel_pics_wrap .pics, .hotel_pics_wrap .pics .picshow, .directive_date date-account, .directive_date date-account .date, .directive_date date-account .day, .directive_date datepick .months > div, .directive_date date-select .months > div, .beLandlord_wrap, .beLandlord_wrap .center_box figure, .joinUs_wrap .intr > div, .joinUs_wrap .upload_idcard, .joinUs_wrap .upload_idcard .id_Card, .joinUs_wrap .upload_idcard .id_Card > div, .joinUs_wrap .address .city_picker, .landlord_profit_wrap, .landlord_profit_wrap .contents .content, .waitCheck_wrap .wait_check, .myHouse_wrap_detail, .myHouse_wrap_detail > div, .myHouse_wrap_btn, .seeHouse_wrap .trade_rule, .my_orderform_wrap .header .select_btn, .my_orderform_wrap .normal h2, .my_orderform_wrap .normal .houselist, .myhouse_changeprice_wrap .selectDate .time, .orderform_detail_wrap .header, .myhouse_intr_wrap .basicItem, .myhouse_wrap_wrap > div, .myaccount_wrap .dataSelect > div, .myaccount_wrap .btns, .account_detail_wrap .order_detal .avater_intr, .login-txt p, .login-forgetpwd, .register-txt p, .agreement, .setting-list .item .center, .ChangePwd-txt p, .userCenter_header > div, .userCenter-list ul, .Nopay-list .list ul .Time, .Pay-list .list ul .address, .Noevaluate-list .Noevaluate-head, .Noevaluate-list .list, .Noevaluate-list .list ul, .lose-efficacy-list .list ul .address, .Order-form-head, .Order-form-list li .title, .Order-form-list li .list-cont, .Order-form-list li .list-cont .list-desc p, .cart-list li .title, .cart-list li .list-cont .item-content, .cart-list li .list-cont .list-desc, .cart-list li .list-cont .list-desc .price, .cart-footer .check-all, .evaluate_wrap .title, .evaluate_wrap .stars, .clean-list .clean-sweep, .status-header, .order-information p, .Consume-list .list, .Consume-list .list ul, .Consume-list .list ul .housetype, .nearby-nav, .nearby-list .list, .nearby-list .list .desc, .vertical, .nearby-filtrate .filtrate .filtrate-list, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .price li, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro, .nearby-filtrate .filtrate .filtrate-list .filtrate-list-r .metro .station p, .nearby-filtrate .filtrate .filtrate-btn, .nearby-sort ul li, .invoice_btn, .invoice_cont p, .orderDetail_wrap .hotel_pics .content .topbar, .orderDetail_wrap .hotel_pics .content .rooms, .orderDetail_wrap .divier, .orderDetail_wrap .more, .ctrl_header .select_btn, .sweepTime_wrap .sweepTime_select > section > div, .sweepTime_wrap .sweepTime_select > section .time > p:last-child, .qrCode_wrap .content .person, .colorPicker_wrap .rbgbtns, .colorPicker_wrap .buttons, .colorPicker_wrap .buttons > a, .spotLight_wrap .light, .spotLight_wrap .slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -11542,7 +11542,10 @@ body::-webkit-scrollbar {
     background-color: #fff;
     padding: 0;
     line-height: 1.33333rem;
-    color: #000; }
+    color: #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
 .setting-list .item .center {
       height: 100%;
       margin-left: 0.4rem; }
@@ -11753,7 +11756,10 @@ body::-webkit-scrollbar {
         transform: scaleY(1.5); }
 .userCenter-setting-list .item .center {
       height: 100%;
-      margin-left: 0.4rem; }
+      margin-left: 0.4rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; }
 .userCenter-setting-list .item .center p {
         height: 100%;
         width: 0.81333rem; }
@@ -14521,11 +14527,11 @@ iframe {
     display: inline-block;
     vertical-align: middle;
     color: #fefeff;
-    font-size: 17px; }
+    font-size: 25px; }
 [data-dpr="2"] .futrue_wrap .arr_ok {
-      font-size: 34px; }
+      font-size: 50px; }
 [data-dpr="3"] .futrue_wrap .arr_ok {
-      font-size: 51px; }
+      font-size: 75px; }
 .futrue_wrap .review_tv {
     margin: 0.50667rem 2.53333rem;
     display: -webkit-box;
@@ -14565,12 +14571,12 @@ iframe {
     line-height: 0.93333rem;
     text-align: center;
     color: #fff;
-    font-size: 17px;
+    font-size: 25px;
     font-weight: 200; }
 [data-dpr="2"] .futrue_wrap .num {
-      font-size: 34px; }
+      font-size: 50px; }
 [data-dpr="3"] .futrue_wrap .num {
-      font-size: 51px; }
+      font-size: 75px; }
 .futrue_wrap .num_item_last {
     width: 100%;
     text-align: center; }
@@ -14970,128 +14976,137 @@ iframe {
   height: 100%;
   background: url(../imgs/wcj/lock/roomCard_bg.png);
   background-size: 100% 100%; }
-.location {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding-right: 0.4rem;
-  padding-top: 0.2rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end; }
-.location_img {
-  width: 0.28rem; }
-.location_title {
-  font-size: 0.24rem;
-  color: #fff;
-  margin-left: 0.14rem; }
-.round_bg {
-  width: 9.33333rem;
-  height: 9.33333rem;
-  background: url(../imgs/wcj/lock/round.png);
-  background-size: 100% 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -4.66667rem;
-  margin-top: -4.66667rem; }
-.figure {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: absolute;
-  margin: 0;
-  width: 1.76rem; }
-.figure.active > div {
-  border-color: #6095f0; }
-.figure.active .selectTitle {
-  color: #6095f0; }
-.figure > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  height: 1.76rem;
-  border-radius: 50%;
-  border: 0.02rem solid #fff; }
-.figure_source {
-  top: 0.45333rem;
-  left: 50%;
-  margin-left: -0.88rem; }
-.figure_source > div > img {
-  width: 1.04rem; }
-.figure_source.avtive > div {
-  border-color: #6095f0; }
-.figure_elevator {
-  top: 4.66667rem;
-  left: 0.66667rem; }
-.figure_elevator > div > img {
-  width: 0.88rem; }
-.figure_door {
-  top: 4.66667rem;
-  right: 0.66667rem; }
-.figure_door > div > img {
-  width: 0.82667rem; }
-.selectTitle {
-  font-size: 15px;
-  color: #fff;
-  text-align: center;
-  margin-top: 0.26667rem;
-  font-weight: 200; }
-[data-dpr="2"] .selectTitle {
-    font-size: 30px; }
-[data-dpr="3"] .selectTitle {
-    font-size: 45px; }
-.center {
-  width: 2.66667rem;
-  height: px2rem（200）;
-  border-radius: 50%;
-  position: absolute;
-  left: 50%;
-  margin-left: -1.33333rem;
-  top: 50%;
-  margin-top: -1.33333rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: #fff; }
-.center_title {
-  font-size: 0.4rem;
-  text-align: center;
-  margin: 0; }
-.center_name {
-  composes: center_title;
-  margin-top: 0.3rem; }
-.center_num {
-  composes: center_title;
-  margin-top: 0.24rem; }
-.pots {
-  width: 2.6rem;
-  background: url(../imgs/wcj/lock/pots.png);
-  background-size: 100% 100%;
-  position: absolute; }
-.pots_top {
-  composes: pots;
-  left: 50%;
-  margin-left: -1.3rem;
-  top: 50%;
-  margin-top: -1.3rem; }
+.roomCard_bg .location {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; }
+.roomCard_bg .location_img {
+    width: 0.28rem; }
+.roomCard_bg .location_title {
+    font-size: 0.24rem;
+    color: #fff;
+    margin-left: 0.14rem; }
+.roomCard_bg .round_bg {
+    width: 9.33333rem;
+    height: 9.33333rem;
+    background: url(../imgs/wcj/lock/round.png);
+    background-size: 100% 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -4.66667rem;
+    margin-top: -4.66667rem; }
+.roomCard_bg .figure {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    margin: 0;
+    width: 1.76rem; }
+.roomCard_bg .figure.active > div {
+    border-color: #6095f0; }
+.roomCard_bg .figure.active .selectTitle {
+    color: #6095f0; }
+.roomCard_bg .figure > div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    height: 1.76rem;
+    border-radius: 50%;
+    border: 0.02rem solid #fff; }
+.roomCard_bg .figure_source {
+    top: 0.45333rem;
+    left: 50%;
+    margin-left: -0.88rem; }
+.roomCard_bg .figure_source > div > img {
+    width: 1.04rem; }
+.roomCard_bg .figure_source.avtive > div {
+    border-color: #6095f0; }
+.roomCard_bg .figure_elevator {
+    top: 4.66667rem;
+    left: 0.66667rem; }
+.roomCard_bg .figure_elevator > div > img {
+    width: 0.88rem; }
+.roomCard_bg .figure_door {
+    top: 4.66667rem;
+    right: 0.66667rem; }
+.roomCard_bg .figure_door > div > img {
+    width: 0.82667rem; }
+.roomCard_bg .selectTitle {
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    margin-top: 0.26667rem;
+    font-weight: 200; }
+[data-dpr="2"] .roomCard_bg .selectTitle {
+      font-size: 30px; }
+[data-dpr="3"] .roomCard_bg .selectTitle {
+      font-size: 45px; }
+.roomCard_bg .center {
+    width: 2.66667rem;
+    height: 2.66667rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.33333rem;
+    top: 50%;
+    margin-top: -1.33333rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+.roomCard_bg .center_title {
+    text-align: center;
+    margin: 0; }
+.roomCard_bg .center_name {
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    margin-top: 0.4rem; }
+[data-dpr="2"] .roomCard_bg .center_name {
+      font-size: 40px; }
+[data-dpr="3"] .roomCard_bg .center_name {
+      font-size: 60px; }
+.roomCard_bg .center_num {
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    margin-top: 0.32rem; }
+[data-dpr="2"] .roomCard_bg .center_num {
+      font-size: 40px; }
+[data-dpr="3"] .roomCard_bg .center_num {
+      font-size: 60px; }
+.roomCard_bg .pots, .roomCard_bg .pots_top {
+    width: 3.46667rem;
+    background: url(../imgs/wcj/lock/pots.png);
+    background-size: 100% 100%;
+    position: absolute; }
+.roomCard_bg .pots_top {
+    left: 50%;
+    margin-left: -1.73333rem;
+    top: 50%;
+    margin-top: -1.73333rem; }
 .qrCode_wrap {
   width: 100%;
   height: 100%;

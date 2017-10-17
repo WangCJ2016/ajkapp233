@@ -8,10 +8,10 @@
       height: px2rem(90)
     }
     >div{
-      @extend %flex;
-      @extend %flexMainCenter;
-      @extend %flexCrossCenter;
-      @extend %flexDirTop;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       #logo{
           width: px2rem(130);
           height: px2rem(130);
@@ -40,8 +40,8 @@
     ul{
         width: 100%;
         height:100%;
-        @extend %flex;
-        @extend %flexMainJustify;
+        display: flex;
+        justify-content: space-between;
         >a{
           width: 25%
         }
@@ -81,7 +81,7 @@
         .center{
             height:100%;
             margin-left: px2rem(30);
-            @extend %flex;
+            display: flex;
             p{
                 height:100%;
                 width:px2rem(61);
@@ -116,7 +116,4 @@
         }
 
     }
-}
-.platform-android .userCenter-setting-list{
-
 }

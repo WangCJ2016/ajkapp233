@@ -9,17 +9,19 @@ angular.module("service-controller", []).controller("serviceCtrl", function($sco
   };
   var data = {
     ip: sessionStorage.getItem('ip'),
-    deviceType: 'SWITCH'
+    deviceType: 'SWITCH',
+    houseId: sessionStorage.getItem('houseId')
   };
 
   ApiService.querySmartDeviceWays(data).success(function(res) {
+    console.log(res)
     if (res && res.success) {
-      if (res.dataObject) {
+      if (res.dataObject.ways) {
 
-        var dnd = res.dataObject.filter(function(data) {
+        var dnd = res.dataObject.ways.filter(function(data) {
           return data.name == '请勿打扰';
         });
-        var clean = res.dataObject.filter(function(data) {
+        var clean = res.dataObject.ways.filter(function(data) {
           return data.name == '请即清理';
         });
         $scope.modelClick = function(type) {

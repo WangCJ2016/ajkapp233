@@ -1,7 +1,8 @@
 angular.module('lock-controller', [])
   .controller('lockCtrl', function($scope, ApiService,$ionicLoading,$state,$rootScope) {
-      var ctrl_houseName = sessionStorage.getItem('ctrl_houseName')
-      ctrl_houseName ? $scope.name = sessionStorage.getItem('ctrl_houseName').replace(/[^0-9]/g, '') : null
+      var ctrl_houseName = sessionStorage.getItem('houseName')
+      ctrl_houseName ? $scope.name = sessionStorage.getItem('houseName').replace(/[0-9]/g, '') : null
+      ctrl_houseName ? $scope.num = sessionStorage.getItem('houseName').replace(/[^0-9]/g, '') : null
       $scope.goback = function() {
         $rootScope.$ionicGoBack();
       }
@@ -10,19 +11,20 @@ angular.module('lock-controller', [])
       //获取锁
       var data = {
         ip: sessionStorage.getItem('ip'),
-        deviceType: 'FINGERPRINT_LOCK'
+        deviceType: 'FINGERPRINT_LOCK',
+        houseId: sessionStorage.getItem('houseId')
       };
       ApiService.ctrlHostDeviceByType(data).success(function(res) {
-          console.log(res)
           if (res && res.success) {
-            var deviceId = res.dataObject[0].deviceId;
+            var deviceId = res.dataObject.devices[0].deviceId;
+           // console.log(deviceId)
             if (res.dataObject) {
-
               $scope.lockCtrl = function(name, index) {
+             //  console.log(name, index)
               	$scope.activeIndex = index
                 switch (name) {
                   case 'door':
-                    openDoor();
+                    openDoor(deviceId);
                     break;
                   case 'source':
                     break;
@@ -35,7 +37,7 @@ angular.module('lock-controller', [])
         })
      
 
-    function openDoor() {
+    function openDoor(deviceId) {
       var data = {
         houseId: sessionStorage.getItem('houseId'),
         deviceType: 'FINGERPRINT_LOCK',
@@ -50,8 +52,7 @@ angular.module('lock-controller', [])
 				duration: 2000
 			});
       ApiService.smartHostControl(data).success(function(res) {
-        console.log(res)
-				$state.go('checkIn')
+         $rootScope.$ionicGoBack();
       });
     }
   });

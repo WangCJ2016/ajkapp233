@@ -81,7 +81,7 @@
         .center{
             height:100%;
             margin-left: px2rem(30);
-            @extend %flex;
+            display: flex;
             p{
                 height:100%;
                 width:px2rem(61);
@@ -116,7 +116,4 @@
         }
 
     }
-}
-.platform-android .userCenter-setting-list{
-
 }
