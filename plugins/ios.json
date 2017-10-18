@@ -16,6 +16,9 @@
     "com.yoopoon.cordova.plugin.alipay": {
       "PACKAGE_NAME": "com.ajk.test"
     },
+    "com.verso.cordova.clipboard": {
+      "PACKAGE_NAME": "com.ajk.test"
+    },
     "cordova-plugin-actionsheet": {
       "PACKAGE_NAME": "com.ajk.test"
     },

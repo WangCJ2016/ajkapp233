@@ -1,103 +1,100 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova','ngAnimate', 'ionic-native-transitions','templates'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'starter.services', 'starter.directives', 'ngCordova', 'ngAnimate', 'ionic-native-transitions', 'templates'])
   .constant('AJKUrl', 'http://www.live-ctrl.com/aijukex/')
-  .constant('AJKIp','http://192.168.0.109:8100/#')
-  .constant('DuplicateLogin','你的账号在另一台手机登录,请重新登录')
-  .constant('systemBusy','系统正忙,请稍后操作')
-  .run(['$ionicPlatform', '$ionicPopup', 'ApiService', '$ionicHistory', '$location', '$cordovaGeolocation', '$rootScope', '$cordovaAppVersion', function($ionicPlatform, $ionicPopup,ApiService,$ionicHistory,$location,$cordovaGeolocation,$rootScope,$cordovaAppVersion) {
-	$ionicPlatform.ready(function() {
-    //cordova定位
- //var convertFrom =  new AMap.convertFrom(lnglat:[120.065375,30.292008],type:"GPS",function(status,result));
-  var posOptions = {timeout: 10000, enableHighAccuracy: false};
-  $cordovaGeolocation
-    .getCurrentPosition(posOptions)
-    .then(function (position) {
-      var lat  = position.coords.latitude
-      var long = position.coords.longitude
-      ApiService.lngLat({
-          locations:long +','+lat,
-          coordsys:'gps',
-          output:'JSON',
-          key:'1cbf5e5ac9b4588d974214856a289ec6'
-        }).success(function(res){
-          var lnglat = res.locations.split(',');
-          sessionStorage.setItem('longitude',lnglat[0]);
-          sessionStorage.setItem('latitude',lnglat[1]);
-        })
-    }, function(err) {
-      // error
-      console.log(err);
-    });
-    if(!ionic.Platform.isIOS()){
-      MobileAccessibility.setTextZoom(100);
-    }
-		$rootScope.$broadcast('ionio', function() {
-		});
-		if (!localStorage.getItem("city")) {
-			localStorage.setItem("city", "杭州");
-			sessionStorage.setItem("city", "杭州");
-		} else {
-			sessionStorage.setItem("city", localStorage.getItem("city"));
-		}
-		var map, geolocation;
-      //加载地图，调用浏览器定位服务
-		map = new AMap.Map('container', {
-			resizeEnable: true
-		});
-		map.plugin('AMap.Geolocation', function() {
-			geolocation = new AMap.Geolocation({
-				enableHighAccuracy: true,
-				timeout: 10000,
-				//buttonOffset: new AMap.Pixel(10, 20),
-				zoomToAccuracy: true,
-			});
-			map.addControl(geolocation);
-			geolocation.getCurrentPosition();
-			AMap.event.addListener(geolocation, 'complete', onComplete); //返回定位信息
-			AMap.event.addListener(geolocation, 'error', onError); //返回定位出错信息
-        //获取当前城市信息  例如：杭州市
+  .constant('AJKIp', 'http://192.168.0.109:8100/#')
+  .constant('DuplicateLogin', '你的账号在另一台手机登录,请重新登录')
+  .constant('systemBusy', '系统正忙,请稍后操作')
+  .run(['$ionicPlatform', '$ionicPopup', 'ApiService', '$ionicHistory', '$location', '$cordovaGeolocation', '$rootScope', '$cordovaAppVersion', function($ionicPlatform, $ionicPopup, ApiService, $ionicHistory, $location, $cordovaGeolocation, $rootScope, $cordovaAppVersion) {
+    $ionicPlatform.ready(function() {
+      //cordova定位
+      //var convertFrom =  new AMap.convertFrom(lnglat:[120.065375,30.292008],type:"GPS",function(status,result));
+      var posOptions = { timeout: 10000, enableHighAccuracy: false };
+      $cordovaGeolocation
+        .getCurrentPosition(posOptions)
+        .then(function(position) {
+          var lat = position.coords.latitude
+          var long = position.coords.longitude
+          ApiService.lngLat({
+            locations: long + ',' + lat,
+            coordsys: 'gps',
+            output: 'JSON',
+            key: '1cbf5e5ac9b4588d974214856a289ec6'
+          }).success(function(res) {
+            var lnglat = res.locations.split(',');
+            new AMap.convertFrom(new AMap.LngLat(lnglat[0], lnglat[1]), 'gps', function(status, result) {
+              console.log(result.locations[0].lng, result.locations[0].lat)
+              sessionStorage.setItem('longitude', result.locations[0].lng);
+              sessionStorage.setItem('latitude', result.locations[0].lat);
+              var Geocoder = new AMap.Geocoder();
+              Geocoder.getAddress(new AMap.LngLat(result.locations[0].lng, result.locations[0].lat), function(status, result) {
+                if (result.info === 'ok' || result.info === 'OK') {
+                  //localStorage.setItem("city", result.regeocode.addressComponent.city);
+                  var city = result.regeocode.addressComponent.district;
+                  if (localStorage.getItem("city") !== city) {
+                    var myPopup = $ionicPopup.show({
+                      template: '是否切换城市到' + city,
+                      cssClass: 'ajk',
+                      buttons: [{
+                        text: '取消'
+                      }, {
+                        text: '<b>确定</b>',
+                        onTap: function(e) {
+                          localStorage.setItem("city", city);
+                          sessionStorage.setItem("city", city);
+                          sessionStorage.setItem("nowcity", city);
+                          $rootScope.$broadcast('cityChange');
 
-        //sessionStorage.setItem("city", result.city);
+                        }
+                      }]
+                    });
+                  }
+                }
+              })
+            })
+          })
+        }, function(err) {
+          // errorv
+          var map, geolocation;
+          //加载地图，调用浏览器定位服务
+          map = new AMap.Map('container', {
+            resizeEnable: true
+          });
 
-			// var citysearch = new AMap.CitySearch();
-   //      //自动获取用户IP，返回当前城市
-			// citysearch.getLocalCity(function(status, result) {
-			// 	if (status === 'complete' && result.info === 'OK') {
-   //        //sessionStorage.setItem('_city', JSON.stringify(result))
-			// 		var cityinfo = result.city;
-          
-			// 		if (localStorage.getItem("city") !== cityinfo) {
-			// 			var myPopup = $ionicPopup.show({
-			// 				template: '是否切换城市到' + cityinfo,
-			// 				cssClass: 'ajk',
-			// 				buttons: [{
-			// 					text: '取消'
-			// 				}, {
-			// 					text: '<b>确定</b>',
-			// 					onTap: function(e) {
-			// 						localStorage.setItem("city", cityinfo);
-			// 						sessionStorage.setItem("city", cityinfo);
-			// 						$rootScope.$broadcast('cityChange');
-			// 					}}
-			// 				]}
-   //            );}
-			// 		sessionStorage.setItem("nowcity", cityinfo);
-			// 	}
-			// });
 
-		});
+          map.plugin('AMap.Geolocation', function() {
+            geolocation = new AMap.Geolocation({
+              enableHighAccuracy: true,
+              timeout: 10000,
+              //buttonOffset: new AMap.Pixel(10, 20),
+              zoomToAccuracy: true,
+            });
+            map.addControl(geolocation);
+            geolocation.getCurrentPosition();
+            AMap.event.addListener(geolocation, 'complete', onComplete); //返回定位信息
+            AMap.event.addListener(geolocation, 'error', onError); //返回定位出错信息
+            //获取当前城市信息  例如：杭州市
 
-		function onComplete(data) {
-      console.log(data)
-      if (data.info === "SUCCESS") {
-         // sessionStorage.setItem('_city', JSON.stringify(result))
-         var cityinfo 
+          });
+        });
+
+      // android 禁止字体放大缩小
+      if (!ionic.Platform.isIOS()) {
+        MobileAccessibility.setTextZoom(100);
+      }
+
+      
+     
+
+      function onComplete(data) {
+        if (data.info === "SUCCESS") {
+          // sessionStorage.setItem('_city', JSON.stringify(result))
+          var cityinfo
           if (data.addressComponent.district !== '') {
             cityinfo = data.addressComponent.district
           } else {
             cityinfo = data.addressComponent.city
           }
-          
-          
+
+
           if (localStorage.getItem("city") !== cityinfo) {
             var myPopup = $ionicPopup.show({
               template: '是否切换城市到' + cityinfo,
@@ -110,786 +107,788 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
                   localStorage.setItem("city", cityinfo);
                   sessionStorage.setItem("city", cityinfo);
                   $rootScope.$broadcast('cityChange');
-                }}
-              ]}
-              );}
+                }
+              }]
+            });
+          }
           sessionStorage.setItem("nowcity", cityinfo);
         }
-			sessionStorage.setItem("longitude", data.position.getLng());
-			sessionStorage.setItem("latitude", data.position.getLat());
-		}
+        sessionStorage.setItem("longitude", data.position.getLng());
+        sessionStorage.setItem("latitude", data.position.getLat());
+      }
       //解析定位错误信息
-		function onError(data) {
+      function onError(data) {
 
-		}
+      }
 
 
 
       //退出应用
-		$ionicPlatform.registerBackButtonAction(function (e) {
-			e.preventDefault();
-			function showConfirm() {
-				var confirmPopup = $ionicPopup.show({
-					template: '你确定要退出应用吗?',
-					buttons: [{
-						text: '确定',
-						onTap:function(){
-							return 1;
-						}}, {
-							text: '取消'
-						}],
-					cssClass: 'ajk',
-				});
+      $ionicPlatform.registerBackButtonAction(function(e) {
+        e.preventDefault();
 
-				confirmPopup.then(function (res) {
-					if (res) {
-						ionic.Platform.exitApp();
-					}
-					else {
-            // Don't close
-					}
-				});
-			}
+        function showConfirm() {
+          var confirmPopup = $ionicPopup.show({
+            template: '你确定要退出应用吗?',
+            buttons: [{
+              text: '确定',
+              onTap: function() {
+                return 1;
+              }
+            }, {
+              text: '取消'
+            }],
+            cssClass: 'ajk',
+          });
 
-      // Is there a page to go back to?
-			if ($location.path() == '/tab/home' ) {
-				showConfirm();
-			} else if ($ionicHistory.backView()) {
-				$ionicHistory.goBack();
-			} else {
-        // This is the last page: Show confirmation popup
-				showConfirm();
-			}
-
-			return false;
-		}, 101);
-
-		if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-
-
-		}
-		if (window.StatusBar) {
-			StatusBar.styleDefault();
-		}
-    //检查更新
-     //checkUpdate();
-    function checkUpdate() {
-            var serverAppVersion = "1.0.0"; //从服务端获取最新版本
-            //获取版本
-            $cordovaAppVersion.getAppVersion().then(function (version) {
-                //如果本地与服务端的APP版本不符合
-                if (version != serverAppVersion) {
-                    showUpdateConfirm();
-                }
-            });
+          confirmPopup.then(function(res) {
+            if (res) {
+              ionic.Platform.exitApp();
+            } else {
+              // Don't close
+            }
+          });
         }
-        function onHardwareMenuKeyDown() {
-              $ionicActionSheet.show({
-                  titleText: '检查更新',
-                  buttons: [
-                      { text: '关于' }
-                  ],
-                  destructiveText: '检查更新',
-                  cancelText: '取消',
-                  cancel: function () {
-                      // add cancel code..
-                  },
-                  destructiveButtonClicked: function () {
-                      //检查更新
-                      checkUpdate();
-                  },
-                  buttonClicked: function (index) {
 
-                  }
+        // Is there a page to go back to?
+        if ($location.path() == '/tab/home') {
+          showConfirm();
+        } else if ($ionicHistory.backView()) {
+          $ionicHistory.goBack();
+        } else {
+          // This is the last page: Show confirmation popup
+          showConfirm();
+        }
+
+        return false;
+      }, 101);
+
+      if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+
+
+      }
+      if (window.StatusBar) {
+        StatusBar.styleDefault();
+      }
+      //检查更新
+      //checkUpdate();
+      function checkUpdate() {
+        var serverAppVersion = "1.0.0"; //从服务端获取最新版本
+        //获取版本
+        $cordovaAppVersion.getAppVersion().then(function(version) {
+          //如果本地与服务端的APP版本不符合
+          if (version != serverAppVersion) {
+            showUpdateConfirm();
+          }
+        });
+      }
+
+      function onHardwareMenuKeyDown() {
+        $ionicActionSheet.show({
+          titleText: '检查更新',
+          buttons: [
+            { text: '关于' }
+          ],
+          destructiveText: '检查更新',
+          cancelText: '取消',
+          cancel: function() {
+            // add cancel code..
+          },
+          destructiveButtonClicked: function() {
+            //检查更新
+            checkUpdate();
+          },
+          buttonClicked: function(index) {
+
+          }
+        });
+        $timeout(function() {
+          hideSheet();
+        }, 2000);
+      };
+      // 显示是否更新对话框
+      function showUpdateConfirm() {
+        var confirmPopup = $ionicPopup.confirm({
+          title: '版本升级',
+          template: '1.xxxx;</br>2.xxxxxx;</br>3.xxxxxx;</br>4.xxxxxx', //从服务端获取更新的内容
+          cancelText: '取消',
+          okText: '升级'
+        });
+        confirmPopup.then(function(res) {
+          if (res) {
+            $ionicLoading.show({
+              template: "已经下载：0%"
+            });
+            var url = "http://192.168.1.50/1.apk"; //可以从服务端获取更新APP的路径
+            var targetPath = "file:///storage/sdcard0/Download/1.apk"; //APP下载存放的路径，可以使用cordova file插件进行相关配置
+            var trustHosts = true
+            var options = {};
+            $cordovaFileTransfer.download(url, targetPath, options, trustHosts).then(function(result) {
+              // 打开下载下来的APP
+              $cordovaFileOpener2.open(targetPath, 'application/vnd.android.package-archive').then(function() {
+                // 成功
+              }, function(err) {
+                // 错误
               });
-              $timeout(function () {
-                  hideSheet();
-              }, 2000);
-          };
-          // 显示是否更新对话框
-         function showUpdateConfirm() {
-             var confirmPopup = $ionicPopup.confirm({
-                 title: '版本升级',
-                 template: '1.xxxx;</br>2.xxxxxx;</br>3.xxxxxx;</br>4.xxxxxx', //从服务端获取更新的内容
-                 cancelText: '取消',
-                 okText: '升级'
-             });
-             confirmPopup.then(function (res) {
-                 if (res) {
-                     $ionicLoading.show({
-                         template: "已经下载：0%"
-                     });
-                     var url = "http://192.168.1.50/1.apk"; //可以从服务端获取更新APP的路径
-                     var targetPath = "file:///storage/sdcard0/Download/1.apk"; //APP下载存放的路径，可以使用cordova file插件进行相关配置
-                     var trustHosts = true
-                     var options = {};
-                     $cordovaFileTransfer.download(url, targetPath, options, trustHosts).then(function (result) {
-                         // 打开下载下来的APP
-                         $cordovaFileOpener2.open(targetPath, 'application/vnd.android.package-archive'
-                         ).then(function () {
-                                 // 成功
-                             }, function (err) {
-                                 // 错误
-                             });
-                         $ionicLoading.hide();
-                     }, function (err) {
-                         alert('下载失败');
-                     }, function (progress) {
-                         //进度，这里使用文字显示下载百分比
-                         $timeout(function () {
-                             var downloadProgress = (progress.loaded / progress.total) * 100;
-                             $ionicLoading.show({
-                                 template: "已经下载：" + Math.floor(downloadProgress) + "%"
-                             });
-                             if (downloadProgress > 99) {
-                                 $ionicLoading.hide();
-                             }
-                         })
-                     });
-                 } else {
-                     // 取消更新
-                 }
-             });
-         }
-	});
+              $ionicLoading.hide();
+            }, function(err) {
+              alert('下载失败');
+            }, function(progress) {
+              //进度，这里使用文字显示下载百分比
+              $timeout(function() {
+                var downloadProgress = (progress.loaded / progress.total) * 100;
+                $ionicLoading.show({
+                  template: "已经下载：" + Math.floor(downloadProgress) + "%"
+                });
+                if (downloadProgress > 99) {
+                  $ionicLoading.hide();
+                }
+              })
+            });
+          } else {
+            // 取消更新
+          }
+        });
+      }
+    });
 
-}])
-  .config(['$ionicConfigProvider', '$ionicNativeTransitionsProvider', '$cordovaInAppBrowserProvider', function($ionicConfigProvider, $ionicNativeTransitionsProvider,$cordovaInAppBrowserProvider) {
-	// 防止滑动白屏
-  $ionicConfigProvider.views.swipeBackEnabled(false);
-  $ionicConfigProvider.backButton.text('');        
-  $ionicConfigProvider.backButton.previousTitleText(false);
-  var defaultOptions = {
-		location: 'no',
-		clearcache: 'no',
-		toolbar: 'no'
-	};
-	$cordovaInAppBrowserProvider.setDefaultOptions(defaultOptions);
-  //$ionicConfigProvider.scrolling.jsScrolling(false);
+  }])
+  .config(['$ionicConfigProvider', '$ionicNativeTransitionsProvider', '$cordovaInAppBrowserProvider', function($ionicConfigProvider, $ionicNativeTransitionsProvider, $cordovaInAppBrowserProvider) {
+    // 防止滑动白屏
+    $ionicConfigProvider.views.swipeBackEnabled(false);
+    $ionicConfigProvider.backButton.text('');
+    $ionicConfigProvider.backButton.previousTitleText(false);
+    var defaultOptions = {
+      location: 'no',
+      clearcache: 'no',
+      toolbar: 'no'
+    };
+    $cordovaInAppBrowserProvider.setDefaultOptions(defaultOptions);
+    //$ionicConfigProvider.scrolling.jsScrolling(false);
 
-	$ionicConfigProvider.tabs.style('standard').position('bottom');
-	$ionicConfigProvider.views.transition('no');
-	$ionicConfigProvider.navBar.alignTitle('center');
-	$ionicNativeTransitionsProvider.setDefaultOptions({
-		duration: 200, // in milliseconds (ms), default 400,
-		slowdownfactor: 4, // overlap views (higher number is more) or no overlap (1), default 4
-		iosdelay: -1, // ms to wait for the iOS webview to update before animation kicks in, default -1
-		androiddelay: -1, // same as above but for Android, default -1
-		winphonedelay: -1, // same as above but for Windows Phone, default -1,
-		fixedPixelsTop: 0, // the number of pixels of your fixed header, default 0 (iOS and Android)
-		fixedPixelsBottom: 0, // the number of pixels of your fixed footer (f.i. a tab bar), default 0 (iOS and Android)
-		triggerTransitionEvent: '$ionicView.afterEnter', // internal ionic-native-transitions option
-		backInOppositeDirection: false // Takes over default back transition and state back transition to use the opposite direction transition to go back
-	});
-	$ionicNativeTransitionsProvider.setDefaultTransition({
-		type: 'slide',
-		direction: 'left'
-	});
-}])
+    $ionicConfigProvider.tabs.style('standard').position('bottom');
+    $ionicConfigProvider.views.transition('no');
+    $ionicConfigProvider.navBar.alignTitle('center');
+    $ionicNativeTransitionsProvider.setDefaultOptions({
+      duration: 200, // in milliseconds (ms), default 400,
+      slowdownfactor: 4, // overlap views (higher number is more) or no overlap (1), default 4
+      iosdelay: -1, // ms to wait for the iOS webview to update before animation kicks in, default -1
+      androiddelay: -1, // same as above but for Android, default -1
+      winphonedelay: -1, // same as above but for Windows Phone, default -1,
+      fixedPixelsTop: 0, // the number of pixels of your fixed header, default 0 (iOS and Android)
+      fixedPixelsBottom: 0, // the number of pixels of your fixed footer (f.i. a tab bar), default 0 (iOS and Android)
+      triggerTransitionEvent: '$ionicView.afterEnter', // internal ionic-native-transitions option
+      backInOppositeDirection: false // Takes over default back transition and state back transition to use the opposite direction transition to go back
+    });
+    $ionicNativeTransitionsProvider.setDefaultTransition({
+      type: 'slide',
+      direction: 'left'
+    });
+  }])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
-	$stateProvider
+    $stateProvider
 
       // setup an abstract state for the tabs directive
       .state('tab', {
-	url: '/tab',
-	abstract: true,
-	templateUrl: 'templates/tabs/tabs.html'
-})
+        url: '/tab',
+        abstract: true,
+        templateUrl: 'templates/tabs/tabs.html'
+      })
 
       // Each tab has its own nav history stack:
 
       .state('tab.home', {
-	url: '/home',
-	nativeTransitions: null,
-  cache: false,
-	views: {
-		'tab-home': {
-			templateUrl: 'templates/home/home.html',
-			controller: 'homeCtrl',
-			resolve: {
-				mainADs: ['ApiService', function(ApiService) {
-					return ApiService.getHomePageBanner({
-						level: 0
-					}).success(function(res) {
-						return res.result;
-					});
+        url: '/home',
+        nativeTransitions: null,
+        cache: false,
+        views: {
+          'tab-home': {
+            templateUrl: 'templates/home/home.html',
+            controller: 'homeCtrl',
+            resolve: {
+              mainADs: ['ApiService', function(ApiService) {
+                return ApiService.getHomePageBanner({
+                  level: 0
+                }).success(function(res) {
+                  return res.result;
+                });
 
-				}]
-			}
-		}
-	}
-})
-.state('tab.ctrl', {
-	url: '/ctrl',
-	//nativeTransitions: {type:'fade'},
-	cache:false,
-	views: {
-		'tab-ctrl': {
-			templateUrl: 'templates/ctrl/ctrl.html',
-			controller: 'ctrl'
-		}
-	 },
-  onEnter: ['$rootScope', function($rootScope){
-        $rootScope.$broadcast('ctrlStateEnter');
-   }],
-   onExit: ['$rootScope', function($rootScope){
-       $rootScope.$broadcast('ctrlStateOut');
-   }]
-})
+              }]
+            }
+          }
+        }
+      })
+      .state('tab.ctrl', {
+        url: '/ctrl',
+        //nativeTransitions: {type:'fade'},
+        cache: false,
+        views: {
+          'tab-ctrl': {
+            templateUrl: 'templates/ctrl/ctrl.html',
+            controller: 'ctrl'
+          }
+        },
+        onEnter: ['$rootScope', function($rootScope) {
+          $rootScope.$broadcast('ctrlStateEnter');
+        }],
+        onExit: ['$rootScope', function($rootScope) {
+          $rootScope.$broadcast('ctrlStateOut');
+        }]
+      })
       .state('tab.discover', {
-	url: '/discover',
-	nativeTransitions: null,
-  cache:false,
-	views: {
-		'tab-discover': {
-			templateUrl: 'templates/discover/discover.html',
-			controller: 'discoverCtrl'
-		}
-	}
-})
+        url: '/discover',
+        nativeTransitions: null,
+        cache: false,
+        views: {
+          'tab-discover': {
+            templateUrl: 'templates/discover/discover.html',
+            controller: 'discoverCtrl'
+          }
+        }
+      })
       .state('tab.shopCar', {
-	url: '/shopCar',
-	nativeTransitions: null,
-	views: {
-		'tab-shopCar': {
-			templateUrl: 'templates/shopCar/shopCar.html',
-			controller: 'shopCarCtrl'
-		}
-	},
-	cache: false
-})
+        url: '/shopCar',
+        nativeTransitions: null,
+        views: {
+          'tab-shopCar': {
+            templateUrl: 'templates/shopCar/shopCar.html',
+            controller: 'shopCarCtrl'
+          }
+        },
+        cache: false
+      })
       .state('tab.userCenter', {
-	url: '/userCenter',
-	nativeTransitions: null,
-	cache: false,
-	views: {
-		'tab-userCenter': {
-			templateUrl: 'templates/userCenter/userCenter.html',
-			controller: 'userCenter'
-		}
-	}
-})
+        url: '/userCenter',
+        nativeTransitions: null,
+        cache: false,
+        views: {
+          'tab-userCenter': {
+            templateUrl: 'templates/userCenter/userCenter.html',
+            controller: 'userCenter'
+          }
+        }
+      })
       .state('qrCode', {
-	url: '/qrCode',
-	params: {
-		person: {}
-	},
-	templateUrl: 'templates/userCenter/qrCode/qrCode.html',
-	controller: 'qrCodeCtrl'
-})
-.state('futrue', {
-url: '/futrue',
-cache:false,
-templateUrl: 'templates/home/futrue/futrue.html',
-controller:'futrueCtrl'
-})
+        url: '/qrCode',
+        params: {
+          person: {}
+        },
+        templateUrl: 'templates/userCenter/qrCode/qrCode.html',
+        controller: 'qrCodeCtrl'
+      })
+      .state('futrue', {
+        url: '/futrue',
+        cache: false,
+        templateUrl: 'templates/home/futrue/futrue.html',
+        controller: 'futrueCtrl'
+      })
       .state('ctrlDetail', {
-	url: '/ctrlDetail',
-	templateUrl: 'templates/ctrl/ctrlDetail/ctrlDetail.html'
-})
+        url: '/ctrlDetail',
+        templateUrl: 'templates/ctrl/ctrlDetail/ctrlDetail.html'
+      })
       .state('inHouse', {
-	url: '/inHouse',
-	params: {
-		data: {}
-	},
-	cache: false,
-	templateUrl: 'templates/ctrl/inHouse/inHouse.html',
-	controller: 'inHouseCtrl'
-})
+        url: '/inHouse',
+        params: {
+          data: {}
+        },
+        cache: false,
+        templateUrl: 'templates/ctrl/inHouse/inHouse.html',
+        controller: 'inHouseCtrl'
+      })
       .state('checkIn', {
-	url: '/checkIn',
-	params: {
-		data: {}
-	},
-  cache:false,
-	templateUrl: 'templates/ctrl/CheckIn/checkIn.html',
-	controller: 'checkInCtrl'
-})
+        url: '/checkIn',
+        params: {
+          data: {}
+        },
+        cache: false,
+        templateUrl: 'templates/ctrl/CheckIn/checkIn.html',
+        controller: 'checkInCtrl'
+      })
       .state('light', {
-	url: '/light',
-	cache:false,
-	templateUrl: 'templates/ctrl/light/light.html',
-	controller:"lightCtrl"
-})
+        url: '/light',
+        cache: false,
+        templateUrl: 'templates/ctrl/light/light.html',
+        controller: "lightCtrl"
+      })
       .state('curtain', {
-	url: '/curtain',
-  cache:false,
-	templateUrl: 'templates/ctrl/curtain/curtain.html',
-	controller:'curtainCtrl'
-})
+        url: '/curtain',
+        cache: false,
+        templateUrl: 'templates/ctrl/curtain/curtain.html',
+        controller: 'curtainCtrl'
+      })
       .state('readLight', {
-	url: '/readLight',
-	templateUrl: 'templates/ctrl/readLight/readLight.html',
-	controller:'readLightCtrl'
-})
+        url: '/readLight',
+        templateUrl: 'templates/ctrl/readLight/readLight.html',
+        controller: 'readLightCtrl'
+      })
       .state('model', {
-	url: '/model',
-  cache:false,
-	templateUrl: 'templates/ctrl/model/model.html',
-	controller:'modelCtrl'
-})
+        url: '/model',
+        cache: false,
+        templateUrl: 'templates/ctrl/model/model.html',
+        controller: 'modelCtrl'
+      })
       .state('tv', {
-	url: '/tv',
-  cache:false,
-	templateUrl: 'templates/ctrl/tv/tv.html',
-	controller:'tvCtrl'
-})
+        url: '/tv',
+        cache: false,
+        templateUrl: 'templates/ctrl/tv/tv.html',
+        controller: 'tvCtrl'
+      })
       .state('airCondition', {
-	url: '/airCondition',
-  cache:false,
-	templateUrl: 'templates/ctrl/airCondition/airCondition.html',
-	controller:"airCtrl"
-})
+        url: '/airCondition',
+        cache: false,
+        templateUrl: 'templates/ctrl/airCondition/airCondition.html',
+        controller: "airCtrl"
+      })
       .state('lock', {
-	url: '/lock/:name',
-	cache:false,
-	templateUrl: 'templates/ctrl/lock/lock.html',
-	controller:"lockCtrl"
-})
+        url: '/lock/:name',
+        cache: false,
+        templateUrl: 'templates/ctrl/lock/lock.html',
+        controller: "lockCtrl"
+      })
       .state('colorPicker', {
-	url: '/colorPicker',
-	templateUrl: 'templates/ctrl/colorPicker/colorPicker.html',
-	controller:'colorPickerCtrl'
-})
+        url: '/colorPicker',
+        templateUrl: 'templates/ctrl/colorPicker/colorPicker.html',
+        controller: 'colorPickerCtrl'
+      })
       .state('sweepTime', {
-	url: '/sweepTime/:id',
-	templateUrl: 'templates/ctrl/sweepTime/sweepTime.html',
-	controller:'sweepTimeCtrl'
-})
+        url: '/sweepTime/:id',
+        templateUrl: 'templates/ctrl/sweepTime/sweepTime.html',
+        controller: 'sweepTimeCtrl'
+      })
       .state('maintain', {
-	url: '/maintain/:id',
-	templateUrl: 'templates/ctrl/repair/repair.html',
-	controller:'maintainCtrl'
-})
+        url: '/maintain/:id',
+        templateUrl: 'templates/ctrl/repair/repair.html',
+        controller: 'maintainCtrl'
+      })
       .state('service', {
-	url: '/service',
-  cache:false,
-	templateUrl: 'templates/ctrl/service/service.html',
-	controller:'serviceCtrl'
-})
+        url: '/service',
+        cache: false,
+        templateUrl: 'templates/ctrl/service/service.html',
+        controller: 'serviceCtrl'
+      })
       .state('houseDtail', {
-	url: '/houseDtail/:id',
-  cache:false,
-	templateUrl: 'templates/home/house_detail/house_detail.html',
-	controller: 'houseDetailCtrl'
-})
+        url: '/houseDtail/:id',
+        cache: false,
+        templateUrl: 'templates/home/house_detail/house_detail.html',
+        controller: 'houseDetailCtrl'
+      })
       .state('hotelService', {
-	url: '/hotelService',
-	cache: false,
-	params: {
-		hotelDetail: null
-	},
-	templateUrl: 'templates/home/hotelService/hotelService.html',
-	controller:'hotelService'
-})
+        url: '/hotelService',
+        cache: false,
+        params: {
+          hotelDetail: null
+        },
+        templateUrl: 'templates/home/hotelService/hotelService.html',
+        controller: 'hotelService'
+      })
       .state('picShow', {
-	url: '/picShow',
-	params: {
-		data: {}
-	},
-	nativeTransitions:{
-		"type": "fade",
-		"duration": 500, // in milliseconds (ms), default 400
-	},
-	templateUrl: 'templates/home/picShow/picShow.html',
-	controller: 'picShowCtrl'
-})
+        url: '/picShow',
+        params: {
+          data: {}
+        },
+        nativeTransitions: {
+          "type": "fade",
+          "duration": 500, // in milliseconds (ms), default 400
+        },
+        templateUrl: 'templates/home/picShow/picShow.html',
+        controller: 'picShowCtrl'
+      })
       .state('nearby', {
-	url: '/nearby/:city',
-	cache:false,
-	templateUrl: 'templates/home/nearby/nearby.html',
-	controller: 'nearbyCtrl'
-})
+        url: '/nearby/:city',
+        cache: false,
+        templateUrl: 'templates/home/nearby/nearby.html',
+        controller: 'nearbyCtrl'
+      })
       .state('myCollect', {
-	url: '/myCollect',
-	cache:false,
-	templateUrl: 'templates/home/my_collect/my_collect.html',
-	controller: 'collectCtrl'
-})
+        url: '/myCollect',
+        cache: false,
+        templateUrl: 'templates/home/my_collect/my_collect.html',
+        controller: 'collectCtrl'
+      })
       .state('comment', {
-	url: '/comment/:id/:stars',
-	templateUrl: 'templates/home/comment/comment.html',
-	controller: 'commentCtrl'
-})
+        url: '/comment/:id/:stars',
+        templateUrl: 'templates/home/comment/comment.html',
+        controller: 'commentCtrl'
+      })
       .state('map', {
-	url: '/map',
-	params:{destination:null},
-  cache:false,
-	templateUrl: 'templates/home/map/map.html',
-	controller: 'mapCtrl'
-})
+        url: '/map',
+        params: { destination: null },
+        cache: false,
+        templateUrl: 'templates/home/map/map.html',
+        controller: 'mapCtrl'
+      })
       .state('getCity', {
-	url: '/getCity',
-	cache:false,
-	nativeTransitions: {
-		"type": "slide",
-		"direction": "up"
-	},
-	templateUrl: 'templates/home/get_city/get_city.html',
-	controller: 'getCityCtrl'
-})
+        url: '/getCity',
+        cache: false,
+        nativeTransitions: {
+          "type": "slide",
+          "direction": "up"
+        },
+        templateUrl: 'templates/home/get_city/get_city.html',
+        controller: 'getCityCtrl'
+      })
       .state('selectBussiniss', {
-	url: '/selectBussiniss',
-	cache:false,
-	nativeTransitions: {
-		"type": "slide",
-		"direction": "up"
-	},
-	templateUrl: 'templates/home/select_bussiniss/select_bussinss.html',
-	controller: 'select_bussinissCtrl',
-})
+        url: '/selectBussiniss',
+        cache: false,
+        nativeTransitions: {
+          "type": "slide",
+          "direction": "up"
+        },
+        templateUrl: 'templates/home/select_bussiniss/select_bussinss.html',
+        controller: 'select_bussinissCtrl',
+      })
 
       .state('selectDate', {
-	url: '/selectDate',
-	cache: false,
-  params:{data:null},
-	templateUrl: 'templates/home/select_date/select_date.html',
-	controller:'selectDateCtrl',
-  resolve: {
-		roomPrice: ['ApiService', '$stateParams', '$ionicLoading', '$timeout', function(ApiService, $stateParams, $ionicLoading, $timeout) {
-			$ionicLoading.show({
-				template: '<ion-spinner icon="ios"></ion-spinner>'
-			});
-      var year = new Date().getFullYear();
-      var month = new Date().getMonth()+1;
-      var m1 = month>9?month:'0'+month;
-      var m2 = month+1>9?month+1:'0'+(month+1);
-      var m3 = month+2>9?month+2:'0'+(month+2);
-			return ApiService.queryRoomCalendar({
-				houseId: $stateParams.data.id,
-				month: year+'-'+m1+','+year+'-'+m2+','+year+'-'+m3
-			}).success(function(res) {
-        $ionicLoading.hide();
-        if(res.success){
-          $timeout(function() {
-  					$ionicLoading.hide();
-  				}, 1000);
-        }else{
-          if (res.msg=='非法请求') {
-            $ionicLoading.hide();
-            $state.go('login')
-          }
+        url: '/selectDate',
+        cache: false,
+        params: { data: null },
+        templateUrl: 'templates/home/select_date/select_date.html',
+        controller: 'selectDateCtrl',
+        resolve: {
+          roomPrice: ['ApiService', '$stateParams', '$ionicLoading', '$timeout', function(ApiService, $stateParams, $ionicLoading, $timeout) {
+            $ionicLoading.show({
+              template: '<ion-spinner icon="ios"></ion-spinner>'
+            });
+            var year = new Date().getFullYear();
+            var month = new Date().getMonth() + 1;
+            var m1 = month > 9 ? month : '0' + month;
+            var m2 = month + 1 > 9 ? month + 1 : '0' + (month + 1);
+            var m3 = month + 2 > 9 ? month + 2 : '0' + (month + 2);
+            return ApiService.queryRoomCalendar({
+              houseId: $stateParams.data.id,
+              month: year + '-' + m1 + ',' + year + '-' + m2 + ',' + year + '-' + m3
+            }).success(function(res) {
+              $ionicLoading.hide();
+              if (res.success) {
+                $timeout(function() {
+                  $ionicLoading.hide();
+                }, 1000);
+              } else {
+                if (res.msg == '非法请求') {
+                  $ionicLoading.hide();
+                  $state.go('login')
+                }
+              }
+              return res.dataObject;
+            });
+          }]
         }
-				return res.dataObject;
-			});
-		}]
-	}
-})
+      })
       .state('beLandlord', {
-	url: '/beLandlord',
-  cache:false,
-	templateUrl: 'templates/userCenter/beLandlord/be_landlord.html',
-	controller: 'beLandlord'
-})
+        url: '/beLandlord',
+        cache: false,
+        templateUrl: 'templates/userCenter/beLandlord/be_landlord.html',
+        controller: 'beLandlord'
+      })
       .state('joinUs', {
-	url: '/joinUs',
-	templateUrl: 'templates/userCenter/beLandlord/joinUs/join_us.html',
-	controller: 'joinUsCtrl'
-})
-.state('accountDetail', {
-url: '/accountDetail',
-params:{data:null},
-templateUrl: 'templates/userCenter/beLandlord/account_detail/account_detail.html',
-controller: 'accountDetailCtrl'
-})
+        url: '/joinUs',
+        templateUrl: 'templates/userCenter/beLandlord/joinUs/join_us.html',
+        controller: 'joinUsCtrl'
+      })
+      .state('accountDetail', {
+        url: '/accountDetail',
+        params: { data: null },
+        templateUrl: 'templates/userCenter/beLandlord/account_detail/account_detail.html',
+        controller: 'accountDetailCtrl'
+      })
       .state('landlordProfit', {
-	url: '/landlordProfit',
-	cache: false,
-	templateUrl: 'templates/userCenter/beLandlord/landlord_profit/landlord_profit.html',
-	controller: 'landlordProfitCtrl'
-})
+        url: '/landlordProfit',
+        cache: false,
+        templateUrl: 'templates/userCenter/beLandlord/landlord_profit/landlord_profit.html',
+        controller: 'landlordProfitCtrl'
+      })
       .state('waitCheck', {
-	url: '/waitCheck',
-	templateUrl: 'templates/userCenter/beLandlord/waitCheck/wait_check.html'
-})
+        url: '/waitCheck',
+        templateUrl: 'templates/userCenter/beLandlord/waitCheck/wait_check.html'
+      })
       .state('myHouse', {
-	url: '/myHouse',
+        url: '/myHouse',
 
-	templateUrl: 'templates/userCenter/beLandlord/my_house/my_house.html',
-	controller: 'myHouseCtrl',
-	cache: false
-})
+        templateUrl: 'templates/userCenter/beLandlord/my_house/my_house.html',
+        controller: 'myHouseCtrl',
+        cache: false
+      })
       .state('seeHouse', {
-	url: '/seeHouse/:id',
-	cache: false,
-	templateUrl: 'templates/userCenter/beLandlord/see_myhouse/see_myhouse.html',
-	controller: 'seeHouseCtrl',
-	resolve: {
-		hotel: ['ApiService', '$stateParams', '$ionicLoading', '$state', function(ApiService, $stateParams, $ionicLoading,$state) {
-			$ionicLoading.show({
-				template: '<ion-spinner icon="ios"></ion-spinner>'
-			});
-			return ApiService.viewLandlordHotel({
-				hotelId: $stateParams.id
-			}).success(function(res) {
-				if (res.success) {
-					$ionicLoading.hide();
-					return res.dataObject;
-				}else{
-          $ionicLoading.hide();
-          //$state.go('login')
-        }
-			});
+        url: '/seeHouse/:id',
+        cache: false,
+        templateUrl: 'templates/userCenter/beLandlord/see_myhouse/see_myhouse.html',
+        controller: 'seeHouseCtrl',
+        resolve: {
+          hotel: ['ApiService', '$stateParams', '$ionicLoading', '$state', function(ApiService, $stateParams, $ionicLoading, $state) {
+            $ionicLoading.show({
+              template: '<ion-spinner icon="ios"></ion-spinner>'
+            });
+            return ApiService.viewLandlordHotel({
+              hotelId: $stateParams.id
+            }).success(function(res) {
+              if (res.success) {
+                $ionicLoading.hide();
+                return res.dataObject;
+              } else {
+                $ionicLoading.hide();
+                //$state.go('login')
+              }
+            });
 
-		}]
-	}
-})
+          }]
+        }
+      })
       .state('myhouseDetail', {
-	url: '/myhouseDetail/:id',
-  params:{houseName:''},
-	cache:false,
-	templateUrl: 'templates/userCenter/beLandlord/myhouse_detail/myhouse_detail.html',
-	controller: 'myHouseDetailCtrl'
-})
+        url: '/myhouseDetail/:id',
+        params: { houseName: '' },
+        cache: false,
+        templateUrl: 'templates/userCenter/beLandlord/myhouse_detail/myhouse_detail.html',
+        controller: 'myHouseDetailCtrl'
+      })
       .state('hotelPics', {
-	url: '/hotelPics',
-	params: {
-		pics: [],
-		id: 0
-	},
-	templateUrl: 'templates/home/hotel_pics/hotel_pics.html',
-	controller: 'hotelPicsCtrl'
-})
+        url: '/hotelPics',
+        params: {
+          pics: [],
+          id: 0
+        },
+        templateUrl: 'templates/home/hotel_pics/hotel_pics.html',
+        controller: 'hotelPicsCtrl'
+      })
       .state('myhouseIntr', {
-	url: '/myhouseIntr/:id',
+        url: '/myhouseIntr/:id',
 
-	templateUrl: 'templates/userCenter/beLandlord/myhouse_intr/myhouse_intr.html',
-	controller: 'myhouseIntrCtrl',
-	resolve: {
-		house: ['ApiService', '$stateParams', function(ApiService, $stateParams) {
-			var data = {
-				houseId: $stateParams.id
-			};
-			return ApiService.viewLandlordHotelHouse(data).success(function(res) {
-				return res.dataObject;
-			});
-		}]
-	}
-})
-      .state('myOrderForm', {
-	url: '/myOrderForm/:id',
-  cache:false,
-	templateUrl: 'templates/userCenter/beLandlord/my_orderform/my_orderform.html',
-	controller: 'myOrderFormCtrl'
-})
-      .state('orderFormDetail', {
-	url: '/orderFormDetail',
-	templateUrl: 'templates/userCenter/beLandlord/orderform_detail/orderform_detail.html',
-	controller: 'orderFormDetail'
-})
-      .state('tradeRule', {
-	url: '/tradeRule',
-	templateUrl: 'templates/userCenter/beLandlord/trade_rule/trade_rule.html',
-	controller:'tradeRuleCtrl'
-
-})
-      .state('myhouseChangePrice', {
-	url: '/myhouseChangePrice/:id/:name/:price',
-	cache: false,
-	templateUrl: 'templates/userCenter/beLandlord/myhouse_changeprice/myhouse_changeprice.html',
-	controller: 'myhouseChangepriceCtrl',
-	resolve: {
-		roomPrice: ['ApiService', '$stateParams', '$ionicLoading', '$timeout', function(ApiService, $stateParams, $ionicLoading, $timeout) {
-			$ionicLoading.show({
-				template: '<ion-spinner icon="ios"></ion-spinner>'
-			});
-      var year = new Date().getFullYear();
-      var month = new Date().getMonth()+1;
-      var m1 = month>9?month:'0'+month;
-      var m2 = month+1>9?month+1:'0'+(month+1);
-      var m3 = month+2>9?month+2:'0'+(month+2);
-			return ApiService.queryRoomCalendar({
-				houseId: $stateParams.id,
-				month: year+'-'+m1+','+year+'-'+m2+','+year+'-'+m3
-			}).success(function(res) {
-        if (res.success) {
-          $timeout(function() {
-  					$ionicLoading.hide();
-  				}, 1000);
-        }else{
-          if (res.msg=='非法请求') {
-            $ionicLoading.hide();
-            $state.go('login')
-          }
+        templateUrl: 'templates/userCenter/beLandlord/myhouse_intr/myhouse_intr.html',
+        controller: 'myhouseIntrCtrl',
+        resolve: {
+          house: ['ApiService', '$stateParams', function(ApiService, $stateParams) {
+            var data = {
+              houseId: $stateParams.id
+            };
+            return ApiService.viewLandlordHotelHouse(data).success(function(res) {
+              return res.dataObject;
+            });
+          }]
         }
-				return res.dataObject;
+      })
+      .state('myOrderForm', {
+        url: '/myOrderForm/:id',
+        cache: false,
+        templateUrl: 'templates/userCenter/beLandlord/my_orderform/my_orderform.html',
+        controller: 'myOrderFormCtrl'
+      })
+      .state('orderFormDetail', {
+        url: '/orderFormDetail',
+        templateUrl: 'templates/userCenter/beLandlord/orderform_detail/orderform_detail.html',
+        controller: 'orderFormDetail'
+      })
+      .state('tradeRule', {
+        url: '/tradeRule',
+        templateUrl: 'templates/userCenter/beLandlord/trade_rule/trade_rule.html',
+        controller: 'tradeRuleCtrl'
+
+      })
+      .state('myhouseChangePrice', {
+        url: '/myhouseChangePrice/:id/:name/:price',
+        cache: false,
+        templateUrl: 'templates/userCenter/beLandlord/myhouse_changeprice/myhouse_changeprice.html',
+        controller: 'myhouseChangepriceCtrl',
+        resolve: {
+          roomPrice: ['ApiService', '$stateParams', '$ionicLoading', '$timeout', function(ApiService, $stateParams, $ionicLoading, $timeout) {
+            $ionicLoading.show({
+              template: '<ion-spinner icon="ios"></ion-spinner>'
+            });
+            var year = new Date().getFullYear();
+            var month = new Date().getMonth() + 1;
+            var m1 = month > 9 ? month : '0' + month;
+            var m2 = month + 1 > 9 ? month + 1 : '0' + (month + 1);
+            var m3 = month + 2 > 9 ? month + 2 : '0' + (month + 2);
+            return ApiService.queryRoomCalendar({
+              houseId: $stateParams.id,
+              month: year + '-' + m1 + ',' + year + '-' + m2 + ',' + year + '-' + m3
+            }).success(function(res) {
+              if (res.success) {
+                $timeout(function() {
+                  $ionicLoading.hide();
+                }, 1000);
+              } else {
+                if (res.msg == '非法请求') {
+                  $ionicLoading.hide();
+                  $state.go('login')
+                }
+              }
+              return res.dataObject;
 
 
-			});
-		}]
-	}
+            });
+          }]
+        }
 
-})
+      })
       .state('myaccount', {
-	url: '/myaccount',
-  cache:false,
-	templateUrl: 'templates/userCenter/beLandlord/myaccount/myaccount.html',
-	controller: 'myaccountCtrl'
+        url: '/myaccount',
+        cache: false,
+        templateUrl: 'templates/userCenter/beLandlord/myaccount/myaccount.html',
+        controller: 'myaccountCtrl'
 
-})
+      })
       .state('login', {
-	url: '/login',
-	cache: false,
-	templateUrl: 'templates/userCenter/login/login.html',
-	controller: 'loginCtrl'
-})
+        url: '/login',
+        cache: false,
+        templateUrl: 'templates/userCenter/login/login.html',
+        controller: 'loginCtrl'
+      })
       .state('register', {
-	url: '/register',
-	templateUrl: 'templates/userCenter/register/register.html',
-	controller: 'registerCtrl'
-})
+        url: '/register',
+        templateUrl: 'templates/userCenter/register/register.html',
+        controller: 'registerCtrl'
+      })
       .state('hotelDetail', {
-	url: '/hotelDetail',
-	cache: false,
-	params: {
-		hotelDetail: null
-	},
-	templateUrl: 'templates/home/hotel_detail/hotel_detail.html',
-	controller: 'hotelDetailCtrl'
-})
+        url: '/hotelDetail',
+        cache: false,
+        params: {
+          hotelDetail: null
+        },
+        templateUrl: 'templates/home/hotel_detail/hotel_detail.html',
+        controller: 'hotelDetailCtrl'
+      })
       .state('house_intr', {
-	url: '/house_intr/:id',
-	templateUrl: 'templates/home/house_intr/house_intr.html',
-	controller: 'houseIntrCtrl',
-	resolve: {
-		houseIntr: ['ApiService', '$stateParams', function(ApiService, $stateParams) {
-			return ApiService.getHotelHousesDetail({
-				houseId: $stateParams.id
-			}).success(function(res) {
-				return res.dataObject;
+        url: '/house_intr/:id',
+        templateUrl: 'templates/home/house_intr/house_intr.html',
+        controller: 'houseIntrCtrl',
+        resolve: {
+          houseIntr: ['ApiService', '$stateParams', function(ApiService, $stateParams) {
+            return ApiService.getHotelHousesDetail({
+              houseId: $stateParams.id
+            }).success(function(res) {
+              return res.dataObject;
 
-			});
+            });
 
-		}]
-	}
-})
+          }]
+        }
+      })
       .state('RetrievePwd', {
-	url: '/RetrievePwd',
-	cache:false,
-	templateUrl: 'templates/userCenter/RetrievePwd/RetrievePwd.html',
-	controller: 'RetrievePwdCtrl'
-})
+        url: '/RetrievePwd',
+        cache: false,
+        templateUrl: 'templates/userCenter/RetrievePwd/RetrievePwd.html',
+        controller: 'RetrievePwdCtrl'
+      })
       .state('ChangePwd', {
-	url: '/ChangePwd',
-	cache: false,
-	templateUrl: 'templates/userCenter/ChangePwd/ChangePassword.html',
-	controller: "ChangePwdCtrl"
-})
+        url: '/ChangePwd',
+        cache: false,
+        templateUrl: 'templates/userCenter/ChangePwd/ChangePassword.html',
+        controller: "ChangePwdCtrl"
+      })
       .state('setPwd', {
-	url: '/setPwd',
-	templateUrl: 'templates/userCenter/setPwd/setPwd.html',
-	controller: 'setPwdCtrl'
-})
+        url: '/setPwd',
+        templateUrl: 'templates/userCenter/setPwd/setPwd.html',
+        controller: 'setPwdCtrl'
+      })
       .state('bindingPhone', {
-	url: '/bindingPhone',
-	templateUrl: 'templates/userCenter/bindingPhone/bindingPhone.html',
-	controller: 'bindingPhoneCtrl'
-})
+        url: '/bindingPhone',
+        templateUrl: 'templates/userCenter/bindingPhone/bindingPhone.html',
+        controller: 'bindingPhoneCtrl'
+      })
       .state('setting', {
-	url: '/setting',
-	templateUrl: 'templates/userCenter/setting/setting.html',
-	controller: 'settingCtrl'
-})
+        url: '/setting',
+        templateUrl: 'templates/userCenter/setting/setting.html',
+        controller: 'settingCtrl'
+      })
       .state('Nopay', {
-	url: '/Nopay',
-  cache:false,
-	templateUrl: 'templates/userCenter/Nopay/Nopay.html',
-	controller: 'NopayCtrl'
-})
+        url: '/Nopay',
+        cache: false,
+        templateUrl: 'templates/userCenter/Nopay/Nopay.html',
+        controller: 'NopayCtrl'
+      })
       .state('Pay', {
-	url: '/Pay',
-	cache: false,
-	templateUrl: 'templates/userCenter/Pay/Pay.html',
-	controller: 'PayCtrl'
-})
+        url: '/Pay',
+        cache: false,
+        templateUrl: 'templates/userCenter/Pay/Pay.html',
+        controller: 'PayCtrl'
+      })
       .state('Noevaluate', {
-	url: '/Noevaluate',
-	cache:false,
-	templateUrl: 'templates/userCenter/Noevaluate/Noevaluate.html',
-	controller: 'NoevaluateCtrl'
-})
+        url: '/Noevaluate',
+        cache: false,
+        templateUrl: 'templates/userCenter/Noevaluate/Noevaluate.html',
+        controller: 'NoevaluateCtrl'
+      })
       .state('lose-efficacy', {
-	url: '/lose-efficacy',
-  cache:false,
-	templateUrl: 'templates/userCenter/lose-efficacy/lose-efficacy.html',
-	controller: 'loseEfficacyCtrl'
-})
-.state('endOrderDetail', {
-url: '/endOrderDetail',
-cache:false,
-params:{data:null},
-templateUrl: 'templates/userCenter/endOrderDetail/endOrderDetail.html',
-controller: 'endOrderDetailCtrl'
-})
+        url: '/lose-efficacy',
+        cache: false,
+        templateUrl: 'templates/userCenter/lose-efficacy/lose-efficacy.html',
+        controller: 'loseEfficacyCtrl'
+      })
+      .state('endOrderDetail', {
+        url: '/endOrderDetail',
+        cache: false,
+        params: { data: null },
+        templateUrl: 'templates/userCenter/endOrderDetail/endOrderDetail.html',
+        controller: 'endOrderDetailCtrl'
+      })
       .state('Consume', {
-	url: '/Consume',
-	templateUrl: 'templates/userCenter/Consume/Consume.html',
-	controller: 'ConsumeCtrl'
-})
+        url: '/Consume',
+        templateUrl: 'templates/userCenter/Consume/Consume.html',
+        controller: 'ConsumeCtrl'
+      })
       .state('status', {
-	url: '/status/:id',
-	templateUrl: 'templates/userCenter/status/status.html',
-	controller: "statusCtrl"
-})
+        url: '/status/:id',
+        templateUrl: 'templates/userCenter/status/status.html',
+        controller: "statusCtrl"
+      })
       .state('Order-form', {
-	url: '/Order-form/:id',
-  cache:false,
-	templateUrl: 'templates/userCenter/Order-form/Order-form.html',
-	controller: 'OrderformCtrl'
-})
+        url: '/Order-form/:id',
+        cache: false,
+        templateUrl: 'templates/userCenter/Order-form/Order-form.html',
+        controller: 'OrderformCtrl'
+      })
       .state('evaluate', {
-	url: '/evaluate',
-	params:{data:null},
-	templateUrl: 'templates/userCenter/evaluate/evaluate.html',
-	controller:'evaluateCtrl'
-})
+        url: '/evaluate',
+        params: { data: null },
+        templateUrl: 'templates/userCenter/evaluate/evaluate.html',
+        controller: 'evaluateCtrl'
+      })
       .state('clean', {
-	url: '/clean',
-	params: {
-		data: null
-	},
-  cache:false,
-	templateUrl: 'templates/ctrl/clean/clean.html',
-	controller: 'cleanCtrl'
-})
+        url: '/clean',
+        params: {
+          data: null
+        },
+        cache: false,
+        templateUrl: 'templates/ctrl/clean/clean.html',
+        controller: 'cleanCtrl'
+      })
       .state('repair', {
-	url: '/repair',
-	templateUrl: 'templates/userCenter/repair/repair.html'
-})
+        url: '/repair',
+        templateUrl: 'templates/userCenter/repair/repair.html'
+      })
       .state('binding', {
-	url: '/binding',
-	templateUrl: 'templates/userCenter/binding/binding.html',
-	controller: 'bindingCtrl'
-})
+        url: '/binding',
+        templateUrl: 'templates/userCenter/binding/binding.html',
+        controller: 'bindingCtrl'
+      })
       .state('orderDetail', {
-	url: '/orderDetail',
-	params: {
-		'order': {}
-	},
-	cache: false,
-	templateUrl: 'templates/shopCar/orderDetail/orderDetail.html',
-	controller: 'orderDetailCtrl'
-})
+        url: '/orderDetail',
+        params: {
+          'order': {}
+        },
+        cache: false,
+        templateUrl: 'templates/shopCar/orderDetail/orderDetail.html',
+        controller: 'orderDetailCtrl'
+      })
       .state('invoice', {
-	url: '/invoice',
-	params: {
-		order: null
-	},
-	templateUrl: 'templates/shopCar/invoice/invoice.html',
-	controller: 'invoceCtrl'
-});
+        url: '/invoice',
+        params: {
+          order: null
+        },
+        templateUrl: 'templates/shopCar/invoice/invoice.html',
+        controller: 'invoceCtrl'
+      });
     // if none of the above states are matched, use this as the fallback
-	$urlRouterProvider.otherwise('/tab/home');
+    $urlRouterProvider.otherwise('/tab/home');
 
 
     // if none of the above states are matched, use this as the fallback
-}]);
+  }]);
 
 angular.module('starter.controllers', ['endOrderDetail-controller','accountDetail-controller','orderFormDetail-controller',"futrue-controller","readLight-controller","service-controller","colorPicker-controller",'evaluate_controller','lock-controller','light-controller','model-controller','maintain-controller','sweepTime-controller','hotelService-controllers','curtain-controller','tv-controller','airCondition-controller','selectDate.controllers','tradeRule-controller','invoice-controller','hotelDetail-controllers','beLandlord-controller','qrCode-controller','picShow-controller','checkIn-controller','clean-controller','inHouse-controller','ctrl-controller', 'status-controller', 'Orderform-controller', 'myHouseIntr-controller', 'myHouseDetail-controller', 'seeHouse-controller', 'myHouse-controller', 'discover-controller', 'joinUs-controller', 'orderDetail-controller', 'landlordProfit-controller', 'Consume-controller', 'loseEfficacy-controller', 'Noevaluate-controller', 'Pay-controller', 'Nopay-controller', 'setting-controller', 'setPwd-controller', 'userCenter-controller', 'select_bussiniss-controller', 'collectCtrl-controller', 'houseIntrCtrl-controller', 'commentCtrl-controller', 'hotelPicsCtrl-controller', 'houseDetail-controller', 'home-controller', 'getCity-controller', 'myOrderForm-controller', 'myaccount-controller', 'myhouseChangePrice-controller', 'map-controller', 'nearby-controller', 'RetrievePwd-controller', 'binding-controller', 'bindingPhone-controller', 'ChangePwd-controller', 'shopCar-controller', 'register-controller', 'login-controller']);
 
@@ -10338,15 +10337,15 @@ angular.module("templates", []).run(["$templateCache", function($templateCache) 
 $templateCache.put("templates/discover/discover.html","\n<ion-view title=\'发现\'>\n  <ion-nav-buttons side=\"left\">\n  </ion-nav-buttons>\n  <ion-content class=\"userCenter-back\">\n  <!-- <iframe src=\"http://m.amap.com/around/?locations=116.470098,39.992838&keywords=美食,KTV,地铁站,公交站&defaultIndex=3&defaultView=&searchRadius=5000&key=db834b40077df1a9574a3faf3cd17f72\"></iframe> -->\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/home/home.html","<ion-view hide-nav-bar=\'true\'>\n  <div class=\'fixed_home\' id=\'fixed\' get-height>\n  </div>\n  <div class=\"fixedHeader \" id=\"fixedHeader\">\n    <div class=\"search_bar\">\n      <div class=\"wrap\">\n        <div class=\'newCity\' ui-sref=\'getCity\'>\n          <span>{{city}}</span><i class=\"icon ion-arrow-down-b\"></i>\n        </div>\n        <!-- <div class=\"search_btn\">\n        </div> -->\n        <a ng-click=\'goSelectBussiniss($event)\' class=\"mask\">\n          <div>搜索目的、商圈、生活圈</div>\n        </a>\n      </div>\n    </div>\n  </div>\n  <div class=\"fixedHeader\" id=\"fixedHeaderDefalut\">\n    <div class=\"search_bar\">\n      <div class=\"wrap\">\n        <div class=\'newCity\' ui-sref=\'getCity\'>\n          <span>{{city}}</span><i class=\"icon ion-arrow-down-b\"></i>\n        </div>\n        <!-- <div class=\"search_btn\">\n        </div> -->\n        <a ng-click=\'goSelectBussiniss($event)\' class=\"mask\">\n          <div>搜索目的、商圈、生活圈</div>\n        </a>\n      </div>\n    </div>\n  </div>\n  <!-- <div class=\"changeStatus\" ng-class=\'{verticalStatus:rank}\' ng-click=\"rank=!rank\"></div> -->\n  <ion-content on-scroll=\'swipe()\' class=\'has-footer home\' style=\'background-color:#f6f6f6;\'>\n    <div class=\"home_wrap\">\n      <ion-slide-box id=\'slide\' class=\'slide\' does-continue=\"true\" auto-play=\"true\" slide-interval=\"4000\">\n        <ion-slide ng-repeat=\'mainAD in mainADs track by $index\' native-ui-sref=\"houseDtail({id:mainAD.hotelId})\">\n          <div class=\"box \"><img ng-src={{mainAD.picture}}></div>\n        </ion-slide>\n      </ion-slide-box>\n      <div class=\"mainBtns cl\">\n        <div class=\"mainBtn\" ng-click=\"goNearBy()\">\n          <p><img src=\"imgs/wcj/home/near_house.png\"></p>\n          <p>附近房源</p>\n        </div>\n        <div class=\"mainBtn\" native-ui-sref=\'landlordProfit\'>\n          <p><img src=\"imgs/wcj/home/resruit.png\"></p>\n          <p>房东招募</p>\n        </div>\n        <div class=\"mainBtn\" native-ui-sref=\'myCollect\'>\n          <p><img src=\"imgs/wcj/home/collection.png\"></p>\n          <p>我的收藏</p>\n        </div>\n        <div class=\"mainBtn\">\n          <p><img src=\"imgs/wcj/home/more.png\"></p>\n          <p>敬请期待</p>\n        </div>\n      </div>\n      <div class=\"ad_pics_wrap\">\n        <ion-scroll direction=\'x\' class=\"ad_pics cl\">\n          <div class=\"\">\n            <figure ng-repeat=\"subAD in subADs track by $index\" native-ui-sref=\"houseDtail({id:subAD.hotelId})\">\n              <img ng-src={{subAD.picture}} alt=\"\">\n              <figcaption>\n                {{subAD .title}}\n              </figcaption>\n            </figure>\n          </div>\n          </ion-sroll>\n      </div>\n      <div class=\"content\">\n        <div>\n          <div class=\"ajklist\" ng-repeat=\"hotel in hotels track by $index\" ng-click=\"goHotelDetail(hotel.id)\">\n            <div>\n              <div class=\'item_ad\'>\n                <img ng-src={{hotel.mainPicture}}>\n                <div class=\"intr\">\n                  <h2>{{hotel.name}}</h2>\n                  <p class=\"loc\"><span><i class=\"icon\"></i>{{hotel.address}}</span></p>\n                  <p class=\"comment_star\">\n                    <i class=\"start_full\" ng-repeat=\"star in hotel.full_stars track by $index\"></i>\n                    <i class=\"start_blank\" ng-repeat=\"star in hotel.star_blank track by $index\"></i>\n                  </p>\n                  <p class=\"price\"><span>¥</span>{{hotel.price}}<span>起</span></p>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n        <!-- <div class=\'vertical\' ng-if=\"rank\">\n          <div class=\"ajklist_vertical\" ng-repeat=\"hotel in hotels track by $index\" ng-click=\"goHotelDetail(hotel.id)\">\n                <img ng-src={{hotel.mainPicture}}>\n                <div class=\"intr\">\n                  <h2>{{hotel.name}}</h2>\n                  <p class=\"loc\"><i class=\"icon\"></i>{{hotel.address}}</p>\n                  <p class=\"comment_star\">\n                      <i class=\"start_full\" ng-repeat=\"star in hotel.stars track by $index\"></i>\n                      <i class=\"start_blank\" ng-repeat=\"star in hotel.star_blank track by $index\"></i>\n                  </p>\n                  <p class=\"price\"><span>¥</span>{{hotel.price}}<span>起</span></p>\n                </div>\n            </div>\n        </div> -->\n      </div>\n      <!-- <div class=\"divier\">\n\n      </div> -->\n    </div>\n    <ion-infinite-scroll ng-if=\"moreDataCanBeLoaded\" on-infinite=\"loadMoreData()\" distance=\"10%\" immediate-check=\'false\'>\n    </ion-infinite-scroll>\n    <div class=\"divier\" style=\"height:50px\">\n    </div>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/shopCar/shopCar.html","<ion-view view-title=\"购物车\" ng-click=\"closeDelete()\">\n    <ion-nav-buttons side=\"left\">\n\n    </ion-nav-buttons>\n    <ion-content class=\"userCenter-back\">\n        <ul class=\"cart-list\">\n            <li ng-repeat=\"list in list track by $index\">\n            	<!--酒店名称-->\n                <div class=\"title\" ng-if=\'list.hotelName\'>\n                  <p class=\'checkbox special\' ng-click = \'isbatchcheck(list)\' >\n                   <input id={{list.hotelName}} type=\"checkbox\" ng-checked=\'list.hotelCheck\'  >\n                   <label for={{list.hotelName}}></label>\n                  </p>\n                   <span>{{list.hotelName}}</span>\n\n                </div>\n              <!--  酒店列表-->\n                <ion-list ng-repeat=\"roomList in list.carts track by $index\">\n                   <ion-item class=\"list-cont\" ng-click=\'goHouse(roomList.houseId)\'>\n                        <p class=\'checkbox\' ng-click = \'ischcked($event,roomList,list)\' >\n                   <input id={{roomList.houseName}} type=\"checkbox\" ng-checked = \'roomList.houseCheck\'  >\n                   <label for={{roomList.houseName}}></label>\n\n                   </p>\n                        <div class=\"list-pic\">\n                            <img ng-src=\"{{roomList.picture}}\" />\n                            <span></span>\n                        </div>\n                        <div class=\"list-desc\">\n                            <p> {{roomList.houseName}}</p>\n                            <p>{{roomList.inTime|MMdd}} - {{roomList.leaveTime|MMdd}}<i>共{{roomList.inDays}}晚</i></p>\n                            <div class=\"price\">¥{{roomList.totalFeel}}</div>\n                        </div>\n                    <ion-option-button class=\"button-positive del\" ng-click=\"delBtn(roomList.id,$event)\">删除</ion-option-button>\n                  </ion-item>\n                </ion-list>\n            </li>\n        </ul>\n        <div class=\"shopCar_blank\"></div>\n    </ion-content>\n   <div class=\"cart-footer\">\n		<div class=\"check-all\">\n			<p ng-class=\"{active:allcheck}\" ng-click=\"isallcheck()\"></p>\n			全选\n		</div>\n		<div class=\"total\">\n			\n		</div>\n			<div class=\"calculate\" ng-click=\'goOrderDetail();\' nav-direction=\"forward\">\n				结算\n			</div>\n	</div>\n</ion-view>\n");
-$templateCache.put("templates/userCenter/userCenter.html","<ion-view hide-nav-bar=\'true\' >\r\n   <ion-content style=\"height:100%\">\r\n     <div class=\"userCenter-back\">\r\n        <div class=\"userCenter_header\">\r\n            <p></p>\r\n        	<div ng-click=\'headimg();\'>\r\n        		<img ng-src={{imghead}} id=\"logo\" ng-show=\'imghead\'/>\r\n            		<span class=\"login-register\">{{useName}}</span>\r\n            </div>\r\n            <div class=\"user_tip\" ng-if=\"tip\">\r\n              <img src=\"imgs/lj/user_tip.png\" alt=\"\">\r\n            </div>\r\n        </div>\r\n        <div class=\"userCenter-list\">\r\n        	<ul>\r\n        	<a href=\"#/Nopay\" nav-direction=\"forward\">\r\n        		<li>\r\n        			<img src=\"imgs/lj/account.png\"/>\r\n        			<p class=\"pay\">待付款</p>\r\n        		</li>\r\n        	</a>\r\n        	<a href=\"#/Pay\" nav-direction=\"forward\">\r\n        		<li>\r\n        			<img src=\"imgs/lj/obligation.png\"/>\r\n        			<p class=\"pay\">已付款</p>\r\n        		</li>\r\n        	</a>\r\n        	<a href=\"#/Noevaluate\" nav-direction=\"forward\">\r\n        		<li>\r\n        			<img src=\"imgs/lj/evaluate.png\"/>\r\n        			<p class=\"pay\">待评价</p>\r\n        		</li>\r\n        	</a>\r\n        	<a href=\"#/lose-efficacy\" nav-direction=\"forward\">\r\n        		<li>\r\n        			<img src=\"imgs/lj/Expired.png\"/>\r\n        			<p class=\"pay\">已结束</p>\r\n        		</li>\r\n        	</a>\r\n        	</ul>\r\n        </div>\r\n     <div class=\"userCenter-setting-list\">\r\n        <div class=\"item\">\r\n					<div class=\"center\" ui-sref=\"Consume\" nav-direction=\"forward\">\r\n						<p>\r\n							<img src=\"imgs/lj/runningwater.png\"/>\r\n\r\n						</p>\r\n						<span style=\"margin-left: 10px;font-size: 0.4rem;\">消费流水</span>\r\n						<i>\r\n							<img src=\"imgs/lj/arrows.png\" alt=\"\" />\r\n						</i>\r\n					</div>\r\n		</div>\r\n		<div class=\"item\">\r\n					<div class=\"center\" ui-sref=\"beLandlord\" nav-direction=\"forward\">\r\n						<p>\r\n							<img src=\"imgs/lj/join.png\"/>\r\n\r\n						</p>\r\n						<span style=\"margin-left: 10px;font-size: 0.4rem;\">加入我们</span>\r\n						<i>\r\n							<img src=\"imgs/lj/arrows.png\" alt=\"\" />\r\n						</i>\r\n					</div>\r\n		</div>\r\n		<div class=\"item\">\r\n					<div class=\"center\"  nav-direction=\"forward\">\r\n						<p>\r\n							<img src=\"imgs/lj/about.png\"/>\r\n\r\n						</p>\r\n						<span style=\"margin-left: 10px;font-size: 0.4rem;\">关于</span>\r\n						<i>\r\n							<img src=\"imgs/lj/arrows.png\" alt=\"\" />\r\n						</i>\r\n					</div>\r\n				</div>\r\n				</a>\r\n     </div>\r\n		</div>\r\n	</div>\r\n	</div>\r\n	</ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/tabs/tabs.html","<ion-tabs class=\"tabs-icon-top tabs-color-active-calm\">\n    <ion-tab title=\"首页\" icon-off=\"bar_home_off\" icon-on=\"bar_home_on\" ui-sref=\"tab.home\">\n        <ion-nav-view name=\"tab-home\"></ion-nav-view>\n    </ion-tab>\n    <ion-tab title=\"发现\" icon-off=\" bar_discover_off\" icon-on=\"bar_discover_on\" href=\"#/tab/discover\">\n        <ion-nav-view name=\"tab-discover\"></ion-nav-view>\n    </ion-tab>\n    <ion-tab   ui-sref=\'tab.ctrl\' >\n        <ion-nav-view name=\"tab-ctrl\"></ion-nav-view>\n    </ion-tab>\n    <ion-tab title=\"购物车\" icon-off=\"bar_shopCar_off\" icon-on=\"bar_shopCar_on\" href=\"#/tab/shopCar\">\n        <ion-nav-view name=\"tab-shopCar\"></ion-nav-view>\n    </ion-tab>\n    <ion-tab title=\"我的\" icon-off=\"bar_userCenter_off\" icon-on=\"bar_userCenter_on\" href=\"#/tab/userCenter\">\n        <ion-nav-view name=\"tab-userCenter\"></ion-nav-view>\n    </ion-tab>\n</ion-tabs>\n <div class=\"ctrl\" ui-sref=\"tab.ctrl\" ctrl-btn></div>\n");
+$templateCache.put("templates/userCenter/userCenter.html","<ion-view hide-nav-bar=\'true\' >\r\n   <ion-content style=\"height:100%\">\r\n     <div class=\"userCenter-back\">\r\n        <div class=\"userCenter_header\">\r\n            <p></p>\r\n        	<div ng-click=\'headimg();\'>\r\n        		<img ng-src={{imghead}} id=\"logo\" ng-show=\'imghead\'/>\r\n            		<span class=\"login-register\">{{useName}}</span>\r\n            </div>\r\n            <div class=\"user_tip\" ng-if=\"tip\">\r\n              <img src=\"imgs/lj/user_tip.png\" alt=\"\">\r\n            </div>\r\n        </div>\r\n        <div class=\"userCenter-list\">\r\n        	<ul>\r\n        	<a href=\"#/Nopay\" nav-direction=\"forward\">\r\n        		<li>\r\n        			<img src=\"imgs/lj/account.png\"/>\r\n        			<p class=\"pay\">待付款</p>\r\n        		</li>\r\n        	</a>\r\n        	<a href=\"#/Pay\" nav-direction=\"forward\">\r\n        		<li>\r\n        			<img src=\"imgs/lj/obligation.png\"/>\r\n        			<p class=\"pay\">已付款</p>\r\n        		</li>\r\n        	</a>\r\n        	<a href=\"#/Noevaluate\" nav-direction=\"forward\">\r\n        		<li>\r\n        			<img src=\"imgs/lj/evaluate.png\"/>\r\n        			<p class=\"pay\">待评价</p>\r\n        		</li>\r\n        	</a>\r\n        	<a href=\"#/lose-efficacy\" nav-direction=\"forward\">\r\n        		<li>\r\n        			<img src=\"imgs/lj/Expired.png\"/>\r\n        			<p class=\"pay\">已结束</p>\r\n        		</li>\r\n        	</a>\r\n        	</ul>\r\n        </div>\r\n     <div class=\"userCenter-setting-list\">\r\n        <div class=\"item\">\r\n					<div class=\"center\" ui-sref=\"Consume\" nav-direction=\"forward\">\r\n						<p>\r\n							<img src=\"imgs/lj/runningwater.png\"/>\r\n\r\n						</p>\r\n						<span style=\"margin-left: 10px;font-size: 0.4rem;\">消费流水</span>\r\n						<i>\r\n							<img src=\"imgs/lj/arrows.png\" alt=\"\" />\r\n						</i>\r\n					</div>\r\n		</div>\r\n		<div class=\"item\">\r\n					<div class=\"center\" ui-sref=\"beLandlord\" nav-direction=\"forward\">\r\n						<p>\r\n							<img src=\"imgs/lj/join.png\"/>\r\n\r\n						</p>\r\n						<span style=\"margin-left: 10px;font-size: 0.4rem;\">加入我们</span>\r\n						<i>\r\n							<img src=\"imgs/lj/arrows.png\" alt=\"\" />\r\n						</i>\r\n					</div>\r\n		</div>\r\n		<div class=\"item\">\r\n					<div class=\"center\"  nav-direction=\"forward\">\r\n						<p>\r\n							<img src=\"imgs/lj/about.png\"/>\r\n\r\n						</p>\r\n						<span style=\"margin-left: 10px;font-size: 0.4rem;\">关于</span>\r\n						<i>\r\n							<img src=\"imgs/lj/arrows.png\" alt=\"\" />\r\n						</i>\r\n					</div>\r\n				</div>\r\n				</a>\r\n     </div>\r\n		</div>\r\n	</div>\r\n	</div>\r\n	</ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/ctrl/CheckIn/checkIn.html","<ion-view hide-nav-bar=\'true\'>\n	<ion-content has-subheader=\"false\" overflow-scroll=\"true\" style=\"overflow: hidden\">\n		<div class=\"my_checkIn_wrap\">\n\n			<div class=\"checkIn_cont\">\n				<div class=\"checkIn_cont_add\">\n					<div class=\"checkIn-back\" native-ui-sref=\'tab.ctrl\' native-options=\"{type: \'slide\', direction:\'right\'}\">\n						<img src=\"imgs/lj/back.png\" />\n					</div>\n\n					<p ng-click=\'goClean();\' silde-animation><img src=\"imgs/kwn/checkIn/more1.png\" alt=\"\"></p>\n				</div>\n				<div>\n					<figure ng-repeat=\'figure in figures\' ui-sref=\'{{figure.path}}\'  class=\"home_figure {{figure.name}}\" ng-class=\'{active: $index===activeIndex}\'>\n            <img ng-src=\'imgs/kwn/checkIn/{{figure.name}}.png\' alt=\"\" />\n            <figcaption>{{figure.title}}</figcaption>\n          </figure>\n				</div>\n			</div>\n      <p class=\'slogan\'><img ng-src=\'imgs/kwn/checkIn/slogan.png\' alt=\"\"/></p>\n		</div>\n\n	</ion-content>\n</ion-view>\n");
 $templateCache.put("templates/ctrl/airCondition/airCondition.html","<ion-view title={{title}}>\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" ng-click=\"goback()\"></button>\n  </ion-nav-buttons>\n  <ion-content class=\'transform_scroll\' style=\"overflow: hidden;background:url(imgs/wcj/airCondition/air_bg.png);background-size: 100% 100%;\">\n    <div class=\"slide-pot\">\n      <span class=\"pot\" ng-repeat=\'pot in potArray\' ng-class=\'{active: $index === airState}\'></span>\n    </div>\n    <div style=\"width: 100%; height: 100%; overflow: hidden;\">\n      <div class=\"tvArrays\" on-swipe-right=\"onSwipeRight($event)\" on-swipe-left=\"onSwipeLeft($event)\" style=\"width: {{length}}00%;transform: translateX(-{{perWidth * airState}}%);\">\n        <div class=\"airCondition_wrap\" ng-repeat=\'airCondition in airConditionArrays\' style=\"width: {{perWidth}}%\">\n            <div class=\"air_display\">\n              <div class=\"air_box\">\n                <div class=\"air_display_box\">\n                  <span class=\'air_display_title\'>风速</span>\n                  <div class=\"air_speed\">\n                    <img class=\"{{speed}} speed_img\" ng-src=\"imgs/wcj/airCondition/{{speed}}.png\" alt=\"\" ng-repeat=\'speed in airCondition.speedArray\'>\n                  </div>\n                </div>\n                <div class=\"air_display_box air_box_down\">\n                  <span class=\'air_display_title\'>模式</span>\n                  <div class=\"air_model\">\n                    <img ng-src=\'imgs/wcj/airCondition/cold.png\' alt=\"\"  ng-if=\'airCondition.model === \"制冷\"\'/>\n                    <img ng-src=\'imgs/wcj/airCondition/hot.png\' alt=\"\" ng-if=\'airCondition.model === \"制热\"\'/>\n                    <span>{{airCondition.model}}</span>\n                  </div>\n                </div>\n              </div>\n              <div class=\"air_divide\">\n                <p></p>\n              </div>\n              <div class=\"air_box\">\n                <div class=\"air_display_box\">\n                  <span class=\'air_display_title\'>当前</span>\n                  <div class=\"tem\">20℃</div>\n                </div>\n                <div class=\"air_display_box air_box_down\">\n                  <span class=\'air_display_title\'>设置</span>\n                  <div class=\"tem\">{{airCondition.temp?airCondition.temp+\'℃\':\'\'}}</div>\n                </div>\n              </div>\n            </div>\n            <div class=\"air_round\">\n              <div class=\"middle_round\" ng-click=\'off(airCondition.deviceId)\'>\n                {{airCondition.status === \'OFF\'? \'ON\' : \'OFF\'}}\n              </div>\n              <span class=\"small_round up\"></span>\n              <span class=\"small_round down\"></span>\n              <span class=\"small_round left\"></span>\n              <span class=\"small_round right\"></span>\n            </div>\n            <div class=\"air_btn\">\n              <figure class=\'air_figure\' ng-click=\'tempAdd();\'>\n                <div class=\"air_figure_img\">\n                  <img class=\'btn_tmp\' ng-src=\'imgs/wcj/airCondition/plus.png\' alt=\"\" />\n                </div>\n                <figcaption>温度+</figcaption>\n              </figure>\n              <figure class=\'air_figure\' ng-click=\"tempReduce();\">\n                <div class=\"air_figure_img\">\n                  <img class=\'btn_tmp\' ng-src=\'imgs/wcj/airCondition/minus.png\' alt=\"\" />\n                </div>\n                <figcaption>温度-</figcaption>\n              </figure>\n              <figure class=\'air_figure\' ng-click=\'speedChange()\')}>\n                <div class=\"air_figure_img\">\n                  <img class=\'btn_speed\' ng-src=\'imgs/wcj/airCondition/speed.png\' alt=\"\" />\n                </div>\n                <figcaption>风速</figcaption>\n              </figure>\n              <figure class=\'air_figure\' ng-click=\"changeModel();\">\n                <div class=\"air_figure_img\">\n                  <img class=\'btn_speed\' ng-src=\'imgs/wcj/airCondition/air_model.png\' alt=\"\" />\n                </div>\n                <figcaption>模式</figcaption>\n              </figure>\n            </div>\n          </div>\n        \n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n");
-$templateCache.put("templates/ctrl/colorPicker/colorPicker.html","<ion-view view-title=\'调光\'>\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" ng-click=\"goback()\"></button>\n  </ion-nav-buttons>\n  <ion-content class=\"colorPicker_wrap\" getHeight>\n    <section class=\"rbgbtns\" id=\'rbgbtns\' >\n      <p style=\"background-color:{{color}}\" ng-repeat=\"color in color1 track by $index\" ng-click=\'colorSubmit(color)\'></p>\n    </section>\n    <section class=\"rbgbtns\" id=\'rbgbtns2\' >\n      <p style=\"background-color:{{color}}\" ng-repeat=\"color in color2 track by $index\" ng-click=\'colorSubmit(color)\'></p>\n    </section>\n    <canvas id=\"myCanvas\" canvas>\n         </canvas>\n    <span class=\"pot\" id=\"pot\"></span>\n    <div id=\'dd\'></div>\n\n    <section class=\"buttons\">\n      <a class=\'check\' ng-click=\"changeRgb()\"></a>\n      <div></div>\n      <a class=\"open\" ng-click=\"color()\"></a>\n    </section>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/ctrl/clean/clean.html","<ion-view hide-nav-bar=\'true\'>\r\n    <ion-content class=\"userCenter-back\" overflow-scroll=\"true\" style=\"overflow: hidden\">\r\n    	<div class=\"clean-wrap\">\r\n			<div class=\"clean-bar\">\r\n			    <img ng-src=\"imgs/wcj/home/clean.png\"/>\r\n			</div>\r\n			<div class=\"clean-back\" ng-click=\'goback()\'>\r\n			     <img  src=\"imgs/lj/back.png\"/>\r\n			</div>\r\n  			<div class=\"clean-address\">\r\n  				<p>{{hotelName}}</p>\r\n  				<span>{{houseName}}</span>\r\n  			</div>\r\n  			<div class=\"clean-list\">\r\n  				<ul>\r\n  					<li class=\"clean-sweep\" ng-click=\"goService(\'打扫\')\"><img src=\"imgs/lj/clean.png\"/><i>打扫</i></li>\r\n  					<li class=\"clean-sweep\" ng-click=\"goService(\'维修\')\"><img src=\"imgs/lj/repair.png\"/><i>维修</i></li>\r\n  					<li class=\"clean-sweep\" ng-click=\'leave();\'><img src=\"imgs/lj/house.png\"/><i>退房</i></li>\r\n  				</ul>\r\n  			</div>\r\n		</div>\r\n    </ion-content>\r\n</ion-view>\r\n");
+$templateCache.put("templates/ctrl/colorPicker/colorPicker.html","<ion-view view-title=\'调光\'>\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" ng-click=\"goback()\"></button>\n  </ion-nav-buttons>\n  <ion-content class=\"colorPicker_wrap\" getHeight>\n    <section class=\"rbgbtns\" id=\'rbgbtns\' >\n      <p style=\"background-color:{{color}}\" ng-repeat=\"color in color1 track by $index\" ng-click=\'colorSubmit(color)\'></p>\n    </section>\n    <section class=\"rbgbtns\" id=\'rbgbtns2\' >\n      <p style=\"background-color:{{color}}\" ng-repeat=\"color in color2 track by $index\" ng-click=\'colorSubmit(color)\'></p>\n    </section>\n    <canvas id=\"myCanvas\" canvas>\n         </canvas>\n    <span class=\"pot\" id=\"pot\"></span>\n    <div id=\'dd\'></div>\n\n    <section class=\"buttons\">\n      <a class=\'check\' ng-click=\"changeRgb()\"></a>\n      <div></div>\n      <a class=\"open\" ng-click=\"color()\"></a>\n    </section>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/ctrl/ctrlDetail/ctrlDetail.html","<ion-view hide-nav-bar=\'true\'>\r\n	<ion-content has-subheader=\"false\">\r\n		<div class=\"my_orderform_wrap\">\r\n			<div class=\"header\">\r\n				<span><i class=\"close\" native-ui-sref=\'myHouse\' native-options=\"{type: \'slide\', direction:\'right\'}\"></i></span>\r\n				<div class=\"select_btn\">\r\n					<span ng-click=\"select=true\" ng-class=\"{selectBtn:select}\">待入住</span>\r\n					<span ng-click=\"select=false\" ng-class=\"{selectBtn:!select}\">已入住</span>\r\n				</div>\r\n			</div>\r\n			<div >\r\n\r\n			  <div class=\"normal\">\r\n    			<h2>杭州马克菠萝假日酒店<i></i></h2>\r\n    			<div class=\"normal_house\" ui-sref=\'orderFormDetail\'>\r\n    				<div class=\"list item_avatar\">\r\n    					<a class=\"item\">\r\n    						<img src=\"imgs/wcj/home/slide_1.png\" alt=\"\">\r\n    						<div>\r\n    							 <p>杭州市西湖区平海路38号</p>\r\n    							<p>商务标准房&nbsp;203</p>\r\n\r\n                                <p>入住时间:2015.08.18-2015.9.04</p>\r\n    						</div>\r\n    					</a>\r\n    					<span></span>\r\n    				</div>\r\n    			</div>\r\n    		</div>\r\n			</div>\r\n			<div class=\"buttons\">\r\n			<button class=\"button button-full button-calm\">入住</button>\r\n			<button class=\"button button-full \" style=\"background-color: #dfdfdf;color:#fff\">取消订房</button>\r\n			</div>\r\n		</div>\r\n	</ion-content>\r\n</ion-view>\r\n");
-$templateCache.put("templates/ctrl/curtain/curtain.html","<ion-view title={{title}}>\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" ng-click=\"goback()\"></button>\n  </ion-nav-buttons>\n  <ion-content class=\'transform_scroll curtain_bg\' style=\"overflow-x: hidden; overflow-y:visible;\">\n    <div class=\"slide-pot\">\n      <span class=\"pot pot_curtain\" ng-repeat=\'pot in potArray\' ng-class=\'{active: $index === tvState}\'></span>\n    </div>\n    <div class=\"tvArrays\" on-swipe-right=\"onSwipeRight()\" on-swipe-left=\"onSwipeLeft()\" style=\"width: {{length}}00%;transform: translateX(-{{perWidth * tvState}}%);\">\n      <div class=\"curtain_wrap\" ng-repeat=\'curtains in curtainArrays\' style=\"width: {{perWidth}}%\">\n          <div ng-repeat=\'curtain in curtains\'>\n            <p class=\"curtain_name\">{{curtain.name}}</p>\n            <div class=\"curtain_group\">\n              <p ng-repeat=\'btn in curtainBtns\' \n              class=\"curtain_btn\" \n              ng-click=\'curtainCtrl(btn.type, curtain,$index)\'\n              ng-class=\'{active: curtain.chuanglianActiveIndex == $index}\'>{{btn.title}}</p>\n            </div>\n            <div class=\'inputRange\' on-release=\'onRelease($event,curtain.brightness, curtain.wayId)\'>\n              <input type=\"range\"  min=\"0\" max=\"100\" ng-model=\"curtain.brightness\" style=\"background:linear-gradient(to right, #6095f0, white {{curtain.brightness}}%, white)\"/>\n            </div>\n          </div>\n        </div>\n    \n    </div>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/ctrl/inHouse/inHouse.html","<ion-view view-title=\'入住\'>\r\n     <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.ctrl\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n	<ion-content has-subheader=\"false\">\r\n	   <div class=\"inHouse_wrap\">\r\n              <div class=\"order\" >\r\n               <div class=\'hotel\' >\r\n                <p><span>{{hotelName}}</span><span>订单号:{{orderCode}}</span></p>\r\n\r\n                <div class=\"item-three\" >\r\n                    <img ng-src=\'{{house.picture}}\' />\r\n                    <ul>\r\n                        <li class=\"OrderNum\">{{house.houseName}}</li>\r\n                        <li class=\"Time\">{{house.inTimes}}<span class=\"Day\">共{{house.days}}晚</span></li>\r\n                        <li class=\"money\">¥{{house.totalFee}}</li>\r\n                    </ul>\r\n                </div>\r\n               </div>\r\n            </div>\r\n            <div class=\"buttons\" >\r\n            <button class=\"button button-full button-calm\"  ng-click=\'inHome();\'>入住</button>\r\n            <button class=\"button button-full \" style=\"background-color: #dfdfdf;color:#fff\" ng-click=\'cancleSubOrder();\'>取消订房</button>\r\n            </div>\r\n            </div>\r\n	</ion-content>\r\n</ion-view>\r\n");
+$templateCache.put("templates/ctrl/curtain/curtain.html","<ion-view title={{title}}>\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" ng-click=\"goback()\"></button>\n  </ion-nav-buttons>\n  <ion-content class=\'transform_scroll curtain_bg\' style=\"overflow-x: hidden; overflow-y:visible;\">\n    <div class=\"slide-pot\">\n      <span class=\"pot pot_curtain\" ng-repeat=\'pot in potArray\' ng-class=\'{active: $index === tvState}\'></span>\n    </div>\n    <div class=\"tvArrays\" on-swipe-right=\"onSwipeRight()\" on-swipe-left=\"onSwipeLeft()\" style=\"width: {{length}}00%;transform: translateX(-{{perWidth * tvState}}%);\">\n      <div class=\"curtain_wrap\" ng-repeat=\'curtains in curtainArrays\' style=\"width: {{perWidth}}%\">\n          <div ng-repeat=\'curtain in curtains\'>\n            <p class=\"curtain_name\">{{curtain.name}}</p>\n            <div class=\"curtain_group\">\n              <p ng-repeat=\'btn in curtainBtns\' \n              class=\"curtain_btn\" \n              ng-click=\'curtainCtrl(btn.type, curtain,$index)\'\n              ng-class=\'{active: curtain.chuanglianActiveIndex == $index}\'>{{btn.title}}</p>\n            </div>\n            <div class=\'inputRange\' on-release=\'onRelease($event,curtain.brightness, curtain.wayId)\'>\n              <input type=\"range\"  min=\"0\" max=\"100\" ng-model=\"curtain.brightness\" style=\"background:linear-gradient(to right, #6095f0, white {{curtain.brightness}}%, white)\"/>\n            </div>\n          </div>\n        </div>\n    \n    </div>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/ctrl/light/light.html","<ion-view title=\"灯\">\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" ng-click=\"goback()\"></button>\n  </ion-nav-buttons>\n  <ion-content overflow-scroll=\"true\" style=\"overflow: hidden\">\n    <div class=\"light_wrap\">\n      <div class=\'light_bg\'>\n        <div class=\"round\">\n          <div class=\"large_round\" on-touch=\'onTouch($event)\' on-drag=\'touchstart($event)\' style=\"transform:rotateZ({{-large_round_rotate}}deg)\">\n            <div class=\'round_wrap\' ng-repeat=\"light in lights\" style=\"transform:rotateZ({{light.rotate}}deg)\">\n              <div class=\'lights light_{{light.status}} {{light.name.replace(type_light, \"\")}}_{{light.status}}\' \n              style=\"transform:rotateZ({{large_round_rotate-light.rotate}}deg)\"\n              ng-click=\'lightCtrl(light)\'>\n                <div class=\"light_img\"></div>\n                <p>{{light.name.replace(type_light, \'\')}}</p>\n              </div>\n            </div>\n          </div>\n          <div class=\"middle_round\" style=\'transform:rotateZ({{middle_round_rotate}})\'>\n            <p class=\'class_title\'  \n            ng-repeat=\'tab in tab_navs\' \n            style=\'transform:rotateZ({{- $index * 30 + 30}}deg)\'\n            ng-class=\'{class_title_active: $index == modleIndex}\'\n            ng-click=\'typeClick($index, tab)\'>\n              {{tab}}\n            </p>\n          </div>\n          <img class=\"small_round\" ng-src=\'imgs/wcj/light/small_round.png\' alt=\'\' /> \n        </div>\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/ctrl/lock/lock.html","<ion-view title=\"门卡\">\n  <ion-nav-buttons side=\"left\" get-height>\n    <button class=\"button button-clear ajk_back\" ng-click=\"goback()\"></button>\n  </ion-nav-buttons>\n  <ion-content style=\"top:0!important\" overflow-scroll=\"true\" style=\"overflow: hidden\">\n    <div class=\'roomCard_bg\'> \n        <div class=\'round_bg\'> \n          <div class=\'figure figure_{{arry.name}}\' ng-repeat=\'arry in arrys\' ng-click=\'lockCtrl(arry.name, $index)\' ng-class=\'{active: $index===activeIndex}\'>\n              <div>\n                  <img ng-src=\'imgs/wcj/lock/{{arry.name}}.png\' alt=\"\" ng-if=\'$index!==activeIndex\' />  \n                  <img ng-src=\'imgs/wcj/lock/{{arry.name}}_active.png\' ng-if=\'$index===activeIndex\'  alt=\"\"/>       \n              </div>\n              <p class=\'selectTitle\'>{{arry.title}}</p>\n          </div>    \n          <div class=\'center\'>\n            <p class=\'center_name\'>{{name}}</p>\n            <p class=\'center_num\'>{{num}}</p>\n          </div>\n          <img src=\'imgs/wcj/lock/pots.png\' class=\'pots_top\' alt=\"\"/>\n\n        </div>\n      </div>\n</ion-content>\n</ion-view>\n");
 $templateCache.put("templates/ctrl/model/model.html","<ion-view title=\"情景模式\">\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" ng-click=\"goback()\"></button>\n  </ion-nav-buttons>\n  <ion-content>\n    <div class=\"model_wrap\">\n      <div class=\'models_bg\'>\n        <div class=\'model_item\'>\n          <figure class=\'figure\' ng-click=\"modelCtrl(model.sceneId,$index)\" ng-repeat=\"model in modelArray\">\n            <div class=\"model_img {{model.name.replace(\'情景\', \'\')}}\" ng-class=\'{active:$index==activeIndex}\'>\n              <div></div>\n            </div>\n            <figcaption class=\'figcaption\'>\n              {{model.name.replace(\'情景\', \'\')}}\n            </figcaption>\n          </figure>\n        </div>\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n");
@@ -10357,14 +10356,14 @@ $templateCache.put("templates/ctrl/sweepTime/sweepTime.html","<ion-view title=\'
 $templateCache.put("templates/ctrl/tv/tv.html","<ion-view title={{title}}>\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" ng-click=\"goback()\"></button>\n  </ion-nav-buttons>\n  <ion-content class=\'transform_scroll\' style=\"overflow-x: hidden; overflow-y:visible;background: url(\'imgs/wcj/newTv/tv_bg.png\');background-size: 100% 100%\">\n    <div class=\"slide-pot\">\n      <span class=\"pot\" ng-repeat=\'pot in potArray\' ng-class=\'{active: $index === tvState}\'></span>\n    </div>\n    <div class=\"tvArrays\" on-swipe-right=\"onSwipeRight()\" on-swipe-left=\"onSwipeLeft()\" style=\"width: {{length}}00%; transform: translateX(-{{perWidth * tvState}}%);\">\n      <div class=\"futrue_wrap\" ng-repeat=\'tv in tvArrays\' style=\"width: {{perWidth}}%\">\n        <div class=\"tvBox\">\n          <p class=\"tv_switch tv_btn\" ng-click=\'tvon(tv, tv.tv_status, $index)\' ng-class=\"{active:tv.tv_status === \'ON\'}\"></p>\n          <p class=\"tv_btn tv_v_plus\" ng-click=\'tvAdd(tv)\'></p>\n          <p class=\"tv_btn tv_v_minus\" ng-click=\'tvMunis(tv)\'></p>\n        </div>\n        <div class=\"tvBox\">\n          <p class=\"tv_switch tv_btn\" ng-click=\'tvBoxOn(tv)\' ng-class=\"{active:tvboxswitch}\"></p>\n          <p class=\"tv_btn tv_mute\" ng-click=\'tvBoxMute(tv)\'></p>\n          <p class=\"tv_btn tv_return\" ng-click=\'tvBoxReturn(tv)\'></p>\n        </div>\n        <div class=\"dir_control\">\n          <div class=\"channel_voice\">\n            <span class=\"arr_up round\" ng-click=\"tvBoxUp(tv)\"></span>\n            <span class=\"arr_title\">频道</span>\n            <span class=\"arr_down round\" ng-click=\"tvBoxDown(tv)\"></span>\n          </div>\n          <div class=\"arr_round\">\n            <span class=\"round_up round\" ng-click=\"tvBoxUp(tv)\">\n            </span>\n            <span class=\"round_down round\" ng-click=\"tvBoxDown(tv)\"></span>\n            <span class=\"round_left round\" ng-click=\"tvBoxLeft(tv)\"></span>\n            <span class=\"round_right round\" ng-click=\"tvBoxRight(tv)\"></span>\n            <div class=\"arr_center\">\n              <div class=\"arr_ok\" ng-click=\"tvBoxOk(tv)\"}>\n                ok\n              </div>\n            </div>\n          </div>\n          <div class=\"channel_voice\">\n            <span class=\"arr_up round\" ng-click=\"tvBoxVol_P(tv)\"></span>\n            <span class=\"arr_title\">音量</span>\n            <span class=\"arr_down round\" ng-click=\"tvBoxVol_M(tv)\"></span>\n          </div>\n        </div>\n        <div class=\"review_tv\">\n          <p class=\"review_btn\" ng-click=\"tvBoxStop(tv)\">点播</p>\n          <p class=\"review_btn\" ng-click=\"tvBoxPlay(tv)\">回看</p>\n        </div>\n        <div class=\"tv_num\" ng-click=\'tvBoxNum($event, tv)\'>\n          <div class=\"num_item\">\n            <span class=\"num\" data-key=\'1\'>1</span>\n            <span class=\"num\" data-key=\'2\'>2</span>\n            <span class=\"num\" data-key=\'3\'>3</span>\n          </div>\n          <div class=\"num_item\">\n            <span class=\"num\" data-key=\'4\'>4</span>\n            <span class=\"num\" data-key=\'5\'>5</span>\n            <span class=\"num\" data-key=\'6\'>6</span>\n          </div>\n          <div class=\"num_item\">\n            <span class=\"num\" data-key=\'7\'>7</span>\n            <span class=\"num\" data-key=\'8\'>8</span>\n            <span class=\"num\" data-key=\'9\'>9</span>\n          </div>\n          <div class=\"num_item_last\">\n            <span class=\"num\" data-key=\'0\'>0</span>\n          </div>\n        </div>\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/directive/date/date.html","<div class=\"directive_date\">\r\n	<h2>2016年11月</h2>\r\n	<div class=\"date\">\r\n		<div class=\"weeks\">\r\n			<span>周日</span>\r\n			<span>周一</span>\r\n			<span>周二</span>\r\n			<span>周三</span>\r\n			<span>周四</span>\r\n			<span>周五</span>\r\n			<span>周六</span>\r\n		</div>\r\n	</div>\r\n</div>");
 $templateCache.put("templates/home/comment/comment.html","<ion-view title=\"全部点评\">\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" ng-click=\"goHouseDtail()\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content>\r\n        <div class=\"comment_wrap\">\r\n            <div class=\"comment_all\">\r\n                <h2>酒店总评</h2>\r\n                <div class=\"stars\">\r\n                    <span class=\"star_full\" ng-repeat=\'star in star_full track by $index\'></span>\r\n\r\n                    <span class=\"star_blank\" ng-repeat=\'star in star_blank track by $index\'></span>\r\n                </div>\r\n                <span class=\"point\">{{stars}}分</span>\r\n            </div>\r\n            <div class=\"list card comment\" ng-repeat=\'customer in customers track by $index\'>\r\n                <div class=\"item item-avatar\">\r\n                    <img ng-src=\"{{customer.headPicture}}\">\r\n                    <h2>{{customer.customer}}<span class=\"point\">{{customer.stars}}分</span><span class=\"mask\"></span></h2>\r\n                </div>\r\n                <p class=\"all\">\r\n                    {{customer.content}}\r\n                </p>\r\n                <p class=\"about\">\r\n                    <span  class=\"subdued\">{{customer.gmtCreate}}</span>\r\n                </p>\r\n            </div>\r\n\r\n        </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
-$templateCache.put("templates/home/futrue/futrue.html","<ion-view title=\'敬请期待\'>\n  <ion-nav-buttons side=\"left\">\n      <button class=\"button button-clear ajk_back\" ui-sref=\'tab.home\'></button>\n  </ion-nav-buttons>\n  <ion-content>\n    <div id=\"container\"></div>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/home/get_city/get_city.html","<ion-view view-title=\"定位城市\">\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.home\" native-options=\"{type: \'slide\', direction:\'down\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content overflow-scroll=\"true\" >\r\n    <div class=\"getCity_wrap\">\r\n    	<div class=\"find_cityback\">\r\n    		<div class=\"find_city\">\r\n\r\n	                <i class=\"icon\"></i>\r\n	                <input type=\"text\" ng-model=\'search.text\' placeholder=\"城市/行政区/拼音\" ng-blur=\'searchGo()\'>\r\n	        </div>\r\n    	</div>\r\n         <div class=\"getCity_left\">\r\n    		<div class=\"getCity_cont\">\r\n	        	<div class=\"current_loc\" id=\"state_0\">\r\n	        	    <h2>当前位置</h2>\r\n	        		<button class=\"button\" ng-click=\"cityChoose(nowCity)\" ui-sref=\"tab.home\">{{nowCity}}</button>\r\n	        	</div>\r\n	        	<div class=\"lately_city current_loc\" id=\"state_1\">\r\n	        		<h2>最近访问过城市</h2>\r\n	        		<button class=\"button\" ng-repeat=\"visitedCity in visitedCity track by $index\" ng-click=\"cityChoose(visitedCity)\" ui-sref=\"tab.home\">{{visitedCity}}</button>\r\n	        	</div>\r\n	        	<div class=\"hot_city current_loc\" id=\"state_2\">\r\n	        		<h2>热门城市</h2>\r\n	        		<button class=\"button \" ng-repeat=\"hotCity in hotCity track by $index\" ng-click=\"cityChoose(hotCity)\" ui-sref=\"tab.home\">{{hotCity}}</button>\r\n	        	</div>\r\n	      </div>\r\n	        <div class=\"list cities\" ng-repeat=\"allcityArr in allcityArr track by $index\">\r\n			  <div class=\"item initial\" id=\"city_{{allcityArr.letter.toUpperCase()}}\">{{allcityArr.letter.toUpperCase()}}</div>\r\n			  <p class=\"city\" href=\"javascript:;\" ng-repeat=\"city in allcityArr.data track by $index\" ng-click=\"cityChoose(city)\" ui-sref=\"tab.home\">{{city}}</p>\r\n			</div>\r\n    	</div>\r\n\r\n    </div>\r\n    </ion-content>\r\n    <div class=\"letter_list\">\r\n      <h2>\r\n        <p ng-repeat=\"now in now track by $index\" ng-click=\"nowTouch($index)\">{{now}}</p>\r\n      </h2>\r\n      <p ng-repeat=\"letter in letters track by $index\" ng-touchmove=\"mTouch(letter)\" ng-click=\"mTouch(letter)\">{{letter}}</p>\r\n    </div>\r\n     <div style=\"position:fixed;left:47%;top:47%;width:40px;height:40px;background:#ddd;display:flex;justify-content:center;align-items:center;font-size:20px;color:#262626;\" ng-show=\"showMiddle\">\r\n        {{hint}}\r\n    </div>\r\n    <div id=\"mysubway\" style=\"display:none;\"></div>\r\n</ion-view>\r\n");
+$templateCache.put("templates/home/futrue/futrue.html","<ion-view title=\'敬请期待\'>\n  <ion-nav-buttons side=\"left\">\n      <button class=\"button button-clear ajk_back\" ui-sref=\'tab.home\'></button>\n  </ion-nav-buttons>\n  <ion-content>\n    <div id=\"container\"></div>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/home/hotel_detail/hotel_detail.html","<ion-view title=\"酒店详情\">\r\n	 <ion-nav-buttons side=\"left\">\r\n            <button class=\"button button-clear ajk_back\" ng-click=\'back()\'></button>\r\n    </ion-nav-buttons>\r\n    <ion-content>\r\n    	<div class=\"hotelDetail_wrap\">\r\n    		<div class=\"hotel_introduce\">\r\n    			<h2>酒店简介</h2>\r\n    			<div class=\"hotel_mess\">\r\n    				<p>\r\n    					<span>房间数量(间):{{roomnum}}间房</span>\r\n    					<span>联系方式:{{num}}</span>\r\n    				</p>\r\n    				<button class=\"button button-calm\" ng-click=\'call()\'><i class=\"icon call\"></i>联系酒店</button>\r\n    			</div>\r\n    			<p>\r\n    				{{profiles}}\r\n    			</p>\r\n    		</div>\r\n\r\n    	</div>\r\n    </ion-content>\r\n</ion-view>\r\n");
-$templateCache.put("templates/home/hotel_pics/hotel_pics.html","<ion-view title=\"酒店图片\">\r\n    <ion-nav-buttons side=\"left\">\r\n\r\n            <button class=\"button button-clear ajk_back\" ng-click=\'back()\'></button>\r\n\r\n    </ion-nav-buttons>\r\n    <ion-content>\r\n        <div class=\"hotel_pics_wrap\">\r\n\r\n\r\n            <div class=\"hotel_pics\">\r\n                <div class=\"pic_items\">\r\n                    <div class=\"pic_item\" ng-repeat=\'hotelPic in hotelPics track by $index\' ng-class=\'{active:indexi==$index}\' ng-click=\'changeColor($index,hotelPic.all)\'><p>{{hotelPic.imgsrcs}}<span>({{hotelPic.all.length}})</span></p></div>\r\n                </div>\r\n\r\n                <div class=\"pics\">\r\n                    <div class=\"picshow\" >\r\n                        <img ng-repeat=\"imgsrc in allImgs track by $index\" ng-click=\"ngshowif($index)\" ng-src=\"{{imgsrc}}\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/home/hotelService/hotelService.html","<ion-view title=\"酒店设施\">\n    <ion-nav-buttons side=\"left\">\n        <button class=\"button button-clear ajk_back\" ng-click=\"back()\"></button>\n    </ion-nav-buttons>\n    <ion-content>\n      <div class=\"hotelDetail_wrap\">\n    		<div class=\"title\"><h2>酒店设施</h2></div>\n    		<div class=\"devices\">\n    			<h2 >智能设施</h2>\n    			<div flex=\"main:left\">\n    				<p flex=\"dir:top cross:center\" ng-repeat=\'assort in assorts track by $index\'><i><img ng-src={{assort.img}} alt=\"\"></i>{{assort.name}}</p>\n    			</div>\n\n    		</div>\n    		<div class=\"devices common_devices\">\n    			<h2 >通用设施</h2>\n    			<div flex=\"main:left\">\n    				<p flex=\"dir:top cross:center\" ng-repeat=\'service in services track by $index\'><i flex=\"main:center cross:center\"><img ng-src={{service.img}} alt=\"\"></i>{{service.name}}</p>\n    			</div>\n    		</div>\n    	</div>\n    </ion-content>\n  </ion-view>\n");
+$templateCache.put("templates/home/hotel_pics/hotel_pics.html","<ion-view title=\"酒店图片\">\r\n    <ion-nav-buttons side=\"left\">\r\n\r\n            <button class=\"button button-clear ajk_back\" ng-click=\'back()\'></button>\r\n\r\n    </ion-nav-buttons>\r\n    <ion-content>\r\n        <div class=\"hotel_pics_wrap\">\r\n\r\n\r\n            <div class=\"hotel_pics\">\r\n                <div class=\"pic_items\">\r\n                    <div class=\"pic_item\" ng-repeat=\'hotelPic in hotelPics track by $index\' ng-class=\'{active:indexi==$index}\' ng-click=\'changeColor($index,hotelPic.all)\'><p>{{hotelPic.imgsrcs}}<span>({{hotelPic.all.length}})</span></p></div>\r\n                </div>\r\n\r\n                <div class=\"pics\">\r\n                    <div class=\"picshow\" >\r\n                        <img ng-repeat=\"imgsrc in allImgs track by $index\" ng-click=\"ngshowif($index)\" ng-src=\"{{imgsrc}}\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n        </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/home/house_detail/house_detail.html","<ion-view hide-nav-bar=\'true\'>\r\n <div class=\"change_bars fixed\" ng-show=\'!fixed\' >\r\n            <div class=\"change_bar\" ng-click=\'switchOn()\'>\r\n                <p  ng-class=\"{borderBottom:switch}\">\r\n                    <i class=\"hotel_detail\"></i>酒店详情\r\n                </p>\r\n            </div>\r\n            <div class=\"change_bar\" ng-click=\'switchOff()\'>\r\n                <p ng-class=\"{borderBottom:!switch}\">\r\n                    <i class=\"room_type\"></i>房间类型\r\n                </p>\r\n            </div>\r\n        </div>\r\n    <ion-scroll id=\'scroll\'  class=\'houseIntr_content\'>\r\n     <div class=\"houseDetail_wrap\">\r\n        <div class=\"houseDetail_header\" get-height >\r\n            <img ng-src={{pic}} ng-click = \'gohotelPics();\'>\r\n            <a ng-click=\'goHome()\' class=\"back\"><i></i></a>\r\n            <div class=\"share\">\r\n                <a ng-click=\"collect();\"><i class=\"unlike\" ng-if=\"!whetherCollect\"></i><i class=\"like\" ng-if=\"whetherCollect\"></i></a>\r\n                <a ng-click=\'share();\'><i class=\"navigation\"></i></a>\r\n            </div>\r\n            <span class=\"hotel_name\">\r\n				{{name}}\r\n			</span>\r\n            <p class=\"pics_num\" ng-click = \'gohotelPics();\'>{{picsLength}}张</p>\r\n        </div>\r\n        <div class=\"change_bars\" ng-show=\'fixed\'>\r\n            <div class=\"change_bar\">\r\n                <p ng-click=\'switchOn()\' ng-class=\"{borderBottom:switch}\">\r\n                    <i class=\"hotel_detail\"></i>酒店详情\r\n                </p>\r\n            </div>\r\n            <div class=\"change_bar\">\r\n                <p ng-click=\'switchOff()\' ng-class=\"{borderBottom:!switch}\">\r\n                    <i class=\"room_type\"></i>房间类型\r\n                </p>\r\n            </div>\r\n        </div>\r\n        <div ng-show=\'switch\'  class=\"hotel_detail_wrap\">\r\n          <div class=\"hotel_introduce\">\r\n              <h2 ><p><span class=\"divier\"></span>酒店简介</p><p class=\"see_all\" ng-click=\'seeAll();\'>查看全部></p></h2>\r\n              <p>{{profiles}}\r\n              </p>\r\n              <div></div>\r\n          </div>\r\n            <div class=\"hotel_devices\">\r\n                <h2><p><span class=\"divier\"></span>酒店设施</p></h2>\r\n                <div>\r\n                  <div>\r\n                    <div class=\"hotel_device\" ng-repeat=\'assort in assorts track by $index\'>\r\n                        <div class=\"img\">\r\n                            <img ng-src=\"{{assort.src}}\" alt=\"\">\r\n                        </div>\r\n                        <p>{{assort.name}}</p>\r\n                    </div>\r\n                    </div>\r\n                    <div class=\"more\">\r\n                      <div class=\"hotel_device\" ng-click=\'seeAllService();\'>\r\n                          <div class=\"img\" >\r\n                              <img ng-src=\"imgs/wcj/house_detail/more.png\" alt=\"\">\r\n                          </div>\r\n                          <p>更多</p>\r\n                      </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"map\" ng-click=\"goMap()\">\r\n                <div class=\"house_map\" id=\'map\'></div>\r\n                <p class=\"map_loc\"><i></i>{{address}}</p>\r\n            </div>\r\n            <div class=\"comment\" ng-click=\'goHotelFeedback();\' ng-if=\"comment_if\">\r\n                <div class=\"comment_div\" >\r\n                    <p class=\"comment_star\">\r\n                        <span class=\"divier\"></span>评价&nbsp;&nbsp;&nbsp;\r\n                        <i class=\"start_full\" ng-repeat=\"star in stars track by $index\"></i>\r\n                        <i class=\"start_blank\" ng-repeat=\"star in star_blank track by $index\"></i>\r\n                    </p>\r\n                    <p class=\"comment_num\" >查看{{feedbackCount}}条点评<i class=\"left\"></i></p>\r\n                </div>\r\n                <div class=\"comment_atavter\" >\r\n                  <div class=\"atavter\" >\r\n                    <img ng-src=\"{{comment_first.headPicture||\'imgs/wcj/imghead.png\'}}\">\r\n                    <div>\r\n                      <p>{{comment_first.customer}}</p>\r\n                    </div>\r\n                  </div>\r\n                    <p class=\"all\">\r\n                        {{comment_first.content}}\r\n                    </p>\r\n                </div>\r\n            </div>\r\n            <div class=\"hotel_rule\">\r\n                <h2><span class=\"divier\"></span>酒店规则</h2>\r\n                <div class=\"deposit\"  style=\"position:relative\">\r\n                    <span class=\"blue_back\">押金</span>\r\n                    <span><strong>{{yajin}}</strong>元</span>\r\n                </div>\r\n                <div class=\"drawback\">\r\n                    <div style=\"position:relative\">\r\n                        <span class=\"blue_back\">退款</span>\r\n                    </div>\r\n                    <p>\r\n                        {{dealRule}}\r\n                    </p>\r\n                    <div class=\"blank\">\r\n\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n        </div>\r\n        <div ng-hide=\'switch\'   class=\"room_type\">\r\n            <div class=\"normal\" ng-repeat=\'room in roomType track by $index\'>\r\n                <h2 >{{room.houseTypex}}</h2>\r\n                <div class=\"list\">\r\n                    <div style=\'background-color:#fff\' class=\"item-two item-two-avater\"  ng-click=\'goHouseIntr(hos.id);\' ng-repeat=\'hos in room.rooms track by $index\'>\r\n                        <img ng-src=\'{{hos.picture}}\'>\r\n                         <ul class=\"room_mess\" >\r\n                        	 	 <li class=\"houseName\">{{hos.name}}</li>\r\n                             <li class=\"money\">¥{{hos.defaultPrice}}</li>\r\n                        	</ul>\r\n                          <p class=\"avater\"><i class=\"icon left_arr\"></i></p>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n            <div class=\"blank\">\r\n\r\n            </div>\r\n            <ion-infinite-scroll ng-if=\"moreDataCanBeLoaded\" on-infinite=\"loadMoreData()\" distance=\"10%\" immediate-check=\'false\'>\r\n            </ion-infinite-scroll>\r\n        </div>\r\n\r\n        </div>\r\n    \r\n    </ion-scroll>\r\n</ion-view>\r\n");
-$templateCache.put("templates/home/house_intr/house_intr.html","<ion-view hide-nav-bar=\'true\'>\r\n      <div class=\"houseIntr_fixed\" id=\'fixedScroll\'>\r\n        <a  class=\"back\" ng-click=\'back();\'><i></i></a>\r\n        <div class=\"share\" ng-click=\'share();\'>\r\n\r\n            <a><i class=\"navigation\"></i></a>\r\n        </div>\r\n      </div>\r\n      <div class=\"houseIntr_fixed default\" id=\'fixedDefault\'>\r\n        <a  class=\"back\" ng-click=\'back();\'><i></i></a>\r\n        <div class=\"share\" ng-click=\'share();\'>\r\n\r\n            <a><i class=\"navigation\"></i></a>\r\n        </div>\r\n      </div>\r\n      <ion-scroll on-scroll=\'swipe()\'  class=\'houseIntr_content\' get-height>\r\n        <div class=\"houseIntr_wrap\">\r\n            <div class=\"top_img\">\r\n                <ion-slide-box class=\'slide\'>\r\n                    <ion-slide ng-repeat=\'img in houseIntr.housePictures track by $index\'>\r\n                        <div class=\"box \"><img ng-src=\"{{img}}\"></div>\r\n                    </ion-slide>\r\n                </ion-slide-box>\r\n                <p>{{houseIntr.name}}</p>\r\n            </div>\r\n            <!-- <div class=\"house_mess\">\r\n                <h2>{{houseIntr.name}}</h2>\r\n                <p class=\"house_num\">房间编号:08080808</p>\r\n                <p>\r\n                    西溪蝶园，欧美风格，西溪湿地附近\r\n                    3室1厅1厨一卫1阳台110 可住6人双人床3张，智能化体验\r\n                     欧式风格，简装风格\r\n                </p>\r\n            </div> -->\r\n            <div class=\"house_detail\">\r\n                <h2>房间详情</h2>\r\n                <div class=\"state\">\r\n                    <span>可租房态</span>\r\n                    <span ng-click=\'selectDate()\'>查看日历</span>\r\n                </div>\r\n                <div class=\"money room\">\r\n                    <span>押金</span>\r\n                    <span>{{defaultPrice1}}</span>\r\n                </div>\r\n                <div class=\"gettime room\">\r\n                    <span>接待时间</span>\r\n                    <span>{{houseIntr.receptionTimeStr}}</span>\r\n                </div>\r\n                <div class=\"intime room\">\r\n                    <span>入住时间</span>\r\n                    <span>{{houseIntr.inTime}}以后</span>\r\n                </div>\r\n                <div class=\"outtime room\">\r\n                    <span>退房时间</span>\r\n                    <span>{{houseIntr.leaveTime}}之前</span>\r\n                </div>\r\n            </div>\r\n            <div class=\"house_devices\" >\r\n                <h2>房间设施</h2>\r\n                <div class=\"devices\">\r\n                    <p ng-repeat=\'assort in assorts track by $index\'><i><img ng-src=\"{{assort[1]}}\"></i>{{assort[0]}}</p>\r\n                </div>\r\n                <p class=\"more\"></p>\r\n            </div>\r\n\r\n        </div>\r\n      </ion-scroll>\r\n\r\n    <button class=\"button button-full button-calm\" style=\"position: fixed;bottom:0;margin-bottom: 0;opacity:0.8\" ng-click=\'joinShopCar();\'>\r\n                <i class=\"icon ion-loading-c\"></i>加入购物车\r\n            </button>\r\n</ion-view>\r\n");
 $templateCache.put("templates/home/map/map.html","<ion-view title=\'酒店地图\'>\n	 <ion-nav-buttons side=\"left\">\n        <button class=\"button button-clear ajk_back\" ng-click=\"back();\"></button>\n    </ion-nav-buttons>\n    <ion-content>\n      <div id=\'container\'></div>\n     <!-- <div id=\"mapContainer\" ></div>-->\n      <div class=\"map-tips\">\n          <div class=\"map-btn places\" ng-click=\"myplace()\">\n            <p><img src=\"imgs/kwn/map/place.png\"></p>\n            <span>我的位置</span>\n          </div>\n        <div class=\"map-btn navigation\" ng-click=\"init()\">\n          <p><img src=\"imgs/kwn/map/navigation.png\"></p>\n          <span>导航</span>\n        </div>\n      </div>\n      <div class=\'center1\'>\n        <div id=\'bt\' class=\"btmtip\" ng-click=\'selectMapApp();\'>点击去地图</div>\n    </div>\n	    </ion-content>\n</ion-view>\n");
+$templateCache.put("templates/home/house_intr/house_intr.html","<ion-view hide-nav-bar=\'true\'>\r\n      <div class=\"houseIntr_fixed\" id=\'fixedScroll\'>\r\n        <a  class=\"back\" ng-click=\'back();\'><i></i></a>\r\n        <div class=\"share\" ng-click=\'share();\'>\r\n\r\n            <a><i class=\"navigation\"></i></a>\r\n        </div>\r\n      </div>\r\n      <div class=\"houseIntr_fixed default\" id=\'fixedDefault\'>\r\n        <a  class=\"back\" ng-click=\'back();\'><i></i></a>\r\n        <div class=\"share\" ng-click=\'share();\'>\r\n\r\n            <a><i class=\"navigation\"></i></a>\r\n        </div>\r\n      </div>\r\n      <ion-scroll on-scroll=\'swipe()\'  class=\'houseIntr_content\' get-height>\r\n        <div class=\"houseIntr_wrap\">\r\n            <div class=\"top_img\">\r\n                <ion-slide-box class=\'slide\'>\r\n                    <ion-slide ng-repeat=\'img in houseIntr.housePictures track by $index\'>\r\n                        <div class=\"box \"><img ng-src=\"{{img}}\"></div>\r\n                    </ion-slide>\r\n                </ion-slide-box>\r\n                <p>{{houseIntr.name}}</p>\r\n            </div>\r\n            <!-- <div class=\"house_mess\">\r\n                <h2>{{houseIntr.name}}</h2>\r\n                <p class=\"house_num\">房间编号:08080808</p>\r\n                <p>\r\n                    西溪蝶园，欧美风格，西溪湿地附近\r\n                    3室1厅1厨一卫1阳台110 可住6人双人床3张，智能化体验\r\n                     欧式风格，简装风格\r\n                </p>\r\n            </div> -->\r\n            <div class=\"house_detail\">\r\n                <h2>房间详情</h2>\r\n                <div class=\"state\">\r\n                    <span>可租房态</span>\r\n                    <span ng-click=\'selectDate()\'>查看日历</span>\r\n                </div>\r\n                <div class=\"money room\">\r\n                    <span>押金</span>\r\n                    <span>{{defaultPrice1}}</span>\r\n                </div>\r\n                <div class=\"gettime room\">\r\n                    <span>接待时间</span>\r\n                    <span>{{houseIntr.receptionTimeStr}}</span>\r\n                </div>\r\n                <div class=\"intime room\">\r\n                    <span>入住时间</span>\r\n                    <span>{{houseIntr.inTime}}以后</span>\r\n                </div>\r\n                <div class=\"outtime room\">\r\n                    <span>退房时间</span>\r\n                    <span>{{houseIntr.leaveTime}}之前</span>\r\n                </div>\r\n            </div>\r\n            <div class=\"house_devices\" >\r\n                <h2>房间设施</h2>\r\n                <div class=\"devices\">\r\n                    <p ng-repeat=\'assort in assorts track by $index\'><i><img ng-src=\"{{assort[1]}}\"></i>{{assort[0]}}</p>\r\n                </div>\r\n                <p class=\"more\"></p>\r\n            </div>\r\n\r\n        </div>\r\n      </ion-scroll>\r\n\r\n    <button class=\"button button-full button-calm\" style=\"position: fixed;bottom:0;margin-bottom: 0;opacity:0.8\" ng-click=\'joinShopCar();\'>\r\n                <i class=\"icon ion-loading-c\"></i>加入购物车\r\n            </button>\r\n</ion-view>\r\n");
 $templateCache.put("templates/home/my_collect/my_collect.html","<ion-view title=\"我的收藏\">\r\n    <ion-nav-buttons side=\"left\">\r\n            <button class=\"button button-clear ajk_back\" ng-click=\'back()\'></button>\r\n    </ion-nav-buttons>\r\n    <ion-content>\r\n        <div class=\"my_collect_wrap\">\r\n            <div class=\"hotel\" ng-repeat=\"collect in collects track by $index\">\r\n                <div class=\"item-three iterm-three-avater\" ui-sref=\"houseDtail({id:collect.hotelId})\">\r\n                            <img ng-src=\"{{collect.hotel.mainPicture}}\">\r\n                            <ul class=\"intr\">\r\n                                <li>{{collect.hotel.name}}</li>\r\n                                <li class=\"loc\"></span>{{collect.hotel.address}}<span></li>\r\n                                <li class=\"money\">¥{{collect.hotel.price}}</li>\r\n                            </ul>\r\n                         <p class=\"avater\"><i class=\"icon left_arr\"></i></p>\r\n                    </a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/home/nearby/nearby.html","<ion-view title=\'{{nowcity}}\'>\n   <ion-nav-buttons side=\"left\">\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\'tab.home\' native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\n    </ion-nav-buttons>\n    <ion-nav-buttons side=\"right\">\n        <button class=\"button button-clear mapbtn\" nav-direction=\'back\' ng-click=\"mapshow()\"></button>\n    </ion-nav-buttons>\n    <div class=\"nearby-nav\" >\n      <!-- <div class=\"nav frist\">12月22日<br/>入住 <i></i></div> -->\n      <div class=\"nav\"  ng-class=\"{\'active\': flag}\" ng-click=\"show()\" >筛选 <i class=\"down_arr\"></i></div>\n      <div class=\"nav\" ng-class=\"{\'active\': sort}\" ng-click=\"sortshow()\">默认排序 <i></i></div>\n      <div class=\"sort\" ng-click=\"rank=!rank\"><span class=\'changeStatus1\' ng-class=\'{verticalStatus:rank}\' ></span></div>\n  </div>\n  <ion-content class=\"userCenter-back\">\n\n    <div class=\"diver\"></div>\n    <div ng-if=\'!rank\'>\n		<div class=\"nearby-list\" ng-repeat=\'hotel in hotels track by $index\' ui-sref=\'houseDtail({id:hotel.id})\'>\n				<div class=\"list\">\n			    	<div class=\"pic\">\n			    		<img ng-src = \'{{hotel.mainPicture}}\'>\n			    	</div>\n			    	<div class=\"desc\">\n			    		<h2>{{hotel.name}}</h2>\n			      	<p><span class=\"place\"><i class=\"icon\"></i>{{hotel.address}}</span></p>\n              <p class=\"money\"><em>¥</em>{{hotel.price}}<b>起</b></p>\n			    	</div>\n			</div>\n    </div>\n		</div>\n    <div ng-if=\'rank\' class=\"vertical\">\n		<div class=\"ajklist_vertical\" ng-repeat=\'hotel in hotels track by $index\' ui-sref=\'houseDtail({id:hotel.id})\'>\n				<div class=\"list\">\n			    	<div class=\"pic\">\n			    		<img ng-src = \'{{hotel.mainPicture}}\'>\n			    	</div>\n			    	<div class=\"intr\">\n			    		<h2>{{hotel.name}}</h2>\n			      	<p class=\"loc\"><span><i class=\"icon\"></i>{{hotel.address}}</span></p>\n              <p class=\"price\"><span>¥</span>{{hotel.price}}<span>起</span></p>\n			    	</div>\n			</div>\n    </div>\n		</div>\n		<div class=\"nearby-filtrate\" ng-show=\"flag\" ng-class =\'{slideDown:flag}\'>\n				<div class=\"filtrate\">\n					<div class=\"filtrate-list\">\n						<ul class=\"ban\">\n							<li ng-repeat=\"screenlist in screenlist track by $index\" ng-class=\"{checkback:$index==i}\" ng-click=\"screenlistClass($index)\"><i ng-class=\"{checked:$index==i}\">·</i>{{screenlist}}</li>\n						</ul>\n						<div class=\"filtrate-list-r\">\n							<!--附近-->\n							<ul class=\"price\" ng-show=\"neighbour\">\n								<li ng-class=\"{show:$index==j}\" ng-repeat=\"neighbouringlist in neighbouringlist track by $index\" ng-click=\"neighbouringClass($index,neighbouringlist)\"><span>{{neighbouringlist}}</span><i></i></li>\n							</ul>\n							<!--商圈-->\n							<ul class=\"price\" ng-hide=\"business\">\n								<li ng-repeat=\"businessArr in businessArr track by $index\" ng-class=\"{show:$index==k}\" ng-click=\"businessClass($index,businessArr)\"><span>{{businessArr}}</span><i></i></li>\n							</ul>\n							<!--价格-->\n							<ul class=\"price\" ng-hide=\"price\">\n								<li ng-repeat=\"pricelist in pricelist track by $index\" ng-class=\"{show:$index==j}\" ng-click=\"pricelistClass($index,pricelist)\"><span>{{pricelist}}</span><i></i></li>\n							</ul>\n							<!--区域-->\n							<ul class=\"price\" ng-hide=\"arealist\">\n								<li ng-repeat=\"areaArr in areaArr track by $index\" ng-class=\"{show:$index==t}\" ng-click=\"areacontClass($index,areaArr)\"><span>{{areaArr}}</span><i></i></li>\n							</ul>\n							<ul class=\"metro\" ng-hide=\"metro\">\n								<li class=\"path\">\n									<p ng-repeat=\"metroArr in metrolistArr track by $index\" ng-class=\"{right:$index==a}\" ng-click=\"metrochecked($index,metroArr)\">{{metroArr}}</p>\n								</li>\n								<li class=\"station\">\n									<p ng-repeat=\"maplistArr in maplistArr track by $index\" ng-class=\"{show:$index==j}\" ng-click=\"maplistClass($index,maplistArr)\"><span>{{maplistArr}}</span><i></i></p>\n								</li>\n							</ul>\n						</div>\n					</div>\n					<div class=\"filtrate-btn\">\n						<div class=\"left-btn\">清空</div>\n						<div class=\"right-btn\" ng-click=\"search()\">确定</div>\n					</div>\n				</div>\n		</div>\n		<div class=\"nearby-sort\" ng-show=\"sort\" ng-class =\'{slideDown:sort}\'>\n			<ul>\n				<li ng-class=\"{active:$index==i}\" ng-repeat=\"sortlist in sortlist\" ng-click=\"sortlistclass($index,sortlist)\"><span>{{sortlist}}</span><i></i></li>\n			</ul>\n		</div>\n		<div class=\'backdrop visible\' ng-class=\'{active:flag||sort}\' ng-show =\'flag||sort\' ng-click = \'filterHide()\'></div>\n    <script id=\"map-modal.html\" type=\"text/ng-template\">\n      <ion-modal-view>\n        <ion-header-bar class=\'\'>\n          <button class=\"button button-clear ajk_back modalbtn\" ng-click=\'closeModal();\'></button>\n          <h1 class=\"title\">酒店地图</h1>\n        </ion-header-bar>\n        <ion-content>\n          <div id=\"HouseOnMap\" class=\"HouseOnMap\"></div>\n          {{data}}\n        </ion-content>\n      </ion-modal-view>\n    </script>\n\n  </ion-content>\n  <ion-infinite-scroll ng-if=\"moreDataCanBeLoaded\" on-infinite=\"loadMoreData()\" distance=\"10%\" immediate-check=\'false\'>\n  </ion-infinite-scroll>\n</ion-view>\n");
 $templateCache.put("templates/home/picShow/picShow.html","<ion-view hide-nav-bar=\'true\'>\n	<ion-content style=\'background-color: #000;\'>\n		     <div class=\"picShow_wrap\">\n		     <div class=\"blank\"></div>\n		      <div class=\"back\" native-ui-sref=\'hotelPics\' native-options=\"{type: \'fade\', duration:500}\"></div>\n		     	<ion-slide-box id=\'slide\' class=\'slide\' active-slide=\'index\'>\n                    <ion-slide ng-repeat=\'img in imgs track by $index\'>\n                        <div class=\"box\">\n                          <img ng-src=\"{{img}}\" alt=\"\">\n                        </div>\n                    </ion-slide>\n                </ion-slide-box>\n		     </div>\n	</ion-content>\n</ion-view>\n");
@@ -10372,8 +10371,8 @@ $templateCache.put("templates/home/select_bussiniss/select_bussinss.html","<ion-
 $templateCache.put("templates/home/select_date/select_date.html","<ion-view view-title=\"日期选择\">\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" ng-click=\"back()\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content>\r\n        <div class=\"directive_date\">\r\n            <date-select></date-select>\r\n        </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/shopCar/invoice/invoice.html","<ion-view title=\'发票\'>\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" ng-click=\'back()\' ></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"shopcar-back\">\r\n     	<div class=\"invoice_btn\">\r\n     		<div class=\"btn_common needless\">不需要发票</div>\r\n     		<div class=\"btn_common need\">\r\n     			<p>需要发票 (电子)</p>\r\n     			<span>开具发票后发至您邮箱</span>\r\n     		</div>\r\n     	</div>\r\n     	<div class=\"invoice_cont\">\r\n     		<p>\r\n     			<label for=\"invoice_title\">发票抬头</label>\r\n     			<input type=\"text\" id=\"invoice_title\" value=\"杭州同步科技有限公司\" />\r\n     		</p>\r\n     		<p>\r\n     			<label for=\"invoice_ details\">发票明细</label>\r\n     			<input type=\"text\" id=\"invoice_ details\" value=\"房费\" />\r\n     		</p>\r\n     		<p class=\"noborder\">\r\n     			<label for=\"e-mail_address\">邮箱地址</label>\r\n     			<input type=\"text\" id=\"e-mail_address\" placeholder=\"用于接收电子发票\" />\r\n     		</p>\r\n     	</div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/shopCar/orderDetail/orderDetail.html","<ion-view hide-nav-bar=\'true\' >\r\n\r\n    <ion-content>\r\n        <div class=\'orderDetail_wrap\'>\r\n            <div ng-class=\'{blur:time_select}\'>\r\n          <div class = \'hotel\'>\r\n            <div class=\'hotel_pics\'>\r\n                <div class=\'bgpic\'></div>\r\n                <div class=\'content\'>\r\n                   <div class=\"topBlank\" ng-if=\'platform\'></div>\r\n                    <div class=\'topbar\'>\r\n                    <span native-ui-sref=\'tab.shopCar\' native-options=\"{type: \'slide\', direction:\'right\'}\"></span>订单填写<p></p>\r\n                    </div>\r\n                    <ion-scroll>\r\n                    <div ng-repeat=\'hotel in hotels track by $index\'>\r\n                    <div class=\'position\' >\r\n                      <span></span>{{hotel.hotelName}}\r\n                    </div>\r\n\r\n                    <div class=rooms>\r\n                   <div class=\'room\' ng-repeat=\'house in hotel.carts track by $index\'>\r\n                       <p>{{house.inTime|MMyueddri}}-{{house.leaveTime|MMyueddri}}&nbsp;</p>\r\n                       <p>{{house.houseName}}</p>\r\n                       <p>共{{house.inDays}}晚</p>\r\n                   </div>\r\n                  </div>\r\n                   </div>\r\n                   </ion-scroll>\r\n                </div>\r\n            </div>\r\n            <!-- <div class=\'mess\'>\r\n                <div class=\'mess_detail\'>\r\n                    <span class=\'first\'>入住人<i class=\'bg\'></i></span>\r\n                    <input type=\"text\" value=\'王小二\' />\r\n                    <span class=\'bgpic\'></span>\r\n                </div>\r\n                <div class=\'mess_detail\'>\r\n                    <span class=\'first\'>手机号<i></i></span>\r\n                    <input type=\"text\" value=\'18868877305\' />\r\n                    <span class=\'bgpic1\'></span>\r\n                </div>\r\n            </div>\r\n            <div class=\'divier\'>\r\n                <span>爱居客服务</span> 免费尊享\r\n            </div>\r\n            <div class=\'mess\'>\r\n                <div class=\'mess_detail\' ng-click=\'time_select=true\'>\r\n                    <span class=\'first\'>到店时间</span>\r\n                    <p class=\'second\'>{{time}}前<i></i></p>\r\n                </div>\r\n                <div class=\'mess_detail\' ng-click=\'goInvoice()\'>\r\n                    <span class=\'first\'>发票</span>\r\n                    <p class=\'second\'>不需要<i></i></p>\r\n                </div>\r\n            </div>\r\n            <div class=\'divier\'>\r\n                <span>备注</span>\r\n            </div>\r\n            <div class=\'more\'>\r\n                   <input type=\"text\" placeholder=\'点击输入其他特殊要求\'/>\r\n            </div>\r\n          </div> -->\r\n\r\n            <div class=\'notice\'>\r\n              <h3>订单政策</h3>\r\n              <div>\r\n              	<h4>免费取消&nbsp;全额退款</h4>\r\n              	<p>最晚取消时间：1月19日&nbsp;18:00前,逾时无法取消和退款。</p>\r\n              	<p>预定超过3间时，需在1小时内在线支付房费。入住日前一天中午12：00前可免费取消全额退款，晚于该时间段不可取消，并且无法退款。</p>\r\n              </div>\r\n              <p></p>\r\n            </div>\r\n\r\n            </div>\r\n            <div class=\'arriveTime\' ng-show=\'time_select\' ng-class=\'{fade:time_select}\'>\r\n               <span class=\'close\' ng-click=\'time_select=false\' ></span>\r\n                <div class=\"topBlank\" ng-if=\'platform\'></div>\r\n                <div class=\'topbar\' ng-click=\'tim();\'>\r\n                      到店时间\r\n                        <p></p>\r\n                    </div>\r\n                    <div class=\'time\' ng-repeat=\'time in arriveTime track by $index\' ng-class=\'{selected:$index==indexi}\' ng-click=\'select($index)\'>{{time}}&nbsp;前</div>\r\n\r\n                    <div >\r\n                      <button type=\'button\' class=\'button button-calm button-full\' ng-click=\'time_select=false\'>保存</button>\r\n                    </div>\r\n\r\n            </div>\r\n\r\n        </div>\r\n    </ion-content>\r\n     <div class=\'payer\'>\r\n              <div>\r\n                <span>合计</span>\r\n                <span>¥{{total}}</span>\r\n              </div>\r\n              <div ng-click=\'submit();\'>\r\n                去支付\r\n              </div>\r\n            </div>\r\n</ion-view>\r\n");
-$templateCache.put("templates/userCenter/Consume/Consume.html","<ion-view view-title=\'消费流水\'>\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.userCenter\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n        <div class=\"Consume-list\">\r\n        	<div class=\"Consume-tittle\">\r\n    			<span>本月</span>\r\n    		</div>\r\n        	<div class=\"list\" ng-repeat=\'consume in consumes track by $index\'>\r\n        		<span class=\"data\">{{consume.gmtCreate|MMdd}}</span>\r\n        		<p><img ng-src=\"{{consume.hotels[0].picture}}\"/></p>\r\n	        	<ul>\r\n	        		<li class=\"check-in\"><span class=\"money\">{{consume.amount}}</span></li>\r\n	        		<li class=\"housetype\">订单号：{{consume.orderCode}}</li>\r\n	        		<li class=\"address\">{{consume.hotels[0].hotelName}}</li>\r\n	        	</ul>\r\n            <span class=\"evaluate\">{{consume.payTypeStr}}</span>\r\n        	</div>\r\n        </div>\r\n        <ion-infinite-scroll\r\n            ng-if=\"moreDataCanBeLoaded\"\r\n            on-infinite=\"loadMoreData()\"\r\n            immediate-check=\'false\'>\r\n        </ion-infinite-scroll>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/ChangePwd/ChangePassword.html","<ion-view view-title=\"修改密码\">\r\n	<ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"setting\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n        <form class=\"ChangePwd-txt\" name=\'ChangePassword\'>\r\n        	<!-- <p class=\"nowpwd\">\r\n        		<input id=\"nowpwd\" type=\"text\" placeholder=\"当前密码\" />\r\n        	</p> -->\r\n            <p class=\"newpwd\">\r\n                <input id=\"oldpwd\" password-confirm name=\"oldpwd\" type=\"password\" ng-pattern=\'/[a-zA-Z\\d+]{6,36}/\' placeholder=\"旧密码\" ng-model=\"sendData.oldPassword\" required />\r\n            </p>\r\n        	<p class=\"newpwd\">\r\n        		<input id=\"newpwd\" password-confirm name=\"newpwd\" type=\"password\" ng-pattern=\'/[a-zA-Z\\d+]{6,36}/\' placeholder=\"新密码\" ng-model=\"sendData.password\" required />\r\n        	</p>\r\n        	<p class=\"verifypwd\">\r\n        		<input id=\"verifypwd\" password-confirm name=\"verifypwd\" type=\"password\" ng-pattern=\'/[a-zA-Z\\d+]{6,36}/\' placeholder=\"确认新密码\" ng-model=\'password_repeat\' required/>\r\n        	</p>\r\n        </form>\r\n    <div class=\"ChangePwd-btn\" ng-disabled=\'ChangePassword.$invalid||sendData.password!=password_repeat\' ng-class=\'{select:ChangePassword.$valid&&sendData.password==password_repeat}\' ng-click=\"changepwdBtn11()\">确认提交</div>\r\n    </ion-content>\r\n</ion-view>\r\n");
+$templateCache.put("templates/userCenter/Consume/Consume.html","<ion-view view-title=\'消费流水\'>\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.userCenter\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n        <div class=\"Consume-list\">\r\n        	<div class=\"Consume-tittle\">\r\n    			<span>本月</span>\r\n    		</div>\r\n        	<div class=\"list\" ng-repeat=\'consume in consumes track by $index\'>\r\n        		<span class=\"data\">{{consume.gmtCreate|MMdd}}</span>\r\n        		<p><img ng-src=\"{{consume.hotels[0].picture}}\"/></p>\r\n	        	<ul>\r\n	        		<li class=\"check-in\"><span class=\"money\">{{consume.amount}}</span></li>\r\n	        		<li class=\"housetype\">订单号：{{consume.orderCode}}</li>\r\n	        		<li class=\"address\">{{consume.hotels[0].hotelName}}</li>\r\n	        	</ul>\r\n            <span class=\"evaluate\">{{consume.payTypeStr}}</span>\r\n        	</div>\r\n        </div>\r\n        <ion-infinite-scroll\r\n            ng-if=\"moreDataCanBeLoaded\"\r\n            on-infinite=\"loadMoreData()\"\r\n            immediate-check=\'false\'>\r\n        </ion-infinite-scroll>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/Noevaluate/Noevaluate.html","<ion-view view-title=\'待评价\'>\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.userCenter\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\n  </ion-nav-buttons>\n  <ion-content class=\"userCenter-back\">\n    <div class=\"Noevaluate-list\" ng-repeat=\"hotel in hotels track by $index\">\n      <div class=\"Noevaluate-head\">\n        <h1>{{hotel.hotelName}}</h1>\n      </div>\n        <div class=\"list\">\n          <p><img ng-src={{hotel.picture}} /></p>\n          <ul>\n            <li class=\"address\">{{hotel.address}}</li>\n            <li class=\"housetype\">{{hotel.hotelName}}</li>\n            <li class=\"time\">入住时间：<span>{{hotel.inTime|YYMMdd}}-{{hotel.leaveTime|YYMMdd}}</span></li>\n          </ul>\n          <p class=\"Noevaluate\" ng-click=\"goevaluate(hotel.hotelId,hotel.houseId,hotel.hotelName,hotel.picture,hotel.subOrderCode)\"><input type=\"button\" id=\"\" value=\"评价\" /></p>\n        </div>\n    </div>\n    <ion-infinite-scroll\n        ng-if=\"moreDataCanBeLoaded\"\n        on-infinite=\"loadMoreData()\"\n        immediate-check=\'false\'>\n    </ion-infinite-scroll>\n\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/userCenter/Nopay/Nopay.html","<ion-view view-title=\'待付款订单\'>\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.userCenter\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n\r\n        	<!-- <div class=\"order\" ng-repeat=\"order in orders track by $index\" ng-click=\"goOrderdetail(order.orderCode)\">\r\n               <div class=\'hotel\' ng-repeat=\"hotel in order.hotelsx track by $index\">\r\n                <p><span>{{hotel.hotelName}}</span><span>订单号:{{order.orderCode}}</span></p>\r\n\r\n                <div class=\"item-three\" ng-repeat=\'house in hotel.houses track by $index\'>\r\n                    <img ng-src=\'{{house.picture}}\' />\r\n                    <ul>\r\n                        <li class=\"OrderNum\">{{house.houseName}}</li>\r\n                        <li class=\"Time\">{{house.inTimes}}<span class=\"Day\">共{{house.days}}晚</span></li>\r\n                        <li class=\"money\">¥{{house.totalFee}}</li>\r\n                    </ul>\r\n                </div>\r\n             </div>\r\n            </div> -->\r\n            <div class=\"order\" ng-repeat=\"order in orders track by $index\" ng-click=\"goOrderdetail(order.orderCode)\">\r\n                    <div class=\'hotel\'>\r\n                     <p><span>订单号:{{order.orderCode}}</span></p>\r\n                     <div class=\"item-two\" >\r\n                         <img ng-src=\'{{order.hotelsx[0].houses[0].picture}}\' />\r\n                         <ul>\r\n                             <li class=\"Time\">下单时间:{{order.orderTime}}</li>\r\n                             <li class=\"money\">¥{{order.totalFee}}</li>\r\n                         </ul>\r\n                     </div>\r\n                     </div>\r\n                 </div>\r\n            <ion-infinite-scroll\r\n                ng-if=\"moreDataCanBeLoaded\"\r\n                on-infinite=\"loadMoreData()\"\r\n                immediate-check=\'false\'>\r\n            </ion-infinite-scroll>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/Order-form/Order-form.html","<ion-view view-title=\'订单详情\'>\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"Nopay\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n    	<div class=\"Order-form-head\">\r\n    		<p>\r\n    			<span>订单状态：</span>\r\n    			<i>待付款</i>\r\n    		</p>\r\n    		<span>¥{{order.totalFee|ant}}<i>.00</i></span>\r\n    	</div>\r\n       <div class=\"order\" >\r\n               <div class=\'hotel\' ng-repeat=\"hotel in order.hotels track by $index\">\r\n                <p><span>{{hotel.hotelName}}</span><span>订单号:{{order.orderCode}}</span></p>\r\n\r\n                <div class=\"item-three\" ng-repeat=\'house in hotel.houses track by $index\'>\r\n                    <img ng-src=\'{{house.picture}}\' />\r\n                    <ul>\r\n                        <li class=\"OrderNum\">{{house.houseName}}</li>\r\n                        <li class=\"Time\">{{house.inTimes}}<span class=\"Day\">共{{house.days}}晚</span></li>\r\n                        <li class=\"address\">{{house.address}}</li>\r\n                    </ul>\r\n                </div>\r\n                </div>\r\n            </div>\r\n            <div class=\'large_buttons\'>\r\n               <button type=\'button\' class=\'button button-calm button-full\' ng-click=\'pay();\'>确认支付</button>\r\n               <button type=\'button\' style=\'background-color:#fff\' class=\'button button-stable button-full\' ng-click=\"cancelOrder();\">取消订单</button>\r\n            </div>\r\n        <div class=\"Order-form-remind\">\r\n        	<div class=\"remind\">\r\n        		<div class=\"title\">特别提醒</div>\r\n        		<p>请于12点后办理入住，如提前到店，视酒店空房情况安排。</p>\r\n        		<p>最晚退房时间：<span>12:00(8月9日)</span></p>\r\n        	</div>\r\n        	<div class=\"remind\">\r\n            <span></span>\r\n        		<p>本订单最晚取消时间和修改时间为<span>18:00(8月7日)</span></p>\r\n        		<p>当超过最晚取消时间和修改时间后，爱居客将不接受您的取消或修改请求，同时已支付的预付款项不予退还，优惠券订单一经修改或取消后无法恢复</p>\r\n        	</div>\r\n        </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
@@ -10383,18 +10382,18 @@ $templateCache.put("templates/userCenter/beLandlord/be_landlord.html","<ion-view
 $templateCache.put("templates/userCenter/binding/binding.html","<ion-view view-title=\'身份绑定\'>\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" native-ui-sref=\"setting\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\n  </ion-nav-buttons>\n  <ion-content class=\"userCenter-back\">\n    <div ng-if=\"!bindWhether\">\n      <form class=\"login-txt\" name=\"binging\">\n        <p class=\"tel\">\n          <label for=\"pwd\">真实姓名</label>\n          <input id=\"pwd\" name=\"pwd\" type=\"text\" placeholder=\"请输入您的姓名\" ng-model=\"sendData.name\" required/>\n        </p>\n        <p class=\"pwd\">\n          <label for=\"pwd\">身份证号</label>\n          <input id=\"pwd\" number-confirm name=\"idcard\" ng-minlength=\'18\' ng-maxlength=\'18\' maxlength=\'18\' type=\"tel\" ng-pattern=\'/\\d{18}/\' placeholder=\"请输入您的身份证号码\" ng-model=\"sendData.cardNo\" required/>\n        </p>\n      </form>\n      <div class=\"binding\">\n        <!-- <input type=\"button\" id=\"\" value=\"绑定\" ng-disabled=\'binging.$invalid\' ng-class=\'{slect:binging.$valid}\' ng-click=\"buttonBtn()\" /> -->\n        <button type=\"button\" class=\"button button-full button-calm\" ng-disabled=\'binging.$invalid\' ng-class=\'{slect:binging.$valid}\' ng-click=\"buttonBtn()\">身份绑定</button>\n      </div>\n    </div>\n    <div ng-if=\'bindWhether\'>\n      <form class=\"login-txt\" name=\"binging\">\n        <p class=\"tel\">\n          <label for=\"pwd\">真实姓名</label>\n          <span>{{name}}</span>\n        </p>\n        <p class=\"pwd\">\n          <label for=\"pwd\">身份证号</label>\n          <span>{{cardNo}}</span>\n        </p>\n      </form>\n    </div>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/userCenter/bindingPhone/bindingPhone.html","<ion-view view-title=\"绑定手机\">\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"setting\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n      <div >\r\n        <div class=\"RetrievePwd-txt\" >\r\n          <form name=\'RetrievePwd\' novalidate class=\"login-text\">\r\n            <p class=\"tel\">\r\n                <input id=\"tel\" name=\'tel\' number-confirm type=\"tel\" placeholder=\"手机号\" ng-minlength=\"11\" ng-maxlength=\"11\" maxlength=\"11\" ng-pattern=\'/^1[34578]\\d{9}$/\' ng-model=\"sendData.telephone\" required />\r\n                <span class=\"GetCode\" ><input ng-disabled=\"RetrievePwd.tel.$invalid\" type=\"button\" name=\"\" id=\"GetCode\" value=\"获取验证码\" ng-class=\"{slecet:RetrievePwd.tel.$valid}\"  ng-click=\"bindingPhoneBtn()\"/></span>\r\n            </p>\r\n            <p class=\"pwd\">\r\n                <input id=\"pwd\" number-confirm type=\"tel\" ng-minlength=\"6\" ng-maxlength=\"6\" maxlength=\'6\' ng-pattern=\'/\\d{6}/\' placeholder=\"请输入验证码\" ng-model=\"sendData.code\" required />\r\n            </p>\r\n            </form>\r\n        </div>\r\n      <div class=\"RetrievePwd-btn\" ng-disabled=\"RetrievePwd.$invalid\" ng-class=\'{slecet:RetrievePwd.$valid}\' ng-click=\"telBtn()\">绑定手机</div>\r\n      </div>\r\n      <div  class=\"bindPhone1\">\r\n        <label for=\"\">已绑定手机号:</label>\r\n        <span>{{num}}</span>\r\n      </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/endOrderDetail/endOrderDetail.html","<ion-view view-title=\'已结束\'>\n    <ion-nav-buttons side=\"left\">\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"lose-efficacy\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\n    </ion-nav-buttons>\n    <ion-content class=\"userCenter-back\">\n         <div class=\"order status\">\n               <div class=\'hotel\' ng-repeat=\"hotel in order.hotelsx track by $index\">\n                <p><span>{{hotel.hotelName}}</span></p>\n\n                <div class=\"item-three\" ng-repeat=\'house in hotel.houses track by $index\'>\n                    <img ng-src=\'{{house.picture}}\' />\n                    <ul>\n                        <li >{{house.houseName}}\n                          <p class=\'cancel\'>{{house.mark}}</p>\n                        </li>\n                        <li class=\"Time\">{{house.inTimes}}<span class=\"Day\">共{{house.days}}晚</span></li>\n                        <li class=\"money\">¥{{house.totalFee}}</li>\n                    </ul>\n\n                </div>\n                </div>\n            </div>\n        <div class=\"order-information\">\n        	<h3>订单信息</h3>\n        	<p><i>订单编号：</i><span>{{order.orderCode}}</span></p>\n        	<p><i>下单时间：</i><span>{{order.orderTime}}</span></p>\n        </div>\n    </ion-content>\n</ion-view>\n");
-$templateCache.put("templates/userCenter/evaluate/evaluate.html","<ion-view view-title=\'评价\'>\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"Noevaluate\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n      <div class=\"evaluate_wrap\">\r\n        <section class=\"title\">\r\n          <img ng-src=\"{{picture}}\" alt=\"\">\r\n          <p>{{hotelName}}</p>\r\n        </section>\r\n        <section class=\"diver\">\r\n          <p><span>为酒店打分</span></p>\r\n        </section>\r\n        <section class=\"stars\">\r\n          <span class=\"{{star}}\" ng-click=\'selectStar($index)\' ng-repeat=\"star in stars track by $index\"></span>\r\n        </section>\r\n        <section class=\"text\">\r\n          <textarea name=\"message\" ng-model=\'message.content\' placeholder=\'说说哪里满意或不满意，帮助大家选择\' ></textarea>\r\n        </section>\r\n        <div></div>\r\n      </div>\r\n      <div class=\"evaluate_buttons\">\r\n        <button type=\"button\" name=\"button\" class=\"button button-calm button-full\" ng-click=\"submit()\">提交评价</button>\r\n      </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/login/login.html","<ion-view view-title=\'登录\'>\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.userCenter\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n    <div >\r\n        <form name=\'login\' class=\"login-txt\">\r\n        	<p class=\"tel\">\r\n        		<label for=\"tel\">账号</label>\r\n        		<input id=\"tel\" type=\"tel\" number-confirm maxlength=\"11\" ng-maxlength=\'11\' ng-minlength=\'11\' placeholder=\"请输入手机号\" ng-model=\"sendData.account\" required />\r\n        	</p>\r\n        	<p class=\"pwd\">\r\n        		<label for=\"pwd\">密码</label>\r\n        		<input id=\"pwd\" password-confirm type=\"password\" placeholder=\"6-32位字母数字组合\" maxlength=\'32\' ng-minlength=\"6\" ng-maxlength=\"32\"  ng-model=\"sendData.password\" required />\r\n        	</p>\r\n        </form>\r\n        <div class=\"login-btn\" ng-click=\"loginBtn()\" ng-disabled=\'login.$invalid\' ng-class=\'{select:login.$valid}\'>登录</div>\r\n        <div class=\"login-forgetpwd\">\r\n        	<a class=\"register\" href=\"#/register\">立即注册</a>\r\n        	<a class=\"forgetpwd\" href=\"#/RetrievePwd\">忘记密码？</a>\r\n        </div>\r\n    </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
+$templateCache.put("templates/userCenter/evaluate/evaluate.html","<ion-view view-title=\'评价\'>\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"Noevaluate\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n      <div class=\"evaluate_wrap\">\r\n        <section class=\"title\">\r\n          <img ng-src=\"{{picture}}\" alt=\"\">\r\n          <p>{{hotelName}}</p>\r\n        </section>\r\n        <section class=\"diver\">\r\n          <p><span>为酒店打分</span></p>\r\n        </section>\r\n        <section class=\"stars\">\r\n          <span class=\"{{star}}\" ng-click=\'selectStar($index)\' ng-repeat=\"star in stars track by $index\"></span>\r\n        </section>\r\n        <section class=\"text\">\r\n          <textarea name=\"message\" ng-model=\'message.content\' placeholder=\'说说哪里满意或不满意，帮助大家选择\' ></textarea>\r\n        </section>\r\n        <div></div>\r\n      </div>\r\n      <div class=\"evaluate_buttons\">\r\n        <button type=\"button\" name=\"button\" class=\"button button-calm button-full\" ng-click=\"submit()\">提交评价</button>\r\n      </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/lose-efficacy/lose-efficacy.html","<ion-view view-title=\'已结束\'>\r\n    <ion-nav-buttons >\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.userCenter\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n      <div class=\"order\" ng-repeat=\"order in orders track by $index\" ng-click=\'goOrderDetail(order)\'>\r\n              <div class=\'hotel\'>\r\n               <p><span>订单号:{{order.orderCode}}</span></p>\r\n               <div class=\"item-two\" >\r\n                   <img ng-src=\'{{order.hotelsx[0].houses[0].picture}}\' />\r\n                   <ul>\r\n                       <li class=\"Time\">下单时间:{{order.orderTime}}</li>\r\n                       <li class=\"money\">{{order.orderTime}}</li>\r\n                   </ul>\r\n               </div>\r\n               </div>\r\n           </div>\r\n            <ion-infinite-scroll\r\n                ng-if=\"moreDataCanBeLoaded\"\r\n                on-infinite=\"loadMoreData()\"\r\n                immediate-check = \"false\">\r\n            </ion-infinite-scroll>\r\n\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/qrCode/qrCode.html","<ion-view view-title=\'二维码\'>\n	 <ion-nav-buttons side=\"left\">\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"setting\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\n    </ion-nav-buttons>\n    <ion-content>\n    	<div class=\"qrCode_wrap\">\n    	<div class=\"blank\"></div>\n    		<div class=\'content\'>\n    			<div class=\"person\">\n    				<img ng-src=\"{{imghead}}\" alt=\"\">\n    				<p>{{name}}</p>\n    			</div>\n    			<qr-code class=\"qrCode\" id=\"qrCode\"></qr-code>\n    		</div>\n    	</div>\n    </ion-content>\n</ion-view>\n");
-$templateCache.put("templates/userCenter/register/register.html","<ion-view view-title=\"注册\">\r\n	<ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"login\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n   <ion-content class=\"userCenter-back\">\r\n   		<form class=\"register-txt\" name=\'register\' novalidate>\r\n        	<p class=\"tel\">\r\n        		<label for=\"tel\">手机号</label>\r\n        		<input id=\"tel\" number-confirm type=\"tel\" placeholder=\"手机号\" ng-pattern=\'/[0-9]{11}/\' name=\'tel\' ng-minlength=\"11\" ng-maxlength=\"11\" maxlength=\'11\' ng-model=\"sendData.telephone\" required />\r\n        		<span class=\"GetCode\" ><input type=\"button\" name=\"\" id=\"GetCode\" value={{getCodeValue}}  ng-click=\"getVerifyCode()\" ng-disabled=\'register.tel.$invalid||!getCodeValueSwitch\'/></span>\r\n        	</p>\r\n        	<p class=\"tel\">\r\n        		<label for=\"code\">验证码</label>\r\n        		<input id=\"code\" number-confirm type=\"tel\" ng-minlength=\"6\" ng-maxlength=\"6\" maxlength=\'6\' placeholder=\"请输入验证码\"  ng-model=\"sendData.code\" required/>\r\n        	</p>\r\n        	<p class=\"password\">\r\n        		<label for=\"password\">密&nbsp;&nbsp;&nbsp;码</label>\r\n        		<input id=\"password\" password-confirm type=\"password\"  placeholder=\"6-32位字母数字组合\" ng-minlength=\"6\" ng-maxlength=\"32\" ng-model=\"sendData.password\" maxlength=\'32\' required/>\r\n        	</p>\r\n        </form>\r\n        <div class=\"register-btn\" ng-click=\"registerBtn()\" ng-disabled=\'register.$invalid||!checked\' ng-class=\'{select:register.$valid&&checked}\'>注册</div>\r\n        <div class=\"agreement\">\r\n        	<input name=\'confirm\' type=\"checkbox\" ng-model=\"checked\" id=\"box\">\r\n					<label for=\'confirm\'></label>\r\n					<span class=\"character\">\r\n						我已阅读并同意爱居客</span><span style=\"color: orangered;\"><<用户使用协议>></span>\r\n        </div>\r\n	</ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/setPwd/setPwd.html","<ion-view view-title=\"设置密码\">\r\n	<ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"RetrievePwd\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n        <div class=\"RetrievePwd-txt\">\r\n          <form name=\'setPwd\' novalidate>\r\n        	<p class=\"tel\">\r\n        		<input id=\"tel\" name=\"tel\" type=\"password\" ng-pattern=\'/[a-zA-Z\\d+]{6,36}/\' ng-model=\'password\' placeholder=\"新密码\" required />\r\n        	</p>\r\n        	<p class=\"pwd\">\r\n        		<input id=\"pwd\" name=\"pwd\" type=\"password\" ng-model=\'password_repeat\' ng-pattern=\'/[a-zA-Z\\d+]{6,36}/\' placeholder=\"确认新密码\" required/>\r\n        	</p>\r\n            </form>\r\n        </div>\r\n\r\n       <div class=\"RetrievePwd-btn\" ng-disabled=\"setPwd.$invalid||password!=password_repeat\" ng-class=\"{slecet:setPwd.$valid&&password==password_repeat}\" ng-click=\"changepwd();\">确认提交</div>\r\n    </ion-content>\r\n</ion-view>\r\n");
-$templateCache.put("templates/userCenter/setting/setting.html","<ion-view view-title=\"个人设置\">\n	<ion-nav-buttons side=\"left\">\n		<button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.userCenter\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\n	</ion-nav-buttons>\n	<ion-content class=\"userCenter-back\">\n		<div class=\"list setting-list\">\n			<a href=\"\">\n				<div class=\"item marginB\" >\n					<div class=\"center\" ng-click=\'qrCode();\'>\n						<p>\n							<img src=\"imgs/kwn/code.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>二维码</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n			<a href=\"#/binding\">\n				<div class=\"item shortboder\" >\n					<div class=\"center\">\n						<p>\n							<img src=\"imgs/kwn/data.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>身份绑定</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n			<a href=\"\">\n				<div class=\"item marginB shortboder\" ng-click=\'changeHeadPic();\'>\n					<div class=\"center\">\n						<p class=\"headChange\">\n							<img ng-src=\"imgs/kwn/head.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>头像更换</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n			<a href=\"#/bindingPhone\">\n				<div class=\"item shortboder bindPhone\">\n					<div class=\"center\">\n						<p>\n							<img src=\"imgs/kwn/phone.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>手机绑定</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n			<a href=\"#/ChangePwd\">\n				<div class=\"item shortboder changePassword\">\n					<div class=\"center\">\n						<p>\n							<img src=\"imgs/kwn/lock.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>修改密码</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n		</div>\n	</ion-content>\n	<ion-footer-bar align-title=\"left\" class=\"setting-footer\" ng-click=\'logout();\'>\n		<p>退出当前账户</p>\n	</ion-footer-bar>\n</ion-view>\n");
+$templateCache.put("templates/userCenter/register/register.html","<ion-view view-title=\"注册\">\r\n	<ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"login\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n   <ion-content class=\"userCenter-back\">\r\n   		<form class=\"register-txt\" name=\'register\' novalidate>\r\n        	<p class=\"tel\">\r\n        		<label for=\"tel\">手机号</label>\r\n        		<input id=\"tel\" number-confirm type=\"tel\" placeholder=\"手机号\" ng-pattern=\'/[0-9]{11}/\' name=\'tel\' ng-minlength=\"11\" ng-maxlength=\"11\" maxlength=\'11\' ng-model=\"sendData.telephone\" required />\r\n        		<span class=\"GetCode\" ><input type=\"button\" name=\"\" id=\"GetCode\" value={{getCodeValue}}  ng-click=\"getVerifyCode()\" ng-disabled=\'register.tel.$invalid||!getCodeValueSwitch\'/></span>\r\n        	</p>\r\n        	<p class=\"tel\">\r\n        		<label for=\"code\">验证码</label>\r\n        		<input id=\"code\" number-confirm type=\"tel\" ng-minlength=\"6\" ng-maxlength=\"6\" maxlength=\'6\' placeholder=\"请输入验证码\"  ng-model=\"sendData.code\" required/>\r\n        	</p>\r\n        	<p class=\"password\">\r\n        		<label for=\"password\">密&nbsp;&nbsp;&nbsp;码</label>\r\n        		<input id=\"password\" password-confirm type=\"password\"  placeholder=\"6-32位字母数字组合\" ng-minlength=\"6\" ng-maxlength=\"32\" ng-model=\"sendData.password\" maxlength=\'32\' required/>\r\n        	</p>\r\n        </form>\r\n        <div class=\"register-btn\" ng-click=\"registerBtn()\" ng-disabled=\'register.$invalid||!checked\' ng-class=\'{select:register.$valid&&checked}\'>注册</div>\r\n        <div class=\"agreement\">\r\n        	<input name=\'confirm\' type=\"checkbox\" ng-model=\"checked\" id=\"box\">\r\n					<label for=\'confirm\'></label>\r\n					<span class=\"character\">\r\n						我已阅读并同意爱居客</span><span style=\"color: orangered;\"><<用户使用协议>></span>\r\n        </div>\r\n	</ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/status/status.html","<ion-view view-title=\'已付款\'>\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"Pay\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-content class=\"userCenter-back\">\r\n        <div class=\"status-header\">\r\n        	<div class=\"status-cont\">\r\n        		<p>等待入住</p>\r\n        		<span>距离入住还剩<i>{{leaveTimes}}</i>天</span>\r\n        	</div>\r\n        </div>\r\n         <div class=\"order status\">\r\n               <div class=\'hotel\' ng-repeat=\"hotel in order.hotels track by $index\">\r\n                <p><span>{{hotel.hotelName}}</span></p>\r\n\r\n                <div class=\"item-three\" ng-repeat=\'house in hotel.houses track by $index\'>\r\n                    <img ng-src=\'{{house.picture}}\' />\r\n                    <ul>\r\n                        <li >{{house.houseName}}\r\n                          <p class=\'cancel\' ng-click=\'cancel(house.subOrderCode);\' ng-show=\"{{house.orderCancel}}\">取消预定</p>\r\n                          <p class=\'cancel yicancel\' ng-show=\"{{house.yiCancel}}\">已取消</p>\r\n                        </li>\r\n                        <li class=\"Time\">{{house.inTimes}}<span class=\"Day\">共{{house.days}}晚</span></li>\r\n                        <li class=\"money\">¥{{house.fee}}</li>\r\n                    </ul>\r\n\r\n                </div>\r\n                </div>\r\n            </div>\r\n        <div class=\"order-information\">\r\n        	<h3>订单信息</h3>\r\n        	<p><i>订单编号：</i><span>{{order.orderCode}}</span></p>\r\n        	<p><i>下单时间：</i><span>{{order.orderTime}}</span></p>\r\n        	<p><i>合计：</i><span>{{order.totalFee}}</span></p>\r\n        </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
+$templateCache.put("templates/userCenter/setting/setting.html","<ion-view view-title=\"个人设置\">\n	<ion-nav-buttons side=\"left\">\n		<button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.userCenter\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\n	</ion-nav-buttons>\n	<ion-content class=\"userCenter-back\">\n		<div class=\"list setting-list\">\n			<a href=\"\">\n				<div class=\"item marginB\" >\n					<div class=\"center\" ng-click=\'qrCode();\'>\n						<p>\n							<img src=\"imgs/kwn/code.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>二维码</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n			<a href=\"#/binding\">\n				<div class=\"item shortboder\" >\n					<div class=\"center\">\n						<p>\n							<img src=\"imgs/kwn/data.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>身份绑定</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n			<a href=\"\">\n				<div class=\"item marginB shortboder\" ng-click=\'changeHeadPic();\'>\n					<div class=\"center\">\n						<p class=\"headChange\">\n							<img ng-src=\"imgs/kwn/head.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>头像更换</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n			<a href=\"#/bindingPhone\">\n				<div class=\"item shortboder bindPhone\">\n					<div class=\"center\">\n						<p>\n							<img src=\"imgs/kwn/phone.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>手机绑定</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n			<a href=\"#/ChangePwd\">\n				<div class=\"item shortboder changePassword\">\n					<div class=\"center\">\n						<p>\n							<img src=\"imgs/kwn/lock.png\" alt=\"\" />\n							<span></span>\n						</p>\n						<span>修改密码</span>\n						<i>\n							<img src=\"imgs/kwn/arrows.png\" alt=\"\" />\n							<span></span>\n						</i>\n					</div>\n				</div>\n			</a>\n		</div>\n	</ion-content>\n	<ion-footer-bar align-title=\"left\" class=\"setting-footer\" ng-click=\'logout();\'>\n		<p>退出当前账户</p>\n	</ion-footer-bar>\n</ion-view>\n");
 $templateCache.put("templates/userCenter/beLandlord/account_detail/account_detail.html","<ion-view view-title=\"订单信息\">\n    <ion-nav-buttons side=\"left\">\n        <button class=\"button button-clear ajk_back\" ng-click=\'goBack()\'></button>\n    </ion-nav-buttons>\n	<ion-content>\n    <div class=\"account_detail_wrap\">\n      <div class=\"order_detal\">\n        <div class=\"avater_intr\">\n          <img ng-src=\"{{house.picture}}\" alt=\"\">\n          <h4>{{hotelName}}</h4>\n        </div>\n        <div class=\"other_intr clearfix\"><span>房型</span><p>{{house.houseName}}</p></div>\n        <div class=\"other_intr clearfix\"><span>地址</span><p>{{house.address}}</p></div>\n        <div class=\"other_intr clearfix\"><span>入住时间</span><p>{{house.inTimes}}</p></div>\n      </div>\n    </div>\n  </ion-content>\n</ion-view>\n");
 $templateCache.put("templates/userCenter/beLandlord/landlord_profit/landlord_profit.html","<ion-view view-title=\"成为房东\">\r\n	 <ion-nav-buttons side=\"left\" >\r\n        <button class=\"button button-clear ajk_back\" ng-click=\'goback();\' nav-direction=\'back\'></button>\r\n    </ion-nav-buttons>\r\n    <ion-content has-subheader=\"false\"  >\r\n    	<div class=\"landlord_profit_wrap\">\r\n   		 <div class=\"contents\">\r\n    			<div class=\"content\">\r\n    				<span>成为房东的好处</span>\r\n    				<span>进一步了解</span>\r\n    			</div>\r\n    			<div class=\"content\">\r\n    				<span>优秀房东攻略</span>\r\n    				<span>进一步了解</span>\r\n    			</div>\r\n    			<div class=\"content\">\r\n    				<span>如何加盟我们</span>\r\n    				<span>进一步了解</span>\r\n    			</div>\r\n    		</div>\r\n    		 <div class=\"submit\" >\r\n        	  <button class=\"button button-full button-calm\" ng-click=\"joinus()\">\r\n              加盟我们\r\n            </button>\r\n        </div>\r\n    	</div>\r\n    </ion-content>\r\n</ion-view>\r\n");
-$templateCache.put("templates/userCenter/beLandlord/joinUs/join_us.html","<ion-view view-title=\"成为房东\">\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" native-ui-sref=\"landlordProfit\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\n  </ion-nav-buttons>\n  <ion-content overflow-scroll=\"true\" style=\"overflow: hidden\">\n    <div class=\"joinUs_wrap\">\n      <div ng-if=\"!bindWhether\">\n        <section class=\"intr\">\n          <div>\n            <span>真实姓名:</span>\n            <input type=\"text\" placeholder=\"请输入姓名\" ng-pattern=\'/^[\\u4e00-\\u9fa5]{2,20}$/\' ng-model=\"data.name\">\n          </div>\n          <div>\n            <span>身份证号:</span>\n            <input type=\"tel\" number-confirm ng-minlength=\'18\' ng-maxlength=\'18\' maxlength=\'18\' ng-pattern=\'/\\d{18}/\' placeholder=\"请输入身份证号码\" ng-model=\'data.cardNo\'>\n          </div>\n        </section>\n        <div class=\"upload_idcard\">\n          <div class=\'id_Card\' ng-if=\'idCard\'>\n            <div class=\"\" ng-click=\'getIdCard(\"font\")\'>\n              <img src=\"imgs/wcj/join_us/plus.png\" alt=\"身份证真面\">\n              <p>点击上传身份证真反面照片</p>\n            </div>\n            <div class=\"\" ng-click=\'getIdCard(\"back\")\'>\n              <img src=\"imgs/wcj/join_us/plus.png\" alt=\"身份证反面\">\n              <p>点击上传身份证真反面照片</p>\n            </div>\n            <!-- <img src=\"imgs/wcj/join_us/plus.png\" alt=\"\">\n          <p>点击上传身份证真反面照片</p>\n          <p>(可调取摄像头现拍或在相册中选取)</p>\n          <p class=\"num\">0/2</p> -->\n          </div>\n          <div class=\'id_Card img\' ng-if=\'!idCard\'>\n            <div class=\"\" ng-click=\'getIdCard(\"font\")\'>\n              <img ng-src={{fontImg}} alt=\"\">\n            </div>\n            <div class=\"\" ng-click=\'getIdCard(\"back\")\'>\n              <img ng-src={{backImg}} alt=\"\">\n            </div>\n          </div>\n          <label class=\"item item-input \">\n                <span class=\"input-label\">提示:</span>\n                <p>可调取摄像头现拍或在相册中选取,身份证照片与证件号要求清晰可见,如有看不清则视为无效</p>\n            </label>\n        </div>\n\n        <section class=\"intr address\">\n\n          <div ng-if=\"!platform\" style=\"margin-bottom:1px\">\n            <span>所在地区:</span>\n            <hms-pct-select ng-transclude></hms-pct-select><span class=\'right\'></span>\n          </div>\n          <div ng-if=\"platform\" style=\"margin-bottom:1px\">\n            <span>所在地区:</span>\n            <city-picker></city-icker>\n          </div>\n          <div>\n            <span>详细地址:</span>\n            <input type=\"text\" placeholder=\"如街道、楼牌号等\" ng-model=\'data.detailAddress\'>\n          </div>\n        </section>\n        <div class=\"submit\">\n          <button class=\"button button-full button-calm\" ng-click=\'submit();\'>\n              提交审核\n            </button>\n        </div>\n      </div>\n      <div ng-if=\"bindWhether\">\n        <section class=\"intr detailintr\">\n          <div>\n            <span>真实姓名:</span>\n            <p>{{landlord.name}}</p>\n          </div>\n          <div>\n            <span>身份证号:</span>\n            <p>{{landlord.cardNo}}</p>\n          </div>\n          <div>\n            <span>所在地区:</span>\n            <p>{{landlord.address}}</p>\n          </div>\n          <div>\n            <span>详细地址:</span>\n            <p>{{landlord.detailAddress}}</p>\n          </div>\n        </section>\n      </div>\n    </div>\n  </ion-content>\n  <script id=\"hmsPCTSelect-modal.html\" type=\"text/ng-template\">\n    <ion-modal-view>\n      <ion-header-bar class=\"bar-calm\">\n        <h1 class=\"title\">选择地址</h1>\n        <div class=\"buttons\">\n          <button ng-click=\"PCTModal.hide();\" class=\"button button-clear\">\n          取消\n        </button>\n        </div>\n      </ion-header-bar>\n      <ion-content overflow-scroll=\"true\" style=\"overflow: hidden\">\n        <ion-slide-box show-pager=\"false\" style=\"height: 100%;\" does-continue=\"false\" delegate-handle=\"PCTSelectDelegate\" ng-init=\"lockSlide()\">\n          <ion-slide>\n            <ion-scroll style=\"height: 100%;\" scrollbar-y=\"false\" delegate-handle=\"PCTSelectProvince\">\n              <ion-item class=\"item-icon-right\" ng-click=\"chooseProvince(item);\" ng-repeat=\"item in provincesData track by $index\">\n                <span>{{item}}</span>\n                <i class=\"icon ion-ios-arrow-right icon-item\"></i>\n              </ion-item>\n            </ion-scroll>\n          </ion-slide>\n          <!--省选择结束-->\n\n          <!--市选择开始-->\n          <ion-slide>\n            <ion-scroll style=\"height: 100%;\" scrollbar-y=\"false\" delegate-handle=\"PCTSelectCity\">\n              <ion-item class=\"item-icon-right\" ng-click=\"chooseCity(item);\" ng-repeat=\"item in citiesData track by $index\">\n                <span>{{item}}</span>\n                <i class=\"icon ion-ios-arrow-right icon-item\"></i>\n              </ion-item>\n            </ion-scroll>\n          </ion-slide>\n          <!--市选择结束-->\n\n          <!--县选择开始-->\n          <ion-slide>\n            <ion-scroll style=\"height: 100%;\" scrollbar-y=\"false\" delegate-handle=\"PCTSelectTown\">\n              <ion-item class=\"item-icon-right\" ng-click=\"chooseTown(item);\" ng-repeat=\"item in townData track by $index\">\n                <span>{{item}}</span>\n                <i class=\"icon ion-ios-arrow-right icon-item\"></i>\n              </ion-item>\n            </ion-scroll>\n          </ion-slide>\n        </ion-slide-box>\n\n      </ion-content>\n    </ion-modal-view>\n\n  </script>\n</ion-view>\n");
 $templateCache.put("templates/userCenter/beLandlord/my_house/my_house.html","<ion-view view-title=\"房源\">\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"beLandlord\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n	<ion-content>\r\n		<div class=\"myHouse_wrap_house\" ng-repeat = \'hotel in hotels track by $index\'>\r\n		 <div class=\"myHouse_wrap_detail\">\r\n		 	<img ng-src={{hotel.mainPicture}} alt=\"\">\r\n			<div>\r\n				<h2>{{hotel.name}}</h2>\r\n				<p>{{hotel.address}}</p>\r\n				<p class=\"num\">共:{{hotel.houseCounts}}间&nbsp;今日已出租:{{hotel.leaseCounts}}间</p>\r\n			</div>\r\n		 </div>\r\n		 <div class=\"myHouse_wrap_btn\">\r\n		 	<div><span ng-click=\'seeHouse(hotel.id)\' >查看</span></div>\r\n		 	<div><span ui-sref=\'myhouseDetail({id:hotel.id})\'>详情</span></div>\r\n		 	<div><span ui-sref=\'myOrderForm({id:hotel.id})\'>订单</span></div>\r\n		 </div>\r\n		</div>\r\n		</div>\r\n    <ion-infinite-scroll\r\n        ng-if=\"moreDataCanBeLoaded\"\r\n        on-infinite=\"loadMoreData()\"\r\n        immediate-check=\'false\'>\r\n    </ion-infinite-scroll>\r\n	</ion-content>\r\n</ion-view>\r\n");
+$templateCache.put("templates/userCenter/beLandlord/joinUs/join_us.html","<ion-view view-title=\"成为房东\">\n  <ion-nav-buttons side=\"left\">\n    <button class=\"button button-clear ajk_back\" native-ui-sref=\"landlordProfit\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\n  </ion-nav-buttons>\n  <ion-content overflow-scroll=\"true\" style=\"overflow: hidden\">\n    <div class=\"joinUs_wrap\">\n      <div ng-if=\"!bindWhether\">\n        <section class=\"intr\">\n          <div>\n            <span>真实姓名:</span>\n            <input type=\"text\" placeholder=\"请输入姓名\" ng-pattern=\'/^[\\u4e00-\\u9fa5]{2,20}$/\' ng-model=\"data.name\">\n          </div>\n          <div>\n            <span>身份证号:</span>\n            <input type=\"tel\" number-confirm ng-minlength=\'18\' ng-maxlength=\'18\' maxlength=\'18\' ng-pattern=\'/\\d{18}/\' placeholder=\"请输入身份证号码\" ng-model=\'data.cardNo\'>\n          </div>\n        </section>\n        <div class=\"upload_idcard\">\n          <div class=\'id_Card\' ng-if=\'idCard\'>\n            <div class=\"\" ng-click=\'getIdCard(\"font\")\'>\n              <img src=\"imgs/wcj/join_us/plus.png\" alt=\"身份证真面\">\n              <p>点击上传身份证真反面照片</p>\n            </div>\n            <div class=\"\" ng-click=\'getIdCard(\"back\")\'>\n              <img src=\"imgs/wcj/join_us/plus.png\" alt=\"身份证反面\">\n              <p>点击上传身份证真反面照片</p>\n            </div>\n            <!-- <img src=\"imgs/wcj/join_us/plus.png\" alt=\"\">\n          <p>点击上传身份证真反面照片</p>\n          <p>(可调取摄像头现拍或在相册中选取)</p>\n          <p class=\"num\">0/2</p> -->\n          </div>\n          <div class=\'id_Card img\' ng-if=\'!idCard\'>\n            <div class=\"\" ng-click=\'getIdCard(\"font\")\'>\n              <img ng-src={{fontImg}} alt=\"\">\n            </div>\n            <div class=\"\" ng-click=\'getIdCard(\"back\")\'>\n              <img ng-src={{backImg}} alt=\"\">\n            </div>\n          </div>\n          <label class=\"item item-input \">\n                <span class=\"input-label\">提示:</span>\n                <p>可调取摄像头现拍或在相册中选取,身份证照片与证件号要求清晰可见,如有看不清则视为无效</p>\n            </label>\n        </div>\n\n        <section class=\"intr address\">\n\n          <div ng-if=\"!platform\" style=\"margin-bottom:1px\">\n            <span>所在地区:</span>\n            <hms-pct-select ng-transclude></hms-pct-select><span class=\'right\'></span>\n          </div>\n          <div ng-if=\"platform\" style=\"margin-bottom:1px\">\n            <span>所在地区:</span>\n            <city-picker></city-icker>\n          </div>\n          <div>\n            <span>详细地址:</span>\n            <input type=\"text\" placeholder=\"如街道、楼牌号等\" ng-model=\'data.detailAddress\'>\n          </div>\n        </section>\n        <div class=\"submit\">\n          <button class=\"button button-full button-calm\" ng-click=\'submit();\'>\n              提交审核\n            </button>\n        </div>\n      </div>\n      <div ng-if=\"bindWhether\">\n        <section class=\"intr detailintr\">\n          <div>\n            <span>真实姓名:</span>\n            <p>{{landlord.name}}</p>\n          </div>\n          <div>\n            <span>身份证号:</span>\n            <p>{{landlord.cardNo}}</p>\n          </div>\n          <div>\n            <span>所在地区:</span>\n            <p>{{landlord.address}}</p>\n          </div>\n          <div>\n            <span>详细地址:</span>\n            <p>{{landlord.detailAddress}}</p>\n          </div>\n        </section>\n      </div>\n    </div>\n  </ion-content>\n  <script id=\"hmsPCTSelect-modal.html\" type=\"text/ng-template\">\n    <ion-modal-view>\n      <ion-header-bar class=\"bar-calm\">\n        <h1 class=\"title\">选择地址</h1>\n        <div class=\"buttons\">\n          <button ng-click=\"PCTModal.hide();\" class=\"button button-clear\">\n          取消\n        </button>\n        </div>\n      </ion-header-bar>\n      <ion-content overflow-scroll=\"true\" style=\"overflow: hidden\">\n        <ion-slide-box show-pager=\"false\" style=\"height: 100%;\" does-continue=\"false\" delegate-handle=\"PCTSelectDelegate\" ng-init=\"lockSlide()\">\n          <ion-slide>\n            <ion-scroll style=\"height: 100%;\" scrollbar-y=\"false\" delegate-handle=\"PCTSelectProvince\">\n              <ion-item class=\"item-icon-right\" ng-click=\"chooseProvince(item);\" ng-repeat=\"item in provincesData track by $index\">\n                <span>{{item}}</span>\n                <i class=\"icon ion-ios-arrow-right icon-item\"></i>\n              </ion-item>\n            </ion-scroll>\n          </ion-slide>\n          <!--省选择结束-->\n\n          <!--市选择开始-->\n          <ion-slide>\n            <ion-scroll style=\"height: 100%;\" scrollbar-y=\"false\" delegate-handle=\"PCTSelectCity\">\n              <ion-item class=\"item-icon-right\" ng-click=\"chooseCity(item);\" ng-repeat=\"item in citiesData track by $index\">\n                <span>{{item}}</span>\n                <i class=\"icon ion-ios-arrow-right icon-item\"></i>\n              </ion-item>\n            </ion-scroll>\n          </ion-slide>\n          <!--市选择结束-->\n\n          <!--县选择开始-->\n          <ion-slide>\n            <ion-scroll style=\"height: 100%;\" scrollbar-y=\"false\" delegate-handle=\"PCTSelectTown\">\n              <ion-item class=\"item-icon-right\" ng-click=\"chooseTown(item);\" ng-repeat=\"item in townData track by $index\">\n                <span>{{item}}</span>\n                <i class=\"icon ion-ios-arrow-right icon-item\"></i>\n              </ion-item>\n            </ion-scroll>\n          </ion-slide>\n        </ion-slide-box>\n\n      </ion-content>\n    </ion-modal-view>\n\n  </script>\n</ion-view>\n");
 $templateCache.put("templates/userCenter/beLandlord/my_orderform/my_orderform.html","<ion-view hide-nav-bar=\'true\'>\r\n	<ion-content has-subheader=\"false\">\r\n		<div class=\"my_orderform_wrap\">\r\n			<div class=\"divier\"></div>\r\n			<div class=\"header\">\r\n				<span><i class=\"close\" native-ui-sref=\'myHouse\' native-options=\"{type: \'slide\', direction:\'right\'}\"></i></span>\r\n				<div class=\"select_btn\">\r\n					<span ng-click=\"select=true\" ng-class=\"{selectBtn:select}\">进行中</span>\r\n					<span ng-click=\"select=false\" ng-class=\"{selectBtn:!select}\">已结束</span>\r\n				</div>\r\n			</div>\r\n			<div ng-show=\"select\">\r\n			  <div class=\"normal\" ng-repeat =\'order in orders track by $index\'>\r\n               <div ng-repeat=\'hotel in order.hotelsx track by $index\'>\r\n    			<h2>{{hotel.hotelName}}</h2>\r\n    			<div class=\"normal_house\"  ng-repeat=\'house in hotel.houses track by $index\' ng-click=\"goAccountDetail(house,hotel.hotelName)\">\r\n    				<div class=\"item-four\">\r\n    						<img ng-src=\"{{house.picture}}\" alt=\"\">\r\n    						<ul>\r\n    							 <li class=\"OrderNum\">订单号:{{order.orderCode}}</li>\r\n    							<li>{{house.houseName}}</li>\r\n    							<li>{{house.address}}</li>\r\n                  <li>入住时间:{{house.inTimes}}</li>\r\n    						</ul>\r\n    					</div>\r\n    				</div>\r\n    			</div>\r\n\r\n    		</div>\r\n\r\n			</div>\r\n			<div ng-hide=\"select\">\r\n				 <div class=\"normal\" ng-repeat =\'order in endOrders track by $index\'>\r\n               <div ng-repeat=\'hotel in order.hotels track by $index\'>\r\n                <h2>{{hotel.hotelName}}</h2>\r\n                <div class=\"normal_house\" ui-sref=\'orderFormDetail\' ng-repeat=\'house in hotel.houses track by $index\' ng-click=\"goAccountDetail(house,hotel.hotelName)\">\r\n                    <div class=\"item-four\">\r\n                            <img ng-src={{house.picture}} alt=\"\">\r\n                            <ul>\r\n                                 <li>订单号:{{order.orderCode}}</li>\r\n                                <li>{{house.houseName}}</li>\r\n                                <li>{{house.address}}</li>\r\n                                <li>入住时间:{{house.inTimes}}</li>\r\n                            </ul>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n\r\n            </div>\r\n\r\n\r\n    		</div>\r\n			</div>\r\n		</div>\r\n	</ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/beLandlord/myaccount/myaccount.html","<ion-view view-title=\"我的收入\">\r\n    <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"beLandlord\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n    <ion-nav-buttons side=\"right\" >\r\n        <span class=\"date_select\" ng-click=\"openDatePicker();\">{{month}}</span>\r\n    </ion-nav-buttons>\r\n    <ion-content has-subheader=\"false\">\r\n        <div class=\"myaccount_wrap\">\r\n           <div ng-if=\"!dataswitch\">\r\n            <div class=\"btns\">\r\n                <span ng-click=\"dayIncome()\" ng-class=\"{select:select}\">日报表</span>\r\n                <span ng-click=\"monthIncome();\" ng-class=\"{select:!select}\">月报表</span>\r\n            </div>\r\n            <div ng-show=\'select\' class=\"select\">\r\n            	 <!-- <p>年总收入:<span>10000</span></p> -->\r\n            <div class=\"date_picker directive_date\">\r\n                 <p>本月预估收入:{{monthIncomes}}</p>\r\n                <date-account year={{year}} month={{month}}></date-account>\r\n            </div>\r\n            <div class=\"normal\" ng-repeat = \'dayIncome in DayIncomes track by $index\'>\r\n\r\n                <div class=\"normal_house\"  >\r\n                        <div class=\"item-three\" style=\"background-color:#fff\">\r\n                            <img ng-src={{dayIncome.picture}} alt=\"\">\r\n                            <ul>\r\n                                <li>订单号:{{dayIncome.orderCode}}</li>\r\n                                <li>入住时间:{{dayIncome.inTimes}}</li>\r\n                                <li class=\"money\">预估收入:{{dayIncome.totalFee}}</li>\r\n                            </ul>\r\n                        </div>\r\n                </div>\r\n            </div>\r\n            </div>\r\n            <div ng-hide=\"select\" class=\'select\'>\r\n\r\n                <div class=\"order\" ng-repeat=\"order in incomeOrders track by $index\" >\r\n               <div class=\'hotel\' >\r\n                <p><span>{{order.hotelName}}</span><span>订单号:{{order.orderCode}}</span></p>\r\n\r\n                <div class=\"item-three\" >\r\n                    <img ng-src=\'{{order.picture}}\' />\r\n                    <ul>\r\n                        <li class=\"OrderNum\">{{order.houseName}}</li>\r\n                        <li class=\"Time\">{{order.inTimes}}</li>\r\n                        <li class=\"money\">¥{{order.totalFee}}</li>\r\n                    </ul>\r\n                </div>\r\n                </div>\r\n            </div>\r\n            </div>\r\n            </div>\r\n            <div class=\"dataSelect\" ng-if=\"dataswitch\">\r\n              <h2>请选择年份</h2>\r\n              <div class=\"years\">\r\n                  <p ng-repeat=\'year in years track by $index\' ng-click=\'monthSelect(year,$index)\' ng-class=\'{active:indexi==$index}\'>{{year}}</p>\r\n              </div>\r\n              <h2>请选择月份</h2>\r\n              <div class=\'month\'>\r\n                  <p ng-repeat=\'month in months track by $index\' ng-click=\'daySelect(month,$index)\' ng-class=\'{active:indexii==$index}\'>{{month}}</p>\r\n              </div>\r\n            </div>\r\n        </div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/beLandlord/myhouse_changeprice/myhouse_changeprice.html","<ion-view view-title=\"房态日历\">\r\n    <ion-nav-buttons side=\"left\">\r\n\r\n        <button class=\"button button-clear ajk_back\" ng-click=\'back();\' ></button>\r\n\r\n    </ion-nav-buttons>\r\n    <ion-content has-subheader=\"false\" class=\"has-footer\">\r\n        <div class=\"myhouse_changeprice_wrap\">\r\n            <h2>{{houseName}}</h2>\r\n\r\n                <div class=\"directive_date fix\">\r\n               <datepick></datepick>\r\n            </div>\r\n            \r\n        </div>\r\n    </ion-content>\r\n    <button class=\'button button-calm button-full \' ng-click=\'changePrice()\' style=\"position:fixed;bottom: 0;margin: 0\">修改价格</button>\r\n</ion-view>\r\n");
@@ -10405,121 +10404,122 @@ $templateCache.put("templates/userCenter/beLandlord/see_myhouse/see_myhouse.html
 $templateCache.put("templates/userCenter/beLandlord/trade_rule/trade_rule.html","<ion-view view-title=\"交易规则\">\r\n	 <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" ng-click=\"back()\"></button></a>\r\n    </ion-nav-buttons>\r\n    <ion-content has-subheader=\"false\">\r\n    	<div class=\"trade_rule_wrap\">\r\n    		<h2>温馨提示</h2>\r\n    		<p>1.房客入住前一天18:00之前取消订单,预付房费全部退还。</p>\r\n    		<p>2.房客入住前一天18:00之后,入住日的18:00之前取消订单,从预付房费中扣除第一天的房租。</p>\r\n    		<p>3.房客入住日日期的18:00之后默认为入住,并扣除当天房费,若入住后提前退房,则房东从线上预付订金中扣除退房次日的房费。</p>\r\n    	</div>\r\n    </ion-content>\r\n</ion-view>\r\n");
 $templateCache.put("templates/userCenter/beLandlord/waitCheck/wait_check.html","<ion-view view-title=\"待审核\">\r\n <ion-nav-buttons side=\"left\">\r\n        <button class=\"button button-clear ajk_back\" native-ui-sref=\"tab.userCenter\" native-options=\"{type: \'slide\', direction:\'right\'}\"></button>\r\n    </ion-nav-buttons>\r\n	<ion-content has-subheader=\"false\">\r\n		<div class=\"waitCheck_wrap\">\r\n			<div class=\"wait_check\">\r\n\r\n					<img src=\"imgs/wcj/wait_check/check.png\" alt=\"\">\r\n					<p>\r\n						加盟我们\r\n					</p>\r\n\r\n			</div>\r\n			<p>审核完成后,我们会与您电话联系,确定签约时间</p>\r\n		</div>\r\n	</ion-content>\r\n</ion-view>\r\n");}]);
 angular.module('home-controller', [])
-  .controller('homeCtrl', ['$scope', '$ionicPlatform', '$cordovaAppAvailability', '$ionicScrollDelegate', '$rootScope', 'ApiService', '$ionicSlideBoxDelegate', '$stateParams', '$state', '$ionicLoading', 'mainADs', '$location', '$ionicViewSwitcher', '$ionicPopup', function($scope,$ionicPlatform,$cordovaAppAvailability,$ionicScrollDelegate, $rootScope, ApiService,$ionicSlideBoxDelegate, $stateParams, $state, $ionicLoading, mainADs, $location, $ionicViewSwitcher, $ionicPopup) {
+  .controller('homeCtrl', ['$scope', '$ionicPlatform', '$cordovaAppAvailability', '$ionicScrollDelegate', '$rootScope', 'ApiService', '$ionicSlideBoxDelegate', '$stateParams', '$state', '$ionicLoading', 'mainADs', '$location', '$ionicViewSwitcher', '$ionicPopup', function($scope, $ionicPlatform, $cordovaAppAvailability, $ionicScrollDelegate, $rootScope, ApiService, $ionicSlideBoxDelegate, $stateParams, $state, $ionicLoading, mainADs, $location, $ionicViewSwitcher, $ionicPopup) {
     $ionicSlideBoxDelegate.update();
     $ionicSlideBoxDelegate.loop(true);
     //选择的城市
-    $scope.city = localStorage.getItem('city')?localStorage.getItem('city'):'杭州';
-	$scope.$on('cityChanges', function() {
-		$scope.city = localStorage.getItem('city');
-    pageNo = 1
-    getHomePageHotels()
-	});
-  
-	$scope.$on('cityChange', function() {
-		var city = sessionStorage.getItem("city");
-		var CityReg = /市$/;
-		if (CityReg.test(city)) {
-			$scope.city = city.substring(0, city.length - 1);
-		} else {
-			$scope.city = city;
-		}
-    pageNo = 1
-    getHomePageHotels()
-	});
-	var city = sessionStorage.getItem("city");
-	var CityReg = /市$/;
-	if (CityReg.test(city)) {
-		$scope.city = city.substring(0, city.length - 1);
-	} else {
-		$scope.city = city;
-	}
+    $scope.city = localStorage.getItem('city') ? localStorage.getItem('city') : '杭州';
+    $scope.$on('cityChange', function() {
+      $scope.city = localStorage.getItem('city');
+      pageNo = 1
+      getHomePageHotels()
+    });
+
+    $scope.$on('cityChange', function() {
+      var city = sessionStorage.getItem("city");
+      var CityReg = /市$/;
+      if (CityReg.test(city)) {
+        $scope.city = city.substring(0, city.length - 1);
+      } else {
+        $scope.city = city;
+      }
+      pageNo = 1
+      getHomePageHotels()
+    });
+    var city = sessionStorage.getItem("city");
+    var CityReg = /市$/;
+    if (CityReg.test(city)) {
+      $scope.city = city.substring(0, city.length - 1);
+    } else {
+      $scope.city = city;
+    }
     //定位
     //Ã–Ã·Â¹Ã£Â¸Ã¦
-	$scope.mainADs = mainADs.data.result;
-	
+    $scope.mainADs = mainADs.data.result;
+
     //
-	$scope.goSelectBussiniss = function($event) {
-		$event.preventDefault();
-		$event.stopPropagation();
-		$state.go('selectBussiniss');
-		$ionicViewSwitcher.nextDirection("forward");
-	};
+    $scope.goSelectBussiniss = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+      $state.go('selectBussiniss');
+      $ionicViewSwitcher.nextDirection("forward");
+    };
     //副广告
-	ApiService.getHomePageBanner({
-		level: 1
-	}).success(function(res) {
-		$scope.subADs = res.result;
-	});
-    //酒店列表
-	var pageNo = 1;
-	$scope.moreDataCanBeLoaded = true;
-  function getHomePageHotels() {
-    ApiService.getHomePageHotels({
-      pageNo: pageNo,
-      pageSize: 5,
-      address:encodeURI($scope.city||'杭州市')
+    ApiService.getHomePageBanner({
+      level: 1
     }).success(function(res) {
-      if (res.success) {
-        // $ionicLoading.hide();
-        $scope.hotels = res.result.map(function(hotel){
-        //评价星星
-        hotel.full_stars = [];
-        hotel.full_stars.length = parseInt(hotel.stars,10)||5;
-        hotel.star_blank = [];
-        hotel.star_blank.length = 5 - hotel.full_stars.length;
-        return hotel
-        })
-        pageNo++;
-      }
+      $scope.subADs = res.result;
     });
-  }
-	getHomePageHotels()
-	$scope.loadMoreData = function() {
-		ApiService.getHomePageHotels({
-			pageNo: pageNo,
-			pageSize: 5,
-      address:encodeURI(sessionStorage.getItem("city")||'杭州')
-		}).success(function(res) {
-      console.log(res)
-			if (res.success && res.result.length > 0) {
-				for (var i = 0; i < res.result.length; i++) {
-					$scope.hotels.push(res.result[i]);
-				}
-      $scope.$broadcast("scroll.infiniteScrollComplete");
-				pageNo++;
+    //酒店列表
+    var pageNo = 1;
+    $scope.moreDataCanBeLoaded = true;
 
-			} else {
-				$scope.moreDataCanBeLoaded = false;
-			}
-		});
-	};
+    function getHomePageHotels() {
+      ApiService.getHomePageHotels({
+        pageNo: pageNo,
+        pageSize: 5,
+        address: encodeURI($scope.city || '杭州市')
+      }).success(function(res) {
+        if (res.success) {
+          // $ionicLoading.hide();
+          $scope.hotels = res.result.map(function(hotel) {
+            //评价星星
+            hotel.full_stars = [];
+            hotel.full_stars.length = parseInt(hotel.stars, 10) || 5;
+            hotel.star_blank = [];
+            hotel.star_blank.length = 5 - hotel.full_stars.length;
+            return hotel
+          })
+          pageNo++;
+        }
+      });
+    }
+    getHomePageHotels()
+    $scope.loadMoreData = function() {
+      ApiService.getHomePageHotels({
+        pageNo: pageNo,
+        pageSize: 5,
+        address: encodeURI(sessionStorage.getItem("city") || '杭州')
+      }).success(function(res) {
+        console.log(res)
+        if (res.success && res.result.length > 0) {
+          for (var i = 0; i < res.result.length; i++) {
+            $scope.hotels.push(res.result[i]);
+          }
+          $scope.$broadcast("scroll.infiniteScrollComplete");
+          pageNo++;
+
+        } else {
+          $scope.moreDataCanBeLoaded = false;
+        }
+      });
+    };
     //酒店详详情
-	$scope.goHotelDetail = function(id) {
-		$state.go('houseDtail', {
-			id: id
-		});
-		$ionicViewSwitcher.nextDirection("forward");
-	};
-//goNearBy
-$scope.goNearBy = function(){
-  $state.go('nearby',{city:sessionStorage.getItem('city')})
-}
+    $scope.goHotelDetail = function(id) {
+      $state.go('houseDtail', {
+        id: id
+      });
+      $ionicViewSwitcher.nextDirection("forward");
+    };
+    //goNearBy
+    $scope.goNearBy = function() {
+      $state.go('nearby', { city: sessionStorage.getItem('city') })
+    }
     //滚动置顶
-	$scope.$on('getHeight', function() {
+    $scope.$on('getHeight', function() {
 
-	});
-	$scope.swipe = function(){
-		var scrollTop = $ionicScrollDelegate.getScrollPosition().top;
+    });
+    $scope.swipe = function() {
+      var scrollTop = $ionicScrollDelegate.getScrollPosition().top;
       //var opacity = angular.element(document.querySelector('#fixed'))[0].style.opacity
-		angular.element(document.querySelector('#fixed'))[0].style.opacity = scrollTop*0.002;
-		angular.element(document.querySelector('#fixedHeader'))[0].style.opacity = scrollTop*0.002;
-		angular.element(document.querySelector('#fixedHeaderDefalut'))[0].style.opacity =1 - scrollTop*0.002*2;
-	};
+      angular.element(document.querySelector('#fixed'))[0].style.opacity = scrollTop * 0.002;
+      angular.element(document.querySelector('#fixedHeader'))[0].style.opacity = scrollTop * 0.002;
+      angular.element(document.querySelector('#fixedHeaderDefalut'))[0].style.opacity = 1 - scrollTop * 0.002 * 2;
+    };
 
-    
 
-}]);
+
+  }]);
 
 angular.module('discover-controller', [])
   .controller('discoverCtrl', ['$scope', '$state', '$ionicModal', '$cordovaInAppBrowser', function($scope, $state,$ionicModal,$cordovaInAppBrowser) {
@@ -12611,7 +12611,6 @@ angular.module('map-controller', [])
     $scope.init = function() {
       $scope.btnshow = false;
       var keywords = [$scope.startAddress, $stateParams.destination];
-      alert(keywords);
       var map = new AMap.Map("container");
       AMap.plugin(["AMap.Driving"], function() {
         var drivingOption = {
@@ -12625,7 +12624,7 @@ angular.module('map-controller', [])
         }, {
           keyword: keywords[1]
         }], function(status, result) {
-
+          console.log(result)
           $scope.selectMapApp = function() {
             mapApp = [];
             if (ionic.Platform.isIOS()) {
@@ -15672,7 +15671,9 @@ angular.module('clean-controller', [])
 		}).success(function(res) {
 			if (res.success) {
 				$ionicLoading.show({
-					template: '退房成功'
+					template: '退房成功',
+          noBackdrop: 'true',
+          duration: 2000
 				});
 				$timeout(function() {
 					$state.go('tab.home');

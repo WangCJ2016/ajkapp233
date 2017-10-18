@@ -6,8 +6,10 @@
   },
   "description": "An Ionic project",
   "dependencies": {
+    "com.verso.cordova.clipboard": "^0.1.0",
     "cordova-ios": "^4.4.0",
     "cordova-plugin-actionsheet": "git+https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git",
+    "cordova-plugin-appavailability": "git+https://github.com/ohh2ahh/AppAvailability.git",
     "cordova-plugin-camera": "^2.4.1",
     "cordova-plugin-compat": "^1.1.0",
     "cordova-plugin-geolocation": "~2.4.1",
