@@ -3,15 +3,15 @@ angular.module('home-controller', [])
     $ionicSlideBoxDelegate.update();
     $ionicSlideBoxDelegate.loop(true);
     //选择的城市
-    $scope.city = localStorage.getItem('city') ? localStorage.getItem('city') : '杭州';
+    $scope.city = localStorage.getItem('nowCity') ? localStorage.getItem('nowCity') : '杭州';
     $scope.$on('cityChange', function() {
-      $scope.city = localStorage.getItem('city');
+      $scope.city = localStorage.getItem('nowCity');
       pageNo = 1
       getHomePageHotels()
     });
 
     $scope.$on('cityChange', function() {
-      var city = sessionStorage.getItem("city");
+      var city = localStorage.getItem("nowCity");
       var CityReg = /市$/;
       if (CityReg.test(city)) {
         $scope.city = city.substring(0, city.length - 1);
@@ -21,7 +21,7 @@ angular.module('home-controller', [])
       pageNo = 1
       getHomePageHotels()
     });
-    var city = sessionStorage.getItem("city");
+    var city = localStorage.getItem("nowCity");
     var CityReg = /市$/;
     if (CityReg.test(city)) {
       $scope.city = city.substring(0, city.length - 1);
@@ -31,7 +31,6 @@ angular.module('home-controller', [])
     //定位
     //Ã–Ã·Â¹Ã£Â¸Ã¦
     $scope.mainADs = mainADs.data.result;
-
     //
     $scope.goSelectBussiniss = function($event) {
       $event.preventDefault();

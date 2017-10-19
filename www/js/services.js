@@ -480,14 +480,7 @@ angular.module('starter.services', [])
           params: data
         });
       },
-      queryCustomerOrders: function(data) {
-        data.token = localStorage.getItem('token');
-        return $http({　
-          method: 'POST',
-          url: AJKUrl + "op/op_queryCustomerOrders",
-          params: data
-        });
-      },
+     
       //智能控制
       //房间主机信息
       viewHouseHostInfo: function(data) {
@@ -495,15 +488,6 @@ angular.module('starter.services', [])
         return $http({　
           method: 'POST',
           url: AJKUrl + "op/op_viewHouseHostInfo",
-          params: data
-        });
-      },
-      //主机线路信息
-      querySmartDeviceWays: function(data) {
-        data.token = localStorage.getItem('token');
-        return $http({　
-          method: 'POST',
-          url: AJKUrl + "op/op_querySmartDeviceWays",
           params: data
         });
       },
@@ -633,19 +617,19 @@ angular.module('starter.services', [])
   .factory('quadrant', function() {
     var quadrant =  function quadrant(x, x0, y, y0) {
       if (x <= x0 && y <= y0) {
-        return 3
+        return 3;
       }
       if (x < x0 && y > y0) {
-        return 4
+        return 4;
       }
       if (x > x0 && y < y0) {
-        return 2
+        return 2;
       }
       if (x >= x0 && y >= y0) {
-        return 1
+        return 1;
       }
-    }
-    return quadrant
+    };
+    return quadrant;
   })
   .factory('encode64', function() {
     var encode64 = function encode64(input) {
@@ -672,8 +656,8 @@ angular.module('starter.services', [])
         enc1 = enc2 = enc3 = enc4 = "";
       } while (i < input.length);
       return output;
-    }
-    return encode64
+    };
+    return encode64;
   })
   .factory('cityPickerData', function() {
     return [{

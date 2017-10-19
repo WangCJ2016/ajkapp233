@@ -185,9 +185,9 @@ angular.module('starter.directives', [])
               }
             }
           }else{
-            for (var k2 = today; k2 <= lastdate; k2++) {
+            for (var k3 = today; k3 <= lastdate; k3++) {
               thismonth.push({
-                'k': k2
+                'k': k3
               });
               d++;
               if (d == 7) {
@@ -207,7 +207,7 @@ angular.module('starter.directives', [])
           if (attr_month === 0) {
             for (var i1 = 0; i1 < thismonth.length; i1++) {
               if (thismonth[i1].k < today) {
-                thismonth[i1].disabled = true
+                thismonth[i1].disabled = true;
               }
             }
           }
@@ -361,7 +361,7 @@ angular.module('starter.directives', [])
         });
         scope.$on('datesChange', function() {});
         var changedates = [];
-        var attr_months = [];
+        var _attr_months = [];
         var $index = [];
         scope.ngshowif = function(day, month, attr_month, index) {
           day.selRow = !day.selRow;
@@ -370,19 +370,19 @@ angular.module('starter.directives', [])
           var time = month.getFullYear() + '-' + time_month + "-" + time_day;
           if (day.selRow) {
             changedates.push(time);
-            attr_months.push(attr_month);
+            _attr_months.push(attr_month);
             $index.push(index);
           } else {
             var index22 = changedates.indexOf(time);
             changedates.splice(index22, 1);
-            var index1 = attr_months.indexOf(attr_month);
-            attr_months.splice(index1, 1);
+            var index1 = _attr_months.indexOf(attr_month);
+            _attr_months.splice(index1, 1);
             var index2 = $index.indexOf(parseInt(index, 10));
             $index.splice(index2, 1);
           }
           $rootScope.changedates = changedates;
           localStorage.setItem('changedates', changedates);
-          localStorage.setItem('attr_months', attr_months);
+          localStorage.setItem('attr_months', _attr_months);
           localStorage.setItem('$index', $index);
         };
 
@@ -395,7 +395,7 @@ angular.module('starter.directives', [])
           var now = new Date();
           year = year ? year : now.getFullYear();
           month = (now.getMonth() + attr_month);
-          var now = attr_month > 0 ? now = new Date(year, month, 1) : now;
+          now = attr_month > 0 ? now = new Date(year, month, 1) : now;
           var firstday = get_first_date(year, month).getDay();
           var lastday = get_last_date(year, month).getDay();
           var lastdate = get_last_date(year, month).getDate();
@@ -433,9 +433,9 @@ angular.module('starter.directives', [])
               'k': today,
               'today': '今天'
             });
-            for (var k = today + 1; k <= lastdate; k++) {
+            for (var k1 = today + 1; k1 <= lastdate; k1++) {
               thismonth.push({
-                'k': k
+                'k': k1
               });
               d++;
               if (d == 7) {
@@ -447,9 +447,9 @@ angular.module('starter.directives', [])
               }
             }
           } else {
-            for (var k = today; k <= lastdate; k++) {
+            for (var k2 = today; k2 <= lastdate; k2++) {
               thismonth.push({
-                'k': k
+                'k': k2
               });
               d++;
               if (d == 7) {
@@ -470,7 +470,7 @@ angular.module('starter.directives', [])
           if (attr_month === 0) {
             for (var i1 = 0; i1 < thismonth.length; i1++) {
               if (thismonth[i1].k < today) {
-                thismonth[i1].disabled = true
+                thismonth[i1].disabled = true;
               }
             }
           }
@@ -730,9 +730,9 @@ angular.module('starter.directives', [])
 
         var topValue = 0, // 上次滚动条到顶部的距离
           timer = null; // 定时器
-        var oldTop_pro = newTop_pro = 0;
-        var oldTop_city = newTop_city = 0;
-        var oldTop_town = newTop_town = 0;
+        var oldTop_pro = 0, newTop_pro = 0;
+        var oldTop_city = 0 , newTop_city = 0;
+        var oldTop_town = 0, newTop_town = 0;
         //city_picker_inner高
 
         //  var inner_height = document.getElementById('city_picker_inner').offsetHeight
@@ -1035,17 +1035,17 @@ angular.module('starter.directives', [])
     return{
       link:function(scope,ele,attr){
         ele.bind('touchstart',function(){
-          ele.addClass('ctrlOnBig')
-        })
+          ele.addClass('ctrlOnBig');
+        });
         ele.bind('touchend',function($state){
          ele.removeClass('ctrlOnBig');
-        })
+        });
         scope.$on('ctrlStateEnter',function(){
-          ele.addClass('ctrlOnSmall')
-        })
+          ele.addClass('ctrlOnSmall');
+        });
         scope.$on('ctrlStateOut',function(){
-          ele.removeClass('ctrlOnSmall')
-        })
+          ele.removeClass('ctrlOnSmall');
+        });
       }
-    }
-  })
+    };
+  });

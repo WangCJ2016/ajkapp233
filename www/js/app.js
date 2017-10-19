@@ -11,8 +11,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
       $cordovaGeolocation
         .getCurrentPosition(posOptions)
         .then(function(position) {
-          var lat = position.coords.latitude
-          var long = position.coords.longitude
+          var lat = position.coords.latitude;
+          var long = position.coords.longitude;
           ApiService.lngLat({
             locations: long + ',' + lat,
             coordsys: 'gps',
@@ -21,7 +21,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
           }).success(function(res) {
             var lnglat = res.locations.split(',');
             new AMap.convertFrom(new AMap.LngLat(lnglat[0], lnglat[1]), 'gps', function(status, result) {
-              console.log(result.locations[0].lng, result.locations[0].lat)
               sessionStorage.setItem('longitude', result.locations[0].lng);
               sessionStorage.setItem('latitude', result.locations[0].lat);
               var Geocoder = new AMap.Geocoder();
@@ -29,7 +28,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
                 if (result.info === 'ok' || result.info === 'OK') {
                   //localStorage.setItem("city", result.regeocode.addressComponent.city);
                   var city = result.regeocode.addressComponent.district;
-                  if (localStorage.getItem("city") !== city) {
+                  localStorage.setItem("city", city);
+                  if (localStorage.getItem("nowCity") !== city) {
                     var myPopup = $ionicPopup.show({
                       template: '是否切换城市到' + city,
                       cssClass: 'ajk',
@@ -38,9 +38,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
                       }, {
                         text: '<b>确定</b>',
                         onTap: function(e) {
-                          localStorage.setItem("city", city);
-                          sessionStorage.setItem("city", city);
-                          sessionStorage.setItem("nowcity", city);
+                          localStorage.setItem("nowCity", city);
                           $rootScope.$broadcast('cityChange');
 
                         }
@@ -48,9 +46,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
                     });
                   }
                 }
-              })
-            })
-          })
+              });
+            });
+          });
         }, function(err) {
           // errorv
           var map, geolocation;
@@ -87,15 +85,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
       function onComplete(data) {
         if (data.info === "SUCCESS") {
           // sessionStorage.setItem('_city', JSON.stringify(result))
-          var cityinfo
+          var cityinfo;
           if (data.addressComponent.district !== '') {
-            cityinfo = data.addressComponent.district
+            cityinfo = data.addressComponent.district;
           } else {
-            cityinfo = data.addressComponent.city
+            cityinfo = data.addressComponent.city;
           }
 
-
-          if (localStorage.getItem("city") !== cityinfo) {
+          localStorage.setItem("city", cityinfo);
+          if (localStorage.getItem("nowCity") !== cityinfo) {
             var myPopup = $ionicPopup.show({
               template: '是否切换城市到' + cityinfo,
               cssClass: 'ajk',
@@ -104,14 +102,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
               }, {
                 text: '<b>确定</b>',
                 onTap: function(e) {
-                  localStorage.setItem("city", cityinfo);
-                  sessionStorage.setItem("city", cityinfo);
+                  localStorage.setItem("nowCity", cityinfo);
                   $rootScope.$broadcast('cityChange');
                 }
               }]
             });
           }
-          sessionStorage.setItem("nowcity", cityinfo);
         }
         sessionStorage.setItem("longitude", data.position.getLng());
         sessionStorage.setItem("latitude", data.position.getLat());
@@ -206,7 +202,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
         $timeout(function() {
           hideSheet();
         }, 2000);
-      };
+      }
       // 显示是否更新对话框
       function showUpdateConfirm() {
         var confirmPopup = $ionicPopup.confirm({
@@ -222,7 +218,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
             });
             var url = "http://192.168.1.50/1.apk"; //可以从服务端获取更新APP的路径
             var targetPath = "file:///storage/sdcard0/Download/1.apk"; //APP下载存放的路径，可以使用cordova file插件进行相关配置
-            var trustHosts = true
+            var trustHosts = true;
             var options = {};
             $cordovaFileTransfer.download(url, targetPath, options, trustHosts).then(function(result) {
               // 打开下载下来的APP
@@ -244,7 +240,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
                 if (downloadProgress > 99) {
                   $ionicLoading.hide();
                 }
-              })
+              });
             });
           } else {
             // 取消更新
@@ -572,7 +568,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
               } else {
                 if (res.msg == '非法请求') {
                   $ionicLoading.hide();
-                  $state.go('login')
+                  $state.go('login');
                 }
               }
               return res.dataObject;
@@ -714,7 +710,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 's
               } else {
                 if (res.msg == '非法请求') {
                   $ionicLoading.hide();
-                  $state.go('login')
+                  $state.go('login');
                 }
               }
               return res.dataObject;

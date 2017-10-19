@@ -99,7 +99,7 @@ angular.module('light-controller', [])
       //判断第几象限
       var whichquadrant = quadrant(pageX, raduisX, pageY, raduisY)
       var to = ((pageX - raduisX) / (pageY - raduisY))
-      let moveAngle
+      var moveAngle
       if (whichquadrant === 3) {
         moveAngle = Math.atan(to) / (2 * Math.PI) * 360
       }

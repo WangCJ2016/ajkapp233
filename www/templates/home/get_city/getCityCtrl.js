@@ -2,7 +2,7 @@ angular.module('getCity-controller',[])
 	.controller('getCityCtrl', function($scope,$ionicNativeTransitions,$state,$timeout,$location,$ionicScrollDelegate,$timeout,$anchorScroll,ApiService) {
 		$scope.letters = ["A","B","C",,"D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
      //当前城市
-		$scope.nowCity = sessionStorage.getItem("nowcity");
+		$scope.nowCity = localStorage.getItem("nowCity");
 	  //获取城市数据
 	 ApiService.getBussinessArea().success(function(res){
 	 	var cityArr = [];
@@ -41,9 +41,7 @@ angular.module('getCity-controller',[])
 		};
 		//点击选择城市
 		 $scope.cityChoose = function(city){
-			sessionStorage.setItem("city",city);
-			sessionStorage.setItem("nowcity",city);
-			localStorage.setItem("city", city);
+			localStorage.setItem("nowCity",city);
 			$scope.visitedCity.unshift(city);
 			for(var i=0;i<$scope.visitedCity.length;i++){
 				var a = $scope.visitedCity[i];
