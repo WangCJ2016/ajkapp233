@@ -9,20 +9,32 @@ angular.module('tv-controller', [])
     };
     $scope.tv_switch_active = false;
     ApiService.queryTvDevices(data).success(function(res) {
-      
+
       if (res && res.success) {
         $scope.tvArrays = res.dataObject
         for (var i in $scope.tvArrays) {
           $scope.tvArrays[i].tv_status = 'OFF'
         }
-        $scope.length = Object.keys($scope.tvArrays).length
+        $scope.length = Object.keys($scope.tvArrays).length;
+        more();
         $scope.title = Object.keys(Object.values($scope.tvArrays)[0])[0].replace(/[0-9$]/g, '')
-        more()
+
         $scope.tvswitch = false;
+        // 多台电视机
+        function more() {
+          $scope.potArray = []
+          if ($scope.length > 1) {
+            for (var i = $scope.length - 1; i >= 0; i--) {
+              $scope.potArray.push(i)
+            }
+          }
+          $scope.perWidth = 100 / $scope.length
+          $scope.tvState = 0
+        }
         //电视机开
         $scope.tvon = function(tv, status, index) {
           $scope.tv_switch_active = !$scope.tv_switch_active;
-          
+
           var status;
           if (status === 'OFF') {
             setOrder('ON', tv);
@@ -113,25 +125,27 @@ angular.module('tv-controller', [])
         };
       }
     });
+
     function setOrder(key, tv) {
-          console.log(navigator.vibrate);
-          navigator.vibrate(1000);
-          var deviceId = ''
-          for (var i in tv) {
-            if (i.indexOf('电视机') > -1) {
-              deviceId = tv[i]
-            }
-          }
-          var data = {
-            houseId: sessionStorage.getItem('houseId'),
-            deviceType: 'VIRTUAL_TV_DVD_REMOTE',
-            deviceId: deviceId,
-            key: key,
-            port: sessionStorage.getItem('port'),
-            serverId: sessionStorage.getItem('serverId')
-          };
-          ApiService.smartHostControl(data).success(function(res) { console.log(res); });
+      console.log(navigator.vibrate);
+      navigator.vibrate(1000);
+      var deviceId = ''
+      for (var i in tv) {
+        if (i.indexOf('电视机') > -1) {
+          deviceId = tv[i]
         }
+      }
+      var data = {
+        houseId: sessionStorage.getItem('houseId'),
+        deviceType: 'VIRTUAL_TV_DVD_REMOTE',
+        deviceId: deviceId,
+        key: key,
+        port: sessionStorage.getItem('port'),
+        serverId: sessionStorage.getItem('serverId')
+      };
+      ApiService.smartHostControl(data).success(function(res) { console.log(res); });
+    }
+
     function setOrder_box(key, tv) {
       navigator.vibrate(3000);
       var deviceId = ''
@@ -151,17 +165,7 @@ angular.module('tv-controller', [])
       ApiService.smartHostControl(data).success(function(res) { console.log(res); });
     }
 
-    // 多台电视机
-    function more() {
-      $scope.potArray = []
-      if ($scope.length > 1) {
-        for (var i = $scope.length - 1; i >= 0; i--) {
-          $scope.potArray.push(i)
-        }
-      }
-      $scope.perWidth = 100 / $scope.length
-      $scope.tvState = 0
-    }
+
 
     //向右滑
     $scope.onSwipeRight = function() {

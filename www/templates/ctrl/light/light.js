@@ -145,13 +145,13 @@ angular.module('light-controller', [])
       var onWayIds = ''
       $scope.allLights
         .filter(function(light) { return light.status === 'ON' })
-        .forEach(light => {
+        .forEach(function(light) {
           onWayIds = onWayIds + ',' + light.wayId
         })
       var offWayIds = ''
       $scope.allLights
         .filter(function(light) { return light.status === 'OFF' })
-        .forEach(light => {
+        .forEach(function(light) {
           offWayIds = offWayIds + ',' + light.wayId
         })
       //console.log(onWayIds)
